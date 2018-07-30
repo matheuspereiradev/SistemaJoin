@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ViewCadastrarEscola"
+    android:background="@drawable/layout_fundo_principal">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:text="Cadastrar escola"
+        android:textColor="@android:color/background_dark"
+        android:textSize="19sp"
+        tools:layout_editor_absoluteX="163dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <EditText
+        android:id="@+id/ctNomeEsc"
+        android:layout_width="304dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="95dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Nome da escola"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/ctNomeEsc"
+        android:layout_marginTop="63dp"
+        android:text="Nome da escola:"
+        android:textColor="@android:color/background_dark"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/ctNomeEsc"
+        android:layout_marginTop="157dp"
+        android:text="Email da escola:"
+        android:textColor="@android:color/background_dark"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/ctNomeEsc"
+        android:layout_marginBottom="225dp"
+        android:text="Telefone da escola:"
+        android:textColor="@android:color/background_dark"
+        android:textSize="17sp" />
+
+    <EditText
+        android:id="@+id/ctEmailEsc"
+        android:layout_width="307dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/ctNomeEsc"
+        android:layout_marginTop="199dp"
+        android:ems="10"
+        android:hint="Email da escola"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/ctNumEsc"
+        android:layout_width="311dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/ctNomeEsc"
+        android:layout_marginBottom="160dp"
+        android:ems="10"
+        android:hint="Telefone"
+        android:inputType="phone" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="202dp"
+        android:layout_height="62dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="66dp"
+        android:text="Prosseguir"
+        android:textSize="20sp" />
+</RelativeLayout>

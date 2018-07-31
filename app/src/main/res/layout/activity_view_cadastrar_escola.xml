@@ -95,5 +95,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="66dp"
         android:text="Prosseguir"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:background="@drawable/botao_customizado"/>
 </RelativeLayout>

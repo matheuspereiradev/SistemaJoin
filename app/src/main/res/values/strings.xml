@@ -2,7 +2,7 @@
     <string name="app_name">SistemaJoin</string>
 
     <string-array name="estados">
-        <item/>
+        <item />
         <item>AC</item>
         <item>AL</item>
         <item>AM</item>

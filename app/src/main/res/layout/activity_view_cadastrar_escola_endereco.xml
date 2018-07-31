@@ -82,10 +82,9 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="41dp"
-        android:layout_marginTop="165dp"
+        android:layout_alignStart="@+id/textView5"
+        android:layout_marginTop="167dp"
         android:text="Bairro:"
         android:textColor="@android:color/background_dark"
         android:textSize="17sp" />

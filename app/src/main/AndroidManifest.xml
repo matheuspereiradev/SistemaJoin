@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ViewCadastrarEscola" />
-        <activity android:name=".ViewCadastrarEscolaEndereco"></activity>
+        <activity android:name=".ViewCadastrarEscolaEndereco" />
+        <activity android:name=".ViewListarEscolas"></activity>
     </application>
 
 </manifest>

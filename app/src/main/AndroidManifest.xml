@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".ViewCadastrarEscola" />
         <activity android:name=".ViewCadastrarEscolaEndereco" />
-        <activity android:name=".ViewListarEscolas"></activity>
+        <activity android:name=".ViewListarEscolas" />
+        <activity android:name=".ViewExibirInformacoesEscola"></activity>
     </application>
 
 </manifest>

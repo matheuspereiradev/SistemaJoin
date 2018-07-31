@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradiente"
+    tools:context=".ViewTelaLogin">
+
+    <RelativeLayout
+        android:layout_width="294dp"
+        android:layout_height="322dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="14dp"
+        android:background="@drawable/arredondar">
+
+        <EditText
+            android:id="@+id/ctLoginUsr"
+            android:layout_width="242dp"
+            android:layout_height="39dp"
+            android:layout_below="@+id/textView3"
+            android:layout_centerHorizontal="true"
+            android:background="#D3D3D3"
+            android:ems="10"
+            android:hint="Login"
+            android:inputType="textPersonName"
+            android:text=""
+            android:textColor="@android:color/background_dark" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="99dp"
+            android:text="Senha"
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="18dp"
+            android:text="Login"
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/ctSenhaUsr"
+            android:layout_width="240dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            android:background="#D3D3D3"
+            android:ems="10"
+            android:hint="Senha"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/btEntrar"
+
+            android:layout_width="232dp"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/buttonshapeBtEntrar"
+            android:shadowColor="#9EA812"
+            android:shadowDx="3"
+            android:shadowDy="-3"
+            android:shadowRadius="6"
+            android:text="Entrar"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp" />
+
+        <Switch
+            android:id="@+id/swManterConectado"
+            android:layout_width="176dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="89dp"
+            android:layout_marginStart="-110dp"
+            android:layout_toEndOf="@+id/textView"
+            android:text="Manter conectado?" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="141dp"
+        android:layout_height="143dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        app:srcCompat="@drawable/logo" />
+</RelativeLayout>

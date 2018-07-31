@@ -20,7 +20,8 @@
         <activity android:name=".ViewCadastrarEscolaEndereco" />
         <activity android:name=".ViewListarEscolas" />
         <activity android:name=".ViewExibirInformacoesEscola" />
-        <activity android:name=".ViewHomeSistemaAdministrativo"></activity>
+        <activity android:name=".ViewHomeSistemaAdministrativo" />
+        <activity android:name=".ViewTelaLogin"></activity>
     </application>
 
 </manifest>

@@ -16,7 +16,7 @@ public class ViewCadastrarEscola extends AppCompatActivity {
         setContentView(R.layout.activity_view_cadastrar_escola);
 
         //======conexão com o xml
-        ctTelEsc=(EditText)findViewById(R.id.ctNumEsc);
+        ctTelEsc=(EditText)findViewById(R.id.ctTelEsc);
         ctEmailEsc=(EditText) findViewById(R.id.ctEmailEsc);
         ctNomeEsc=(EditText)findViewById(R.id.ctNomeEsc);
         //fim da conexão com o xml=========

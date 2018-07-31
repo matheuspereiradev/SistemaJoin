@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="19dp"
         android:text="Cadastrar escola"
         android:textColor="@android:color/background_dark"
         android:textSize="19sp"
@@ -24,21 +24,31 @@
         android:id="@+id/ctNomeEsc"
         android:layout_width="304dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="41dp"
-        android:layout_marginTop="95dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="87dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Nome da escola"/>
+        android:hint="Nome da escola"
+        android:inputType="textPersonName" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/ctNomeEsc"
+        android:layout_marginBottom="170dp"
+        android:text="CNPJ:"
+        android:textColor="@android:color/background_dark"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/ctNomeEsc"
-        android:layout_marginTop="63dp"
+        android:layout_marginTop="57dp"
         android:text="Nome da escola:"
         android:textColor="@android:color/background_dark"
         android:textSize="17sp" />
@@ -49,7 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/ctNomeEsc"
-        android:layout_marginTop="157dp"
+        android:layout_marginTop="140dp"
         android:text="Email da escola:"
         android:textColor="@android:color/background_dark"
         android:textSize="17sp" />
@@ -58,9 +68,9 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/ctNomeEsc"
-        android:layout_marginBottom="225dp"
+        android:layout_marginTop="228dp"
         android:text="Telefone da escola:"
         android:textColor="@android:color/background_dark"
         android:textSize="17sp" />
@@ -70,19 +80,19 @@
         android:layout_width="307dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/ctNomeEsc"
-        android:layout_marginTop="199dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="172dp"
         android:ems="10"
         android:hint="Email da escola"
         android:inputType="textEmailAddress" />
 
     <EditText
-        android:id="@+id/ctNumEsc"
+        android:id="@+id/ctTelEsc"
         android:layout_width="311dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/ctNomeEsc"
-        android:layout_marginBottom="160dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="205dp"
         android:ems="10"
         android:hint="Telefone"
         android:inputType="phone" />
@@ -93,9 +103,20 @@
         android:layout_height="62dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="66dp"
+        android:layout_marginBottom="22dp"
+        android:background="@drawable/botao_customizado"
         android:text="Prosseguir"
-        android:textSize="20sp"
         android:textColor="#ffffff"
-        android:background="@drawable/botao_customizado"/>
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/ctCNPJEsc"
+        android:layout_width="302dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/ctNomeEsc"
+        android:layout_marginBottom="115dp"
+        android:ems="10"
+        android:hint="CNPJ"
+        android:inputType="number" />
 </RelativeLayout>

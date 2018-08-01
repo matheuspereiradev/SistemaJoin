@@ -17,12 +17,12 @@ public class ViewTelaLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_tela_login);
 
-        //======inicio da conexão xml com java
+        //=========inicio da conexão xml com java
         swManterConectado =(Switch)findViewById(R.id.swManterConectado);
         btEntrar=(Button)findViewById(R.id.btEntrar);
         ctSenhaUsr=(EditText)findViewById(R.id.ctSenhaUsr);
         ctLoginUsr=(EditText)findViewById(R.id.ctLoginUsr);
-        //fim da conexão===========
+        //fim da conexão==========
 
 
     }

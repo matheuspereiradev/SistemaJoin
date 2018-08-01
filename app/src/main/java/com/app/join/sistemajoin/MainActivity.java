@@ -8,7 +8,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button cadesc,endereco;
+    Button cadesc,endereco, bt1,bt2,bt3,bt4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,6 +16,49 @@ public class MainActivity extends AppCompatActivity {
 
         cadesc=(Button) findViewById(R.id.btcadesc);
         endereco=(Button)findViewById(R.id.endesc);
+        bt1=(Button)findViewById(R.id.bt1);
+        bt2=(Button)findViewById(R.id.bt2);
+        bt3=(Button)findViewById(R.id.bt3);
+        bt4=(Button)findViewById(R.id.bt4);
+
+/*
+        NOME_DO_BOTAO.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            Intent i=new Intent(getBaseContext(),NOME_DA_ACTIVITY_QUE_VAI);
+            startActivity(i));
+            }
+        });
+
+ */
+
+
+        bt1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(),ViewExibirInformacoesEscola.class));
+            }
+        });
+        bt2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(),ViewHomeSistemaAdministrativo.class));
+            }
+        });
+        bt3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(),ViewListarEscolas.class));
+            }
+        });
+        bt4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(),ViewTelaLogin.class));
+            }
+        });
+
+
         cadesc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -28,5 +71,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(getBaseContext(),ViewCadastrarEscolaEndereco.class));
             }
         });
+
     }
 }

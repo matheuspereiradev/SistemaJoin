@@ -58,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         cadesc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

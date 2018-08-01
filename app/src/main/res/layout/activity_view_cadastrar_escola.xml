@@ -98,7 +98,7 @@
         android:inputType="phone" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btProsseguir"
         android:layout_width="202dp"
         android:layout_height="62dp"
         android:layout_alignParentBottom="true"

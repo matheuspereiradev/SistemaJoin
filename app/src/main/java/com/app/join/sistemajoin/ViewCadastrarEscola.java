@@ -1,7 +1,10 @@
 package com.app.join.sistemajoin;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import com.github.rtoshiro.util.format.SimpleMaskFormatter;
@@ -9,7 +12,8 @@ import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 
 public class ViewCadastrarEscola extends AppCompatActivity {
 
-    EditText ctNomeEsc, ctTelEsc, ctEmailEsc;
+    EditText ctNomeEsc, ctTelEsc, ctEmailEsc, ctCNPJEsc;
+    Button btProsseguir;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +23,8 @@ public class ViewCadastrarEscola extends AppCompatActivity {
         ctTelEsc=(EditText)findViewById(R.id.ctTelEsc);
         ctEmailEsc=(EditText) findViewById(R.id.ctEmailEsc);
         ctNomeEsc=(EditText)findViewById(R.id.ctNomeEsc);
+        ctCNPJEsc=(EditText)findViewById(R.id.ctCNPJEsc);
+        btProsseguir = (Button)findViewById(R.id.btProsseguir);
         //fim da conexão com o xml=========
 
         //=====criar mascara no campo telefone escola
@@ -26,6 +32,19 @@ public class ViewCadastrarEscola extends AppCompatActivity {
         MaskTextWatcher mtw = new MaskTextWatcher(ctTelEsc, smf);
         ctTelEsc.addTextChangedListener(mtw);
         //FIM MASCARA==========
+
+        //Botão chamar tela de Endereço
+        btProsseguir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getBaseContext(), ViewCadastrarEscolaEndereco.class);
+                startActivity(i);
+            }
+        });
+
+
+
+
 
 
     }

@@ -28,9 +28,14 @@ public class ViewCadastrarEscola extends AppCompatActivity {
         //fim da conexão com o xml=========
 
         //=====criar mascara no campo telefone escola
-        SimpleMaskFormatter smf = new SimpleMaskFormatter("(NN) N NNNN NNNN");
-        MaskTextWatcher mtw = new MaskTextWatcher(ctTelEsc, smf);
-        ctTelEsc.addTextChangedListener(mtw);
+        SimpleMaskFormatter simpleMaskTel = new SimpleMaskFormatter("(NN) N NNNN NNNN");
+        MaskTextWatcher mascaraTel = new MaskTextWatcher(ctTelEsc, simpleMaskTel);
+        ctTelEsc.addTextChangedListener(mascaraTel);
+        //FIM MASCARA==========
+        //=====criar mascara no campo CNPJ escola
+        SimpleMaskFormatter simpleMaskCNPJ = new SimpleMaskFormatter("NN.NNN.NNN/NNNN-NN");
+        MaskTextWatcher mascaraCNPJ = new MaskTextWatcher(ctCNPJEsc, simpleMaskCNPJ);
+        ctCNPJEsc.addTextChangedListener(mascaraCNPJ);
         //FIM MASCARA==========
 
         //Botão chamar tela de Endereço
@@ -41,11 +46,6 @@ public class ViewCadastrarEscola extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
-
-
-
-
 
     }
 }

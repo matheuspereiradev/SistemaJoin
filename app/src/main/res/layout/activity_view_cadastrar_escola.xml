@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="16dp"
         android:text="Cadastrar escola"
         android:textColor="@android:color/background_dark"
         android:textSize="19sp"
@@ -70,7 +70,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/ctNomeEsc"
-        android:layout_marginTop="228dp"
+        android:layout_marginTop="231dp"
         android:text="Telefone da escola:"
         android:textColor="@android:color/background_dark"
         android:textSize="17sp" />

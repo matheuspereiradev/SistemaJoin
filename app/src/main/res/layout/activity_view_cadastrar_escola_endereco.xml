@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="18dp"
         android:text="Cadastrar endereço da escola"
         android:textColor="@android:color/background_dark"
         android:textSize="19sp"
@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/ctEscEndRua"
-        android:layout_marginTop="77dp"
+        android:layout_marginTop="68dp"
         android:text="Rua:"
         android:textColor="@android:color/background_dark"
         android:textSize="17sp" />
@@ -84,17 +84,18 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/textView5"
-        android:layout_marginTop="167dp"
+        android:layout_marginTop="145dp"
         android:text="Bairro:"
         android:textColor="@android:color/background_dark"
         android:textSize="17sp" />
 
     <EditText
         android:id="@+id/ctEscEndBairro"
-        android:layout_width="317dp"
+        android:layout_width="334dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/textView5"
-        android:layout_below="@+id/textView7"
+        android:layout_marginTop="176dp"
         android:ems="10"
         android:hint="Bairro"
         android:inputType="textPersonName" />
@@ -103,8 +104,9 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/textView5"
-        android:layout_centerVertical="true"
+        android:layout_marginTop="232dp"
         android:text="CEP"
         android:textColor="@android:color/background_dark"
         android:textSize="17sp" />
@@ -115,7 +117,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/textView5"
-        android:layout_marginBottom="156dp"
+        android:layout_marginBottom="170dp"
         android:text="Cidade"
         android:textColor="@android:color/background_dark"
         android:textSize="17sp" />
@@ -125,7 +127,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/spnUF"
-        android:layout_centerVertical="true"
+        android:layout_alignTop="@+id/textView8"
         android:text="UF"
         android:textColor="@android:color/background_dark"
         android:textSize="17sp" />
@@ -136,7 +138,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/textView5"
-        android:layout_marginBottom="188dp"
+        android:layout_marginBottom="201dp"
         android:ems="10"
         android:hint="CEP"
         android:inputType="number" />
@@ -147,7 +149,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/textView5"
-        android:layout_marginBottom="96dp"
+        android:layout_marginBottom="113dp"
         android:ems="10"
         android:hint="Cidade"
         android:inputType="textPersonName" />

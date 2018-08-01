@@ -40,11 +40,27 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="150dp"
-        android:layout_height="129dp"
+        android:layout_width="132dp"
+        android:layout_height="132dp"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/imageView2"
-        android:layout_marginTop="170dp"
-        android:text="Button" />
+        android:layout_marginTop="158dp"
+        android:background="@drawable/botao_nova_escola"
+        android:paddingTop="79dp"
+        android:text="Adicionar nova escola"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="132dp"
+        android:layout_height="132dp"
+        android:layout_alignEnd="@+id/textView22"
+        android:layout_alignTop="@+id/button2"
+        android:background="@drawable/bt_lista_escolas"
+        android:paddingTop="79dp"
+        android:text="Listar escolas"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp" />
 
 </RelativeLayout>

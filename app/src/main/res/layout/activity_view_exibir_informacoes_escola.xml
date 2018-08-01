@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="69dp"
+        android:layout_marginTop="63dp"
         android:layout_toStartOf="@+id/textView13"
         android:text="Nome:"
         android:textColor="@android:color/background_dark"
@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/textView14"
-        android:layout_marginTop="115dp"
+        android:layout_marginTop="98dp"
         android:text="Telefone:"
         android:textColor="@android:color/background_dark"
         android:textSize="17sp" />
@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/textView14"
-        android:layout_marginBottom="113dp"
+        android:layout_marginBottom="140dp"
         android:text="Bairro:"
         android:textColor="@android:color/background_dark"
         android:textSize="17sp" />
@@ -68,7 +68,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/textView14"
-        android:layout_marginTop="201dp"
+        android:layout_marginTop="179dp"
         android:text="CNPJ:"
         android:textColor="@android:color/background_dark"
         android:textSize="17sp" />
@@ -89,7 +89,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/textView14"
-        android:layout_marginTop="158dp"
+        android:layout_marginTop="136dp"
         android:text="Email:"
         android:textColor="@android:color/background_dark"
         android:textSize="17sp" />
@@ -100,7 +100,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/textView14"
-        android:layout_marginBottom="156dp"
+        android:layout_marginBottom="188dp"
         android:text="Rua:"
         android:textColor="@android:color/background_dark"
         android:textSize="17sp" />
@@ -109,8 +109,9 @@
         android:id="@+id/textView23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/textView14"
-        android:layout_centerVertical="true"
+        android:layout_marginTop="216dp"
         android:text="Cidade:"
         android:textColor="@android:color/background_dark"
         android:textSize="17sp" />
@@ -121,7 +122,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/textView14"
-        android:layout_marginBottom="200dp"
+        android:layout_marginBottom="230dp"
         android:text="CEP"
         android:textColor="@android:color/background_dark"
         android:textSize="17sp" />
@@ -162,7 +163,7 @@
         android:id="@+id/cmpCidadeEsc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
+        android:layout_alignBottom="@+id/textView23"
         android:layout_toEndOf="@+id/textView15"
         android:text="TextView" />
 

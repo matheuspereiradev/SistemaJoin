@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SistemaJoin</string>
+    <string name="app_name">Sistema Join</string>
 
     <string-array name="estados">
         <item />

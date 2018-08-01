@@ -23,4 +23,41 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="115dp"
         android:text="end" />
+
+    <Button
+        android:id="@+id/bt1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="195dp"
+        android:layout_toStartOf="@+id/endesc"
+        android:text="Button" />
+
+    <Button
+        android:id="@+id/bt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/bt1"
+        android:layout_marginEnd="121dp"
+        android:text="Button" />
+
+    <Button
+        android:id="@+id/bt3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="171dp"
+        android:layout_toStartOf="@+id/endesc"
+        android:text="Button" />
+
+    <Button
+        android:id="@+id/bt4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/bt3"
+        android:layout_marginEnd="98dp"
+        android:text="Button" />
+
 </RelativeLayout>

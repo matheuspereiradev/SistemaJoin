@@ -42,7 +42,7 @@ public class ViewCadastrarEscola extends AppCompatActivity {
         btProsseguir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getBaseContext(), ViewCadastrarEscolaEndereco.class);
+                Intent i = new Intent(getBaseContext(), ViewCadastrarEndereco.class);
                 startActivity(i);
             }
         });

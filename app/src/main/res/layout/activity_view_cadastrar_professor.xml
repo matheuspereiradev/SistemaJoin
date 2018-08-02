@@ -30,7 +30,7 @@
         android:textSize="17sp" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/ctNomeProf"
         android:layout_width="310dp"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/textView27"
@@ -43,7 +43,7 @@
         android:id="@+id/textView28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/editText2"
+        android:layout_above="@+id/ctDataNascProf"
         android:layout_alignStart="@+id/textView27"
         android:text="Data de nascimento:"
         android:textColor="@android:color/background_dark"
@@ -54,15 +54,15 @@
         android:id="@+id/textView30"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/editText6"
-        android:layout_alignStart="@+id/editText6"
+        android:layout_above="@+id/ctEmailProf"
+        android:layout_alignStart="@+id/ctEmailProf"
         android:text="Email:"
         android:textColor="@android:color/background_dark"
         android:textSize="17sp" />
 
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/ctDataNascProf"
         android:layout_width="311dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -73,7 +73,7 @@
         android:inputType="number" />
 
     <EditText
-        android:id="@+id/editText6"
+        android:id="@+id/ctEmailProf"
         android:layout_width="308dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -94,7 +94,7 @@
         app:srcCompat="@drawable/prof" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btProximoProf1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/textView26"

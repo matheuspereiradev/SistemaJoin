@@ -3,21 +3,20 @@ package com.app.join.sistemajoin;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.github.rtoshiro.util.format.SimpleMaskFormatter;
 import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 
-public class ViewCadastrarEscolaEndereco extends AppCompatActivity {
+public class ViewCadastrarEndereco extends AppCompatActivity {
 
     EditText ctEscEndNum,ctEscEndRua,ctEscEndBairro,ctEscEndCEP,ctEscEndCidade;
     Spinner spnUF;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_cadastrar_escola_endereco);
+        setContentView(R.layout.activity_view_cadastrar_endereco);
 
         //======inicio conexão xml
         ctEscEndNum=(EditText) findViewById(R.id.ctEscEndNum);

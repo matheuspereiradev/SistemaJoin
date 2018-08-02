@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         endereco.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),ViewCadastrarEscolaEndereco.class));
+                startActivity(new Intent(getBaseContext(),ViewCadastrarEndereco.class));
             }
         });
 

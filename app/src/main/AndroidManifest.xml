@@ -17,13 +17,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".ViewCadastrarEscola" />
-        <activity android:name=".ViewCadastrarEscolaEndereco" />
+        <activity android:name=".ViewCadastrarEndereco" />
         <activity android:name=".ViewListarEscolas" />
         <activity android:name=".ViewExibirInformacoesEscola" />
         <activity android:name=".ViewHomeSistemaAdministrativo" />
         <activity android:name=".ViewTelaLogin" />
         <activity android:name=".ViewCadastrarProfessor" />
-        <activity android:name=".ViewCadastrarProfessor2"></activity>
+        <activity android:name=".ViewCadastrarProfessor2" />
+        <activity android:name=".ViewRealizarPostagem"></activity>
     </application>
 
 </manifest>

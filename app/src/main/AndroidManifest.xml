@@ -22,7 +22,8 @@
         <activity android:name=".ViewExibirInformacoesEscola" />
         <activity android:name=".ViewHomeSistemaAdministrativo" />
         <activity android:name=".ViewTelaLogin" />
-        <activity android:name=".ViewCadastrarProfessor"></activity>
+        <activity android:name=".ViewCadastrarProfessor" />
+        <activity android:name=".ViewCadastrarProfessor2"></activity>
     </application>
 
 </manifest>

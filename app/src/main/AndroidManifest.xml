@@ -24,7 +24,8 @@
         <activity android:name=".ViewTelaLogin" />
         <activity android:name=".ViewCadastrarProfessor" />
         <activity android:name=".ViewCadastrarProfessor2" />
-        <activity android:name=".ViewRealizarPostagem"></activity>
+        <activity android:name=".ViewRealizarPostagem" />
+        <activity android:name=".ViewSelecionarAlunos"></activity>
     </application>
 
 </manifest>

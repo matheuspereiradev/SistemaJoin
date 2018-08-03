@@ -12,8 +12,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="40dp"
+        android:layout_toEndOf="@+id/imageView4"
         android:text="Realizar postagem"
         android:textColor="@android:color/background_dark"
         android:textSize="24sp" />
@@ -22,10 +22,9 @@
         android:id="@+id/textView35"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="100dp"
+        android:layout_above="@+id/ctTituloPost"
+        android:layout_alignStart="@+id/ctTituloPost"
+        android:layout_marginBottom="-166dp"
         android:text="Título da postagem:"
         android:textColor="@android:color/background_dark"
         android:textSize="16sp" />
@@ -34,32 +33,58 @@
         android:id="@+id/textView38"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_above="@+id/ctMsgPost"
         android:layout_alignStart="@+id/textView35"
-        android:layout_marginTop="186dp"
         android:text="Mensagem:"
         android:textColor="@android:color/background_dark"
         android:textSize="16sp" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/ctTituloPost"
         android:layout_width="310dp"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView35"
-        android:layout_below="@+id/textView35"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="166dp"
+        android:background="@drawable/campo_postagem"
         android:ems="10"
         android:hint="Título"
         android:inputType="textPersonName"
         android:text="" />
 
     <EditText
-        android:id="@+id/editText2"
-        android:layout_width="306dp"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView35"
-        android:layout_below="@+id/textView38"
+        android:id="@+id/ctMsgPost"
+        android:layout_width="310dp"
+        android:layout_height="149dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="108dp"
+        android:background="@drawable/campo_postagem"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="" />
+        android:hint="Mensagem"
+        android:inputType="textMultiLine"
+        android:singleLine="false"
+        android:text=""
+        android:textColor="#000000" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="113dp"
+        android:layout_height="97dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="13dp"
+        app:srcCompat="@drawable/anotacao" />
+
+    <Button
+        android:id="@+id/btSelecionarAlunos"
+        android:layout_width="214dp"
+        android:layout_height="64dp"
+        android:layout_alignEnd="@+id/ctTituloPost"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="23dp"
+        android:text="Selecionar alunos"
+        android:textSize="18sp" />
 
 </RelativeLayout>

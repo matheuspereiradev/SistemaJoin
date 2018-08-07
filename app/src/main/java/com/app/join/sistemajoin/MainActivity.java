@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         bt1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(),ViewExibirInformacoesEscola.class));
+                startActivity(new Intent(getBaseContext(),ViewRealizarAvaliacao.class));
             }
         });
         bt2.setOnClickListener(new View.OnClickListener() {

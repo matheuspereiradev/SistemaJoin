@@ -9,7 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity android:name=".Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,7 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".MainActivity" />
         <activity android:name=".ViewCadastrarEscola" />
         <activity android:name=".ViewCadastrarEndereco" />
         <activity android:name=".ViewListarEscolas" />
@@ -27,7 +26,8 @@
         <activity android:name=".ViewCadastrarProfessor" />
         <activity android:name=".ViewCadastrarProfessor2" />
         <activity android:name=".ViewRealizarPostagem" />
-        <activity android:name=".ViewSelecionarAlunos"></activity>
+        <activity android:name=".ViewSelecionarAlunos" />
+        <activity android:name=".ViewRealizarAvaliacao"></activity>
     </application>
 
 </manifest>

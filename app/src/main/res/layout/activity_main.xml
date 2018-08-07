@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/bt1"
-        android:layout_marginEnd="121dp"
+        android:layout_marginEnd="53dp"
         android:text="Button" />
 
     <Button
@@ -55,9 +55,8 @@
         android:id="@+id/bt4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/bt2"
         android:layout_alignTop="@+id/bt3"
-        android:layout_marginEnd="98dp"
         android:text="Button" />
 
 </RelativeLayout>

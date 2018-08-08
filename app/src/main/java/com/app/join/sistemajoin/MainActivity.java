@@ -21,17 +21,6 @@ public class MainActivity extends AppCompatActivity {
         bt3=(Button)findViewById(R.id.bt3);
         bt4=(Button)findViewById(R.id.bt4);
 
-/*
-        NOME_DO_BOTAO.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            Intent i=new Intent(getBaseContext(),NOME_DA_ACTIVITY_QUE_VAI);
-            startActivity(i));
-            }
-        });
-
- */
-
 
         bt1.setOnClickListener(new View.OnClickListener() {
             @Override

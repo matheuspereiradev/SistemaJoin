@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/layout_tabela"
-    android:columnCount="5"
+    android:columnCount="3"
     android:rowCount="2">
 
     <TextView

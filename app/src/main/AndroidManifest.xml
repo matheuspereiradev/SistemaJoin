@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:androd="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.app.join.sistemajoin">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/icone"
@@ -9,6 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <uses-permission androd:name = "android.permission.INTERNETE"
+            tools:ignore="WrongManifestParent" />
+        <uses-permission androd:name = "android.permission.ACESS_NETWORK_STATE"
+            tools:ignore="WrongManifestParent" />
         <activity android:name=".Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

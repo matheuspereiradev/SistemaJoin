@@ -5,6 +5,9 @@
     package="com.app.join.sistemajoin">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/icone"
@@ -12,29 +15,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <uses-permission androd:name = "android.permission.INTERNETE"
-            tools:ignore="WrongManifestParent" />
-        <uses-permission androd:name = "android.permission.ACESS_NETWORK_STATE"
-            tools:ignore="WrongManifestParent" />
-        <activity android:name=".Splash">
+
+        <activity android:name=".Activitys.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".ViewCadastrarEscola" />
-        <activity android:name=".ViewCadastrarEndereco" />
-        <activity android:name=".ViewListarEscolas" />
-        <activity android:name=".ViewExibirInformacoesEscola" />
-        <activity android:name=".ViewHomeSistemaAdministrativo" />
-        <activity android:name=".ViewTelaLogin" />
-        <activity android:name=".ViewCadastrarProfessor" />
-        <activity android:name=".ViewCadastrarProfessor2" />
-        <activity android:name=".ViewRealizarPostagem" />
-        <activity android:name=".ViewSelecionarAlunos" />
-        <activity android:name=".ViewRealizarAvaliacao"></activity>
+        <activity android:name=".Activitys.MainActivity" />
+        <activity android:name=".Activitys.ViewCadastrarEscola" />
+        <activity android:name=".Activitys.ViewCadastrarEndereco" />
+        <activity android:name=".Activitys.ViewListarEscolas" />
+        <activity android:name=".Activitys.ViewExibirInformacoesEscola" />
+        <activity android:name=".Activitys.ViewHomeSistemaAdministrativo" />
+        <activity android:name=".Activitys.ViewTelaLogin" />
+        <activity android:name=".Activitys.ViewCadastrarProfessor" />
+        <activity android:name=".Activitys.ViewCadastrarProfessor2" />
+        <activity android:name=".Activitys.ViewRealizarPostagem" />
+        <activity android:name=".Activitys.ViewSelecionarAlunos" />
+        <activity android:name=".Activitys.ViewRealizarAvaliacao"></activity>
     </application>
 
 </manifest>

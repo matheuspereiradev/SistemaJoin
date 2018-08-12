@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "557992738341",
+    "firebase_url": "https://sistemajoin-b2fce.firebaseio.com",
+    "project_id": "sistemajoin-b2fce",
+    "storage_bucket": "sistemajoin-b2fce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:557992738341:android:5f5b77f489946444",
+        "android_client_info": {
+          "package_name": "com.app.join.sistemajoin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "557992738341-784unv2i5q3t9iimmeiuelb771oaus0l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.join.sistemajoin",
+            "certificate_hash": "7e923322c88820c267b8fa719842aeec4eca4c04"
+          }
+        },
+        {
+          "client_id": "557992738341-v7gdc7hh35lumgjiaind0o58avvrk435.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWuFL6LqqHJ9IUhLw945uO92oy75oRKcI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "557992738341-v7gdc7hh35lumgjiaind0o58avvrk435.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

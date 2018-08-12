@@ -1,8 +1,10 @@
-package com.app.join.sistemajoin;
+package com.app.join.sistemajoin.Activitys;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
+
+import com.app.join.sistemajoin.R;
 
 public class ViewListarEscolas extends AppCompatActivity {
 

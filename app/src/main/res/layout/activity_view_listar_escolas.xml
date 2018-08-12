@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ViewListarEscolas"
+    tools:context=".Activitys.ViewListarEscolas"
     android:background="@drawable/layout_fundo_principal">
 
     <ListView

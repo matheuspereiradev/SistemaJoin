@@ -7,7 +7,6 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/icone"
@@ -15,7 +14,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity android:name=".Activitys.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,14 +25,13 @@
         <activity android:name=".Activitys.ViewCadastrarEscola" />
         <activity android:name=".Activitys.ViewCadastrarEndereco" />
         <activity android:name=".Activitys.ViewListarEscolas" />
-        <activity android:name=".Activitys.ViewExibirInformacoesEscola" />
         <activity android:name=".Activitys.ViewHomeSistemaAdministrativo" />
         <activity android:name=".Activitys.ViewTelaLogin" />
         <activity android:name=".Activitys.ViewCadastrarProfessor" />
         <activity android:name=".Activitys.ViewCadastrarProfessor2" />
         <activity android:name=".Activitys.ViewRealizarPostagem" />
         <activity android:name=".Activitys.ViewSelecionarAlunos" />
-        <activity android:name=".Activitys.ViewRealizarAvaliacao"></activity>
+        <activity android:name=".Activitys.ViewRealizarAvaliacao" />
     </application>
 
 </manifest>

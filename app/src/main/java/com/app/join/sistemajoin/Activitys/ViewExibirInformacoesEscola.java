@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.app.join.sistemajoin.R;
+
 public class ViewExibirInformacoesEscola extends AppCompatActivity {
 
     TextView cmpNomeEsc,cmpTelEsc,cmpEmailEsc,cmpCNPJEsc,cmpCidadeEsc,cmpUFEsc,cmpCEPEsc,cmpRuaEsc,cmpNumEsc,cmpBairroEsc;

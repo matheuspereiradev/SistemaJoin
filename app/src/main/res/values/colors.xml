@@ -4,4 +4,5 @@
     <color name="colorPrimaryDark">#008000</color>
     <color name="colorAccent">#FF4081</color>
     <color name="corCampo">#E6E6E6</color>
+    <color name="camposTexto">#D3D3D3</color>
 </resources>

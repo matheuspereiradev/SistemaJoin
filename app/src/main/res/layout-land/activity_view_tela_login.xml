@@ -21,7 +21,7 @@
             android:layout_height="39dp"
             android:layout_below="@+id/textView3"
             android:layout_centerHorizontal="true"
-            android:background="#D3D3D3"
+            android:background="@color/camposTexto"
             android:ems="10"
             android:hint="Login"
             android:inputType="textEmailAddress"
@@ -54,7 +54,7 @@
             android:layout_width="240dp"
             android:layout_height="40dp"
             android:layout_centerInParent="true"
-            android:background="#D3D3D3"
+            android:background="@color/camposTexto"
             android:ems="10"
             android:hint="Senha"
             android:inputType="textPassword" />
@@ -92,6 +92,6 @@
         android:layout_height="242dp"
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
-        android:layout_marginStart="31dp"
+        android:layout_marginStart="29dp"
         app:srcCompat="@drawable/logo" />
 </RelativeLayout>

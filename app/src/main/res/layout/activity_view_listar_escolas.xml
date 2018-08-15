@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activitys.ViewListarEscolas"
-    android:background="@drawable/layout_fundo_principal">
+    tools:context=".Activitys.ViewListarEscolas">
 
     <ListView
         android:id="@+id/lwEscolasCadastradas"
@@ -14,7 +13,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
         android:layout_marginEnd="0dp"
-        android:layout_marginTop="61dp" />
+        android:layout_marginTop="61dp"
+        android:background="@drawable/layout_tabela"/>
 
     <TextView
         android:id="@+id/textView12"
@@ -24,5 +24,6 @@
         android:layout_alignParentTop="true"
         android:text="Abaixo está a lista de todas as escolas cadastradas, clique sobre elas para obter informações completas sobre elas"
         android:textColor="@android:color/background_dark"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        />
 </RelativeLayout>

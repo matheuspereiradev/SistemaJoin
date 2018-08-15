@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activitys.ViewHomeSistemaAdministrativo"
-    android:background="@drawable/layout_fundo_principal">
+    >
 
 
     <TextView

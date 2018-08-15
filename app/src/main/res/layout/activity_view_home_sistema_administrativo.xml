@@ -39,7 +39,7 @@
         app:srcCompat="@drawable/logo" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btCadEscola"
         android:layout_width="132dp"
         android:layout_height="132dp"
         android:layout_alignParentStart="true"
@@ -53,11 +53,11 @@
         android:textSize="18sp" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btListaEscola"
         android:layout_width="132dp"
         android:layout_height="132dp"
         android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/button2"
+        android:layout_alignTop="@+id/btCadEscola"
         android:layout_marginEnd="45dp"
         android:background="@drawable/bt_lista_escolas"
         android:paddingTop="79dp"

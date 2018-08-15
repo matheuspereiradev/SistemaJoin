@@ -1,10 +1,6 @@
 package com.app.join.sistemajoin.Activitys;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,7 +13,6 @@ import android.widget.Toast;
 import com.app.join.sistemajoin.DAO.ConfiguracaoFirebase;
 import com.app.join.sistemajoin.Model.AdmJoin;
 import com.app.join.sistemajoin.R;
-import com.app.join.sistemajoin.Tools.ConexaoWeb;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;

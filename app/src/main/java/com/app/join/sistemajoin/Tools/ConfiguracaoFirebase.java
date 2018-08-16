@@ -1,4 +1,4 @@
-package com.app.join.sistemajoin.DAO;
+package com.app.join.sistemajoin.Tools;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;

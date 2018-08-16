@@ -1,6 +1,6 @@
 package com.app.join.sistemajoin.Model;
 
-import com.app.join.sistemajoin.DAO.ConfiguracaoFirebase;
+import com.app.join.sistemajoin.Tools.ConfiguracaoFirebase;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Exclude;
 
@@ -15,6 +15,7 @@ public class Escola {
     private String telefone;
     private String email;
     private String senha;
+    private String cidade;
     private int status = 0;
 
     public Escola() {
@@ -37,6 +38,7 @@ public class Escola {
         hashMapUsuarios.put("telefone", getTelefone());
         hashMapUsuarios.put("email", getEmail());
         hashMapUsuarios.put("senha", getSenha());
+        hashMapUsuarios.put("cidade", getCidade());
         hashMapUsuarios.put("status", getStatus());
 
         return hashMapUsuarios;
@@ -89,6 +91,14 @@ public class Escola {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
     }
 
     public int getStatus() {

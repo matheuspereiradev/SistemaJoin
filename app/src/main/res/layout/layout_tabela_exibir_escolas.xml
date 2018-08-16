@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     android:background="@drawable/layout_tabela"
     android:columnCount="3"
-    android:rowCount="2">
+    android:rowCount="2"
+    android:id="@+id/itemTabelaEscola">
 
     <TextView
         android:id="@+id/campoNomeEsc"

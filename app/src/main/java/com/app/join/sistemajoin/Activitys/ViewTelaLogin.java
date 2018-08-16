@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.Toast;
 
-import com.app.join.sistemajoin.DAO.ConfiguracaoFirebase;
+import com.app.join.sistemajoin.Tools.ConfiguracaoFirebase;
 import com.app.join.sistemajoin.Model.AdmJoin;
 import com.app.join.sistemajoin.R;
 import com.google.android.gms.tasks.OnCompleteListener;

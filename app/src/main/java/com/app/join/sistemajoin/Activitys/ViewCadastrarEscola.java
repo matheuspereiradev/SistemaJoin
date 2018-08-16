@@ -1,5 +1,6 @@
 package com.app.join.sistemajoin.Activitys;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.app.join.sistemajoin.DAO.ConfiguracaoFirebase;
+import com.app.join.sistemajoin.Tools.ConfiguracaoFirebase;
 import com.app.join.sistemajoin.Model.Escola;
 import com.app.join.sistemajoin.R;
 import com.app.join.sistemajoin.Tools.Base64Custon;
@@ -65,6 +66,7 @@ public class ViewCadastrarEscola extends AppCompatActivity {
                 escola.setTelefone(ctTelEsc.getText().toString());
                 escola.setEmail(ctEmailEsc.getText().toString());
                 escola.setCnpj(ctCNPJEsc.getText().toString());
+                escola.setCidade("não a campo");
 
                 String[] carct = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
                 String senha = "";
@@ -77,7 +79,7 @@ public class ViewCadastrarEscola extends AppCompatActivity {
 
                 cadastrar();
 
-                // Intent i = new Intent(getBaseContext(), ViewCadastrarEndereco.class);
+                //Intent i = new Intent(getBaseContext(), ViewListarEscolas.class);
                 //startActivity(i);
             }
         });
@@ -101,6 +103,7 @@ public class ViewCadastrarEscola extends AppCompatActivity {
 
                                     Preferencias preferencias = new Preferencias(ViewCadastrarEscola.this);
                                     preferencias.salvaUsuarioLogado(idUsuario, escola.getNome());
+
                                 } else {
                                     String erroExcecao = "";
                                     try {

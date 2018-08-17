@@ -23,14 +23,21 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class ViewCadastrarEscola extends AppCompatActivity {
 
     EditText ctNomeEsc, ctTelEsc, ctEmailEsc, ctCNPJEsc;
     Button btProsseguir;
     FirebaseAuth autenticacao;
+    private DatabaseReference firebase;
+    Escola esc;
     GeraUsuarioSenha geraUsuarioSenha;
-    Escola escola;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,18 +62,40 @@ public class ViewCadastrarEscola extends AppCompatActivity {
         MaskTextWatcher mascaraCNPJ = new MaskTextWatcher(ctCNPJEsc, simpleMaskCNPJ);
         ctCNPJEsc.addTextChangedListener(mascaraCNPJ);
         //FIM MASCARA==========
+        Intent intent = new Intent();
+        String key_id = intent.getStringExtra("key_id");
+        firebase = ConfiguracaoFirebase.getFirebase().child("escola");
+        Query query = firebase.getParent().orderByChild("id").equalTo(key_id).limitToFirst(1);
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot dados : dataSnapshot.getChildren()) {
+                    esc = dados.getValue(Escola.class);
+                }
+            }
 
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        if (esc != null) {
+
+            ctNomeEsc.setText(esc.getNome());
+        } else {
+            Toast.makeText(getBaseContext(), "erro ao carregar", Toast.LENGTH_SHORT).show();
+        }
         //Botão chamar tela de Endereço
         btProsseguir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                escola = new Escola();
+                Escola escola = new Escola();
                 escola.setNome(ctNomeEsc.getText().toString());
                 escola.setTelefone(ctTelEsc.getText().toString());
                 escola.setEmail(ctEmailEsc.getText().toString());
                 escola.setCnpj(ctCNPJEsc.getText().toString());
-                escola.setCidade("não a campo");
+                escola.setStatus("Ativo");
 
                 String[] carct = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
                 String senha = "";
@@ -77,7 +106,7 @@ public class ViewCadastrarEscola extends AppCompatActivity {
 
                 escola.setSenha(senha);
 
-                cadastrar();
+                cadastrar(escola);
 
                 //Intent i = new Intent(getBaseContext(), ViewListarEscolas.class);
                 //startActivity(i);
@@ -86,7 +115,7 @@ public class ViewCadastrarEscola extends AppCompatActivity {
 
     }
 
-    public void cadastrar() {
+    public void cadastrar(final Escola escola) {
         autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
         autenticacao.createUserWithEmailAndPassword(escola.getEmail(), escola.getSenha())
                 .addOnCompleteListener(ViewCadastrarEscola.this,

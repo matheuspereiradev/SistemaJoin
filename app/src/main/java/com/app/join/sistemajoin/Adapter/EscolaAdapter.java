@@ -41,7 +41,7 @@ public class EscolaAdapter extends ArrayAdapter<Escola> {
             Escola esc = escolas.get(position);
             textViewNome.setText(esc.getNome());
             textViewTelefone.setText(esc.getTelefone());
-            textViewCidade.setText(esc.getCidade());
+            textViewCidade.setText(esc.getStatus());
         }
         return view;
     }

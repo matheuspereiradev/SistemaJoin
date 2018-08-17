@@ -15,8 +15,7 @@ public class Escola {
     private String telefone;
     private String email;
     private String senha;
-    private String cidade;
-    private int status = 0;
+    private String status;
 
     public Escola() {
     }
@@ -24,7 +23,7 @@ public class Escola {
     public void salvar() {
 
         DatabaseReference data = ConfiguracaoFirebase.getFirebase();
-        data.child("escola").child(String.valueOf(getId())).setValue(this);
+        data.child("escola").child(String.valueOf(getNome())).setValue(this);
     }
 
 
@@ -38,7 +37,6 @@ public class Escola {
         hashMapUsuarios.put("telefone", getTelefone());
         hashMapUsuarios.put("email", getEmail());
         hashMapUsuarios.put("senha", getSenha());
-        hashMapUsuarios.put("cidade", getCidade());
         hashMapUsuarios.put("status", getStatus());
 
         return hashMapUsuarios;
@@ -93,19 +91,11 @@ public class Escola {
         this.senha = senha;
     }
 
-    public String getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
-    }
-
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 }

@@ -208,22 +208,31 @@
 
     <ImageButton
         android:id="@+id/btExcluirEsc"
-        android:layout_width="127dp"
+        android:layout_width="109dp"
         android:layout_height="48dp"
-        android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/btEditarEsc"
-        android:layout_marginEnd="36dp"
+        android:layout_centerHorizontal="true"
         android:background="@android:color/holo_red_dark"
         app:srcCompat="@android:drawable/ic_menu_delete" />
 
     <ImageButton
         android:id="@+id/btEditarEsc"
-        android:layout_width="126dp"
-        android:layout_height="47dp"
+        android:layout_width="109dp"
+        android:layout_height="48dp"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/textView14"
         android:layout_marginBottom="13dp"
         android:background="@android:color/holo_blue_dark"
-        app:srcCompat="@android:drawable/ic_menu_edit"/>
+        app:srcCompat="@android:drawable/ic_menu_edit" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="109dp"
+        android:layout_height="49dp"
+        android:layout_alignBottom="@+id/btExcluirEsc"
+        android:layout_marginStart="-51dp"
+        android:layout_toEndOf="@+id/textView13"
+        android:background="@android:color/holo_green_dark"
+        app:srcCompat="@android:drawable/ic_menu_manage" />
 
 </RelativeLayout>

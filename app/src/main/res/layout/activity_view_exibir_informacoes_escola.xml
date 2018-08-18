@@ -72,7 +72,7 @@
         android:text="Telefone:"
         android:textColor="@android:color/background_dark"
         android:textSize="17sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/cmpTelProf"
+        app:layout_constraintBaseline_toBaselineOf="@+id/cmpTelEsc"
         app:layout_constraintStart_toStartOf="@+id/textView19" />
 
     <TextView
@@ -106,20 +106,20 @@
         android:layout_marginTop="20dp"
         android:text="TextView"
         android:textSize="17sp"
-        app:layout_constraintStart_toStartOf="@+id/cmpCPFProf"
-        app:layout_constraintTop_toBottomOf="@+id/cmpCPFProf" />
+        app:layout_constraintStart_toStartOf="@+id/cmpCNPJEsc"
+        app:layout_constraintTop_toBottomOf="@+id/cmpCNPJEsc" />
 
     <TextView
-        android:id="@+id/cmpFormacaoProf"
+        android:id="@+id/cmpNomeEsc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textSize="17sp"
-        app:layout_constraintStart_toStartOf="@+id/cmpTelProf"
+        app:layout_constraintStart_toStartOf="@+id/cmpTelEsc"
         app:layout_constraintTop_toTopOf="@+id/textView19" />
 
     <TextView
-        android:id="@+id/cmpTelProf"
+        android:id="@+id/cmpTelEsc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="12dp"
@@ -128,27 +128,27 @@
         android:text="TextView"
         android:textSize="17sp"
         app:layout_constraintStart_toEndOf="@+id/textView15"
-        app:layout_constraintTop_toBottomOf="@+id/cmpFormacaoProf" />
+        app:layout_constraintTop_toBottomOf="@+id/cmpNomeEsc" />
 
     <TextView
-        android:id="@+id/cmpEmailProf"
+        android:id="@+id/cmpEmailEsc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="TextView"
         android:textSize="17sp"
-        app:layout_constraintStart_toStartOf="@+id/cmpTelProf"
-        app:layout_constraintTop_toBottomOf="@+id/cmpTelProf" />
+        app:layout_constraintStart_toStartOf="@+id/cmpTelEsc"
+        app:layout_constraintTop_toBottomOf="@+id/cmpTelEsc" />
 
     <TextView
-        android:id="@+id/cmpCPFProf"
+        android:id="@+id/cmpCNPJEsc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
         android:text="TextView"
         android:textSize="17sp"
-        app:layout_constraintStart_toStartOf="@+id/cmpEmailProf"
-        app:layout_constraintTop_toBottomOf="@+id/cmpEmailProf" />
+        app:layout_constraintStart_toStartOf="@+id/cmpEmailEsc"
+        app:layout_constraintTop_toBottomOf="@+id/cmpEmailEsc" />
 
     <ImageButton
         android:id="@+id/btExcluirEsc"

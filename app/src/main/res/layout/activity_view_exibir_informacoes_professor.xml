@@ -7,212 +7,258 @@
     tools:context=".Activitys.ViewExibirInformacoesProfessor"
     tools:layout_editor_absoluteY="81dp">
 
-    <TextView
-        android:id="@+id/cmpSenhaEsc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="17sp"
-        tools:layout_editor_absoluteX="244dp"
-        tools:layout_editor_absoluteY="383dp" />
 
     <TextView
-        android:id="@+id/textView21"
+        android:id="@+id/textView45"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Senha:"
-        android:textColor="@android:color/background_dark"
-        android:textSize="17sp"
-        tools:layout_editor_absoluteX="185dp"
-        tools:layout_editor_absoluteY="383dp" />
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_marginEnd="14dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginTop="16dp"
         android:text="Informações sobre o professor"
         android:textColor="@android:color/background_dark"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="17dp"
-        tools:layout_editor_absoluteY="16dp" />
-
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Login:"
-        android:textColor="@android:color/background_dark"
-        android:textSize="17sp"
-        tools:layout_editor_absoluteX="29dp"
-        tools:layout_editor_absoluteY="383dp" />
-
-    <TextView
-        android:id="@+id/textView19"
-        android:layout_width="99dp"
-        android:layout_height="41dp"
-        android:text="Data de nascimento:"
-        android:textColor="@android:color/background_dark"
-        android:textSize="17sp"
-        tools:layout_editor_absoluteX="29dp"
-        tools:layout_editor_absoluteY="235dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Formação:"
+        android:layout_marginLeft="17dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="18dp"
+        android:text="Nome:"
         android:textColor="@android:color/background_dark"
         android:textSize="17sp"
-        tools:layout_editor_absoluteX="29dp"
-        tools:layout_editor_absoluteY="336dp" />
-
-    <TextView
-        android:id="@+id/textView42"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="RG:"
-        android:textColor="@android:color/background_dark"
-        android:textSize="17sp"
-        tools:layout_editor_absoluteX="29dp"
-        tools:layout_editor_absoluteY="296dp" />
+        app:layout_constraintStart_toStartOf="@+id/textView45"
+        app:layout_constraintTop_toBottomOf="@+id/textView45" />
 
     <TextView
         android:id="@+id/textView24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nome:"
-        android:textColor="@android:color/background_dark"
-        android:textSize="17sp"
-        tools:layout_editor_absoluteX="29dp"
-        tools:layout_editor_absoluteY="68dp" />
-
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
         android:text="Telefone:"
         android:textColor="@android:color/background_dark"
         android:textSize="17sp"
-        tools:layout_editor_absoluteX="29dp"
-        tools:layout_editor_absoluteY="107dp" />
+        app:layout_constraintStart_toStartOf="@+id/textView23"
+        app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
     <TextView
-        android:id="@+id/textView18"
+        android:id="@+id/textView42"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CPF:"
-        android:textColor="@android:color/background_dark"
-        android:textSize="17sp"
-        tools:layout_editor_absoluteX="29dp"
-        tools:layout_editor_absoluteY="196dp" />
-
-    <TextView
-        android:id="@+id/textView20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:text="Email:"
         android:textColor="@android:color/background_dark"
         android:textSize="17sp"
-        tools:layout_editor_absoluteX="29dp"
-        tools:layout_editor_absoluteY="157dp" />
+        app:layout_constraintStart_toStartOf="@+id/textView24"
+        app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
     <TextView
-        android:id="@+id/cmpLoginEsc"
+        android:id="@+id/textView46"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:layout_marginTop="16dp"
+        android:text="CPF:"
+        android:textColor="@android:color/background_dark"
         android:textSize="17sp"
-        tools:layout_editor_absoluteX="86dp"
-        tools:layout_editor_absoluteY="383dp" />
+        app:layout_constraintStart_toStartOf="@+id/textView42"
+        app:layout_constraintTop_toBottomOf="@+id/textView42" />
 
     <TextView
-        android:id="@+id/cmpFormacaoProf"
-        android:layout_width="wrap_content"
+        android:id="@+id/textView47"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:layout_marginTop="13dp"
+        android:text="Data de nascimento:"
+        android:textColor="@android:color/background_dark"
         android:textSize="17sp"
-        tools:layout_editor_absoluteX="128dp"
-        tools:layout_editor_absoluteY="336dp" />
+        app:layout_constraintEnd_toStartOf="@+id/cmpDataNascProf"
+        app:layout_constraintStart_toStartOf="@+id/textView46"
+        app:layout_constraintTop_toBottomOf="@+id/textView46" />
 
     <TextView
-        android:id="@+id/cmpRGProf"
+        android:id="@+id/textView48"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:layout_marginTop="15dp"
+        android:text="RG:"
+        android:textColor="@android:color/background_dark"
         android:textSize="17sp"
-        tools:layout_editor_absoluteX="128dp"
-        tools:layout_editor_absoluteY="296dp" />
+        app:layout_constraintStart_toStartOf="@+id/textView47"
+        app:layout_constraintTop_toBottomOf="@+id/textView47" />
 
     <TextView
-        android:id="@+id/cmpDataNascProf2"
+        android:id="@+id/textView49"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="Formação:"
+        android:textColor="@android:color/background_dark"
         android:textSize="17sp"
-        tools:layout_editor_absoluteX="128dp"
-        tools:layout_editor_absoluteY="244dp" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/cmpFormacaoProf"
+        app:layout_constraintStart_toStartOf="@+id/textView48" />
 
     <TextView
-        android:id="@+id/cmpFormacaoProf"
+        android:id="@+id/textView50"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Senha:"
+        android:textColor="@android:color/background_dark"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="@+id/textView61"
+        app:layout_constraintTop_toBottomOf="@+id/textView61" />
+
+
+    <TextView
+        android:id="@+id/textView61"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="Login:"
+        android:textColor="@android:color/background_dark"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="@+id/textView49"
+        app:layout_constraintTop_toBottomOf="@+id/textView49" />
+
+    <TextView
+        android:id="@+id/cmpNomeProf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="18dp"
         android:text="TextView"
         android:textSize="17sp"
-        tools:layout_editor_absoluteX="128dp"
-        tools:layout_editor_absoluteY="68dp" />
+        app:layout_constraintStart_toEndOf="@+id/textView24"
+        app:layout_constraintTop_toBottomOf="@+id/textView45" />
 
     <TextView
         android:id="@+id/cmpTelProf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
         android:text="TextView"
         android:textSize="17sp"
-        tools:layout_editor_absoluteX="128dp"
-        tools:layout_editor_absoluteY="107dp" />
+        app:layout_constraintStart_toStartOf="@+id/cmpNomeProf"
+        app:layout_constraintTop_toBottomOf="@+id/cmpNomeProf" />
 
     <TextView
         android:id="@+id/cmpEmailProf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:text="TextView"
         android:textSize="17sp"
-        tools:layout_editor_absoluteX="128dp"
-        tools:layout_editor_absoluteY="157dp" />
+        app:layout_constraintStart_toStartOf="@+id/cmpTelProf"
+        app:layout_constraintTop_toBottomOf="@+id/cmpTelProf" />
 
     <TextView
         android:id="@+id/cmpCPFProf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="13dp"
         android:text="TextView"
         android:textSize="17sp"
-        tools:layout_editor_absoluteX="128dp"
-        tools:layout_editor_absoluteY="196dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView47"
+        app:layout_constraintStart_toStartOf="@+id/cmpEmailProf" />
+
+    <TextView
+        android:id="@+id/cmpDataNascProf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="TextView"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="@+id/cmpCPFProf"
+        app:layout_constraintTop_toTopOf="@+id/textView47" />
+
+    <TextView
+        android:id="@+id/cmpRGProf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="TextView"
+        android:textSize="17sp"
+        app:layout_constraintStart_toEndOf="@+id/textView47"
+        app:layout_constraintTop_toBottomOf="@+id/textView47" />
+
+    <TextView
+        android:id="@+id/cmpFormacaoProf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="14dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        android:textSize="17sp"
+        app:layout_constraintStart_toEndOf="@+id/textView49"
+        app:layout_constraintTop_toBottomOf="@+id/cmpRGProf" />
+
+    <TextView
+        android:id="@+id/cmpSenhaProf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="44dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
+        android:text="TextView"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toTopOf="@+id/btConfigProf"
+        app:layout_constraintStart_toEndOf="@+id/btEditProf" />
+
+    <TextView
+        android:id="@+id/cmpLoginProf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="TextView"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toTopOf="@+id/cmpSenhaProf"
+        app:layout_constraintStart_toStartOf="@+id/cmpSenhaProf" />
 
     <ImageButton
-        android:id="@+id/btExcluirEsc"
-        android:layout_width="100dp"
-        android:layout_height="49dp"
-        android:background="@android:color/holo_red_dark"
-        app:srcCompat="@android:drawable/ic_menu_delete"
-        tools:layout_editor_absoluteX="244dp"
-        tools:layout_editor_absoluteY="446dp" />
-
-    <ImageButton
-        android:id="@+id/btEditarEsc"
-        android:layout_width="100dp"
-        android:layout_height="49dp"
+        android:id="@+id/btEditProf"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
         android:background="@android:color/holo_blue_dark"
-        app:srcCompat="@android:drawable/ic_menu_edit"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="446dp" />
+        android:src="@android:drawable/ic_menu_edit"
+        app:layout_constraintBottom_toBottomOf="@+id/btConfigProf"
+        app:layout_constraintEnd_toStartOf="@+id/btConfigProf"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btConfigProf"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
-        android:id="@+id/btConfigEsc"
-        android:layout_width="100dp"
-        android:layout_height="49dp"
+        android:id="@+id/btConfigProf"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
         android:background="@android:color/holo_green_dark"
-        app:srcCompat="@android:drawable/ic_menu_manage"
-        tools:layout_editor_absoluteX="132dp"
-        tools:layout_editor_absoluteY="446dp" />
+        android:src="@android:drawable/ic_menu_preferences"
+        app:layout_constraintBottom_toBottomOf="@+id/btExcluirProf"
+        app:layout_constraintEnd_toStartOf="@+id/btExcluirProf"
+        app:layout_constraintStart_toEndOf="@+id/btEditProf"
+        app:layout_constraintTop_toTopOf="@+id/btExcluirProf" />
+
+    <ImageButton
+        android:id="@+id/btExcluirProf"
+        android:layout_width="0dp"
+        android:layout_height="47dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@android:color/holo_red_dark"
+        android:src="@android:drawable/ic_menu_delete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btConfigProf" />
 
 </android.support.constraint.ConstraintLayout>

@@ -32,7 +32,9 @@
         <activity android:name=".Activitys.ViewRealizarPostagem" />
         <activity android:name=".Activitys.ViewSelecionarAlunos" />
         <activity android:name=".Activitys.ViewRealizarAvaliacao" />
-        <activity android:name=".Activitys.ViewHomeEscola"></activity>
+        <activity android:name=".Activitys.ViewHomeSistemaEscola" />
+        <activity android:name=".Activitys.ViewListaProfessores" />
+        <activity android:name=".Activitys.ViewExibirInformacoesProfessor"></activity>
     </application>
 
 </manifest>

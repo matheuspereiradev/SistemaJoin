@@ -18,10 +18,10 @@ public class ViewExibirInformacoesEscola extends AppCompatActivity {
         setContentView(R.layout.activity_view_exibir_informacoes_escola);
 
         //==========inicio conexão java com xml
-        cmpNomeEsc=(TextView)findViewById(R.id.cmpNomeEsc);
-        cmpTelEsc=(TextView)findViewById(R.id.cmpTelEsc);
-        cmpEmailEsc=(TextView)findViewById(R.id.cmpEmailEsc);
-        cmpCNPJEsc=(TextView)findViewById(R.id.cmpCNPJEsc);
+        cmpNomeEsc=(TextView)findViewById(R.id.cmpFormacaoProf);
+        cmpTelEsc=(TextView)findViewById(R.id.cmpTelProf);
+        cmpEmailEsc=(TextView)findViewById(R.id.cmpEmailProf);
+        cmpCNPJEsc=(TextView)findViewById(R.id.cmpCPFProf);
         cmpLoginEsc=(TextView)findViewById(R.id.cmpLoginEsc);
         cmpSenhaEsc=(TextView)findViewById(R.id.cmpSenhaEsc);
         btConfigEsc=(ImageButton)findViewById(R.id.btConfigEsc);

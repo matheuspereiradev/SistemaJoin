@@ -1,6 +1,7 @@
 package com.app.join.sistemajoin.Activitys;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -66,28 +67,24 @@ public class ViewListarEscolas extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 escolaExcluir = adapter.getItem(i);
-                AlertDialog.Builder builder = new AlertDialog.Builder(ViewListarEscolas.this);
-                builder.setTitle("confirma exclusão?");
-                builder.setMessage("deseja realmente excluir " + escolaExcluir.getNome().toString() + "?");
-                builder.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        firebase = ConfiguracaoFirebase.getFirebase().child("escola");
-                        firebase.child(escolaExcluir.getId().toString()).removeValue();
-                        Toast.makeText(getBaseContext(), "Escola Excluida!", Toast.LENGTH_SHORT).show();
-                    }
-                });
-                builder.setNegativeButton("Não", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        Toast.makeText(getBaseContext(), "Exclusão Cancelada!", Toast.LENGTH_SHORT).show();
-                    }
-                });
 
-                alertDialog = builder.create();
-                alertDialog.show();
+                firebase = ConfiguracaoFirebase.getFirebase().child("escola");
+                firebase.child(escolaExcluir.getId());
+                Intent in = new Intent(getBaseContext(), ViewExibirInformacoesEscola.class);
+                in.putExtra("key", escolaExcluir.getId());
+                in.putExtra("nome", escolaExcluir.getNome());
+                in.putExtra("tel", escolaExcluir.getTelefone());
+                in.putExtra("email", escolaExcluir.getEmail());
+                in.putExtra("cnpj", escolaExcluir.getCnpj());
+                in.putExtra("status", escolaExcluir.getStatus());
+                startActivity(in);
+
             }
         });
+
+        /*
+
+         */
 
 
     }

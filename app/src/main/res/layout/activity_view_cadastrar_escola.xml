@@ -1,122 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activitys.ViewCadastrarEscola"
-    >
+    tools:context=".Activitys.ViewCadastrarEscola">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
         android:layout_marginTop="16dp"
         android:text="Cadastrar escola"
         android:textColor="@android:color/background_dark"
-        android:textSize="19sp"
-        tools:layout_editor_absoluteX="163dp"
-        tools:layout_editor_absoluteY="16dp" />
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/ctNomeEsc"
-        android:layout_width="304dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="87dp"
+        android:layout_marginBottom="9dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
         android:ems="10"
         android:hint="Nome da escola"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/ctNomeEsc"
-        android:layout_marginBottom="170dp"
+        android:layout_marginBottom="39dp"
         android:text="CNPJ:"
         android:textColor="@android:color/background_dark"
-        android:textSize="17sp" />
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ctCNPJEsc"
+        app:layout_constraintStart_toStartOf="@+id/ctCNPJEsc" />
 
     <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/ctNomeEsc"
-        android:layout_marginTop="57dp"
         android:text="Nome da escola:"
         android:textColor="@android:color/background_dark"
-        android:textSize="17sp" />
+        android:textSize="17sp"
+        app:layout_constraintBottom_toTopOf="@+id/ctNomeEsc"
+        app:layout_constraintStart_toStartOf="@+id/ctNomeEsc"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/ctNomeEsc"
-        android:layout_marginTop="140dp"
         android:text="Email da escola:"
         android:textColor="@android:color/background_dark"
-        android:textSize="17sp" />
+        android:textSize="17sp"
+        app:layout_constraintBottom_toTopOf="@+id/ctEmailEsc"
+        app:layout_constraintStart_toStartOf="@+id/ctEmailEsc"
+        app:layout_constraintTop_toBottomOf="@+id/ctNomeEsc" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/ctNomeEsc"
-        android:layout_marginTop="231dp"
         android:text="Telefone da escola:"
         android:textColor="@android:color/background_dark"
-        android:textSize="17sp" />
+        android:textSize="17sp"
+        app:layout_constraintBottom_toTopOf="@+id/ctTelEsc"
+        app:layout_constraintStart_toStartOf="@+id/ctTelEsc" />
 
     <EditText
         android:id="@+id/ctEmailEsc"
-        android:layout_width="307dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="172dp"
+        android:layout_marginBottom="36dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
         android:ems="10"
         android:hint="Email da escola"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/ctTelEsc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <EditText
         android:id="@+id/ctTelEsc"
-        android:layout_width="311dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="205dp"
+        android:layout_marginBottom="37dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
         android:ems="10"
         android:hint="Telefone"
-        android:inputType="phone" />
+        android:inputType="phone"
+        app:layout_constraintBottom_toTopOf="@+id/ctCNPJEsc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ctEmailEsc" />
 
     <Button
-        android:id="@+id/btProsseguir"
+        android:id="@+id/btSalvarEsc"
         android:layout_width="202dp"
-        android:layout_height="62dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="22dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="27dp"
         android:background="@drawable/botao_customizado"
-        android:text="Prosseguir"
         android:textColor="#ffffff"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:text="Salvar"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ctCNPJEsc" />
 
     <EditText
         android:id="@+id/ctCNPJEsc"
-        android:layout_width="302dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/ctNomeEsc"
-        android:layout_marginBottom="115dp"
+        android:layout_marginBottom="42dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
         android:ems="10"
         android:hint="CNPJ"
-        android:inputType="number" />
-</RelativeLayout>
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/btSalvarEsc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ctTelEsc" />
+</android.support.constraint.ConstraintLayout>

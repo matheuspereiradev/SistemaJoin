@@ -36,7 +36,8 @@ public class EscolaAdapter extends ArrayAdapter<Escola> {
 
             TextView textViewNome = view.findViewById(R.id.campoNomeEsc);
             TextView textViewTelefone = view.findViewById(R.id.campoTelEsc);
-            TextView textViewCidade = view.findViewById(R.id.campoCidadeEsc);
+            TextView textViewCidade = view.findViewById(R.id.campoStatusEsc);
+            //esse campo mudou o ID para campoStatusID
 
             Escola esc = escolas.get(position);
             textViewNome.setText(esc.getNome());

@@ -1,68 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activitys.ViewHomeSistemaAdministrativo"
-    >
+    tools:layout_editor_absoluteY="81dp">
 
 
     <TextView
         android:id="@+id/textView22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="29dp"
-        android:layout_toEndOf="@+id/imageView2"
         android:text="Seja bem vindo,"
         android:textColor="@android:color/background_dark"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="119dp"
+        tools:layout_editor_absoluteY="26dp" />
 
     <TextView
         android:id="@+id/textView25"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView22"
-        android:layout_below="@+id/textView22"
         android:text="à plataforma administrativa"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="120dp"
+        tools:layout_editor_absoluteY="74dp" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="110dp"
-        android:layout_height="122dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="16dp"
-        app:srcCompat="@drawable/logo" />
+        android:layout_height="124dp"
+        app:srcCompat="@drawable/logo"
+        tools:layout_editor_absoluteX="9dp"
+        tools:layout_editor_absoluteY="7dp" />
 
     <Button
         android:id="@+id/btCadEscola"
-        android:layout_width="132dp"
-        android:layout_height="132dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="161dp"
-        android:background="@drawable/botao_nova_escola"
-        android:paddingTop="79dp"
+        android:layout_width="250dp"
+        android:layout_height="83dp"
+        android:drawableLeft="@drawable/iconnovo"
         android:text="Adicionar nova escola"
-        android:textColor="@android:color/background_light"
-        android:textSize="18sp" />
+        android:textSize="18dp"
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="158dp" />
 
     <Button
         android:id="@+id/btListaEscola"
-        android:layout_width="132dp"
-        android:layout_height="132dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/btCadEscola"
-        android:layout_marginEnd="45dp"
-        android:background="@drawable/bt_lista_escolas"
-        android:paddingTop="79dp"
+        android:layout_width="250dp"
+        android:layout_height="83dp"
+        android:drawableLeft="@drawable/iconlista"
         android:text="Listar escolas"
-        android:textColor="@android:color/background_light"
-        android:textSize="18sp" />
+        android:textSize="18dp"
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="261dp" />
 
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

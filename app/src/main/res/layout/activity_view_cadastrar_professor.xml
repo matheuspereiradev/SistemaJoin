@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,95 +10,121 @@
         android:id="@+id/textView26"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="57dp"
-        android:layout_toEndOf="@+id/imageView3"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="35dp"
         android:text="Cadastrar Professor"
         android:textColor="@android:color/background_dark"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView3" />
 
     <TextView
         android:id="@+id/textView27"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/textView30"
-        android:layout_marginTop="167dp"
         android:text="Nome:"
         android:textColor="@android:color/background_dark"
-        android:textSize="17sp" />
+        android:textSize="17sp"
+        app:layout_constraintBottom_toTopOf="@+id/ctNomeProf"
+        app:layout_constraintStart_toStartOf="@+id/ctNomeProf"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <EditText
         android:id="@+id/ctNomeProf"
         android:layout_width="310dp"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView27"
-        android:layout_below="@+id/textView27"
+        android:layout_marginBottom="20dp"
         android:ems="10"
         android:hint="Nome"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/textView28"
+        app:layout_constraintEnd_toEndOf="@+id/textView28"
+        app:layout_constraintStart_toEndOf="@+id/textView28"
+        app:layout_constraintTop_toBottomOf="@+id/textView27" />
 
     <TextView
         android:id="@+id/textView28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/ctDataNascProf"
-        android:layout_alignStart="@+id/textView27"
+        android:layout_marginLeft="25dp"
+        android:layout_marginStart="25dp"
         android:text="Data de nascimento:"
         android:textColor="@android:color/background_dark"
-        android:textSize="17sp" />
+        android:textSize="17sp"
+        app:layout_constraintBottom_toTopOf="@+id/ctDataNascProf"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ctNomeProf" />
 
 
     <TextView
         android:id="@+id/textView30"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/ctEmailProf"
-        android:layout_alignStart="@+id/ctEmailProf"
+        android:layout_marginLeft="25dp"
+        android:layout_marginStart="25dp"
         android:text="Email:"
         android:textColor="@android:color/background_dark"
-        android:textSize="17sp" />
+        android:textSize="17sp"
+        app:layout_constraintBottom_toTopOf="@+id/ctEmailProf"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ctDataNascProf" />
 
 
     <EditText
         android:id="@+id/ctDataNascProf"
         android:layout_width="311dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/textView27"
-        android:layout_marginBottom="188dp"
+        android:layout_marginBottom="17dp"
         android:ems="10"
         android:hint="Data de nascimento"
-        android:inputType="number" />
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/textView30"
+        app:layout_constraintEnd_toEndOf="@+id/textView28"
+        app:layout_constraintStart_toEndOf="@+id/textView28"
+        app:layout_constraintTop_toBottomOf="@+id/textView28" />
 
     <EditText
         android:id="@+id/ctEmailProf"
-        android:layout_width="308dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/imageView3"
-        android:layout_marginBottom="102dp"
-        android:ems="10"
+        android:layout_marginBottom="31dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginLeft="26dp"
+        android:layout_marginRight="26dp"
+        android:layout_marginStart="26dp"
         android:hint="Email"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/btProximoProf1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView30" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="116dp"
-        android:layout_height="119dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="12dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView27"
+        app:layout_constraintEnd_toEndOf="@+id/textView27"
+        app:layout_constraintStart_toEndOf="@+id/textView27"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/prof" />
 
     <Button
         android:id="@+id/btProximoProf1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/textView26"
+        android:layout_width="202dp"
+        android:layout_height="67dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="13dp"
-        android:text="prosseguir" />
+        android:layout_marginBottom="31dp"
+        android:background="@drawable/botao_customizado"
+        android:text="prosseguir"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ctEmailProf" />
 
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

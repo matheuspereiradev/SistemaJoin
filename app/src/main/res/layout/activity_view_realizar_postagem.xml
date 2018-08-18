@@ -10,53 +10,69 @@
         android:id="@+id/textView33"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_marginBottom="367dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginTop="32dp"
         android:text="Realizar postagem"
         android:textColor="@android:color/background_dark"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="125dp"
-        tools:layout_editor_absoluteY="32dp" />
+        app:layout_constraintBottom_toTopOf="@+id/btSelecionarAlunos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView35"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="7dp"
         android:text="Título da postagem:"
         android:textColor="@android:color/background_dark"
         android:textSize="16sp"
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="157dp" />
+        app:layout_constraintBottom_toTopOf="@+id/ctTituloPost"
+        app:layout_constraintStart_toStartOf="@+id/ctTituloPost"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <TextView
         android:id="@+id/textView38"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
         android:text="Mensagem:"
         android:textColor="@android:color/background_dark"
         android:textSize="16sp"
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="245dp" />
+        app:layout_constraintBottom_toTopOf="@+id/ctMsgPost"
+        app:layout_constraintStart_toStartOf="@+id/ctMsgPost"
+        app:layout_constraintTop_toBottomOf="@+id/ctTituloPost" />
 
     <EditText
         android:id="@+id/ctTituloPost"
-        android:layout_width="310dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="19dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginStart="25dp"
         android:background="@drawable/campo_postagem"
         android:ems="10"
         android:hint="Título"
         android:inputType="textPersonName"
         android:text=""
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="185dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView38"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView35" />
 
     <EditText
         android:id="@+id/ctMsgPost"
-        android:layout_width="310dp"
-        android:layout_height="149dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginStart="25dp"
         android:background="@drawable/campo_postagem"
         android:ems="10"
         android:hint="Mensagem"
@@ -64,27 +80,34 @@
         android:singleLine="false"
         android:text=""
         android:textColor="#000000"
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="272dp" />
+        app:layout_constraintBottom_toTopOf="@+id/btSelecionarAlunos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView38" />
 
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="113dp"
-        android:layout_height="97dp"
-        android:layout_alignParentTop="true"
-        app:srcCompat="@drawable/anotacao"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
+        android:layout_height="0dp"
+        android:layout_marginBottom="44dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView35"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/anotacao" />
 
     <Button
         android:id="@+id/btSelecionarAlunos"
         android:layout_width="214dp"
-        android:layout_height="64dp"
-        android:layout_alignEnd="@+id/ctTituloPost"
-        android:layout_alignParentBottom="true"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
         android:text="Selecionar alunos"
         android:textSize="18sp"
-        tools:layout_editor_absoluteX="73dp"
-        tools:layout_editor_absoluteY="431dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView33" />
 
 </android.support.constraint.ConstraintLayout>

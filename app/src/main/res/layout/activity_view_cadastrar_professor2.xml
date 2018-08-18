@@ -1,126 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activitys.ViewCadastrarProfessor2">
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="102dp"
-        android:layout_height="104dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="12dp"
-        app:srcCompat="@drawable/prof" />
-
     <TextView
         android:id="@+id/textView32"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/textView29"
-        android:layout_marginTop="127dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="86dp"
         android:text="CPF:"
         android:textColor="@android:color/background_dark"
-        android:textSize="17sp" />
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView29"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/ctCPFProf"
-        android:layout_marginTop="206dp"
+        android:layout_marginTop="12dp"
         android:text="RG:"
         android:textColor="@android:color/background_dark"
-        android:textSize="17sp" />
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="@+id/ctRGProf"
+        app:layout_constraintTop_toBottomOf="@+id/ctCPFProf" />
 
     <TextView
         android:id="@+id/textView34"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/textView32"
-        android:layout_marginBottom="118dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="22dp"
         android:text="Formação:"
         android:textColor="@android:color/background_dark"
-        android:textSize="17sp" />
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ctTelProf" />
 
     <TextView
         android:id="@+id/textView36"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/textView32"
-        android:layout_marginBottom="202dp"
+        android:layout_marginTop="18dp"
         android:text="Telefone:"
         android:textColor="@android:color/background_dark"
-        android:textSize="17sp" />
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="@+id/ctTelProf"
+        app:layout_constraintTop_toBottomOf="@+id/ctRGProf" />
 
     <EditText
         android:id="@+id/ctCPFProf"
-        android:layout_width="313dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView32"
-        android:layout_centerHorizontal="true"
         android:ems="10"
         android:hint="CPF"
-        android:inputType="number" />
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/ctRGProf"
+        app:layout_constraintStart_toStartOf="@+id/textView32"
+        app:layout_constraintTop_toBottomOf="@+id/textView32" />
 
     <EditText
         android:id="@+id/ctRGProf"
-        android:layout_width="313dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView29"
-        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
         android:ems="10"
         android:hint="RG"
-        android:inputType="number" />
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView29" />
 
     <TextView
         android:id="@+id/textView31"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="49dp"
-        android:layout_toEndOf="@+id/imageView3"
+        android:layout_marginTop="23dp"
         android:text="Cadastrar professor"
         android:textColor="@android:color/background_dark"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btProxPEndereco"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/ctCPFProf"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="14dp"
-        android:text="prosseguir" />
+        android:layout_width="202dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/botao_customizado"
+        android:text="prosseguir"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ctFormProf" />
 
     <EditText
         android:id="@+id/ctTelProf"
-        android:layout_width="304dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView34"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="-202dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
         android:ems="10"
         android:hint="Telefone"
-        android:inputType="number" />
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView36" />
 
     <EditText
         android:id="@+id/ctFormProf"
-        android:layout_width="308dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView34"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="-118dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginRight="7dp"
         android:ems="10"
         android:hint="Formação"
         android:inputType="textPersonName"
-        android:text="" />
+        android:text=""
+        app:layout_constraintEnd_toEndOf="@+id/ctTelProf"
+        app:layout_constraintStart_toStartOf="@+id/textView34"
+        app:layout_constraintTop_toBottomOf="@+id/textView34" />
 
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

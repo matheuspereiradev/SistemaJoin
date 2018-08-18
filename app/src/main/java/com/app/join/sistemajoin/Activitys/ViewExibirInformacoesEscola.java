@@ -9,8 +9,8 @@ import com.app.join.sistemajoin.R;
 
 public class ViewExibirInformacoesEscola extends AppCompatActivity {
 
-    TextView cmpNomeEsc,cmpTelEsc,cmpEmailEsc,cmpCNPJEsc,cmpCidadeEsc,cmpUFEsc,cmpCEPEsc,cmpRuaEsc,cmpNumEsc,cmpBairroEsc;
-    ImageButton btEditarEsc,btExcluirEsc;
+    TextView cmpNomeEsc,cmpTelEsc,cmpEmailEsc,cmpCNPJEsc,cmpLoginEsc,cmpSenhaEsc;
+    ImageButton btEditarEsc,btExcluirEsc,btConfigEsc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,12 +22,9 @@ public class ViewExibirInformacoesEscola extends AppCompatActivity {
         cmpTelEsc=(TextView)findViewById(R.id.cmpTelEsc);
         cmpEmailEsc=(TextView)findViewById(R.id.cmpEmailEsc);
         cmpCNPJEsc=(TextView)findViewById(R.id.cmpCNPJEsc);
-        cmpCidadeEsc=(TextView)findViewById(R.id.cmpCidadeEsc);
-        cmpUFEsc=(TextView)findViewById(R.id.cmpUFEsc);
-        cmpCEPEsc=(TextView)findViewById(R.id.cmpCEPEsc);
-        cmpRuaEsc=(TextView)findViewById(R.id.cmpRuaEsc);
-        cmpNumEsc=(TextView)findViewById(R.id.cmpNumEsc);
-        cmpBairroEsc=(TextView)findViewById(R.id.cmpBairroEsc);
+        cmpLoginEsc=(TextView)findViewById(R.id.cmpLoginEsc);
+        cmpSenhaEsc=(TextView)findViewById(R.id.cmpSenhaEsc);
+        btConfigEsc=(ImageButton)findViewById(R.id.btConfigEsc);
         btEditarEsc=(ImageButton) findViewById(R.id.btEditarEsc);
         btExcluirEsc=(ImageButton)findViewById(R.id.btExcluirEsc);
         //fim conexão java com xml===========

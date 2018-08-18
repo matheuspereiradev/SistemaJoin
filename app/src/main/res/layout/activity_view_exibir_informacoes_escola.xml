@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,232 +7,188 @@
     tools:context=".Activitys.ViewExibirInformacoesEscola">
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/cmpSenhaEsc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="21dp"
-        android:text="Informações sobre a escola"
-        android:textColor="@android:color/background_dark"
-        android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="63dp"
-        android:layout_toStartOf="@+id/textView13"
-        android:text="Nome:"
-        android:textColor="@android:color/background_dark"
-        android:textSize="17sp" />
-
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/textView14"
-        android:layout_marginTop="98dp"
-        android:text="Telefone:"
-        android:textColor="@android:color/background_dark"
-        android:textSize="17sp" />
-
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/textView24"
-        android:layout_marginEnd="90dp"
-        android:text="UF:"
-        android:textColor="@android:color/background_dark"
-        android:textSize="17sp" />
-
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/textView14"
-        android:layout_marginBottom="140dp"
-        android:text="Bairro:"
-        android:textColor="@android:color/background_dark"
-        android:textSize="17sp" />
-
-    <TextView
-        android:id="@+id/textView18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/textView14"
-        android:layout_marginTop="179dp"
-        android:text="CNPJ:"
-        android:textColor="@android:color/background_dark"
-        android:textSize="17sp" />
-
-    <TextView
-        android:id="@+id/textView19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/textView16"
-        android:layout_alignTop="@+id/textView21"
-        android:text="N°"
-        android:textColor="@android:color/background_dark"
-        android:textSize="17sp" />
-
-    <TextView
-        android:id="@+id/textView20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/textView14"
-        android:layout_marginTop="136dp"
-        android:text="Email:"
-        android:textColor="@android:color/background_dark"
-        android:textSize="17sp" />
+        android:layout_marginTop="23dp"
+        android:text="TextView"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="@+id/cmpLoginEsc"
+        app:layout_constraintTop_toBottomOf="@+id/cmpLoginEsc" />
 
     <TextView
         android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/textView14"
-        android:layout_marginBottom="188dp"
-        android:text="Rua:"
+        android:layout_marginLeft="32dp"
+        android:layout_marginStart="32dp"
+        android:text="Senha:"
         android:textColor="@android:color/background_dark"
-        android:textSize="17sp" />
+        android:textSize="17sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/cmpSenhaEsc"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView23"
+        android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/textView14"
-        android:layout_marginTop="216dp"
-        android:text="Cidade:"
+        android:layout_marginEnd="31dp"
+        android:layout_marginRight="31dp"
+        android:layout_marginTop="16dp"
+        android:text="Informações sobre a escola"
         android:textColor="@android:color/background_dark"
-        android:textSize="17sp" />
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView24"
+        android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/textView14"
-        android:layout_marginBottom="230dp"
-        android:text="CEP"
+        android:layout_marginTop="20dp"
+        android:text="Login:"
         android:textColor="@android:color/background_dark"
-        android:textSize="17sp" />
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="@+id/textView18"
+        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="84dp"
+        android:text="Nome:"
+        android:textColor="@android:color/background_dark"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Telefone:"
+        android:textColor="@android:color/background_dark"
+        android:textSize="17sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/cmpTelEsc"
+        app:layout_constraintStart_toStartOf="@+id/textView19" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="CNPJ:"
+        android:textColor="@android:color/background_dark"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="@+id/textView20"
+        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:text="Email:"
+        android:textColor="@android:color/background_dark"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+    <TextView
+        android:id="@+id/cmpLoginEsc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="TextView"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="@+id/cmpCNPJEsc"
+        app:layout_constraintTop_toBottomOf="@+id/cmpCNPJEsc" />
 
     <TextView
         android:id="@+id/cmpNomeEsc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView14"
-        android:layout_toEndOf="@+id/textView15"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="@+id/cmpTelEsc"
+        app:layout_constraintTop_toTopOf="@+id/textView19" />
 
     <TextView
         android:id="@+id/cmpTelEsc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView15"
-        android:layout_toEndOf="@+id/textView15"
-        android:text="TextView" />
+        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="19dp"
+        android:text="TextView"
+        android:textSize="17sp"
+        app:layout_constraintStart_toEndOf="@+id/textView15"
+        app:layout_constraintTop_toBottomOf="@+id/cmpNomeEsc" />
 
     <TextView
         android:id="@+id/cmpEmailEsc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView20"
-        android:layout_toEndOf="@+id/textView15"
-        android:text="TextView" />
+        android:layout_marginTop="24dp"
+        android:text="TextView"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="@+id/cmpTelEsc"
+        app:layout_constraintTop_toBottomOf="@+id/cmpTelEsc" />
 
     <TextView
         android:id="@+id/cmpCNPJEsc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView18"
-        android:layout_toEndOf="@+id/textView15"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/cmpCidadeEsc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView23"
-        android:layout_toEndOf="@+id/textView15"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/cmpCEPEsc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView16"
-        android:layout_toEndOf="@+id/textView15"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/cmpRuaEsc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView19"
-        android:layout_toEndOf="@+id/textView15"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/cmpBairroEsc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView17"
-        android:layout_toEndOf="@+id/textView15"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/cmpUFEsc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView16"
-        android:layout_toEndOf="@+id/textView13"
-        android:text="TextView" />
-
-    <TextView
-        android:id="@+id/cmpNumEsc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView19"
-        android:layout_toEndOf="@+id/textView13"
-        android:text="TextView" />
+        android:layout_marginTop="18dp"
+        android:text="TextView"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="@+id/cmpEmailEsc"
+        app:layout_constraintTop_toBottomOf="@+id/cmpEmailEsc" />
 
     <ImageButton
         android:id="@+id/btExcluirEsc"
-        android:layout_width="109dp"
-        android:layout_height="48dp"
-        android:layout_alignTop="@+id/btEditarEsc"
-        android:layout_centerHorizontal="true"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:background="@android:color/holo_red_dark"
+        app:layout_constraintBottom_toBottomOf="@+id/btConfigEsc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btConfigEsc"
+        app:layout_constraintTop_toTopOf="@+id/btConfigEsc"
         app:srcCompat="@android:drawable/ic_menu_delete" />
 
     <ImageButton
         android:id="@+id/btEditarEsc"
-        android:layout_width="109dp"
-        android:layout_height="48dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/textView14"
-        android:layout_marginBottom="13dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
         android:background="@android:color/holo_blue_dark"
+        app:layout_constraintBottom_toBottomOf="@+id/btConfigEsc"
+        app:layout_constraintEnd_toStartOf="@+id/btConfigEsc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btExcluirEsc"
         app:srcCompat="@android:drawable/ic_menu_edit" />
 
     <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="109dp"
+        android:id="@+id/btConfigEsc"
+        android:layout_width="0dp"
         android:layout_height="49dp"
-        android:layout_alignBottom="@+id/btExcluirEsc"
-        android:layout_marginStart="-51dp"
-        android:layout_toEndOf="@+id/textView13"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginRight="13dp"
         android:background="@android:color/holo_green_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btExcluirEsc"
+        app:layout_constraintStart_toEndOf="@+id/btEditarEsc"
         app:srcCompat="@android:drawable/ic_menu_manage" />
 
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

@@ -9,7 +9,7 @@
 
     <TextView
         android:id="@+id/campoNomeEsc"
-        android:layout_width="140dp"
+        android:layout_width="147dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
@@ -29,7 +29,7 @@
 
     <TextView
         android:id="@+id/campoStatusEsc"
-        android:layout_width="95dp"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"

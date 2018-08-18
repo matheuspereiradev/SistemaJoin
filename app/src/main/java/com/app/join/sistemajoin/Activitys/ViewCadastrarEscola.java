@@ -1,6 +1,5 @@
 package com.app.join.sistemajoin.Activitys;
 
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,7 +26,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class ViewCadastrarEscola extends AppCompatActivity {
 
     EditText ctNomeEsc, ctTelEsc, ctEmailEsc, ctCNPJEsc;
-    Button btProsseguir;
+    Button btSalvarEsc;
     FirebaseAuth autenticacao;
     GeraUsuarioSenha geraUsuarioSenha;
     Escola escola;
@@ -42,7 +41,7 @@ public class ViewCadastrarEscola extends AppCompatActivity {
         ctEmailEsc = (EditText) findViewById(R.id.ctEmailEsc);
         ctNomeEsc = (EditText) findViewById(R.id.ctNomeEsc);
         ctCNPJEsc = (EditText) findViewById(R.id.ctCNPJEsc);
-        btProsseguir = (Button) findViewById(R.id.btProsseguir);
+        btSalvarEsc = (Button) findViewById(R.id.btSalvarEsc);
         //fim da conexão com o xml=========
 
         //=====criar mascara no campo telefone escola
@@ -56,8 +55,8 @@ public class ViewCadastrarEscola extends AppCompatActivity {
         ctCNPJEsc.addTextChangedListener(mascaraCNPJ);
         //FIM MASCARA==========
 
-        //Botão chamar tela de Endereço
-        btProsseguir.setOnClickListener(new View.OnClickListener() {
+        //Botão salvar tela de Endereço
+        btSalvarEsc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 

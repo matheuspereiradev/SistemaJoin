@@ -66,7 +66,7 @@ public class ViewTelaLogin extends AppCompatActivity {
                     startActivity(in);
                     Toast.makeText(ViewTelaLogin.this, "Login OK", Toast.LENGTH_SHORT).show();
                 }else{
-                    Toast.makeText(ViewTelaLogin.this, "Email ou Senha Invalido", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ViewTelaLogin.this, "Email ou Senha Inválido", Toast.LENGTH_SHORT).show();
 
                 }
             }

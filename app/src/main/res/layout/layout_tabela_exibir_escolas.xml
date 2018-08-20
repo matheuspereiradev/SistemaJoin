@@ -8,7 +8,7 @@
     android:id="@+id/itemTabelaEscola">
 
     <TextView
-        android:id="@+id/campoNomeEsc"
+        android:id="@+id/campoNomeEscola"
         android:layout_width="147dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
@@ -18,7 +18,7 @@
         android:textSize="14sp" />
 
     <TextView
-        android:id="@+id/campoTelEsc"
+        android:id="@+id/campoTelEscola"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
@@ -28,7 +28,7 @@
         android:textSize="14sp" />
 
     <TextView
-        android:id="@+id/campoStatusEsc"
+        android:id="@+id/campoStatusEscola"
         android:layout_width="60dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"

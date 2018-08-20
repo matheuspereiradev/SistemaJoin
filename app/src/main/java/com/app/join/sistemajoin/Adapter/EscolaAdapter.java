@@ -25,7 +25,7 @@ public class EscolaAdapter extends ArrayAdapter<Escola> {
         this.escolas = objects;
     }
 
-    @NonNull
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
@@ -34,15 +34,14 @@ public class EscolaAdapter extends ArrayAdapter<Escola> {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(R.layout.layout_tabela_exibir_escolas, parent, false);
 
-            TextView textViewNome = view.findViewById(R.id.campoNomeEsc);
-            TextView textViewTelefone = view.findViewById(R.id.campoTelEsc);
-            TextView textViewCidade = view.findViewById(R.id.campoStatusEsc);
-            //esse campo mudou o ID para campoStatusID
+            TextView textViewNome = view.findViewById(R.id.campoNomeEscola);
+            TextView textViewTelefone = view.findViewById(R.id.campoTelEscola);
+            TextView textViewStatus = view.findViewById(R.id.campoStatusEscola);
 
             Escola esc = escolas.get(position);
             textViewNome.setText(esc.getNome());
             textViewTelefone.setText(esc.getTelefone());
-            textViewCidade.setText(esc.getStatus());
+            textViewStatus.setText(esc.getStatus());
         }
         return view;
     }

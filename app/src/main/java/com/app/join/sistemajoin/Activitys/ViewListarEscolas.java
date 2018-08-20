@@ -28,10 +28,10 @@ public class ViewListarEscolas extends AppCompatActivity {
     private ListView listview;
     private ArrayAdapter<Escola> adapter;
     private ArrayList<Escola> lista;
-    private Escola escola, escolaExcluir;
+    private Escola escola, variavel;
     private DatabaseReference firebase;
     private ValueEventListener valueEventListener;
-    private AlertDialog alertDialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,25 +66,21 @@ public class ViewListarEscolas extends AppCompatActivity {
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                escolaExcluir = adapter.getItem(i);
-
+                variavel = adapter.getItem(i);
                 firebase = ConfiguracaoFirebase.getFirebase().child("escola");
-                firebase.child(escolaExcluir.getId());
+                firebase.child(variavel.getId());
                 Intent in = new Intent(getBaseContext(), ViewExibirInformacoesEscola.class);
-                in.putExtra("key", escolaExcluir.getId());
-                in.putExtra("nome", escolaExcluir.getNome());
-                in.putExtra("tel", escolaExcluir.getTelefone());
-                in.putExtra("email", escolaExcluir.getEmail());
-                in.putExtra("cnpj", escolaExcluir.getCnpj());
-                in.putExtra("status", escolaExcluir.getStatus());
+                in.putExtra("key", variavel.getId());
+                in.putExtra("nome", variavel.getNome());
+                in.putExtra("tel", variavel.getTelefone());
+                in.putExtra("email", variavel.getEmail());
+                in.putExtra("cnpj", variavel.getCnpj());
+                in.putExtra("status", variavel.getStatus());
+                in.putExtra("senha", variavel.getSenha());
                 startActivity(in);
 
             }
         });
-
-        /*
-
-         */
 
 
     }

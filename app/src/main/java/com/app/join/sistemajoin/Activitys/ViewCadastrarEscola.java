@@ -1,5 +1,6 @@
 package com.app.join.sistemajoin.Activitys;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,13 +23,13 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 
 public class ViewCadastrarEscola extends AppCompatActivity {
 
     EditText ctNomeEsc, ctTelEsc, ctEmailEsc, ctCNPJEsc;
     Button btSalvarEsc;
     FirebaseAuth autenticacao;
-    GeraUsuarioSenha geraUsuarioSenha;
     Escola escola;
 
     @Override
@@ -41,7 +42,7 @@ public class ViewCadastrarEscola extends AppCompatActivity {
         ctEmailEsc = (EditText) findViewById(R.id.ctEmailEsc);
         ctNomeEsc = (EditText) findViewById(R.id.ctNomeEsc);
         ctCNPJEsc = (EditText) findViewById(R.id.ctCNPJEsc);
-        btSalvarEsc = (Button) findViewById(R.id.btSalvarEsc);
+        btSalvarEsc = (Button) findViewById(R.id.btSalvarEscola);
         //fim da conexão com o xml=========
 
         //=====criar mascara no campo telefone escola
@@ -55,34 +56,57 @@ public class ViewCadastrarEscola extends AppCompatActivity {
         ctCNPJEsc.addTextChangedListener(mascaraCNPJ);
         //FIM MASCARA==========
 
-        //Botão salvar tela de Endereço
-        btSalvarEsc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        final Intent intent = getIntent();
 
-                escola = new Escola();
-                escola.setNome(ctNomeEsc.getText().toString());
-                escola.setTelefone(ctTelEsc.getText().toString());
-                escola.setEmail(ctEmailEsc.getText().toString());
-                escola.setCnpj(ctCNPJEsc.getText().toString());
-                escola.setCidade("não a campo");
+        final String key = intent.getStringExtra("key");
+        if (key != null) {
+            ctNomeEsc.setText(intent.getStringExtra("nome"));
+            ctTelEsc.setText(intent.getStringExtra("tel"));
+            ctCNPJEsc.setText(intent.getStringExtra("cnpj"));
+            ctEmailEsc.setText(intent.getStringExtra("email"));
+            btSalvarEsc.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
 
-                String[] carct = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
-                String senha = "";
-                for (int x = 0; x < 9; x++) {
-                    int j = (int) (Math.random() * carct.length);
-                    senha += carct[j];
+                    escola = new Escola();
+                    escola.setNome(ctNomeEsc.getText().toString());
+                    escola.setTelefone(ctTelEsc.getText().toString());
+                    escola.setEmail(ctEmailEsc.getText().toString());
+                    escola.setCnpj(ctCNPJEsc.getText().toString());
+                    escola.setId(key);
+                    escola.setStatus(intent.getStringExtra("status"));
+                    escola.setSenha(intent.getStringExtra("senha"));
+                    DatabaseReference firebase = ConfiguracaoFirebase.getFirebase().child("escola");
+                    firebase.child(intent.getStringExtra("nome")).removeValue();
+                    editar(escola);
+                    chamatelaListaescola();
                 }
+            });
+        } else {
+            btSalvarEsc.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    escola = new Escola();
+                    escola.setNome(ctNomeEsc.getText().toString());
+                    escola.setTelefone(ctTelEsc.getText().toString());
+                    escola.setEmail(ctEmailEsc.getText().toString());
+                    escola.setCnpj(ctCNPJEsc.getText().toString());
+                    escola.setStatus("Ativo");
+                    escola.setSenha(geraSenha());
+                    String idUsuario = Base64Custon.codificadorBase64(escola.getEmail());
+                    escola.setId(idUsuario);
 
-                escola.setSenha(senha);
+                    salvar(escola);
+                    chamatelaListaescola();
+                }
+            });
+        }
 
-                cadastrar();
+    }
 
-                //Intent i = new Intent(getBaseContext(), ViewListarEscolas.class);
-                //startActivity(i);
-            }
-        });
-
+    private void editar(Escola e) {
+        DatabaseReference data = ConfiguracaoFirebase.getFirebase().child("escola");
+        data.child(e.getId()).setValue(e);
     }
 
     public void cadastrar() {
@@ -98,7 +122,7 @@ public class ViewCadastrarEscola extends AppCompatActivity {
                                     String idUsuario = Base64Custon.codificadorBase64(escola.getEmail());
                                     FirebaseUser firebaseUser = task.getResult().getUser();
                                     escola.setId(idUsuario);
-                                    escola.salvar();
+                                    salvar(escola);
 
                                     Preferencias preferencias = new Preferencias(ViewCadastrarEscola.this);
                                     preferencias.salvaUsuarioLogado(idUsuario, escola.getNome());
@@ -120,6 +144,28 @@ public class ViewCadastrarEscola extends AppCompatActivity {
 
                             }
                         });
+    }
+
+    public String geraSenha() {
+        String[] carct = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
+        String senha = "";
+        for (int x = 0; x < 9; x++) {
+            int j = (int) (Math.random() * carct.length);
+            senha += carct[j];
+        }
+
+        return senha;
+    }
+
+    public void chamatelaListaescola() {
+        Intent i = new Intent(getBaseContext(), ViewListarEscolas.class);
+        startActivity(i);
+    }
+
+    private void salvar(Escola e) {
+        DatabaseReference data = ConfiguracaoFirebase.getFirebase().child("escola");
+        data.child(e.getNome()).setValue(e);
+
     }
 
 }

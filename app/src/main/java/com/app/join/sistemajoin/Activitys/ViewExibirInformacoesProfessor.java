@@ -18,7 +18,7 @@ public class ViewExibirInformacoesProfessor extends AppCompatActivity {
         cmpNomeProf=(TextView)findViewById(R.id.cmpNomeProf);
         cmpTelProf=(TextView)findViewById(R.id.cmpTelProf);
         cmpEmailProf=(TextView)findViewById(R.id.cmpEmailEsc);
-        cmpCPFProf=(TextView)findViewById(R.id.cmpCNPJEsc);
+        cmpCPFProf = (TextView) findViewById(R.id.cmpCNPJEscola);
         cmpDataNascProf=(TextView)findViewById(R.id.cmpDataNascProf);
         cmpRGProf=(TextView)findViewById(R.id.cmpRGProf);
         cmpFormacaoProf=(TextView)findViewById(R.id.cmpFormacaoProf);

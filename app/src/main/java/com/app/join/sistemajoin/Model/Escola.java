@@ -20,12 +20,6 @@ public class Escola {
     public Escola() {
     }
 
-    public void salvar() {
-
-        DatabaseReference data = ConfiguracaoFirebase.getFirebase();
-        data.child("escola").child(String.valueOf(getNome())).setValue(this);
-    }
-
 
     @Exclude
     public Map<String, Object> toMap() {

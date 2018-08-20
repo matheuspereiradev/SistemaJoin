@@ -7,7 +7,7 @@
     tools:context=".Activitys.ViewExibirInformacoesEscola">
 
     <TextView
-        android:id="@+id/cmpSenhaEsc"
+        android:id="@+id/cmpSenhaEscola"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="23dp"
@@ -25,7 +25,7 @@
         android:text="Senha:"
         android:textColor="@android:color/background_dark"
         android:textSize="17sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/cmpSenhaEsc"
+        app:layout_constraintBaseline_toBaselineOf="@+id/cmpSenhaEscola"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -46,7 +46,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Login:"
+        android:text="Status:"
         android:textColor="@android:color/background_dark"
         android:textSize="17sp"
         app:layout_constraintStart_toStartOf="@+id/textView18"
@@ -95,7 +95,7 @@
         android:layout_marginTop="24dp"
         android:text="Email:"
         android:textColor="@android:color/background_dark"
-        android:textSize="17sp"
+        android:textSize="17dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
@@ -103,11 +103,11 @@
         android:id="@+id/cmpLoginEsc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:text="TextView"
-        android:textSize="17sp"
-        app:layout_constraintStart_toStartOf="@+id/cmpCNPJEsc"
-        app:layout_constraintTop_toBottomOf="@+id/cmpCNPJEsc" />
+        android:textSize="17dp"
+        tools:layout_editor_absoluteX="116dp"
+        tools:layout_editor_absoluteY="257dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/cmpNomeEsc"
@@ -141,7 +141,7 @@
         app:layout_constraintTop_toBottomOf="@+id/cmpTelEsc" />
 
     <TextView
-        android:id="@+id/cmpCNPJEsc"
+        android:id="@+id/cmpCNPJEscola"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"

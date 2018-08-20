@@ -106,7 +106,7 @@ public class ViewCadastrarEscola extends AppCompatActivity {
 
     private void editar(Escola e) {
         DatabaseReference data = ConfiguracaoFirebase.getFirebase().child("escola");
-        data.child(e.getId()).setValue(e);
+        data.child(e.getId()).updateChildren(escola.toMap());
     }
 
     public void cadastrar() {
@@ -167,5 +167,6 @@ public class ViewCadastrarEscola extends AppCompatActivity {
         data.child(e.getNome()).setValue(e);
 
     }
+
 
 }

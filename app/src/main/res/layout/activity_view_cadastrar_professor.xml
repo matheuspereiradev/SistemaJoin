@@ -157,7 +157,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/botao_customizado"
-                android:text="prosseguir"
+                android:text="Salvar"
                 android:textColor="#ffffff"
                 android:textSize="20sp" />
         </LinearLayout>

@@ -23,7 +23,6 @@ public class Professor extends Pessoa {
         hashMapUsuarios.put("nome", getNome());
         hashMapUsuarios.put("dataNacimento", getDataNacimento());
         hashMapUsuarios.put("telefone", getTelefone());
-        hashMapUsuarios.put("tipo", getTipo());
         hashMapUsuarios.put("status", getStatus());
         hashMapUsuarios.put("keyTurma", getKeyTurma());
         hashMapUsuarios.put("senha", getSenha());

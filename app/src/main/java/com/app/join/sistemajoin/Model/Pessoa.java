@@ -5,7 +5,6 @@ public class Pessoa {
     private String nome;
     private String dataNacimento;
     private String telefone;
-    private String tipo;
     private String status;
     private String keyTurma;
     private String senha;
@@ -40,14 +39,6 @@ public class Pessoa {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
     }
 
     public String getStatus() {

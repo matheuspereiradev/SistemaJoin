@@ -25,6 +25,8 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 
+import java.util.InputMismatchException;
+
 public class ViewCadastrarEscola extends AppCompatActivity {
 
     EditText ctNomeEsc, ctTelEsc, ctEmailEsc, ctCNPJEsc;
@@ -57,17 +59,17 @@ public class ViewCadastrarEscola extends AppCompatActivity {
         //FIM MASCARA==========
 
         final Intent intent = getIntent();
-
         final String key = intent.getStringExtra("key");
+
         if (key != null) {
             ctNomeEsc.setText(intent.getStringExtra("nome"));
             ctTelEsc.setText(intent.getStringExtra("tel"));
             ctCNPJEsc.setText(intent.getStringExtra("cnpj"));
             ctEmailEsc.setText(intent.getStringExtra("email"));
+
             btSalvarEsc.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
                     escola = new Escola();
                     escola.setNome(ctNomeEsc.getText().toString());
                     escola.setTelefone(ctTelEsc.getText().toString());
@@ -78,8 +80,23 @@ public class ViewCadastrarEscola extends AppCompatActivity {
                     escola.setSenha(intent.getStringExtra("senha"));
                     DatabaseReference firebase = ConfiguracaoFirebase.getFirebase().child("escola");
                     firebase.child(intent.getStringExtra("nome")).removeValue();
-                    editar(escola);
-                    chamatelaListaescola();
+
+                    if (ctNomeEsc.getText().equals("") || ctTelEsc.getText().equals("") || ctEmailEsc.getText().equals("") || ctCNPJEsc.getText().equals("")) {
+                        Toast.makeText(getBaseContext(), "Preemcha todos os campos!", Toast.LENGTH_SHORT).show();
+                    } else if (ctTelEsc.getText().length() < 13) {
+                        Toast.makeText(getBaseContext(), "Telefone Incompleto!", Toast.LENGTH_SHORT).show();
+
+                    } else if (ctCNPJEsc.getText().length() < 18) {
+                        Toast.makeText(getBaseContext(), "CNPJ Incompleto!", Toast.LENGTH_SHORT).show();
+
+                        // } else if(!validaCnpj(ctCNPJEsc.getText().toString())){
+                        //    Toast.makeText(getBaseContext(), "CNPJ Invalido!", Toast.LENGTH_SHORT).show();
+
+                    } else {
+                        editar(escola);
+                        chamatelaListaescola();
+                        finish();
+                    }
                 }
             });
         } else {
@@ -95,9 +112,22 @@ public class ViewCadastrarEscola extends AppCompatActivity {
                     escola.setSenha(geraSenha());
                     String idUsuario = Base64Custon.codificadorBase64(escola.getEmail());
                     escola.setId(idUsuario);
+                    if (ctNomeEsc.getText().equals("") || ctTelEsc.getText().equals("") || ctEmailEsc.getText().equals("") || ctCNPJEsc.getText().equals("")) {
+                        Toast.makeText(getBaseContext(), "Preemcha todos os campos!", Toast.LENGTH_SHORT).show();
+                    } else if (ctTelEsc.getText().length() < 13) {
+                        Toast.makeText(getBaseContext(), "Telefone Incompleto!", Toast.LENGTH_SHORT).show();
 
-                    salvar(escola);
-                    chamatelaListaescola();
+                    } else if (ctCNPJEsc.getText().length() < 18) {
+                        Toast.makeText(getBaseContext(), "CNPJ Incompleto!", Toast.LENGTH_SHORT).show();
+
+                    } else if (!validaCnpj(ctCNPJEsc.getText().toString())) {
+                        Toast.makeText(getBaseContext(), "CNPJ Invalido!", Toast.LENGTH_SHORT).show();
+
+                    } else {
+                        salvar(escola);
+                        chamatelaListaescola();
+                        finish();
+                    }
                 }
             });
         }
@@ -117,8 +147,6 @@ public class ViewCadastrarEscola extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(getBaseContext(), "cadastro ok", Toast.LENGTH_SHORT).show();
-
                                     String idUsuario = Base64Custon.codificadorBase64(escola.getEmail());
                                     FirebaseUser firebaseUser = task.getResult().getUser();
                                     escola.setId(idUsuario);
@@ -164,8 +192,66 @@ public class ViewCadastrarEscola extends AppCompatActivity {
 
     private void salvar(Escola e) {
         DatabaseReference data = ConfiguracaoFirebase.getFirebase().child("escola");
-        data.child(e.getNome()).setValue(e);
+        data.child(e.getId()).setValue(e);
 
+    }
+
+    private boolean validaCnpj(String CNPJ) {
+
+        CNPJ = CNPJ.replace('.', ' ');
+        CNPJ = CNPJ.replace('/', ' ');
+        CNPJ = CNPJ.replace('-', ' ');
+        CNPJ = CNPJ.replaceAll(" ", "");
+
+        if (CNPJ.equals("00000000000000") || CNPJ.equals("11111111111111") ||
+                CNPJ.equals("22222222222222") || CNPJ.equals("33333333333333") ||
+                CNPJ.equals("44444444444444") || CNPJ.equals("55555555555555") ||
+                CNPJ.equals("66666666666666") || CNPJ.equals("77777777777777") ||
+                CNPJ.equals("88888888888888") || CNPJ.equals("99999999999999") ||
+                (CNPJ.length() != 14))
+            return (false);
+
+        char dig13, dig14;
+        int sm, i, r, num, peso;
+
+        try {
+            sm = 0;
+            peso = 2;
+            for (i = 11; i >= 0; i--) {
+                num = (int) (CNPJ.charAt(i) - 48);
+                sm = sm + (num * peso);
+                peso = peso + 1;
+                if (peso == 10)
+                    peso = 2;
+            }
+
+            r = sm % 11;
+            if ((r == 0) || (r == 1))
+                dig13 = '0';
+            else dig13 = (char) ((11 - r) + 48);
+
+            sm = 0;
+            peso = 2;
+            for (i = 12; i >= 0; i--) {
+                num = (int) (CNPJ.charAt(i) - 48);
+                sm = sm + (num * peso);
+                peso = peso + 1;
+                if (peso == 10)
+                    peso = 2;
+            }
+
+            r = sm % 11;
+            if ((r == 0) || (r == 1))
+                dig14 = '0';
+            else dig14 = (char) ((11 - r) + 48);
+
+
+            if ((dig13 == CNPJ.charAt(12)) && (dig14 == CNPJ.charAt(13)))
+                return (true);
+            else return (false);
+        } catch (InputMismatchException erro) {
+            return (false);
+        }
     }
 
 

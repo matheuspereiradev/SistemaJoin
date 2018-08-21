@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.app.join.sistemajoin.Model.Escola;
 import com.app.join.sistemajoin.Model.Professor;
@@ -17,11 +18,19 @@ import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.InputMismatchException;
+
 public class ViewCadastrarProfessor extends AppCompatActivity {
 
-    EditText ctEmailProf, ctNomeProf, ctDataNascProf,ctCPFProf,ctRGProf,ctTelProf,ctFormProf;
+    EditText ctEmailProf, ctNomeProf, ctDataNascProf, ctCPFProf, ctRGProf, ctTelProf, ctFormProf;
     Button btProximoProf1;
     Professor professor;
+    String key = "";
+    private DatabaseReference firebase;
+    Intent intent = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +42,9 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
         ctEmailProf = (EditText) findViewById(R.id.ctEmailProf);
         ctDataNascProf = (EditText) findViewById(R.id.ctDataNascProf);
         btProximoProf1 = (Button) findViewById(R.id.btProximoProf1);
-        ctCPFProf=(EditText)findViewById(R.id.ctCPFProf);
-        ctRGProf=(EditText)findViewById(R.id.ctRGProf);
-        ctTelProf=(EditText)findViewById(R.id.ctTelProf);
-        ctFormProf=(EditText)findViewById(R.id.ctFormProf);
+        ctCPFProf = (EditText) findViewById(R.id.ctCPFProf);
+        ctRGProf = (EditText) findViewById(R.id.ctRGProf);
+        ctTelProf = (EditText) findViewById(R.id.ctTelProf);
         //fim da conexão==========
 
 
@@ -57,17 +65,115 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
         MaskTextWatcher mascaraTel = new MaskTextWatcher(ctTelProf, maskTel);
         ctTelProf.addTextChangedListener(mascaraTel);
         //fim mascara======
+        intent = getIntent();
+        key = intent.getStringExtra("key");
 
-        //função do botão prosseguir
-        btProximoProf1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                salvar(setDados());
-                chamaTelaListaEscola();
+        if (key != null) {
+            preencheCampos();
+            btProximoProf1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (ctNomeProf.getText().equals("") || ctCPFProf.getText().equals("") || ctDataNascProf.getText().equals("")
+                            || ctEmailProf.getText().equals("") || ctRGProf.getText().equals("") || ctTelProf.getText().equals("")) {
+                        Toast.makeText(getBaseContext(), "Preemcha todos os campos!", Toast.LENGTH_SHORT).show();
+                    } else if (ctTelProf.getText().length() < 13) {
+                        Toast.makeText(getBaseContext(), "Telefone Incompleto!", Toast.LENGTH_SHORT).show();
+
+                    } else if (ctCPFProf.getText().length() < 14) {
+                        Toast.makeText(getBaseContext(), "CPF Incompleto!", Toast.LENGTH_SHORT).show();
+
+                    } else if (!validaCpf(ctCPFProf.getText().toString())) {
+                        Toast.makeText(getBaseContext(), "CPF Invalido!", Toast.LENGTH_SHORT).show();
+
+                    } else if (validaData(ctDataNascProf.getText().toString())) {
+                        Toast.makeText(getBaseContext(), "Data Invalida!", Toast.LENGTH_SHORT).show();
+                    } else {
+                        editar(setDados());
+                        chamaTelaListaEscola();
+                        finish();
+                    }
+                }
+            });
+
+        } else {
+            btProximoProf1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (ctNomeProf.getText().equals("") || ctCPFProf.getText().equals("") || ctDataNascProf.getText().equals("")
+                            || ctEmailProf.getText().equals("") || ctRGProf.getText().equals("") || ctTelProf.getText().equals("")) {
+                        Toast.makeText(getBaseContext(), "Preemcha todos os campos!", Toast.LENGTH_SHORT).show();
+                    } else if (ctTelProf.getText().length() < 13) {
+                        Toast.makeText(getBaseContext(), "Telefone Incompleto!", Toast.LENGTH_SHORT).show();
+
+                    } else if (ctCPFProf.getText().length() < 14) {
+                        Toast.makeText(getBaseContext(), "CPF Incompleto!", Toast.LENGTH_SHORT).show();
+
+                    } else if (!validaCpf(ctCPFProf.getText().toString())) {
+                        Toast.makeText(getBaseContext(), "CPF Invalido!", Toast.LENGTH_SHORT).show();
+
+                    } else if (validaData(ctDataNascProf.getText().toString())) {
+                        Toast.makeText(getBaseContext(), "Data Invalida!", Toast.LENGTH_SHORT).show();
+                    } else {
+                        salvar(setDados());
+                        chamaTelaListaEscola();
+                        finish();
+                    }
+                }
+            });
+        }
+    }
+
+    private boolean validaCpf(String CPF) {
+
+        CPF = CPF.replace('.', ' ');
+        CPF = CPF.replace('-', ' ');
+        CPF = CPF.replaceAll(" ", "");
+
+        if (CPF.equals("00000000000") ||
+                CPF.equals("11111111111") ||
+                CPF.equals("22222222222") || CPF.equals("33333333333") ||
+                CPF.equals("44444444444") || CPF.equals("55555555555") ||
+                CPF.equals("66666666666") || CPF.equals("77777777777") ||
+                CPF.equals("88888888888") || CPF.equals("99999999999") ||
+                (CPF.length() != 11))
+            return (false);
+
+        char dig10, dig11;
+        int sm, i, r, num, peso;
+
+        try {
+            sm = 0;
+            peso = 10;
+            for (i = 0; i < 9; i++) {
+                num = (int) (CPF.charAt(i) - 48);
+                sm = sm + (num * peso);
+                peso = peso - 1;
             }
-        });
 
+            r = 11 - (sm % 11);
+            if ((r == 10) || (r == 11))
+                dig10 = '0';
+            else dig10 = (char) (r + 48);
 
+            sm = 0;
+            peso = 11;
+            for (i = 0; i < 10; i++) {
+                num = (int) (CPF.charAt(i) - 48);
+                sm = sm + (num * peso);
+                peso = peso - 1;
+            }
+
+            r = 11 - (sm % 11);
+            if ((r == 10) || (r == 11))
+                dig11 = '0';
+            else dig11 = (char) (r + 48);
+
+            if ((dig10 == CPF.charAt(9)) && (dig11 == CPF.charAt(10)))
+                return (true);
+            else return (false);
+        } catch (InputMismatchException erro) {
+            return (false);
+        }
     }
 
     private void chamaTelaListaEscola() {
@@ -77,7 +183,7 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
 
     private void salvar(Professor p) {
         DatabaseReference data = ConfiguracaoFirebase.getFirebase().child("professor");
-        data.child(p.getNome()).setValue(p);
+        data.child(p.getIdProfessor()).setValue(p);
 
     }
 
@@ -89,11 +195,10 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
         String idUsuario = Base64Custon.codificadorBase64(professor.getEmail());
         professor.setIdProfessor(idUsuario);
         professor.setStatus("Ativo");
-        professor.setTipo("Professor");
         professor.setSenha(geraSenha());
-        professor.setRg("");
-        professor.setCpf("");
-        professor.setTelefone("88988888888");
+        professor.setRg(ctRGProf.getText().toString());
+        professor.setCpf(ctCPFProf.getText().toString());
+        professor.setTelefone(ctTelProf.getText().toString());
         professor.setKeyTurma("sem Turma");
         return professor;
     }
@@ -107,6 +212,34 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
         }
 
         return senha;
+    }
+
+    private void editar(Professor p) {
+        DatabaseReference data = ConfiguracaoFirebase.getFirebase().child("professor");
+        data.child(p.getIdProfessor()).updateChildren(professor.toMap());
+    }
+
+    private void preencheCampos() {
+        ctNomeProf.setText(intent.getStringExtra("nome"));
+        ctEmailProf.setText(intent.getStringExtra("email"));
+        ctCPFProf.setText(intent.getStringExtra("cpf"));
+        ctDataNascProf.setText(intent.getStringExtra("data"));
+        ctRGProf.setText(intent.getStringExtra("rg"));
+        ctTelProf.setText(intent.getStringExtra("tel"));
+    }
+
+    private boolean validaData(String data) {
+        data = data.replace('/', ' ');
+        data = data.replaceAll(" ", "");
+        String d = data;
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        df.setLenient(false);
+        try {
+            df.parse(d);
+            return true;
+        } catch (ParseException ex) {
+            return false;
+        }
     }
 
 

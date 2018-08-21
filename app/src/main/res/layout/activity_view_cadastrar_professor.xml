@@ -134,22 +134,6 @@
                 android:hint="RG"
                 android:inputType="number" />
 
-            <TextView
-                android:id="@+id/textView79"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Formação:"
-                android:textColor="@android:color/background_dark"
-                android:textSize="17sp" />
-
-            <EditText
-                android:id="@+id/ctFormProf"
-                android:layout_width="313dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Formaçao"
-                android:inputType="number" />
-
             <Button
                 android:id="@+id/btProximoProf1"
                 android:layout_width="202dp"

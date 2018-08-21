@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.app.join.sistemajoin.Adapter.EscolaAdapter;
 import com.app.join.sistemajoin.Adapter.ProfessorAdapter;
@@ -29,6 +30,7 @@ public class ViewListaProfessores extends AppCompatActivity {
     private Professor professor, variavel;
     private DatabaseReference firebase;
     private ValueEventListener valueEventListener;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +38,7 @@ public class ViewListaProfessores extends AppCompatActivity {
 
 
         lista = new ArrayList();
-        listview = findViewById(R.id.lwEscolasCadastradas);
+        listview = findViewById(R.id.lwProfessoresCadastrados);
         adapter = new ProfessorAdapter(this, lista);
         listview.setAdapter(adapter);
         firebase = ConfiguracaoFirebase.getFirebase().child("professor");
@@ -66,18 +68,19 @@ public class ViewListaProfessores extends AppCompatActivity {
                 variavel = adapter.getItem(i);
                 firebase = ConfiguracaoFirebase.getFirebase().child("professor");
                 firebase.child(variavel.getIdProfessor());
-                Intent in = new Intent(getBaseContext(), ViewExibirInformacoesEscola.class);
+                Intent in = new Intent(ViewListaProfessores.this, ViewExibirInformacoesProfessor.class);
                 in.putExtra("key", variavel.getIdProfessor());
-                /*
                 in.putExtra("nome", variavel.getNome());
                 in.putExtra("tel", variavel.getTelefone());
                 in.putExtra("email", variavel.getEmail());
-                in.putExtra("cnpj", variavel.getCnpj());
+                in.putExtra("cpf", variavel.getCpf());
                 in.putExtra("status", variavel.getStatus());
                 in.putExtra("senha", variavel.getSenha());
-                */
+                in.putExtra("rg", variavel.getRg());
+                in.putExtra("keyTurma", variavel.getKeyTurma());
+                in.putExtra("data", variavel.getDataNacimento());
                 startActivity(in);
-
+                finish();
             }
         });
 

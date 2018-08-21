@@ -91,37 +91,15 @@
         app:layout_constraintTop_toBottomOf="@+id/textView47" />
 
     <TextView
-        android:id="@+id/textView49"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Formação:"
-        android:textColor="@android:color/background_dark"
-        android:textSize="17sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/cmpFormacaoProf"
-        app:layout_constraintStart_toStartOf="@+id/textView48" />
-
-    <TextView
         android:id="@+id/textView50"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
         android:text="Senha:"
         android:textColor="@android:color/background_dark"
         android:textSize="17sp"
-        app:layout_constraintStart_toStartOf="@+id/textView61"
-        app:layout_constraintTop_toBottomOf="@+id/textView61" />
+        tools:layout_editor_absoluteX="60dp"
+        tools:layout_editor_absoluteY="320dp" />
 
-
-    <TextView
-        android:id="@+id/textView61"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:text="Login:"
-        android:textColor="@android:color/background_dark"
-        android:textSize="17sp"
-        app:layout_constraintStart_toStartOf="@+id/textView49"
-        app:layout_constraintTop_toBottomOf="@+id/textView49" />
 
     <TextView
         android:id="@+id/cmpNomeProf"
@@ -139,11 +117,11 @@
         android:id="@+id/cmpTelProf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
         android:text="TextView"
         android:textSize="17sp"
-        app:layout_constraintStart_toStartOf="@+id/cmpNomeProf"
-        app:layout_constraintTop_toBottomOf="@+id/cmpNomeProf" />
+        tools:layout_editor_absoluteX="156dp"
+        tools:layout_editor_absoluteY="106dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/cmpEmailProf"
@@ -186,38 +164,16 @@
         app:layout_constraintTop_toBottomOf="@+id/textView47" />
 
     <TextView
-        android:id="@+id/cmpFormacaoProf"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="14dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="16dp"
-        android:text="TextView"
-        android:textSize="17sp"
-        app:layout_constraintStart_toEndOf="@+id/textView49"
-        app:layout_constraintTop_toBottomOf="@+id/cmpRGProf" />
-
-    <TextView
         android:id="@+id/cmpSenhaProf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="44dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginStart="12dp"
+        android:layout_marginBottom="104dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginStart="32dp"
         android:text="TextView"
         android:textSize="17sp"
         app:layout_constraintBottom_toTopOf="@+id/btConfigProf"
         app:layout_constraintStart_toEndOf="@+id/btEditProf" />
-
-    <TextView
-        android:id="@+id/cmpLoginProf"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:text="TextView"
-        android:textSize="17sp"
-        app:layout_constraintBottom_toTopOf="@+id/cmpSenhaProf"
-        app:layout_constraintStart_toStartOf="@+id/cmpSenhaProf" />
 
     <ImageButton
         android:id="@+id/btEditProf"

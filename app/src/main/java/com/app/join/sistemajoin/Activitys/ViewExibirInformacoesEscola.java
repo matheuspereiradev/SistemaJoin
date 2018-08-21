@@ -66,7 +66,9 @@ public class ViewExibirInformacoesEscola extends AppCompatActivity {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         firebase = ConfiguracaoFirebase.getFirebase().child("escola");
                         firebase.child(intent.getStringExtra("nome")).removeValue();
-                        Toast.makeText(getBaseContext(), "Escola Excluida!", Toast.LENGTH_SHORT).show();
+                        Intent in = new Intent(getBaseContext(), ViewHomeSistemaEscola.class);
+                        startActivity(in);
+                        finish();
                     }
                 });
                 builder.setNegativeButton("não", new DialogInterface.OnClickListener() {
@@ -91,6 +93,7 @@ public class ViewExibirInformacoesEscola extends AppCompatActivity {
                 in.putExtra("status", intent.getStringExtra("status"));
                 in.putExtra("senha", intent.getStringExtra("senha"));
                 startActivity(in);
+                finish();
             }
         });
 

@@ -42,7 +42,7 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="16dp"
         android:src="@mipmap/icone"
-        app:layout_constraintBottom_toTopOf="@+id/btListProfessor"
+        app:layout_constraintBottom_toTopOf="@+id/btListTurmas"
         app:layout_constraintEnd_toStartOf="@+id/textView17"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,7 +66,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
     <Button
-        android:id="@+id/btListProfessor"
+        android:id="@+id/btListTurmas"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="25dp"
@@ -75,7 +75,7 @@
         android:layout_marginRight="55dp"
         android:layout_marginStart="55dp"
         android:drawableLeft="@drawable/iconlista"
-        android:text="Listar professores"
+        android:text="Listar Turmas"
         android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -95,7 +95,7 @@
         android:drawableLeft="@drawable/iconnovo"
         android:text="Nova Turma"
         android:textSize="18dp"
-        app:layout_constraintBottom_toTopOf="@+id/btListProfessor"
+        app:layout_constraintBottom_toTopOf="@+id/btListTurmas"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"

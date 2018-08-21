@@ -57,7 +57,7 @@ public class ViewExibirInformacoesProfessor extends AppCompatActivity {
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(ViewExibirInformacoesProfessor.this);
                 builder.setTitle("Excluir!");
-                builder.setMessage("Deseja realmente excluir" + in.getStringExtra("nome") + "?");
+                builder.setMessage("Deseja realmente excluir " + in.getStringExtra("nome") + "?");
                 builder.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {

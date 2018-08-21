@@ -16,7 +16,7 @@ public class ViewHomeSistemaEscola extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_home_sistema_escola);
 
-        btListProfessor=(Button)findViewById(R.id.btListProfessor);
+        btListProfessor=(Button)findViewById(R.id.btListTurmas);
         btListTurma=(Button)findViewById(R.id.btListTurma);
         btNovoProfessor=(Button)findViewById(R.id.btNovoProfessor);
         btNovaTurma=(Button)findViewById(R.id.btNovaTurma);

@@ -19,7 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 
 public class ViewCadastrarProfessor extends AppCompatActivity {
 
-    EditText ctEmailProf, ctNomeProf, ctDataNascProf;
+    EditText ctEmailProf, ctNomeProf, ctDataNascProf,ctCPFProf,ctRGProf,ctTelProf,ctFormProf;
     Button btProximoProf1;
     Professor professor;
 
@@ -33,6 +33,10 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
         ctEmailProf = (EditText) findViewById(R.id.ctEmailProf);
         ctDataNascProf = (EditText) findViewById(R.id.ctDataNascProf);
         btProximoProf1 = (Button) findViewById(R.id.btProximoProf1);
+        ctCPFProf=(EditText)findViewById(R.id.ctCPFProf);
+        ctRGProf=(EditText)findViewById(R.id.ctRGProf);
+        ctTelProf=(EditText)findViewById(R.id.ctTelProf);
+        ctFormProf=(EditText)findViewById(R.id.ctFormProf);
         //fim da conexão==========
 
 
@@ -42,6 +46,17 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
         ctDataNascProf.addTextChangedListener(mascaraData);
         //fim mascara======
 
+        //========aplicando mascara CPF
+        SimpleMaskFormatter maskCPF = new SimpleMaskFormatter("NNN.NNN.NNN-NN");
+        MaskTextWatcher mascaraCPF = new MaskTextWatcher(ctCPFProf, maskCPF);
+        ctCPFProf.addTextChangedListener(mascaraCPF);
+        //fim mascara======
+
+        //========aplicando mascara telefone
+        SimpleMaskFormatter maskTel = new SimpleMaskFormatter("(NN) N NNNN-NNNN");
+        MaskTextWatcher mascaraTel = new MaskTextWatcher(ctTelProf, maskTel);
+        ctTelProf.addTextChangedListener(mascaraTel);
+        //fim mascara======
 
         //função do botão prosseguir
         btProximoProf1.setOnClickListener(new View.OnClickListener() {

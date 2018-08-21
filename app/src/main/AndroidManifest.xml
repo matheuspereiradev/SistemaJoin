@@ -28,7 +28,6 @@
         <activity android:name=".Activitys.ViewHomeSistemaAdministrativo" />
         <activity android:name=".Activitys.ViewTelaLogin" />
         <activity android:name=".Activitys.ViewCadastrarProfessor" />
-        <activity android:name=".Activitys.ViewCadastrarProfessor2" />
         <activity android:name=".Activitys.ViewRealizarPostagem" />
         <activity android:name=".Activitys.ViewSelecionarAlunos" />
         <activity android:name=".Activitys.ViewRealizarAvaliacao" />
@@ -37,6 +36,7 @@
         <activity android:name=".Activitys.ViewExibirInformacoesProfessor" />
         <activity android:name=".Activitys.ViewExibirInformacoesEscola" />
         <activity android:name=".ViewConfigurarConta" />
+        <activity android:name=".Activitys.ViewHomeProfessor"></activity>
     </application>
 
 </manifest>

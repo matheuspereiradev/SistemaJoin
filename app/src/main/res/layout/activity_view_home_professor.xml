@@ -6,4 +6,62 @@
     android:layout_height="match_parent"
     tools:context=".Activitys.ViewHomeProfessor">
 
+    <TextView
+        android:id="@+id/textView222"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Seja bem vindo,"
+        android:textColor="@android:color/background_dark"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="119dp"
+        tools:layout_editor_absoluteY="23dp" />
+
+    <TextView
+        android:id="@+id/textView98"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="à plataforma do professor"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="119dp"
+        tools:layout_editor_absoluteY="63dp" />
+
+    <ImageView
+        android:id="@+id/imageView79"
+        android:layout_width="110dp"
+        android:layout_height="97dp"
+        app:srcCompat="@drawable/logo"
+        tools:layout_editor_absoluteX="9dp"
+        tools:layout_editor_absoluteY="7dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="136dp"
+        tools:layout_editor_absoluteY="155dp" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="136dp"
+        tools:layout_editor_absoluteY="231dp" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="136dp"
+        tools:layout_editor_absoluteY="300dp" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="136dp"
+        tools:layout_editor_absoluteY="375dp" />
 </android.support.constraint.ConstraintLayout>

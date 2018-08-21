@@ -54,6 +54,7 @@ public class ViewExibirInformacoesEscola extends AppCompatActivity {
         cmpCNPJEsc.setText(intent.getStringExtra("cnpj"));
         cmpEmailEsc.setText(intent.getStringExtra("email"));
         cmpLoginEsc.setText(intent.getStringExtra("status"));
+        cmpSenhaEsc.setText(intent.getStringExtra("senha"));
 
         btExcluirEsc.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,8 +66,8 @@ public class ViewExibirInformacoesEscola extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         firebase = ConfiguracaoFirebase.getFirebase().child("escola");
-                        firebase.child(intent.getStringExtra("nome")).removeValue();
-                        Intent in = new Intent(getBaseContext(), ViewHomeSistemaEscola.class);
+                        firebase.child(intent.getStringExtra("key")).removeValue();
+                        Intent in = new Intent(getBaseContext(), ViewHomeSistemaAdministrativo.class);
                         startActivity(in);
                         finish();
                     }

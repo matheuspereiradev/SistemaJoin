@@ -27,7 +27,7 @@
     <GridLayout
         android:id="@+id/gridLayout3"
         android:layout_width="324dp"
-        android:layout_height="232dp"
+        android:layout_height="229dp"
         android:layout_marginBottom="120dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"

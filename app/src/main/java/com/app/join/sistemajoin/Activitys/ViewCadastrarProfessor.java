@@ -101,7 +101,7 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
                 public void onClick(View v) {
                     if (ctNomeProf.getText().equals("") || ctCPFProf.getText().equals("") || ctDataNascProf.getText().equals("")
                             || ctEmailProf.getText().equals("") || ctRGProf.getText().equals("") || ctTelProf.getText().equals("")) {
-                        Toast.makeText(getBaseContext(), "Preemcha todos os campos!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getBaseContext(), "Preencha todos os campos!", Toast.LENGTH_SHORT).show();
                     } else if (ctTelProf.getText().length() < 13) {
                         Toast.makeText(getBaseContext(), "Telefone Incompleto!", Toast.LENGTH_SHORT).show();
 

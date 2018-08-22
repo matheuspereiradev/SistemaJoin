@@ -36,7 +36,8 @@
         <activity android:name=".Activitys.ViewExibirInformacoesProfessor" />
         <activity android:name=".Activitys.ViewExibirInformacoesEscola" />
         <activity android:name=".Activitys.ViewConfigurarConta" />
-        <activity android:name=".Activitys.ViewHomeProfessor"></activity>
+        <activity android:name=".Activitys.ViewHomeProfessor" />
+        <activity android:name=".Activitys.ActivityCadastrarAluno"></activity>
     </application>
 
 </manifest>

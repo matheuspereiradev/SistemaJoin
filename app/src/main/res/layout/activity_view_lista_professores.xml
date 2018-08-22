@@ -4,20 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activitys.ViewListaProfessores">
+    tools:context=".Activitys.ViewListaProfessores"
+    tools:layout_editor_absoluteY="81dp">
 
     <TextView
         android:id="@+id/textView12"
-        android:layout_width="312dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:text="Abaixo está a lista de todos os professores cadastrados, clique sobre eles para obter informações completas sobre eles"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="16dp"
+        android:text="Listar escolas cadastradas"
         android:textColor="@android:color/background_dark"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/lwEscolasCadastradas"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/lwProfessoresCadastrados"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <ListView
         android:id="@+id/lwProfessoresCadastrados"
         android:layout_width="0dp"

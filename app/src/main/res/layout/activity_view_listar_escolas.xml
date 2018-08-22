@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activitys.ViewListarEscolas">
+    tools:context=".Activitys.ViewListarEscolas"
+    tools:layout_editor_absoluteY="81dp">
 
     <ListView
         android:id="@+id/lwEscolasCadastradas"
@@ -18,14 +19,16 @@
 
     <TextView
         android:id="@+id/textView12"
-        android:layout_width="0dp"
+        android:layout_width="332dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:text="Abaixo está a lista de todas as escolas cadastradas, clique sobre elas para obter informações completas sobre elas"
+        android:layout_marginBottom="17dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Lista de escolas cadastradas"
         android:textColor="@android:color/background_dark"
-        android:textSize="16sp"
+        android:textSize="25sp"
         app:layout_constraintBottom_toTopOf="@+id/lwEscolasCadastradas"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

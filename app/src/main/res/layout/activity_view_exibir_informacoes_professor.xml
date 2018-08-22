@@ -185,7 +185,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="5dp"
         android:layout_marginStart="8dp"
-        android:background="@android:color/holo_green_dark"
+        android:background="@android:color/holo_blue_dark"
         android:src="@android:drawable/ic_menu_edit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btConfigProf"

@@ -4,41 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activitys.ViewCadastrarProfessor"
-    tools:layout_editor_absoluteY="81dp">
+    tools:context=".Activitys.ActivityCadastrarAluno">
 
     <TextView
-        android:id="@+id/textView26"
+        android:id="@+id/textView34"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="9dp"
-        android:layout_marginTop="6dp"
-        android:text="Cadastrar Professor"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="16dp"
+        android:text="Cadastrar aluno"
         android:textColor="@android:color/background_dark"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
-        android:id="@+id/scrollView2"
+        android:id="@+id/scrollView5"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="2dp"
+        android:layout_marginBottom="6dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginStart="2dp"
+        android:paddingLeft="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView26">
+        app:layout_constraintTop_toBottomOf="@+id/textView34">
 
         <LinearLayout
-            android:layout_width="374dp"
-            android:layout_height="466dp"
-            android:orientation="vertical"
-            android:paddingLeft="12dp">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView27"
+                android:id="@+id/textView36"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nome:"
@@ -46,104 +49,89 @@
                 android:textSize="17sp" />
 
             <EditText
-                android:id="@+id/ctNomeProf"
-                android:layout_width="310dp"
+                android:id="@+id/ctNomeAluno"
+                android:layout_width="337dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Nome"
                 android:inputType="textPersonName" />
 
             <TextView
-                android:id="@+id/textView28"
+                android:id="@+id/textView49"
                 android:layout_width="wrap_content"
-                android:layout_height="19dp"
-                android:text="Data de nascimento:"
+                android:layout_height="wrap_content"
+                android:text="Matricula"
                 android:textColor="@android:color/background_dark"
                 android:textSize="17sp" />
 
             <EditText
-                android:id="@+id/ctDataNascProf"
-                android:layout_width="311dp"
+                android:id="@+id/ctMatricAluno"
+                android:layout_width="340dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Data de nascimento"
+                android:hint="Matricula"
                 android:inputType="number" />
 
             <TextView
-                android:id="@+id/textView30"
+                android:id="@+id/textView52"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Email:"
+                android:text="Telefone"
                 android:textColor="@android:color/background_dark"
                 android:textSize="17sp" />
 
             <EditText
-                android:id="@+id/ctEmailProf"
-                android:layout_width="308dp"
-                android:layout_height="wrap_content"
-                android:hint="Email"
-                android:inputType="textEmailAddress" />
-
-            <TextView
-                android:id="@+id/textView51"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Telefone:"
-                android:textColor="@android:color/background_dark"
-                android:textSize="17sp" />
-
-            <EditText
-                android:id="@+id/ctTelProf"
-                android:layout_width="308dp"
+                android:id="@+id/ctTelAluno"
+                android:layout_width="340dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Telefone"
-                android:inputType="number" />
+                android:inputType="phone" />
 
             <TextView
-                android:id="@+id/textView53"
+                android:id="@+id/textView55"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="CPF:"
+                android:text="Nome do responsável"
                 android:textColor="@android:color/background_dark"
                 android:textSize="17sp" />
 
             <EditText
-                android:id="@+id/ctCPFProf"
-                android:layout_width="313dp"
+                android:id="@+id/ctNomeResponsavel"
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Nome do responsável"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/textView54"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CPF do responsável"
+                android:textColor="@android:color/background_dark"
+                android:textSize="17sp" />
+
+            <EditText
+                android:id="@+id/ctCPFResp"
+                android:layout_width="340dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="CPF"
                 android:inputType="number" />
 
-            <TextView
-                android:id="@+id/textView59"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="RG:"
-                android:textColor="@android:color/background_dark"
-                android:textSize="17sp" />
-
-            <EditText
-                android:id="@+id/ctRGProf"
-                android:layout_width="313dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="RG"
-                android:inputType="number" />
-
             <Button
-                android:id="@+id/btProximoProf1"
-                android:layout_width="202dp"
-                android:layout_height="67dp"
-                android:layout_alignParentBottom="true"
-                android:layout_gravity="center_horizontal"
+                android:id="@+id/btSalvarAluno"
+                android:layout_width="163dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
                 android:background="@drawable/botao_customizado"
+                android:paddingTop="15dp"
                 android:text="Salvar"
                 android:textColor="#ffffff"
                 android:textSize="20sp" />
         </LinearLayout>
-
     </ScrollView>
+
 
 </android.support.constraint.ConstraintLayout>

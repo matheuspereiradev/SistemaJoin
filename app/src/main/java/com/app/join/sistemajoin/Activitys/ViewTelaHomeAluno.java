@@ -5,11 +5,11 @@ import android.os.Bundle;
 
 import com.app.join.sistemajoin.R;
 
-public class ActivityCadastrarAluno extends AppCompatActivity {
+public class ViewTelaHomeAluno extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_cadastrar_aluno);
+        setContentView(R.layout.activity_view_home_aluno);
     }
 }

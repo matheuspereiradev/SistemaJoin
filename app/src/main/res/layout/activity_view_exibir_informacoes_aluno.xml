@@ -46,7 +46,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:text="Nome do aluno:"
-            android:textColor="@android:color/background_dark"
+            android:textColor="@android:color/black"
             android:textSize="17sp" />
 
         <TextView
@@ -65,7 +65,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="15dp"
             android:text="Matrícula:"
-            android:textColor="background_dark"
+            android:textColor="@android:color/black"
             android:textSize="17sp" />
 
         <TextView
@@ -84,7 +84,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="15dp"
             android:text="Telefone:"
-            android:textColor="background_dark"
+            android:textColor="@android:color/black"
             android:textSize="17sp" />
 
         <TextView
@@ -104,7 +104,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="15dp"
             android:text="Nome do Responsável:"
-            android:textColor="background_dark"
+            android:textColor="@android:color/black"
             android:textSize="17sp" />
 
         <TextView
@@ -123,7 +123,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="15dp"
             android:text="CPF do Responsável:"
-            android:textColor="background_dark"
+            android:textColor="@android:color/black"
             android:textSize="17sp" />
 
         <TextView
@@ -142,7 +142,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="15dp"
             android:text="Senha:"
-            android:textColor="background_dark"
+            android:textColor="@android:color/black"
             android:textSize="17sp" />
 
         <TextView
@@ -160,12 +160,13 @@
         android:id="@+id/btExcluirAluno"
         android:layout_width="108dp"
         android:layout_height="49dp"
+        android:layout_marginBottom="20dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:background="@android:color/holo_red_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_delete"
-        tools:layout_editor_absoluteY="446dp" />
+        app:srcCompat="@android:drawable/ic_menu_delete" />
 
     <ImageButton
         android:id="@+id/btEditarAluno"
@@ -177,7 +178,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:background="@android:color/holo_blue_dark"
-        app:layout_constraintBottom_toBottomOf="@+id/btConfigAluno"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btConfigAluno"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/btConfigAluno"
@@ -188,10 +189,11 @@
         android:id="@+id/btConfigAluno"
         android:layout_width="108dp"
         android:layout_height="50dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="12dp"
         android:layout_marginRight="12dp"
         android:background="@android:color/holo_green_dark"
-        app:layout_constraintBottom_toBottomOf="@+id/btExcluirAluno"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btExcluirAluno"
         app:layout_constraintTop_toTopOf="@+id/btExcluirAluno"
         app:layout_constraintVertical_bias="0.0"

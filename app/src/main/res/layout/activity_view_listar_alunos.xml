@@ -15,13 +15,13 @@
         android:text="Lista de alunos cadastrados"
         android:textColor="@android:color/background_dark"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/_dynamic"
+        app:layout_constraintBottom_toTopOf="@+id/lwListaAlunos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
-        android:id="@+id/listaAlunos"
+        android:id="@+id/lwListaAlunos"
         android:layout_width="0dp"
         android:layout_height="438dp"
         android:layout_marginBottom="2dp"

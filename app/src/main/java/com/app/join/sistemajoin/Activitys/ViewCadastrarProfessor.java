@@ -1,6 +1,7 @@
 package com.app.join.sistemajoin.Activitys;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,10 +14,17 @@ import com.app.join.sistemajoin.Model.Professor;
 import com.app.join.sistemajoin.R;
 import com.app.join.sistemajoin.Tools.Base64Custon;
 import com.app.join.sistemajoin.Tools.ConfiguracaoFirebase;
+import com.app.join.sistemajoin.Tools.Preferencias;
 import com.github.rtoshiro.util.format.SimpleMaskFormatter;
 import com.github.rtoshiro.util.format.text.MaskTextWatcher;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Query;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -25,11 +33,12 @@ import java.util.InputMismatchException;
 
 public class ViewCadastrarProfessor extends AppCompatActivity {
 
-    EditText ctEmailProf, ctNomeProf, ctDataNascProf, ctCPFProf, ctRGProf, ctTelProf, ctFormProf;
+    EditText ctEmailProf, ctNomeProf, ctDataNascProf, ctCPFProf, ctRGProf, ctTelProf;
     Button btProximoProf1;
     Professor professor;
     String key = "";
     private DatabaseReference firebase;
+    FirebaseAuth autenticacao;
     Intent intent = null;
 
     @Override
@@ -85,8 +94,6 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
                     } else if (!validaCpf(ctCPFProf.getText().toString())) {
                         Toast.makeText(getBaseContext(), "CPF Invalido!", Toast.LENGTH_SHORT).show();
 
-                    } else if (validaData(ctDataNascProf.getText().toString())) {
-                        Toast.makeText(getBaseContext(), "Data Invalida!", Toast.LENGTH_SHORT).show();
                     } else {
                         editar(setDados());
                         chamaTelaListaEscola();
@@ -111,9 +118,8 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
                     } else if (!validaCpf(ctCPFProf.getText().toString())) {
                         Toast.makeText(getBaseContext(), "CPF Invalido!", Toast.LENGTH_SHORT).show();
 
-                    } else if (validaData(ctDataNascProf.getText().toString())) {
-                        Toast.makeText(getBaseContext(), "Data Invalida!", Toast.LENGTH_SHORT).show();
                     } else {
+                        cadastrar(setDados());
                         salvar(setDados());
                         chamaTelaListaEscola();
                         finish();
@@ -121,6 +127,36 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
                 }
             });
         }
+    }
+
+    public void cadastrar(final Professor p) {
+        autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
+        autenticacao.createUserWithEmailAndPassword(p.getEmail(), p.getSenha())
+                .addOnCompleteListener(ViewCadastrarProfessor.this,
+                        new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    Preferencias preferencias = new Preferencias(ViewCadastrarProfessor.this);
+                                    preferencias.salvaUsuarioLogado(p.getIdProfessor(), p.getNome());
+
+                                } else {
+                                    String erroExcecao = "";
+                                    try {
+                                        throw task.getException();
+                                    } catch (FirebaseAuthInvalidCredentialsException e) {
+                                        erroExcecao = "E-mail invalido!";
+                                    } catch (FirebaseAuthUserCollisionException e) {
+                                        erroExcecao = "E-mail ja esta cadastrado em outro usuario!";
+                                    } catch (Exception e) {
+                                        erroExcecao = "Erro no cadastro!";
+                                        e.printStackTrace();
+                                    }
+                                    Toast.makeText(getBaseContext(), "ERRO! " + erroExcecao, Toast.LENGTH_SHORT).show();
+                                }
+
+                            }
+                        });
     }
 
     private boolean validaCpf(String CPF) {
@@ -190,13 +226,11 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
     private Professor setDados() {
         professor = new Professor();
         professor.setNome(ctNomeProf.getText().toString());
-        professor.setDataNacimento(ctDataNascProf.getText().toString());
         professor.setEmail(ctEmailProf.getText().toString());
         String idUsuario = Base64Custon.codificadorBase64(professor.getEmail());
         professor.setIdProfessor(idUsuario);
         professor.setStatus("Ativo");
         professor.setSenha(geraSenha());
-        professor.setRg(ctRGProf.getText().toString());
         professor.setCpf(ctCPFProf.getText().toString());
         professor.setTelefone(ctTelProf.getText().toString());
         professor.setKeyTurma("sem Turma");
@@ -228,19 +262,6 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
         ctTelProf.setText(intent.getStringExtra("tel"));
     }
 
-    private boolean validaData(String data) {
-        data = data.replace('/', ' ');
-        data = data.replaceAll(" ", "");
-        String d = data;
-        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-        df.setLenient(false);
-        try {
-            df.parse(d);
-            return true;
-        } catch (ParseException ex) {
-            return false;
-        }
-    }
 
 
 }

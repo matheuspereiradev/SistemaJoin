@@ -91,9 +91,7 @@ public class ViewExibirInformacoesProfessor extends AppCompatActivity {
                 in.putExtra("cpf", intent.getStringExtra("cpf"));
                 in.putExtra("status", intent.getStringExtra("status"));
                 in.putExtra("senha", intent.getStringExtra("senha"));
-                in.putExtra("rg", intent.getStringExtra("rg"));
                 in.putExtra("keyTurma", intent.getStringExtra("keyTurma"));
-                in.putExtra("data", intent.getStringExtra("data"));
                 startActivity(in);
                 finish();
             }
@@ -105,8 +103,6 @@ public class ViewExibirInformacoesProfessor extends AppCompatActivity {
         cmpNomeProf.setText(in.getStringExtra("nome"));
         cmpEmailProf.setText(in.getStringExtra("email"));
         cmpCPFProf.setText(in.getStringExtra("cpf"));
-        cmpDataNascProf.setText(in.getStringExtra("data"));
-        cmpRGProf.setText(in.getStringExtra("rg"));
         cmpSenhaProf.setText(in.getStringExtra("senha"));
         cmpTelProf.setText(in.getStringExtra("tel"));
 

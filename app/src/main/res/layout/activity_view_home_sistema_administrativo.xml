@@ -88,7 +88,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/holo_red_dark"
-        android:drawableLeft="@drawable/sharp_power_settings_new_24"
         android:paddingLeft="5dp"
         android:shadowColor="@android:color/background_light"
         android:text="Sair"

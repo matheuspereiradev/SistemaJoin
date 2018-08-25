@@ -59,8 +59,9 @@ public class ViewTelaLogin extends AppCompatActivity {
                         loginEscola();
                     } else if (confereProfessor()) {
                         loginProfessor();
+                    } else {
+                        Toast.makeText(ViewTelaLogin.this, "Erro ao Logar", Toast.LENGTH_SHORT).show();
                     }
-
                 } else {
                     Toast.makeText(ViewTelaLogin.this, "Prencha todos os campos", Toast.LENGTH_SHORT).show();
                 }
@@ -86,7 +87,7 @@ public class ViewTelaLogin extends AppCompatActivity {
 
     private boolean confereEscola() {
         firebase = ConfiguracaoFirebase.getFirebase().child("escola").child("email");
-        Query query = firebase.orderByChild("email").equalTo(admJoin.getEmail());
+        Query query = firebase.child("email").equalTo(admJoin.getEmail());
         if (query != null) {
             return true;
         }
@@ -94,42 +95,40 @@ public class ViewTelaLogin extends AppCompatActivity {
     }
 
     private void loginEscola() {
-        firebase = ConfiguracaoFirebase.getFirebase().child("escola").child("email");
-        Query query = firebase.orderByChild("email").equalTo(admJoin.getEmail());
-        if (query != null) {
-            Query query2 = firebase.orderByChild("senha").equalTo(admJoin.getSenha());
-            if (query2 != null) {
-                Intent in = new Intent(ViewTelaLogin.this, ViewHomeSistemaEscola.class);
-                startActivity(in);
+        autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
+        autenticacao.signInWithEmailAndPassword(admJoin.getEmail(), admJoin.getSenha()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    Intent in = new Intent(ViewTelaLogin.this, ViewHomeSistemaEscola.class);
+                    startActivity(in);
+                } else {
+                    Toast.makeText(ViewTelaLogin.this, "Email ou Senha Inválido", Toast.LENGTH_SHORT).show();
 
-            } else {
-                Toast.makeText(ViewTelaLogin.this, "Email ou Senha Inválido", Toast.LENGTH_SHORT).show();
+                }
             }
-        } else {
-            Toast.makeText(ViewTelaLogin.this, "Email ou Senha Inválido", Toast.LENGTH_SHORT).show();
-        }
+        });
     }
 
     private void loginProfessor() {
-        firebase = ConfiguracaoFirebase.getFirebase().child("professor").child("email");
-        Query query = firebase.orderByChild("email").equalTo(admJoin.getEmail());
-        if (query != null) {
-            Query query2 = firebase.orderByChild("senha").equalTo(admJoin.getSenha());
-            if (query2 != null) {
-                Intent in = new Intent(ViewTelaLogin.this, ViewHomeProfessor.class);
-                startActivity(in);
+        autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
+        autenticacao.signInWithEmailAndPassword(ctLoginUsr.getText().toString(), ctSenhaUsr.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    Intent in = new Intent(ViewTelaLogin.this, ViewHomeProfessor.class);
+                    startActivity(in);
+                } else {
+                    Toast.makeText(ViewTelaLogin.this, "Email ou Senha Inválido", Toast.LENGTH_SHORT).show();
 
-            } else {
-                Toast.makeText(ViewTelaLogin.this, "Email ou Senha Inválido", Toast.LENGTH_SHORT).show();
+                }
             }
-        } else {
-            Toast.makeText(ViewTelaLogin.this, "Email ou Senha Inválido", Toast.LENGTH_SHORT).show();
-        }
+        });
     }
 
     private boolean confereProfessor() {
         firebase = ConfiguracaoFirebase.getFirebase().child("professor").child("email");
-        Query query = firebase.orderByChild("email").equalTo(admJoin.getEmail());
+        Query query = firebase.child("email").equalTo(admJoin.getEmail());
         if (query != null) {
             return true;
         }

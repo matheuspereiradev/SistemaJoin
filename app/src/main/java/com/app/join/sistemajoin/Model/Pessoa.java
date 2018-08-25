@@ -3,7 +3,6 @@ package com.app.join.sistemajoin.Model;
 public class Pessoa {
 
     private String nome;
-    private String dataNacimento;
     private String telefone;
     private String status;
     private String keyTurma;
@@ -23,14 +22,6 @@ public class Pessoa {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getDataNacimento() {
-        return dataNacimento;
-    }
-
-    public void setDataNacimento(String dataNacimento) {
-        this.dataNacimento = dataNacimento;
     }
 
     public String getTelefone() {

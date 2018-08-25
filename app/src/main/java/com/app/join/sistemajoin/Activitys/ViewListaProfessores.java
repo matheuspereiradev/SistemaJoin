@@ -43,6 +43,9 @@ public class ViewListaProfessores extends AppCompatActivity {
         listview.setAdapter(adapter);
         firebase = ConfiguracaoFirebase.getFirebase().child("professor");
 
+        Toast.makeText(ViewListaProfessores.this, "Clique na Lista para ver as informações completas do professor", Toast.LENGTH_LONG).show();
+
+
         valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -76,9 +79,7 @@ public class ViewListaProfessores extends AppCompatActivity {
                 in.putExtra("cpf", variavel.getCpf());
                 in.putExtra("status", variavel.getStatus());
                 in.putExtra("senha", variavel.getSenha());
-                in.putExtra("rg", variavel.getRg());
                 in.putExtra("keyTurma", variavel.getKeyTurma());
-                in.putExtra("data", variavel.getDataNacimento());
                 startActivity(in);
                 finish();
             }

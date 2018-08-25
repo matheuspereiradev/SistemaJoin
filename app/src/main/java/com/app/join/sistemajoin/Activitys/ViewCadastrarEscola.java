@@ -21,6 +21,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -89,8 +90,8 @@ public class ViewCadastrarEscola extends AppCompatActivity {
                     } else if (ctCNPJEsc.getText().length() < 18) {
                         Toast.makeText(getBaseContext(), "CNPJ Incompleto!", Toast.LENGTH_SHORT).show();
 
-                        // } else if(!validaCnpj(ctCNPJEsc.getText().toString())){
-                        //    Toast.makeText(getBaseContext(), "CNPJ Invalido!", Toast.LENGTH_SHORT).show();
+                    } else if (!validaCnpj(ctCNPJEsc.getText().toString())) {
+                        Toast.makeText(getBaseContext(), "CNPJ Invalido!", Toast.LENGTH_SHORT).show();
 
                     } else {
                         editar(escola);
@@ -114,6 +115,7 @@ public class ViewCadastrarEscola extends AppCompatActivity {
                     escola.setId(idUsuario);
                     if (ctNomeEsc.getText().equals("") || ctTelEsc.getText().equals("") || ctEmailEsc.getText().equals("") || ctCNPJEsc.getText().equals("")) {
                         Toast.makeText(getBaseContext(), "Preemcha todos os campos!", Toast.LENGTH_SHORT).show();
+
                     } else if (ctTelEsc.getText().length() < 13) {
                         Toast.makeText(getBaseContext(), "Telefone Incompleto!", Toast.LENGTH_SHORT).show();
 
@@ -124,6 +126,7 @@ public class ViewCadastrarEscola extends AppCompatActivity {
                         Toast.makeText(getBaseContext(), "CNPJ Invalido!", Toast.LENGTH_SHORT).show();
 
                     } else {
+                        cadastrar();
                         salvar(escola);
                         chamatelaListaescola();
                         finish();
@@ -147,20 +150,16 @@ public class ViewCadastrarEscola extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    String idUsuario = Base64Custon.codificadorBase64(escola.getEmail());
-                                    FirebaseUser firebaseUser = task.getResult().getUser();
-                                    escola.setId(idUsuario);
-                                    salvar(escola);
-
+                                    //salvar(escola);
                                     Preferencias preferencias = new Preferencias(ViewCadastrarEscola.this);
-                                    preferencias.salvaUsuarioLogado(idUsuario, escola.getNome());
+                                    preferencias.salvaUsuarioLogado(escola.getId(), escola.getNome());
 
                                 } else {
                                     String erroExcecao = "";
                                     try {
                                         throw task.getException();
-                                        //} catch (FirebaseAuthInvalidCredentialsException e) {
-                                        //    erroExcecao = "E-mail invalido!";
+                                    } catch (FirebaseAuthInvalidCredentialsException e) {
+                                        erroExcecao = "E-mail invalido!";
                                     } catch (FirebaseAuthUserCollisionException e) {
                                         erroExcecao = "E-mail ja esta cadastrado em outro usuario!";
                                     } catch (Exception e) {

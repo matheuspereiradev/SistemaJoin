@@ -42,7 +42,8 @@
         <activity android:name=".Activitys.ViewListarAlunos" />
         <activity android:name=".Activitys.ViewExibirInformacoesAluno" />
         <activity android:name=".Activitys.ViewCadastrarTurma" />
-        <activity android:name=".Activitys.ViewListarTurmas"></activity>
+        <activity android:name=".Activitys.ViewListarTurmas" />
+        <activity android:name=".ViewExibirInformacoesTurma"></activity>
     </application>
 
 </manifest>

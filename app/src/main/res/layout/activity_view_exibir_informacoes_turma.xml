@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ViewExibirInformacoesTurma">
+
+    <TextView
+        android:id="@+id/textView67"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Informações sobre a turma"
+        android:textColor="@android:color/background_dark"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <GridLayout
+        android:layout_width="355dp"
+        android:layout_height="178dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:columnCount="2"
+        android:rowCount="5"
+        app:layout_constraintBottom_toTopOf="@+id/btConfigProf"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.538"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView67"
+        app:layout_constraintVertical_bias="0.242">
+
+        <TextView
+            android:id="@+id/textView68"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="Nome da turma:"
+            android:textColor="@android:color/background_dark"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/cmpNomeTurma"
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="TextView"
+            android:textSize="17sp" />
+
+
+        <TextView
+            android:id="@+id/textView70"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="15dp"
+            android:text="Turno:"
+            android:textColor="@android:color/background_dark"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/cmpTurnoTurma"
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="15dp"
+            android:text="TextView"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/textView71"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="15dp"
+            android:text="Professor:"
+            android:textColor="@android:color/background_dark"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/cmpProfTurma"
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="15dp"
+            android:text="TextView"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/textView72"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="15dp"
+            android:text="Quantidade de alunos:"
+            android:textColor="@android:color/background_dark"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/cmpQntAlunosTurma"
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="22dp"
+            android:text="TextView"
+            android:textSize="17sp" />
+
+
+    </GridLayout>
+
+    <ImageButton
+        android:id="@+id/btEditProf"
+        android:layout_width="107dp"
+        android:layout_height="47dp"
+        android:layout_marginBottom="25dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@android:color/holo_blue_dark"
+        android:src="@android:drawable/ic_menu_edit"
+        app:layout_constraintBottom_toBottomOf="@+id/btConfigProf"
+        app:layout_constraintEnd_toStartOf="@+id/btConfigProf"
+        app:layout_constraintHorizontal_bias="0.58"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btConfigProf"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/btConfigProf"
+        android:layout_width="107dp"
+        android:layout_height="47dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@android:color/holo_green_dark"
+        android:src="@android:drawable/ic_menu_preferences"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btExcluirProf" />
+
+    <ImageButton
+        android:id="@+id/btExcluirProf"
+        android:layout_width="107dp"
+        android:layout_height="47dp"
+        android:layout_marginBottom="25dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/holo_red_dark"
+        android:src="@android:drawable/ic_menu_delete"
+        app:layout_constraintBottom_toBottomOf="@+id/btConfigProf"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btConfigProf"
+        app:layout_constraintVertical_bias="0.242" />
+</android.support.constraint.ConstraintLayout>

@@ -110,7 +110,7 @@
                 android:id="@+id/btListarAlunos"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:drawableLeft="@drawable/iconnovo"
+                android:drawableLeft="@drawable/iconlista"
                 android:text="Nova Turma"
                 android:textSize="18dp" />
 
@@ -128,7 +128,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/holo_red_dark"
-        android:drawableLeft="@drawable/anotacao"
+        android:drawableLeft="@drawable/sharp_power_settings_new_24"
         android:paddingLeft="5dp"
         android:text="Sair"
         android:textColor="@color/common_google_signin_btn_text_dark_default"

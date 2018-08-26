@@ -15,6 +15,8 @@ import com.app.join.sistemajoin.R;
 import com.app.join.sistemajoin.Tools.Base64Custon;
 import com.app.join.sistemajoin.Tools.ConfiguracaoFirebase;
 import com.app.join.sistemajoin.Tools.Preferencias;
+import com.github.rtoshiro.util.format.SimpleMaskFormatter;
+import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -48,6 +50,18 @@ public class ViewCadastrarAluno extends AppCompatActivity {
         ctNomeResponsavel=(EditText)findViewById(R.id.ctNomeResponsavel);
         ctCPFResp=(EditText)findViewById(R.id.ctCPFResp);
         btSalvarAluno=(Button)findViewById(R.id.btSalvarAluno);
+
+        //=====criar mascara no campo telefone
+        SimpleMaskFormatter simpleMaskTelAl = new SimpleMaskFormatter("(NN) N NNNN NNNN");
+        MaskTextWatcher mascaraTelAl = new MaskTextWatcher(ctTelAluno, simpleMaskTelAl);
+        ctTelAluno.addTextChangedListener(mascaraTelAl);
+        //FIM MASCARA==========
+
+        //=====criar mascara no campo CPF
+        SimpleMaskFormatter simpleMaskTelCPFP = new SimpleMaskFormatter("(NN) N NNNN NNNN");
+        MaskTextWatcher mascaraTelCPFP = new MaskTextWatcher(ctCPFResp, simpleMaskTelCPFP);
+        ctCPFResp.addTextChangedListener(mascaraTelCPFP);
+        //FIM MASCARA==========
 
         intent = getIntent();
         key = intent.getStringExtra("key");

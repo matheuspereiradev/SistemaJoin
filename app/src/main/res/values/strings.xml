@@ -32,4 +32,10 @@
         <item>TO</item>
     </string-array>
 
+    <string-array name="turno">
+        <item />
+        <item>Manhã</item>
+        <item>Tarde</item>
+        <item>Noite</item>
+    </string-array>
 </resources>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ViewExibirInformacoesTurma">
+    tools:context=".Activitys.ViewExibirInformacoesTurma">
 
     <TextView
         android:id="@+id/textView67"
@@ -33,7 +33,7 @@
         android:layout_marginTop="8dp"
         android:columnCount="2"
         android:rowCount="5"
-        app:layout_constraintBottom_toTopOf="@+id/btConfigProf"
+        app:layout_constraintBottom_toTopOf="@+id/btConfigTurma"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.538"
         app:layout_constraintStart_toStartOf="parent"
@@ -121,7 +121,7 @@
     </GridLayout>
 
     <ImageButton
-        android:id="@+id/btEditProf"
+        android:id="@+id/btEditTurma"
         android:layout_width="107dp"
         android:layout_height="47dp"
         android:layout_marginBottom="25dp"
@@ -131,15 +131,15 @@
         android:layout_marginStart="8dp"
         android:background="@android:color/holo_blue_dark"
         android:src="@android:drawable/ic_menu_edit"
-        app:layout_constraintBottom_toBottomOf="@+id/btConfigProf"
-        app:layout_constraintEnd_toStartOf="@+id/btConfigProf"
+        app:layout_constraintBottom_toBottomOf="@+id/btConfigTurma"
+        app:layout_constraintEnd_toStartOf="@+id/btConfigTurma"
         app:layout_constraintHorizontal_bias="0.58"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btConfigProf"
+        app:layout_constraintTop_toTopOf="@+id/btConfigTurma"
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
-        android:id="@+id/btConfigProf"
+        android:id="@+id/btConfigTurma"
         android:layout_width="107dp"
         android:layout_height="47dp"
         android:layout_marginBottom="24dp"
@@ -148,10 +148,10 @@
         android:background="@android:color/holo_green_dark"
         android:src="@android:drawable/ic_menu_preferences"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btExcluirProf" />
+        app:layout_constraintEnd_toStartOf="@+id/btExcluirTurma" />
 
     <ImageButton
-        android:id="@+id/btExcluirProf"
+        android:id="@+id/btExcluirTurma"
         android:layout_width="107dp"
         android:layout_height="47dp"
         android:layout_marginBottom="25dp"
@@ -160,8 +160,8 @@
         android:layout_marginTop="8dp"
         android:background="@android:color/holo_red_dark"
         android:src="@android:drawable/ic_menu_delete"
-        app:layout_constraintBottom_toBottomOf="@+id/btConfigProf"
+        app:layout_constraintBottom_toBottomOf="@+id/btConfigTurma"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btConfigProf"
+        app:layout_constraintTop_toTopOf="@+id/btConfigTurma"
         app:layout_constraintVertical_bias="0.242" />
 </android.support.constraint.ConstraintLayout>

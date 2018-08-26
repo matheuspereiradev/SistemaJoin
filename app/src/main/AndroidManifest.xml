@@ -43,7 +43,7 @@
         <activity android:name=".Activitys.ViewExibirInformacoesAluno" />
         <activity android:name=".Activitys.ViewCadastrarTurma" />
         <activity android:name=".Activitys.ViewListarTurmas" />
-        <activity android:name=".ViewExibirInformacoesTurma"></activity>
+        <activity android:name=".Activitys.ViewExibirInformacoesTurma"></activity>
     </application>
 
 </manifest>

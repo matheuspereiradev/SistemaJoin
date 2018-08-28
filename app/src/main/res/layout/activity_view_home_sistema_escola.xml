@@ -89,9 +89,9 @@
                 android:layout_height="80dp"
                 android:background="@drawable/professor_novo"
                 android:drawableLeft="@drawable/iconnovo"
-                android:paddingLeft="15dp"
+                android:paddingLeft="10dp"
                 android:text="Adicionar novo professor"
-                android:textColor="@color/common_google_signin_btn_text_dark_default"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
                 android:textSize="25sp" />
 
             <Button
@@ -99,12 +99,13 @@
                 android:id="@+id/btListProf"
                 android:layout_width="wrap_content"
                 android:layout_height="80dp"
-                android:layout_marginTop="5dp"
                 android:background="@drawable/listar_prof"
                 android:drawableLeft="@drawable/iconlista"
                 android:text="Listar professores"
-                android:textColor="@color/common_google_signin_btn_text_dark_default"
-                android:textSize="25sp" />
+                android:layout_marginTop="5dp"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textSize="25sp"
+                android:paddingLeft="10dp"/>
 
             <Button
 
@@ -113,9 +114,11 @@
                 android:layout_height="80dp"
                 android:drawableLeft="@drawable/iconnovo"
                 android:text="Nova Turma"
+                android:background="@drawable/turma"
                 android:layout_marginTop="5dp"
-                android:textColor="@color/common_google_signin_btn_text_dark_default"
-                android:textSize="25sp" />
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textSize="25sp"
+                android:paddingLeft="10dp"/>
 
             <Button
                 android:id="@+id/btListTurmas"
@@ -123,7 +126,11 @@
                 android:layout_height="80dp"
                 android:drawableLeft="@drawable/iconlista"
                 android:text="Listar Turmas"
-                android:textSize="18dp" />
+                android:layout_marginTop="5dp"
+                android:background="@drawable/turma_lista"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textSize="25sp"
+                android:paddingLeft="10dp"/>
 
             <Button
                 android:id="@+id/btNovoAluno"

@@ -120,6 +120,22 @@
                 android:hint="CPF"
                 android:inputType="number" />
 
+            <TextView
+                android:id="@+id/textView91"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email do responsável:"
+                android:textColor="@android:color/background_dark"
+                android:textSize="17sp" />
+
+            <EditText
+                android:id="@+id/ctEmailResp"
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="email do responsável"
+                android:inputType="textEmailAddress|textEmailSubject" />
+
             <Button
                 android:id="@+id/btSalvarAluno"
                 android:layout_width="163dp"

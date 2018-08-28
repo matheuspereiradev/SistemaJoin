@@ -85,7 +85,7 @@
 
             <Button
                 android:id="@+id/btNovoProfessor"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="80dp"
                 android:background="@drawable/professor_novo"
                 android:drawableLeft="@drawable/iconnovo"
@@ -95,20 +95,27 @@
                 android:textSize="25sp" />
 
             <Button
+
                 android:id="@+id/btListTurma"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="80dp"
                 android:drawableLeft="@drawable/iconlista"
+                android:background="@drawable/listar_prof"
                 android:text="Listar professores"
-                android:textSize="18dp" />
+                android:layout_marginTop="5dp"
+                android:textColor="@color/common_google_signin_btn_text_dark_default"
+                android:textSize="25sp" />
 
             <Button
+
                 android:id="@+id/btNovaTurma"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:drawableLeft="@drawable/iconnovo"
                 android:text="Nova Turma"
-                android:textSize="18dp" />
+                android:layout_marginTop="5dp"
+                android:textColor="@color/common_google_signin_btn_text_dark_default"
+                android:textSize="25sp" />
 
             <Button
                 android:id="@+id/btListTurmas"

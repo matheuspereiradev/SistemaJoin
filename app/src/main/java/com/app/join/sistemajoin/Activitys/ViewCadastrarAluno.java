@@ -31,7 +31,7 @@ import java.util.InputMismatchException;
 public class ViewCadastrarAluno extends AppCompatActivity {
 
     Button btSalvarAluno;
-    EditText ctNomeAluno,ctMatricAluno,ctTelAluno,ctNomeResponsavel,ctCPFResp;
+    EditText ctNomeAluno,ctMatricAluno,ctTelAluno,ctNomeResponsavel,ctCPFResp,ctEmailResp;
 
     Aluno aluno;
     String key = "";
@@ -47,6 +47,7 @@ public class ViewCadastrarAluno extends AppCompatActivity {
         ctNomeAluno=(EditText)findViewById(R.id.ctNomeAluno);
         ctMatricAluno=(EditText)findViewById(R.id.ctMatricAluno);
         ctTelAluno =(EditText)findViewById(R.id.ctTelAluno);
+        ctEmailResp=(EditText) findViewById(R.id.ctEmailResp);
         ctNomeResponsavel=(EditText)findViewById(R.id.ctNomeResponsavel);
         ctCPFResp=(EditText)findViewById(R.id.ctCPFResp);
         btSalvarAluno=(Button)findViewById(R.id.btSalvarAluno);

@@ -103,7 +103,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:drawableLeft="@drawable/iconnovo"
-                android:text="Nova Turma"
+                android:text="Novo Aluno"
                 android:textSize="18dp" />
 
             <Button
@@ -111,7 +111,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:drawableLeft="@drawable/iconlista"
-                android:text="Nova Turma"
+                android:text="Lista Aluno"
                 android:textSize="18dp" />
 
 

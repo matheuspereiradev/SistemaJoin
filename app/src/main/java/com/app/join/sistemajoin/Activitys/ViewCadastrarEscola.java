@@ -13,7 +13,6 @@ import com.app.join.sistemajoin.Tools.ConfiguracaoFirebase;
 import com.app.join.sistemajoin.Model.Escola;
 import com.app.join.sistemajoin.R;
 import com.app.join.sistemajoin.Tools.Base64Custon;
-import com.app.join.sistemajoin.Tools.GeraUsuarioSenha;
 import com.app.join.sistemajoin.Tools.Preferencias;
 import com.github.rtoshiro.util.format.SimpleMaskFormatter;
 import com.github.rtoshiro.util.format.text.MaskTextWatcher;
@@ -23,7 +22,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 
 import java.util.InputMismatchException;

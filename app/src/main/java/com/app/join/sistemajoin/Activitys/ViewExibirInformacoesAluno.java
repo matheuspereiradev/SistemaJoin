@@ -8,9 +8,7 @@ package com.app.join.sistemajoin.Activitys;
         import android.view.View;
         import android.widget.ImageButton;
         import android.widget.TextView;
-
         import com.app.join.sistemajoin.Model.Aluno;
-        import com.app.join.sistemajoin.Model.Professor;
         import com.app.join.sistemajoin.R;
         import com.app.join.sistemajoin.Tools.ConfiguracaoFirebase;
         import com.google.firebase.database.DatabaseReference;

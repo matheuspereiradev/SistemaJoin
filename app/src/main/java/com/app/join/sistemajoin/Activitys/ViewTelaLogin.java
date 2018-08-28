@@ -81,6 +81,8 @@ public class ViewTelaLogin extends AppCompatActivity {
                         startActivity(in);
                     }
                 } else {
+                    Intent in = new Intent(ViewTelaLogin.this, ViewHomeSistemaEscola.class);
+                    startActivity(in);
                     Toast.makeText(ViewTelaLogin.this, "Email ou Senha Inválido", Toast.LENGTH_SHORT).show();
 
                 }
@@ -89,7 +91,7 @@ public class ViewTelaLogin extends AppCompatActivity {
     }
 
     private boolean confereEscola() {
-        firebase = ConfiguracaoFirebase.getFirebase().child("escola").child("email");
+        firebase = ConfiguracaoFirebase.getFirebase().child("escola");
         Query query = firebase.child("email").equalTo(admJoin.getEmail());
         if (query != null) {
             return true;
@@ -98,7 +100,7 @@ public class ViewTelaLogin extends AppCompatActivity {
     }
 
     private boolean confereProfessor() {
-        firebase = ConfiguracaoFirebase.getFirebase().child("professor").child("email");
+        firebase = ConfiguracaoFirebase.getFirebase().child("professor");
         Query query = firebase.child("email").equalTo(admJoin.getEmail());
         if (query != null) {
             return true;

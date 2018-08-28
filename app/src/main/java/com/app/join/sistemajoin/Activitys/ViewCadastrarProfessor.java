@@ -95,6 +95,7 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
                         Toast.makeText(getBaseContext(), "CPF Invalido!", Toast.LENGTH_SHORT).show();
 
                     } else {
+                        professor.setSenha(intent.getStringExtra("senha"));
                         editar(setDados());
                         chamaTelaListaEscola();
                         finish();

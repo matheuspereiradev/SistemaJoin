@@ -16,11 +16,12 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         android:text="Informações sobre a escola"
         android:textColor="@android:color/background_dark"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,18 +29,19 @@
         android:id="@+id/gridLayout3"
         android:layout_width="324dp"
         android:layout_height="229dp"
-        android:layout_marginBottom="120dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:columnCount="2"
         android:rowCount="6"
-        app:layout_constraintBottom_toTopOf="@+id/btConfigEsc"
+        app:layout_constraintBottom_toTopOf="@+id/btEditarEsc"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13">
+        app:layout_constraintTop_toBottomOf="@+id/textView13"
+        app:layout_constraintVertical_bias="0.22000003">
 
 
         <TextView
@@ -161,15 +163,17 @@
         android:id="@+id/btExcluirEsc"
         android:layout_width="108dp"
         android:layout_height="49dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:background="@android:color/holo_red_dark"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/btConfigEsc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btConfigEsc"
+        app:layout_constraintTop_toTopOf="@+id/btConfigEsc"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@android:drawable/ic_menu_delete" />
 
     <ImageButton
@@ -184,23 +188,26 @@
         android:background="@android:color/holo_blue_dark"
         app:layout_constraintBottom_toBottomOf="@+id/btConfigEsc"
         app:layout_constraintEnd_toStartOf="@+id/btConfigEsc"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/btConfigEsc"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@android:drawable/ic_menu_edit" />
 
     <ImageButton
         android:id="@+id/btConfigEsc"
         android:layout_width="108dp"
         android:layout_height="50dp"
+        android:layout_marginBottom="28dp"
         android:layout_marginEnd="5dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="5dp"
         android:layout_marginStart="8dp"
         android:background="@android:color/holo_green_dark"
-        app:layout_constraintBottom_toBottomOf="@+id/btExcluirEsc"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btExcluirEsc"
         app:layout_constraintStart_toEndOf="@+id/btEditarEsc"
-        app:layout_constraintTop_toTopOf="@+id/btExcluirEsc"
         app:srcCompat="@android:drawable/ic_menu_manage" />
 
 </android.support.constraint.ConstraintLayout>

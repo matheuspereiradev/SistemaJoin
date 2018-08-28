@@ -58,7 +58,7 @@ public class ViewCadastrarAluno extends AppCompatActivity {
         //FIM MASCARA==========
 
         //=====criar mascara no campo CPF
-        SimpleMaskFormatter simpleMaskTelCPFP = new SimpleMaskFormatter("(NN) N NNNN NNNN");
+        SimpleMaskFormatter simpleMaskTelCPFP = new SimpleMaskFormatter("NNN.NNN.NNN-NN");
         MaskTextWatcher mascaraTelCPFP = new MaskTextWatcher(ctCPFResp, simpleMaskTelCPFP);
         ctCPFResp.addTextChangedListener(mascaraTelCPFP);
         //FIM MASCARA==========

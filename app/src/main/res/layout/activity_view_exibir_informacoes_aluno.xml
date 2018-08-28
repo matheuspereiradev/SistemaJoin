@@ -14,13 +14,16 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="1dp"
         android:text="Informações sobre o aluno"
         android:textColor="@android:color/background_dark"
         android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/gridLayout5"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/guideline"
+        app:layout_constraintVertical_bias="0.52" />
 
     <GridLayout
         android:id="@+id/gridLayout5"
@@ -36,6 +39,7 @@
         android:rowCount="5"
         app:layout_constraintBottom_toTopOf="@+id/btConfigAluno"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView57">
 
@@ -160,12 +164,15 @@
         android:id="@+id/btExcluirAluno"
         android:layout_width="108dp"
         android:layout_height="49dp"
-        android:layout_marginBottom="20dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:background="@android:color/holo_red_dark"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/btConfigAluno"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btConfigAluno"
+        app:layout_constraintTop_toTopOf="@+id/btConfigAluno"
         app:srcCompat="@android:drawable/ic_menu_delete" />
 
     <ImageButton
@@ -178,11 +185,11 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:background="@android:color/holo_blue_dark"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/btConfigAluno"
         app:layout_constraintEnd_toStartOf="@+id/btConfigAluno"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/btConfigAluno"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@android:drawable/ic_menu_edit" />
 
     <ImageButton
@@ -191,12 +198,29 @@
         android:layout_height="50dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="12dp"
+        android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"
+        android:layout_marginStart="12dp"
         android:background="@android:color/holo_green_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btExcluirAluno"
-        app:layout_constraintTop_toTopOf="@+id/btExcluirAluno"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btEditarAluno"
+        app:layout_constraintTop_toBottomOf="@+id/gridLayout5"
         app:srcCompat="@android:drawable/ic_menu_manage" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.0" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="106dp" />
 
 </android.support.constraint.ConstraintLayout>

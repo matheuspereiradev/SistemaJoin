@@ -85,8 +85,7 @@ public class ViewCadastrarAluno extends AppCompatActivity {
                         Toast.makeText(getBaseContext(), "CPF Invalido!", Toast.LENGTH_SHORT).show();
 
                     } else {
-                        aluno.setSenha(intent.getStringExtra("senha"));
-                        editar(setDados());
+                        editar(setDadosEditar());
                         chamaTelaListaEscola();
                         finish();
                     }
@@ -110,9 +109,7 @@ public class ViewCadastrarAluno extends AppCompatActivity {
                         Toast.makeText(getBaseContext(), "CPF Invalido!", Toast.LENGTH_SHORT).show();
 
                     } else {
-                        aluno.setSenha(geraSenha());
-                        cadastrar();
-                        salvar(setDados());
+                        cadastrar(setDadosSalvar());
                         chamaTelaListaEscola();
                         finish();
                     }
@@ -121,17 +118,17 @@ public class ViewCadastrarAluno extends AppCompatActivity {
         }
     }
 
-    public void cadastrar() {
+    public void cadastrar(final Aluno a) {
         autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
-        autenticacao.createUserWithEmailAndPassword(aluno.getEmailResponsavel(), aluno.getSenha())
+        autenticacao.createUserWithEmailAndPassword(a.getEmailResponsavel(), a.getSenha())
                 .addOnCompleteListener(ViewCadastrarAluno.this,
                         new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    salvar(setDados());
+                                    salvar(a);
                                     Preferencias preferencias = new Preferencias(ViewCadastrarAluno.this);
-                                    preferencias.salvaUsuarioLogado(aluno.getMatricola(), aluno.getNome());
+                                    preferencias.salvaUsuarioLogado(a.getMatricola(), a.getNome());
                                 } else {
                                     String erroExcecao = "";
                                     try {
@@ -215,12 +212,26 @@ public class ViewCadastrarAluno extends AppCompatActivity {
 
     }
 
-    private Aluno setDados() {
+    private Aluno setDadosSalvar() {
         aluno = new Aluno();
         aluno.setNome(ctNomeAluno.getText().toString());
-        //aluno.setEmailResponsavel(ct.getText().toString());
-        String idUsuario = Base64Custon.codificadorBase64(aluno.getCpfResponsavel()+aluno.getNome());
+        aluno.setEmailResponsavel(ctEmailResp.getText().toString());
+        String idUsuario = Base64Custon.codificadorBase64(aluno.getEmailResponsavel());
         aluno.setMatricola(idUsuario);
+        aluno.setSenha(geraSenha());
+        aluno.setStatus("Ativo");
+        aluno.setCpfResponsavel(ctCPFResp.getText().toString());
+        aluno.setTelefone(ctNomeResponsavel.getText().toString());
+        aluno.setKeyTurma("sem Turma");
+        return aluno;
+    }
+
+    private Aluno setDadosEditar() {
+        aluno = new Aluno();
+        aluno.setNome(ctNomeAluno.getText().toString());
+        aluno.setEmailResponsavel(ctEmailResp.getText().toString());
+        aluno.setMatricola(intent.getStringExtra("key"));
+        aluno.setSenha(intent.getStringExtra("senha"));
         aluno.setStatus("Ativo");
         aluno.setCpfResponsavel(ctCPFResp.getText().toString());
         aluno.setTelefone(ctNomeResponsavel.getText().toString());
@@ -246,7 +257,7 @@ public class ViewCadastrarAluno extends AppCompatActivity {
 
     private void preencheCampos() {
         ctNomeAluno.setText(intent.getStringExtra("nome"));
-        //ctEmailProf.setText(intent.getStringExtra("email"));
+        ctEmailResp.setText(intent.getStringExtra("email"));
         ctCPFResp.setText(intent.getStringExtra("cpf"));
         ctNomeResponsavel.setText(intent.getStringExtra("nomeRes"));
         ctMatricAluno.setText(intent.getStringExtra("key"));

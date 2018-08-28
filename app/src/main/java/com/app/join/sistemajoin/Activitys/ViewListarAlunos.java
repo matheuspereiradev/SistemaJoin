@@ -68,7 +68,7 @@ public class ViewListarAlunos extends AppCompatActivity {
                 in.putExtra("key", variavel.getMatricola());
                 in.putExtra("nome", variavel.getNome());
                 in.putExtra("tel", variavel.getTelefone());
-                //in.putExtra("email", variavel.getEmailResponsavel());
+                in.putExtra("email", variavel.getEmailResponsavel());
                 in.putExtra("cpf", variavel.getCpfResponsavel());
                 in.putExtra("status", variavel.getStatus());
                 in.putExtra("senha", variavel.getSenha());

@@ -96,13 +96,13 @@
 
             <Button
 
-                android:id="@+id/btListTurma"
+                android:id="@+id/btListProf"
                 android:layout_width="wrap_content"
                 android:layout_height="80dp"
-                android:drawableLeft="@drawable/iconlista"
-                android:background="@drawable/listar_prof"
-                android:text="Listar professores"
                 android:layout_marginTop="5dp"
+                android:background="@drawable/listar_prof"
+                android:drawableLeft="@drawable/iconlista"
+                android:text="Listar professores"
                 android:textColor="@color/common_google_signin_btn_text_dark_default"
                 android:textSize="25sp" />
 

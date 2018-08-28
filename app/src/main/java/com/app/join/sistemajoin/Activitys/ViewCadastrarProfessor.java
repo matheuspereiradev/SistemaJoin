@@ -95,8 +95,7 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
                         Toast.makeText(getBaseContext(), "CPF Invalido!", Toast.LENGTH_SHORT).show();
 
                     } else {
-                        professor.setSenha(intent.getStringExtra("senha"));
-                        editar(setDados());
+                        editar(setDadosEditar());
                         chamaTelaListaEscola();
                         finish();
                     }
@@ -120,7 +119,6 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
                         Toast.makeText(getBaseContext(), "CPF Invalido!", Toast.LENGTH_SHORT).show();
 
                     } else {
-                        professor.setSenha(geraSenha());
                         cadastrar(setDados());
                         salvar(setDados());
                         chamaTelaListaEscola();
@@ -232,12 +230,27 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
         professor.setEmail(ctEmailProf.getText().toString());
         String idUsuario = Base64Custon.codificadorBase64(professor.getEmail());
         professor.setIdProfessor(idUsuario);
+        professor.setSenha(geraSenha());
         professor.setStatus("Ativo");
         professor.setCpf(ctCPFProf.getText().toString());
         professor.setTelefone(ctTelProf.getText().toString());
         professor.setKeyTurma("sem Turma");
         return professor;
     }
+
+    private Professor setDadosEditar() {
+        professor = new Professor();
+        professor.setNome(ctNomeProf.getText().toString());
+        professor.setEmail(ctEmailProf.getText().toString());
+        professor.setIdProfessor(intent.getStringExtra("key"));
+        professor.setSenha(intent.getStringExtra("senha"));
+        professor.setStatus("Ativo");
+        professor.setCpf(ctCPFProf.getText().toString());
+        professor.setTelefone(ctTelProf.getText().toString());
+        professor.setKeyTurma("sem Turma");
+        return professor;
+    }
+
 
     public String geraSenha() {
         String[] carct = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};

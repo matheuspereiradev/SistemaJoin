@@ -16,8 +16,8 @@ public class ViewHomeSistemaEscola extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_home_sistema_escola);
 
-        btListProfessor=(Button)findViewById(R.id.btListTurmas);
-        btListTurma=(Button)findViewById(R.id.btListTurma);
+        btListProfessor=(Button)findViewById(R.id.btListProf);
+        btListTurma=(Button)findViewById(R.id.btListTurmas);
         btNovoProfessor=(Button)findViewById(R.id.btNovoProfessor);
         btNovaTurma=(Button)findViewById(R.id.btNovaTurma);
         btListAluno = findViewById(R.id.btListarAlunos);
@@ -26,47 +26,47 @@ public class ViewHomeSistemaEscola extends AppCompatActivity {
         btListProfessor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent in = new Intent(getBaseContext(), ViewListaProfessores.class);
-                startActivity(in);
+                Intent i1 = new Intent(getBaseContext(), ViewListaProfessores.class);
+                startActivity(i1);
             }
         });
 
         btListTurma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent in = new Intent(getBaseContext(), ViewListarTurmas.class);
-                startActivity(in);
+                Intent i2 = new Intent(getBaseContext(), ViewListarTurmas.class);
+                startActivity(i2);
             }
         });
 
         btNovoProfessor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent in = new Intent(getBaseContext(), ViewCadastrarProfessor.class);
-                startActivity(in);
+                Intent i3 = new Intent(getBaseContext(), ViewCadastrarProfessor.class);
+                startActivity(i3);
             }
         });
 
         btNovaTurma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent in = new Intent(getBaseContext(), ViewCadastrarTurma.class);
-                startActivity(in);
+                Intent i4 = new Intent(getBaseContext(), ViewCadastrarTurma.class);
+                startActivity(i4);
             }
         });
 
         btListAluno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent in = new Intent(getBaseContext(), ViewListarAlunos.class);
-                startActivity(in);
+                Intent i5 = new Intent(getBaseContext(), ViewListarAlunos.class);
+                startActivity(i5);
             }
         });
         btNovoaluno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent in = new Intent(getBaseContext(), ViewCadastrarAluno.class);
-                startActivity(in);
+                Intent i6 = new Intent(getBaseContext(), ViewCadastrarAluno.class);
+                startActivity(i6);
             }
         });
     }

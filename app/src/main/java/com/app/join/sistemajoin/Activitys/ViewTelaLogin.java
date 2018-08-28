@@ -53,15 +53,7 @@ public class ViewTelaLogin extends AppCompatActivity {
                     admJoin = new AdmJoin();
                     admJoin.setEmail(ctLoginUsr.getText().toString());
                     admJoin.setSenha(ctSenhaUsr.getText().toString());
-                    if (admJoin.getEmail().equals("projetojoin.thread@gmail.com")) {
-                        validaLogin();
-                    } else if (confereEscola()) {
-                        loginEscola();
-                    } else if (confereProfessor()) {
-                        loginProfessor();
-                    } else {
-                        Toast.makeText(ViewTelaLogin.this, "Erro ao Logar", Toast.LENGTH_SHORT).show();
-                    }
+                    validaLogin();
                 } else {
                     Toast.makeText(ViewTelaLogin.this, "Prencha todos os campos", Toast.LENGTH_SHORT).show();
                 }
@@ -75,8 +67,19 @@ public class ViewTelaLogin extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    Intent in = new Intent(ViewTelaLogin.this, ViewHomeSistemaAdministrativo.class);
-                    startActivity(in);
+                    if (admJoin.getEmail().equals("projetojoin.thread@gmail.com")) {
+                        Intent in = new Intent(ViewTelaLogin.this, ViewHomeSistemaAdministrativo.class);
+                        startActivity(in);
+                    } else if (confereEscola()) {
+                        Intent in = new Intent(ViewTelaLogin.this, ViewHomeSistemaEscola.class);
+                        startActivity(in);
+                    } else if (confereProfessor()) {
+                        Intent in = new Intent(ViewTelaLogin.this, ViewHomeProfessor.class);
+                        startActivity(in);
+                    }else{
+                        Intent in = new Intent(ViewTelaLogin.this, ViewTelaLogin.class);
+                        startActivity(in);
+                    }
                 } else {
                     Toast.makeText(ViewTelaLogin.this, "Email ou Senha Inválido", Toast.LENGTH_SHORT).show();
 
@@ -92,38 +95,6 @@ public class ViewTelaLogin extends AppCompatActivity {
             return true;
         }
         return false;
-    }
-
-    private void loginEscola() {
-        autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
-        autenticacao.signInWithEmailAndPassword(admJoin.getEmail(), admJoin.getSenha()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    Intent in = new Intent(ViewTelaLogin.this, ViewHomeSistemaEscola.class);
-                    startActivity(in);
-                } else {
-                    Toast.makeText(ViewTelaLogin.this, "Email ou Senha Inválido", Toast.LENGTH_SHORT).show();
-
-                }
-            }
-        });
-    }
-
-    private void loginProfessor() {
-        autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
-        autenticacao.signInWithEmailAndPassword(ctLoginUsr.getText().toString(), ctSenhaUsr.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    Intent in = new Intent(ViewTelaLogin.this, ViewHomeProfessor.class);
-                    startActivity(in);
-                } else {
-                    Toast.makeText(ViewTelaLogin.this, "Email ou Senha Inválido", Toast.LENGTH_SHORT).show();
-
-                }
-            }
-        });
     }
 
     private boolean confereProfessor() {

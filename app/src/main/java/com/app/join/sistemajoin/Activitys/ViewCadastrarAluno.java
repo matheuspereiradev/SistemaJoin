@@ -108,7 +108,9 @@ public class ViewCadastrarAluno extends AppCompatActivity {
                         Toast.makeText(getBaseContext(), "CPF Invalido!", Toast.LENGTH_SHORT).show();
 
                     } else {
+                        aluno.setSenha(geraSenha());
                         cadastrar();
+                        salvar(setDados());
                         chamaTelaListaEscola();
                         finish();
                     }
@@ -128,7 +130,6 @@ public class ViewCadastrarAluno extends AppCompatActivity {
                                     salvar(setDados());
                                     Preferencias preferencias = new Preferencias(ViewCadastrarAluno.this);
                                     preferencias.salvaUsuarioLogado(aluno.getMatricola(), aluno.getNome());
-
                                 } else {
                                     String erroExcecao = "";
                                     try {
@@ -216,10 +217,9 @@ public class ViewCadastrarAluno extends AppCompatActivity {
         aluno = new Aluno();
         aluno.setNome(ctNomeAluno.getText().toString());
         //aluno.setEmailResponsavel(ct.getText().toString());
-        String idUsuario = Base64Custon.codificadorBase64(aluno.getCpfResponsavel());
+        String idUsuario = Base64Custon.codificadorBase64(aluno.getCpfResponsavel()+aluno.getNome());
         aluno.setMatricola(idUsuario);
         aluno.setStatus("Ativo");
-        aluno.setSenha(geraSenha());
         aluno.setCpfResponsavel(ctCPFResp.getText().toString());
         aluno.setTelefone(ctNomeResponsavel.getText().toString());
         aluno.setKeyTurma("sem Turma");
@@ -247,7 +247,7 @@ public class ViewCadastrarAluno extends AppCompatActivity {
         //ctEmailProf.setText(intent.getStringExtra("email"));
         ctCPFResp.setText(intent.getStringExtra("cpf"));
         ctNomeResponsavel.setText(intent.getStringExtra("nomeRes"));
-        ctMatricAluno.setText(intent.getStringExtra("rg"));
+        ctMatricAluno.setText(intent.getStringExtra("key"));
         ctTelAluno.setText(intent.getStringExtra("tel"));
     }
 }

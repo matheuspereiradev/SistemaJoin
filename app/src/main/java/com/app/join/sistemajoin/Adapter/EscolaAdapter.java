@@ -25,7 +25,6 @@ public class EscolaAdapter extends ArrayAdapter<Escola> {
         this.escolas = objects;
     }
 
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 

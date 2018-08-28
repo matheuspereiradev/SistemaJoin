@@ -119,6 +119,7 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
                         Toast.makeText(getBaseContext(), "CPF Invalido!", Toast.LENGTH_SHORT).show();
 
                     } else {
+                        professor.setSenha(geraSenha());
                         cadastrar(setDados());
                         salvar(setDados());
                         chamaTelaListaEscola();
@@ -130,6 +131,7 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
     }
 
     public void cadastrar(final Professor p) {
+
         autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
         autenticacao.createUserWithEmailAndPassword(p.getEmail(), p.getSenha())
                 .addOnCompleteListener(ViewCadastrarProfessor.this,
@@ -230,7 +232,6 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
         String idUsuario = Base64Custon.codificadorBase64(professor.getEmail());
         professor.setIdProfessor(idUsuario);
         professor.setStatus("Ativo");
-        professor.setSenha(geraSenha());
         professor.setCpf(ctCPFProf.getText().toString());
         professor.setTelefone(ctTelProf.getText().toString());
         professor.setKeyTurma("sem Turma");
@@ -261,7 +262,5 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
         ctRGProf.setText(intent.getStringExtra("rg"));
         ctTelProf.setText(intent.getStringExtra("tel"));
     }
-
-
 
 }

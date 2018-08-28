@@ -97,4 +97,5 @@ public class ViewListarEscolas extends AppCompatActivity {
         super.onStart();
         firebase.addValueEventListener(valueEventListener);
     }
+
 }

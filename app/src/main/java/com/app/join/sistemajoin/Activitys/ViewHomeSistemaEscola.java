@@ -5,70 +5,95 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
 import com.app.join.sistemajoin.R;
 
 public class ViewHomeSistemaEscola extends AppCompatActivity {
 
-    Button btListProfessor,btListTurma,btNovoProfessor,btNovaTurma, btListAluno, btNovoaluno;
+    Button LTurma, NTurma, NProf, LProf, LAluno, NAluno;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_home_sistema_escola);
 
-        btListProfessor=(Button)findViewById(R.id.btListProf);
-        btListTurma=(Button)findViewById(R.id.btListTurmas);
-        btNovoProfessor=(Button)findViewById(R.id.btNovoProfessor);
-        btNovaTurma=(Button)findViewById(R.id.btNovaTurma);
-        btListAluno = findViewById(R.id.btListarAlunos);
-        btNovoaluno = findViewById(R.id.btNovoAluno);
+        LProf = (Button) findViewById(R.id.LProf);
+        LTurma = (Button) findViewById(R.id.LTurma);
+        NProf = (Button) findViewById(R.id.NProf);
+        NTurma = (Button) findViewById(R.id.NTurma);
+        LAluno = (Button) findViewById(R.id.LAluno);
+        NAluno = (Button) findViewById(R.id.NAluno);
 
-        btListProfessor.setOnClickListener(new View.OnClickListener() {
+        LProf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i1 = new Intent(getBaseContext(), ViewListaProfessores.class);
-                startActivity(i1);
-            }
-        });
-
-        btListTurma.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i2 = new Intent(getBaseContext(), ViewListarTurmas.class);
-                startActivity(i2);
+                ChamaListarProfessor();
             }
         });
 
-        btNovoProfessor.setOnClickListener(new View.OnClickListener() {
+        NProf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i3 = new Intent(getBaseContext(), ViewCadastrarProfessor.class);
-                startActivity(i3);
+                ChamaCadastroProfessor();
             }
         });
 
-        btNovaTurma.setOnClickListener(new View.OnClickListener() {
+        NTurma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i4 = new Intent(getBaseContext(), ViewCadastrarTurma.class);
-                startActivity(i4);
+                ChamaCadastroTurma();
             }
         });
 
-        btListAluno.setOnClickListener(new View.OnClickListener() {
+        LTurma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i5 = new Intent(getBaseContext(), ViewListarAlunos.class);
-                startActivity(i5);
+                ChamaListarTurma();
             }
         });
-        btNovoaluno.setOnClickListener(new View.OnClickListener() {
+
+        NAluno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i6 = new Intent(getBaseContext(), ViewCadastrarAluno.class);
-                startActivity(i6);
+                ChamaCadastroAluno();
             }
         });
+
+        LAluno.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ChamaListarAluno();
+            }
+        });
+
     }
 
+    public void ChamaCadastroAluno() {
+        Intent cadAluno = new Intent(ViewHomeSistemaEscola.this, ViewCadastrarAluno.class);
+        startActivity(cadAluno);
+    }
+
+    public void ChamaCadastroProfessor() {
+        Intent cadProf = new Intent(ViewHomeSistemaEscola.this, ViewCadastrarProfessor.class);
+        startActivity(cadProf);
+    }
+
+    public void ChamaCadastroTurma() {
+        Intent cadTurma = new Intent(ViewHomeSistemaEscola.this, ViewCadastrarTurma.class);
+        startActivity(cadTurma);
+    }
+
+    public void ChamaListarTurma() {
+        Intent listTurma = new Intent(ViewHomeSistemaEscola.this, ViewListarTurmas.class);
+        startActivity(listTurma);
+    }
+
+    public void ChamaListarProfessor() {
+        Intent listProf = new Intent(ViewHomeSistemaEscola.this, ViewListaProfessores.class);
+        startActivity(listProf);
+    }
+
+    public void ChamaListarAluno() {
+        Intent listaluno = new Intent(ViewHomeSistemaEscola.this, ViewListarAlunos.class);
+        startActivity(listaluno);
+    }
 }

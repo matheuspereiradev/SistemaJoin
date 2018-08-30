@@ -38,24 +38,19 @@ public class ViewCadastrarEscola extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_cadastrar_escola);
 
-        //======conexão com o xml
         ctTelEsc = (EditText) findViewById(R.id.ctTelEsc);
         ctEmailEsc = (EditText) findViewById(R.id.ctEmailEsc);
         ctNomeEsc = (EditText) findViewById(R.id.ctNomeEsc);
         ctCNPJEsc = (EditText) findViewById(R.id.ctCNPJEsc);
         btSalvarEsc = (Button) findViewById(R.id.btSalvarEscola);
-        //fim da conexão com o xml=========
 
-        //=====criar mascara no campo telefone escola
         SimpleMaskFormatter simpleMaskTel = new SimpleMaskFormatter("(NN) N NNNN NNNN");
         MaskTextWatcher mascaraTel = new MaskTextWatcher(ctTelEsc, simpleMaskTel);
         ctTelEsc.addTextChangedListener(mascaraTel);
-        //FIM MASCARA==========
-        //=====criar mascara no campo CNPJ escola
+
         SimpleMaskFormatter simpleMaskCNPJ = new SimpleMaskFormatter("NN.NNN.NNN/NNNN-NN");
         MaskTextWatcher mascaraCNPJ = new MaskTextWatcher(ctCNPJEsc, simpleMaskCNPJ);
         ctCNPJEsc.addTextChangedListener(mascaraCNPJ);
-        //FIM MASCARA==========
 
         final Intent intent = getIntent();
         final String key = intent.getStringExtra("key");

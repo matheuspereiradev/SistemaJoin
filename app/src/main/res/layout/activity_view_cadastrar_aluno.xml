@@ -57,22 +57,6 @@
                 android:inputType="textPersonName" />
 
             <TextView
-                android:id="@+id/textView49"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Matricula"
-                android:textColor="@android:color/background_dark"
-                android:textSize="17sp" />
-
-            <EditText
-                android:id="@+id/ctMatricAluno"
-                android:layout_width="340dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Matricula"
-                android:inputType="number" />
-
-            <TextView
                 android:id="@+id/textView52"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -137,7 +121,7 @@
                 android:inputType="textEmailAddress|textEmailSubject" />
 
             <Button
-                android:id="@+id/btSalvarAluno"
+                android:id="@+id/SalvarAluno"
                 android:layout_width="163dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"

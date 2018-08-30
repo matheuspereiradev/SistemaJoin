@@ -30,10 +30,10 @@ import java.util.InputMismatchException;
 
 public class ViewCadastrarAluno extends AppCompatActivity {
 
-    Button btSalvarAluno;
-    EditText ctNomeAluno,ctMatricAluno,ctTelAluno,ctNomeResponsavel,ctCPFResp,ctEmailResp;
+    Button SalvarAluno;
+    EditText ctNomeAluno, ctTelAluno, ctNomeResponsavel, ctCPFResp, ctEmailResp;
 
-    Aluno aluno;
+
     String key = "";
     private DatabaseReference firebase;
     FirebaseAuth autenticacao;
@@ -44,35 +44,30 @@ public class ViewCadastrarAluno extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_cadastrar_aluno);
 
-        ctNomeAluno=(EditText)findViewById(R.id.ctNomeAluno);
-        ctMatricAluno=(EditText)findViewById(R.id.ctMatricAluno);
-        ctTelAluno =(EditText)findViewById(R.id.ctTelAluno);
-        ctEmailResp=(EditText) findViewById(R.id.ctEmailResp);
-        ctNomeResponsavel=(EditText)findViewById(R.id.ctNomeResponsavel);
-        ctCPFResp=(EditText)findViewById(R.id.ctCPFResp);
-        btSalvarAluno=(Button)findViewById(R.id.btSalvarAluno);
+        ctNomeAluno = (EditText) findViewById(R.id.ctNomeAluno);
+        ctTelAluno = (EditText) findViewById(R.id.ctTelAluno);
+        ctEmailResp = (EditText) findViewById(R.id.ctEmailResp);
+        ctNomeResponsavel = (EditText) findViewById(R.id.ctNomeResponsavel);
+        ctCPFResp = (EditText) findViewById(R.id.ctCPFResp);
+        SalvarAluno = (Button) findViewById(R.id.SalvarAluno);
 
-        //=====criar mascara no campo telefone
         SimpleMaskFormatter simpleMaskTelAl = new SimpleMaskFormatter("(NN) N NNNN NNNN");
         MaskTextWatcher mascaraTelAl = new MaskTextWatcher(ctTelAluno, simpleMaskTelAl);
         ctTelAluno.addTextChangedListener(mascaraTelAl);
-        //FIM MASCARA==========
 
-        //=====criar mascara no campo CPF
         SimpleMaskFormatter simpleMaskTelCPFP = new SimpleMaskFormatter("NNN.NNN.NNN-NN");
         MaskTextWatcher mascaraTelCPFP = new MaskTextWatcher(ctCPFResp, simpleMaskTelCPFP);
         ctCPFResp.addTextChangedListener(mascaraTelCPFP);
-        //FIM MASCARA==========
 
         intent = getIntent();
         key = intent.getStringExtra("key");
 
         if (key != null) {
             preencheCampos();
-            btSalvarAluno.setOnClickListener(new View.OnClickListener() {
+            SalvarAluno.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (ctNomeAluno.getText().equals("") || ctMatricAluno.getText().equals("") || ctTelAluno.getText().equals("")
+                    if (ctNomeAluno.getText().equals("") || ctTelAluno.getText().equals("")
                             || ctNomeResponsavel.getText().equals("") || ctCPFResp.getText().equals("")) {
                         Toast.makeText(getBaseContext(), "Preemcha todos os campos!", Toast.LENGTH_SHORT).show();
                     } else if (ctTelAluno.getText().length() < 13) {
@@ -85,18 +80,18 @@ public class ViewCadastrarAluno extends AppCompatActivity {
                         Toast.makeText(getBaseContext(), "CPF Invalido!", Toast.LENGTH_SHORT).show();
 
                     } else {
-                        editar(setDadosEditar());
-                        chamaTelaListaEscola();
+                        editarAluno(setDadosEditar());
+                        chamaTelaListaAlunos();
                         finish();
                     }
                 }
             });
 
         } else {
-            btSalvarAluno.setOnClickListener(new View.OnClickListener() {
+            SalvarAluno.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (ctNomeAluno.getText().equals("") || ctMatricAluno.getText().equals("") || ctTelAluno.getText().equals("")
+                    if (ctNomeAluno.getText().equals("") || ctTelAluno.getText().equals("")
                             || ctNomeResponsavel.getText().equals("") || ctCPFResp.getText().equals("")) {
                         Toast.makeText(getBaseContext(), "Preencha todos os campos!", Toast.LENGTH_SHORT).show();
                     } else if (ctTelAluno.getText().length() < 13) {
@@ -109,8 +104,10 @@ public class ViewCadastrarAluno extends AppCompatActivity {
                         Toast.makeText(getBaseContext(), "CPF Invalido!", Toast.LENGTH_SHORT).show();
 
                     } else {
-                        cadastrar(setDadosSalvar());
-                        chamaTelaListaEscola();
+                        Aluno set = setDadosSalvar();
+                        cadastrar(set);
+                        salvarAluno(set);
+                        chamaTelaListaAlunos();
                         finish();
                     }
                 }
@@ -126,7 +123,6 @@ public class ViewCadastrarAluno extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    salvar(a);
                                     Preferencias preferencias = new Preferencias(ViewCadastrarAluno.this);
                                     preferencias.salvaUsuarioLogado(a.getMatricola(), a.getNome());
                                 } else {
@@ -201,23 +197,23 @@ public class ViewCadastrarAluno extends AppCompatActivity {
         }
     }
 
-    private void chamaTelaListaEscola() {
-        Intent i = new Intent(getBaseContext(), ViewListarAlunos.class);
-        startActivity(i);
+    private void chamaTelaListaAlunos() {
+        Intent listAluno = new Intent(ViewCadastrarAluno.this, ViewListarAlunos.class);
+        startActivity(listAluno);
     }
 
-    private void salvar(Aluno a) {
-        DatabaseReference data = ConfiguracaoFirebase.getFirebase().child("aluno");
-        data.child(a.getMatricola()).setValue(a);
-
+    private void salvarAluno(Aluno a) {
+        DatabaseReference dataAluno = ConfiguracaoFirebase.getFirebase().child("aluno");
+        dataAluno.child(a.getMatricola()).setValue(a);
     }
 
     private Aluno setDadosSalvar() {
-        aluno = new Aluno();
+        Aluno aluno = new Aluno();
         aluno.setNome(ctNomeAluno.getText().toString());
         aluno.setEmailResponsavel(ctEmailResp.getText().toString());
         String idUsuario = Base64Custon.codificadorBase64(aluno.getEmailResponsavel());
         aluno.setMatricola(idUsuario);
+        aluno.setNomeResponsavel(ctNomeResponsavel.getText().toString());
         aluno.setSenha(geraSenha());
         aluno.setStatus("Ativo");
         aluno.setCpfResponsavel(ctCPFResp.getText().toString());
@@ -227,11 +223,12 @@ public class ViewCadastrarAluno extends AppCompatActivity {
     }
 
     private Aluno setDadosEditar() {
-        aluno = new Aluno();
+        Aluno aluno = new Aluno();
         aluno.setNome(ctNomeAluno.getText().toString());
         aluno.setEmailResponsavel(ctEmailResp.getText().toString());
         aluno.setMatricola(intent.getStringExtra("key"));
         aluno.setSenha(intent.getStringExtra("senha"));
+        aluno.setNomeResponsavel(intent.getStringExtra("nomeRes"));
         aluno.setStatus("Ativo");
         aluno.setCpfResponsavel(ctCPFResp.getText().toString());
         aluno.setTelefone(ctNomeResponsavel.getText().toString());
@@ -250,9 +247,9 @@ public class ViewCadastrarAluno extends AppCompatActivity {
         return senha;
     }
 
-    private void editar(Aluno a) {
+    private void editarAluno(Aluno a) {
         DatabaseReference data = ConfiguracaoFirebase.getFirebase().child("aluno");
-        data.child(a.getMatricola()).updateChildren(aluno.toMap());
+        data.child(a.getMatricola()).updateChildren(a.toMap());
     }
 
     private void preencheCampos() {
@@ -260,7 +257,6 @@ public class ViewCadastrarAluno extends AppCompatActivity {
         ctEmailResp.setText(intent.getStringExtra("email"));
         ctCPFResp.setText(intent.getStringExtra("cpf"));
         ctNomeResponsavel.setText(intent.getStringExtra("nomeRes"));
-        ctMatricAluno.setText(intent.getStringExtra("key"));
         ctTelAluno.setText(intent.getStringExtra("tel"));
     }
 }

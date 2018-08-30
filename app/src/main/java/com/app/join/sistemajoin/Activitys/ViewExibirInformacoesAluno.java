@@ -30,7 +30,7 @@ public class ViewExibirInformacoesAluno extends AppCompatActivity {
         setContentView(R.layout.activity_view_exibir_informacoes_aluno);
 
         tvNomeAluno=(TextView)findViewById(R.id.tvNomeAluno);
-        tvMatriculaAluno=(TextView)findViewById(R.id.tvTelResponsavel);
+        tvMatriculaAluno=(TextView)findViewById(R.id.tvMatriculaAluno);
         tvTelResponsavel=(TextView)findViewById(R.id.tvTelResponsavel);
         tvNomeResponsavel=(TextView)findViewById(R.id.tvNomeResponsavel);
         tvCPFResponsavel=(TextView)findViewById(R.id.tvCPFResponsavel);
@@ -73,17 +73,16 @@ public class ViewExibirInformacoesAluno extends AppCompatActivity {
         btEditarAluno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent in = new Intent(getBaseContext(), ViewCadastrarAluno.class);
-                Intent intent = getIntent();
-                in.putExtra("key", in.getStringExtra("key"));
-                in.putExtra("nome", in.getStringExtra("nome"));
-                in.putExtra("tel", in.getStringExtra("tel"));
-                //in.putExtra("email", in.getStringExtra("email"));
-                in.putExtra("cpf", in.getStringExtra("cpf"));
-                in.putExtra("status", in.getStringExtra("status"));
-                in.putExtra("senha", in.getStringExtra("senha"));
-                in.putExtra("nomeRes", in.getStringExtra("nomeRes"));
-                startActivity(in);
+                Intent cadAluno = new Intent(getBaseContext(), ViewCadastrarAluno.class);
+                cadAluno.putExtra("key", in.getStringExtra("key"));
+                cadAluno.putExtra("nome", in.getStringExtra("nome"));
+                cadAluno.putExtra("tel", in.getStringExtra("tel"));
+                cadAluno.putExtra("email", in.getStringExtra("email"));
+                cadAluno.putExtra("cpf", in.getStringExtra("cpf"));
+                cadAluno.putExtra("status", in.getStringExtra("status"));
+                cadAluno.putExtra("senha", in.getStringExtra("senha"));
+                cadAluno.putExtra("nomeRes", in.getStringExtra("nomeRes"));
+                startActivity(cadAluno);
                 finish();
             }
         });
@@ -96,7 +95,7 @@ public class ViewExibirInformacoesAluno extends AppCompatActivity {
         tvMatriculaAluno.setText(in.getStringExtra("key"));
         tvTelResponsavel.setText(in.getStringExtra("tel"));
         tvNomeResponsavel.setText(in.getStringExtra("nomeRes"));
-        tvCPFResponsavel.setText(in.getStringExtra("cof"));
+        tvCPFResponsavel.setText(in.getStringExtra("cpf"));
         tvSenhaAluno.setText(in.getStringExtra("senha"));
 
     }

@@ -125,43 +125,53 @@
                 android:layout_width="match_parent"
                 android:layout_height="85dp"
                 android:text="Novo Professor"
-                android:textSize="20sp" />
+                android:background="@drawable/professor_novo"
+                android:textSize="25sp" />
 
             <Button
                 android:id="@+id/LProf"
                 android:layout_width="match_parent"
                 android:layout_height="85dp"
+                android:background="@drawable/listar_prof"
                 android:text="Listar Professor"
-                android:textSize="20sp" />
+                android:textSize="25sp"
+                android:layout_marginTop="5dp"/>
 
             <Button
                 android:id="@+id/NAluno"
                 android:layout_width="match_parent"
                 android:layout_height="85dp"
                 android:text="Novo Aluno"
-                android:textSize="20sp" />
+                android:background="@drawable/aluno"
+                android:layout_marginTop="5dp"
+                android:textSize="25sp" />
 
             <Button
                 android:id="@+id/LAluno"
                 android:layout_width="match_parent"
                 android:layout_height="85dp"
                 android:text="Listar Aluno"
-                android:textSize="20sp" />
+                android:layout_marginTop="5dp"
+                android:background="@drawable/aluno_lista"
+                android:textSize="25sp" />
 
             <Button
                 android:id="@+id/NTurma"
                 android:layout_width="match_parent"
                 android:layout_height="85dp"
                 android:text="Nova Turma"
-                android:textSize="20sp" />
+                android:layout_marginTop="5dp"
+                android:background="@drawable/turma"
+                android:textSize="25sp" />
 
             <Button
                 android:id="@+id/LTurma"
                 android:layout_width="match_parent"
                 android:layout_height="85dp"
                 android:text="Listar Turma"
-
-                android:textSize="20sp" />
+                android:layout_marginTop="5dp"
+                android:background="@drawable/turma_lista"
+                android:textSize="25sp" />
 
         </LinearLayout>
     </ScrollView>

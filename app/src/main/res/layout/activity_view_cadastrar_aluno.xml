@@ -126,8 +126,8 @@
                 android:layout_height="60dp"
                 android:layout_gravity="center"
                 android:background="@drawable/botao_customizado"
-                android:paddingTop="15dp"
                 android:text="Salvar"
+                android:layout_marginTop="15dp"
                 android:textColor="#ffffff"
                 android:textSize="20sp" />
         </LinearLayout>

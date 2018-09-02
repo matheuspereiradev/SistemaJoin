@@ -12,31 +12,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:text="Informações sobre o professor"
         android:textColor="@android:color/background_dark"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/gridLayout3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline13"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.53"
+        tools:layout_editor_absoluteX="29dp" />
 
     <GridLayout
         android:id="@+id/gridLayout3"
         android:layout_width="328dp"
-        android:layout_height="296dp"
-        android:layout_marginBottom="80dp"
+        android:layout_height="242dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:columnCount="2"
         android:rowCount="7"
-        app:layout_constraintBottom_toTopOf="@+id/btConfigProf"
+        app:layout_constraintBottom_toTopOf="@+id/guideline12"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline13">
 
         <TextView
             android:id="@+id/textView23"
@@ -117,20 +117,22 @@
             android:textSize="17sp" />
 
         <TextView
-            android:id="@+id/cmpDataNascProf"
-            android:layout_width="220dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="25dp"
-            android:textSize="17sp" />
-
-        <TextView
             android:id="@+id/textView48"
             android:layout_width="95dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="15dp"
+            android:text="Data de nascimento"
             android:textColor="@android:color/background_dark"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/cmpDataNascProf"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="25dp"
+            android:text="TextView"
             android:textSize="17sp" />
 
         <TextView
@@ -163,43 +165,54 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="5dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:background="@android:color/holo_blue_dark"
         android:src="@android:drawable/ic_menu_edit"
         app:layout_constraintBottom_toBottomOf="@+id/btConfigProf"
         app:layout_constraintEnd_toStartOf="@+id/btConfigProf"
+        app:layout_constraintHorizontal_bias="0.363"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btConfigProf" />
+        app:layout_constraintTop_toTopOf="@+id/btConfigProf"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
         android:id="@+id/btConfigProf"
         android:layout_width="107dp"
         android:layout_height="47dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="8dp"
         android:background="@android:color/holo_green_dark"
         android:src="@android:drawable/ic_menu_preferences"
-        app:layout_constraintBottom_toBottomOf="@+id/btExcluirProf"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btExcluirProf"
-        app:layout_constraintStart_toEndOf="@+id/btEditProf"
-        app:layout_constraintTop_toTopOf="@+id/btExcluirProf" />
+        app:layout_constraintTop_toTopOf="@+id/guideline12"
+        app:layout_constraintVertical_bias="0.697" />
 
     <ImageButton
         android:id="@+id/btExcluirProf"
         android:layout_width="107dp"
         android:layout_height="47dp"
-        android:layout_marginBottom="25dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:background="@android:color/holo_red_dark"
         android:src="@android:drawable/ic_menu_delete"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/btConfigProf"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btConfigProf" />
+        app:layout_constraintTop_toTopOf="@+id/btConfigProf" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="352dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="79dp" />
 
 </android.support.constraint.ConstraintLayout>

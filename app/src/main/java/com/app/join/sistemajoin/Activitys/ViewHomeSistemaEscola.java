@@ -9,7 +9,7 @@ import com.app.join.sistemajoin.R;
 
 public class ViewHomeSistemaEscola extends AppCompatActivity {
 
-    Button LTurma, NTurma, NProf, LProf, LAluno, NAluno;
+    Button LTurma, NTurma, NProf, LProf, LAluno, NAluno, btSairEsc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +22,7 @@ public class ViewHomeSistemaEscola extends AppCompatActivity {
         NTurma = (Button) findViewById(R.id.NTurma);
         LAluno = (Button) findViewById(R.id.LAluno);
         NAluno = (Button) findViewById(R.id.NAluno);
+        btSairEsc= (Button) findViewById(R.id.btSairEsc);
 
         LProf.setOnClickListener(new View.OnClickListener() {
             @Override

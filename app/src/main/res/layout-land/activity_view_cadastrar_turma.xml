@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activitys.ViewCadastrarTurma"
+    tools:layout_editor_absoluteY="73dp">
+
+    <TextView
+        android:id="@+id/textView64"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cadastrar turma"
+        android:textColor="@android:color/background_dark"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="208dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/textView65"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nome da turma:"
+        android:textColor="@android:color/background_dark"
+        android:textSize="17sp"
+        tools:layout_editor_absoluteX="235dp"
+        tools:layout_editor_absoluteY="61dp" />
+
+    <EditText
+        android:id="@+id/ctNomeTurma"
+        android:layout_width="522dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Nome da turma"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="35dp"
+        tools:layout_editor_absoluteY="98dp" />
+
+    <TextView
+        android:id="@+id/textView66"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Turno"
+        android:textColor="@android:color/background_dark"
+        android:textSize="17sp"
+        tools:layout_editor_absoluteX="274dp"
+        tools:layout_editor_absoluteY="144dp" />
+
+    <Spinner
+        android:id="@+id/spnTurno"
+        android:layout_width="207dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="193dp"
+        tools:layout_editor_absoluteY="181dp" />
+
+    <Button
+        android:id="@+id/btSalvarTurma"
+        android:layout_width="202dp"
+        android:layout_height="68dp"
+        android:background="@drawable/botao_customizado"
+        android:text="Salvar"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="195dp"
+        tools:layout_editor_absoluteY="223dp" />
+
+</android.support.constraint.ConstraintLayout>

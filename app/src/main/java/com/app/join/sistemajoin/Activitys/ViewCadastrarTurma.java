@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.app.join.sistemajoin.Model.Professor;
@@ -18,6 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 public class ViewCadastrarTurma extends AppCompatActivity {
     EditText nome;
     Button salvar;
+    Spinner turno;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +29,12 @@ public class ViewCadastrarTurma extends AppCompatActivity {
 
         nome = findViewById(R.id.ctNomeTurma);
         salvar = findViewById(R.id.btSalvarTurma);
+        turno=findViewById(R.id.spnTurno);
 
+        ArrayAdapter adapterTurno=  ArrayAdapter.createFromResource(getBaseContext(),R.array.turno,
+                R.layout.support_simple_spinner_dropdown_item);
+
+        turno.setAdapter(adapterTurno);
         salvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -55,6 +55,8 @@
         android:layout_marginRight="35dp"
         android:layout_marginStart="35dp"
         android:text="gerar nova senha"
+        android:background="@drawable/botao_customizado"
+        android:textColor="#ffffff"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

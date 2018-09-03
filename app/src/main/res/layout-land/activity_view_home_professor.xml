@@ -143,7 +143,7 @@
                 android:layout_height="80dp"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/realiza_avaliacao"
-                android:text="realizar avalição"
+                android:text="realizar avaliação"
                 android:textSize="25sp" />
         </LinearLayout>
     </ScrollView>

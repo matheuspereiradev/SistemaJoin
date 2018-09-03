@@ -217,7 +217,7 @@ public class ViewCadastrarAluno extends AppCompatActivity {
         aluno.setSenha(geraSenha());
         aluno.setStatus("Ativo");
         aluno.setCpfResponsavel(ctCPFResp.getText().toString());
-        aluno.setTelefone(ctNomeResponsavel.getText().toString());
+        aluno.setTelefone(ctTelAluno.getText().toString());
         aluno.setKeyTurma("sem Turma");
         return aluno;
     }
@@ -231,7 +231,7 @@ public class ViewCadastrarAluno extends AppCompatActivity {
         aluno.setNomeResponsavel(intent.getStringExtra("nomeRes"));
         aluno.setStatus("Ativo");
         aluno.setCpfResponsavel(ctCPFResp.getText().toString());
-        aluno.setTelefone(ctNomeResponsavel.getText().toString());
+        aluno.setTelefone(ctTelAluno.getText().toString());
         aluno.setKeyTurma("sem Turma");
         return aluno;
     }

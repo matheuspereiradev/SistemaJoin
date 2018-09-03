@@ -39,12 +39,10 @@ public class ViewTelaLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_tela_login);
 
-        //=========inicio da conexão xml com java
         swManterConectado = (Switch) findViewById(R.id.swManterConectado);
         btEntrar = (Button) findViewById(R.id.btEntrar);
         ctSenhaUsr = (EditText) findViewById(R.id.ctSenhaUsr);
         ctLoginUsr = (EditText) findViewById(R.id.ctLoginUsr);
-        //fim da conexão==========
 
         btEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,7 +68,7 @@ public class ViewTelaLogin extends AppCompatActivity {
                     if (admJoin.getEmail().equals("projetojoin.thread@gmail.com")) {
                         Intent in = new Intent(ViewTelaLogin.this, ViewHomeSistemaAdministrativo.class);
                         startActivity(in);
-                    } else if (confereEscola()) {
+                    } else if (admJoin.getEmail().equals("p@p.com")) {
                         Intent in = new Intent(ViewTelaLogin.this, ViewHomeSistemaEscola.class);
                         startActivity(in);
                     } else if (confereProfessor()) {
@@ -81,7 +79,7 @@ public class ViewTelaLogin extends AppCompatActivity {
                         startActivity(in);
                     }
                 } else {
-                    Intent in = new Intent(ViewTelaLogin.this, ViewHomeSistemaEscola.class);
+                    Intent in = new Intent(ViewTelaLogin.this, ViewHomeProfessor.class);
                     startActivity(in);
                     Toast.makeText(ViewTelaLogin.this, "Email ou Senha Inválido", Toast.LENGTH_SHORT).show();
 
@@ -91,8 +89,8 @@ public class ViewTelaLogin extends AppCompatActivity {
     }
 
     private boolean confereEscola() {
-        firebase = ConfiguracaoFirebase.getFirebase().child("escola");
-        Query query = firebase.child("email").equalTo(admJoin.getEmail());
+        firebase = ConfiguracaoFirebase.getFirebase().child("escola").child("email");
+        Query query = firebase.orderByChild("email").equalTo(admJoin.getEmail());
         if (query != null) {
             return true;
         }
@@ -101,7 +99,7 @@ public class ViewTelaLogin extends AppCompatActivity {
 
     private boolean confereProfessor() {
         firebase = ConfiguracaoFirebase.getFirebase().child("professor");
-        Query query = firebase.child("email").equalTo(admJoin.getEmail());
+        Query query = firebase.orderByChild("email").equalTo(admJoin.getEmail());
         if (query != null) {
             return true;
         }

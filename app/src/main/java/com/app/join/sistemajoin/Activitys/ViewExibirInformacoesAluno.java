@@ -1,22 +1,23 @@
 package com.app.join.sistemajoin.Activitys;
 
-        import android.content.DialogInterface;
-        import android.content.Intent;
-        import android.support.v7.app.AlertDialog;
-        import android.support.v7.app.AppCompatActivity;
-        import android.os.Bundle;
-        import android.view.View;
-        import android.widget.ImageButton;
-        import android.widget.TextView;
-        import com.app.join.sistemajoin.Model.Aluno;
-        import com.app.join.sistemajoin.R;
-        import com.app.join.sistemajoin.Tools.ConfiguracaoFirebase;
-        import com.google.firebase.database.DatabaseReference;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TextView;
+
+import com.app.join.sistemajoin.Model.Aluno;
+import com.app.join.sistemajoin.R;
+import com.app.join.sistemajoin.Tools.ConfiguracaoFirebase;
+import com.google.firebase.database.DatabaseReference;
 
 public class ViewExibirInformacoesAluno extends AppCompatActivity {
 
-    TextView tvNomeAluno,tvMatriculaAluno,tvTelResponsavel,tvNomeResponsavel,tvCPFResponsavel,tvSenhaAluno;
-    ImageButton btExcluirAluno,btEditarAluno,btConfigAluno;
+    TextView tvNomeAluno, tvMatriculaAluno, tvTelResponsavel, tvNomeResponsavel, tvCPFResponsavel, tvSenhaAluno;
+    ImageButton btExcluirAluno, btEditarAluno, btConfigAluno;
 
     private DatabaseReference firebase;
     private AlertDialog alertDialog;
@@ -29,12 +30,12 @@ public class ViewExibirInformacoesAluno extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_exibir_informacoes_aluno);
 
-        tvNomeAluno=(TextView)findViewById(R.id.tvNomeAluno);
-        tvMatriculaAluno=(TextView)findViewById(R.id.tvMatriculaAluno);
-        tvTelResponsavel=(TextView)findViewById(R.id.tvTelResponsavel);
-        tvNomeResponsavel=(TextView)findViewById(R.id.tvNomeResponsavel);
-        tvCPFResponsavel=(TextView)findViewById(R.id.tvCPFResponsavel);
-        tvSenhaAluno=(TextView)findViewById(R.id.tvSenhaAluno);
+        tvNomeAluno = (TextView) findViewById(R.id.tvNomeAluno);
+        tvMatriculaAluno = (TextView) findViewById(R.id.tvMatriculaAluno);
+        tvTelResponsavel = (TextView) findViewById(R.id.tvTelResponsavel);
+        tvNomeResponsavel = (TextView) findViewById(R.id.tvNomeResponsavel);
+        tvCPFResponsavel = (TextView) findViewById(R.id.tvCPFResponsavel);
+        tvSenhaAluno = (TextView) findViewById(R.id.tvSenhaAluno);
         btConfigAluno = (ImageButton) findViewById(R.id.btConfigAluno);
         btEditarAluno = (ImageButton) findViewById(R.id.btEditarAluno);
         btExcluirAluno = (ImageButton) findViewById(R.id.btExcluirAluno);

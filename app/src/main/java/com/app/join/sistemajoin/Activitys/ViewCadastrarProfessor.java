@@ -214,7 +214,7 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
     }
 
     private void chamaTelaListaProfessor() {
-        Intent listProf = new Intent(getBaseContext(), ViewListaProfessores.class);
+        Intent listProf = new Intent(ViewCadastrarProfessor.this, ViewListaProfessores.class);
         startActivity(listProf);
     }
 

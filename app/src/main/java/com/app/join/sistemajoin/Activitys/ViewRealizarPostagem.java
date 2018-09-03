@@ -18,16 +18,17 @@ public class ViewRealizarPostagem extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_realizar_postagem);
 
-        //=======conexão java com xml
         ctTituloPost=(EditText)findViewById(R.id.ctTituloPost);
         ctMsgPost=(EditText)findViewById(R.id.ctMsgPost);
         btSelecionarAlunos=(Button)findViewById(R.id.btSelecionarAlunos);
-        //fim da conexão=========
+
 
         btSelecionarAlunos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i=new Intent(getBaseContext(),ViewSelecionarAlunos.class);
+                i.putExtra("titulo", ctTituloPost.getText());
+                i.putExtra("msg", ctMsgPost.getText());
                 startActivity(i);
             }
         });

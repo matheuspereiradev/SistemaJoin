@@ -11,23 +11,23 @@
         android:id="@+id/textView26"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="9dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="8dp"
         android:text="Cadastrar Professor"
         android:textColor="@android:color/background_dark"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/scrollView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.62"
+        tools:layout_editor_absoluteX="85dp" />
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="2dp"
+        android:layout_width="384dp"
+        android:layout_height="406dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView26">
 
@@ -53,21 +53,6 @@
                 android:hint="Nome"
                 android:inputType="textPersonName" />
 
-            <TextView
-                android:id="@+id/textView28"
-                android:layout_width="wrap_content"
-                android:layout_height="19dp"
-                android:text="Data de nascimento:"
-                android:textColor="@android:color/background_dark"
-                android:textSize="17sp" />
-
-            <EditText
-                android:id="@+id/ctDataNascProf"
-                android:layout_width="311dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Data de nascimento"
-                android:inputType="number" />
 
             <TextView
                 android:id="@+id/textView30"
@@ -114,22 +99,6 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="CPF"
-                android:inputType="number" />
-
-            <TextView
-                android:id="@+id/textView59"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="RG:"
-                android:textColor="@android:color/background_dark"
-                android:textSize="17sp" />
-
-            <EditText
-                android:id="@+id/ctRGProf"
-                android:layout_width="313dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="RG"
                 android:inputType="number" />
 
             <Button

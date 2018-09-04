@@ -25,7 +25,7 @@
 
     <GridLayout
         android:layout_width="355dp"
-        android:layout_height="178dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -92,25 +92,6 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="15dp"
-            android:text="TextView"
-            android:textSize="17sp" />
-
-        <TextView
-            android:id="@+id/textView72"
-            android:layout_width="128dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="15dp"
-            android:text="Quantidade de alunos:"
-            android:textColor="@android:color/background_dark"
-            android:textSize="17sp" />
-
-        <TextView
-            android:id="@+id/cmpQntAlunosTurma"
-            android:layout_width="210dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="22dp"
             android:text="TextView"
             android:textSize="17sp" />
 

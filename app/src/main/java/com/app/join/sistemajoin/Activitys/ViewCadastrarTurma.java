@@ -45,6 +45,7 @@ public class ViewCadastrarTurma extends AppCompatActivity {
                     turma.setNome(nome.getText().toString());
                     String idUsuario = Base64Custon.codificadorBase64(turma.getNome());
                     turma.setId(idUsuario);
+                    turma.setNomeProfessor("sem Professor");
                     salvarTurma(turma);
                     chamaTelaListaTurma();
                     finish();
@@ -61,7 +62,7 @@ public class ViewCadastrarTurma extends AppCompatActivity {
     }
 
     private void chamaTelaListaTurma() {
-        Intent listTurma = new Intent(getBaseContext(), ViewListarTurmas.class);
+        Intent listTurma = new Intent(ViewCadastrarTurma.this, ViewListarTurmas.class);
         startActivity(listTurma);
     }
 

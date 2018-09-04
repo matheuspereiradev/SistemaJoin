@@ -1,7 +1,10 @@
 package com.app.join.sistemajoin.Activitys;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -49,12 +52,39 @@ public class ViewSelecionarAlunos extends AppCompatActivity {
                 }
                 adapter.notifyDataSetChanged();
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
             }
         };
 
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                variavel = adapter.getItem(i);
+                firebase = ConfiguracaoFirebase.getFirebase().child("aluno");
+                firebase.child(variavel.getMatricola());
+                Intent in = new Intent(ViewSelecionarAlunos.this, ViewRealizarPostagem.class);
+                in.putExtra("key", variavel.getMatricola());
+                in.putExtra("nome", variavel.getNome());
+                startActivity(in);
+                finish();
+
+            }
+        });
+
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        firebase.removeEventListener(valueEventListener);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        firebase.addValueEventListener(valueEventListener);
+    }
+
 }

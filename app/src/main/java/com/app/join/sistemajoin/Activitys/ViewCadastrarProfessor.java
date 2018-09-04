@@ -221,7 +221,6 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
     private void salvarProfessor(Professor p) {
         DatabaseReference data = ConfiguracaoFirebase.getFirebase().child("professor");
         data.child(p.getIdProfessor()).setValue(p);
-
     }
 
     private Professor setDados() {

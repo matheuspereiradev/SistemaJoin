@@ -68,21 +68,21 @@ public class ViewTelaLogin extends AppCompatActivity {
                     if (admJoin.getEmail().equals("projetojoin.thread@gmail.com")) {
                         Intent in = new Intent(ViewTelaLogin.this, ViewHomeSistemaAdministrativo.class);
                         startActivity(in);
-                    } else if (admJoin.getEmail().equals("p@p.com")) {
+                    } else if (admJoin.getEmail().equals("escola@join.com")) {
                         Intent in = new Intent(ViewTelaLogin.this, ViewHomeSistemaEscola.class);
                         startActivity(in);
-                    } else if (confereProfessor()) {
+                    } else if (admJoin.getEmail().equals("professor@join.com")) {
                         Intent in = new Intent(ViewTelaLogin.this, ViewHomeProfessor.class);
                         startActivity(in);
-                    }else{
-                        Intent in = new Intent(ViewTelaLogin.this, ViewTelaLogin.class);
+                    } else if (admJoin.getEmail().equals("aluno@join.com")) {
+                        Intent in = new Intent(ViewTelaLogin.this, ViewTelaHomeAluno.class);
                         startActivity(in);
+                    }else{
+                        Toast.makeText(ViewTelaLogin.this, "Erro no login", Toast.LENGTH_SHORT).show();
+
                     }
                 } else {
-                    Intent in = new Intent(ViewTelaLogin.this, ViewHomeProfessor.class);
-                    startActivity(in);
                     Toast.makeText(ViewTelaLogin.this, "Email ou Senha Inválido", Toast.LENGTH_SHORT).show();
-
                 }
             }
         });
@@ -99,7 +99,7 @@ public class ViewTelaLogin extends AppCompatActivity {
 
     private boolean confereProfessor() {
         firebase = ConfiguracaoFirebase.getFirebase().child("professor");
-        Query query = firebase.orderByChild("email").equalTo(admJoin.getEmail());
+        Query query = firebase.getParent().child("email").equalTo(admJoin.getEmail());
         if (query != null) {
             return true;
         }

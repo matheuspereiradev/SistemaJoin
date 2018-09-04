@@ -34,7 +34,7 @@ public class TurmaAdapter extends ArrayAdapter<Turma> {
 
             Turma tur = turmas.get(position);
             textViewNome.setText(tur.getNome());
-            textViewTelefone.setText(tur.getId());
+            textViewTelefone.setText(tur.getNomeProfessor());
         }
         return view;
     }

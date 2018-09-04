@@ -73,6 +73,8 @@ public class ViewExibirInformacoesTurma extends AppCompatActivity {
 
     private void preencheCampos() {
         cmpNomeTurma.setText(in.getStringExtra("nome"));
+        cmpProfTurma.setText(in.getStringExtra("nomeProfessor"));
+
     }
 
 }

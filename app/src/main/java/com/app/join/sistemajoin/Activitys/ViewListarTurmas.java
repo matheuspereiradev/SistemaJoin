@@ -64,11 +64,12 @@ public class ViewListarTurmas extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 variavel = adapter.getItem(i);
-                firebase = ConfiguracaoFirebase.getFirebase().child("aluno");
+                firebase = ConfiguracaoFirebase.getFirebase().child("turma");
                 firebase.child(variavel.getId());
-                Intent in = new Intent(getBaseContext(), ViewExibirInformacoesAluno.class);
+                Intent in = new Intent(getBaseContext(), ViewExibirInformacoesTurma.class);
                 in.putExtra("key", variavel.getId());
                 in.putExtra("nome", variavel.getNome());
+                in.putExtra("nomeProfessor", variavel.getNomeProfessor());
                 startActivity(in);
 
             }

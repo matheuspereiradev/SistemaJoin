@@ -228,7 +228,7 @@ public class ViewCadastrarAluno extends AppCompatActivity {
         aluno.setEmailResponsavel(ctEmailResp.getText().toString());
         aluno.setMatricola(intent.getStringExtra("key"));
         aluno.setSenha(intent.getStringExtra("senha"));
-        aluno.setNomeResponsavel(intent.getStringExtra("nomeRes"));
+        aluno.setNomeResponsavel(ctNomeResponsavel.getText().toString());
         aluno.setStatus("Ativo");
         aluno.setCpfResponsavel(ctCPFResp.getText().toString());
         aluno.setTelefone(ctTelAluno.getText().toString());

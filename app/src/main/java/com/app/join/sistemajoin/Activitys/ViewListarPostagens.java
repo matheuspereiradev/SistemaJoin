@@ -37,10 +37,10 @@ public class ViewListarPostagens extends AppCompatActivity {
         setContentView(R.layout.activity_view_listar_postagens);
 
         lista = new ArrayList();
-        listview = findViewById(R.id.lwEscolasCadastradas);
+        listview = findViewById(R.id.tbPostagens);
         adapter = new PostagemAdapter(this, lista);
         listview.setAdapter(adapter);
-        firebase = ConfiguracaoFirebase.getFirebase().child("post");
+        firebase = ConfiguracaoFirebase.getFirebase().child("agenda");
 
         Toast.makeText(ViewListarPostagens.this, "Clique na Lista para ver o conteuda da Anotação", Toast.LENGTH_LONG).show();
 
@@ -66,7 +66,7 @@ public class ViewListarPostagens extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 variavel = adapter.getItem(i);
-                firebase = ConfiguracaoFirebase.getFirebase().child("post");
+                firebase = ConfiguracaoFirebase.getFirebase().child("agenda");
                 firebase.child(variavel.getId());
                 Intent in = new Intent(ViewListarPostagens.this, ViewVisualizarPostagem.class);
                 in.putExtra("key", variavel.getId());

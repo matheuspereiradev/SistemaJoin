@@ -71,7 +71,7 @@ public class ViewListarTurmas extends AppCompatActivity {
                 in.putExtra("nome", variavel.getNome());
                 in.putExtra("nomeProfessor", variavel.getNomeProfessor());
                 startActivity(in);
-
+                finish();
             }
         });
 

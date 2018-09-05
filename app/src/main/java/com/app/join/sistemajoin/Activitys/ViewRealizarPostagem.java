@@ -19,7 +19,7 @@ import java.text.SimpleDateFormat;
 public class ViewRealizarPostagem extends AppCompatActivity {
 
     EditText ctTituloPost,ctMsgPost;
-    Button btSelecionarAlunos;
+    Button btEnviarPost;
     DadosLogados dadosLogados;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,13 +28,14 @@ public class ViewRealizarPostagem extends AppCompatActivity {
 
         ctTituloPost=(EditText)findViewById(R.id.ctTituloPost);
         ctMsgPost=(EditText)findViewById(R.id.ctMsgPost);
-        btSelecionarAlunos=(Button)findViewById(R.id.btSelecionarAlunos);
+        btEnviarPost=(Button)findViewById(R.id.btEnviarPost);
 
 
-        btSelecionarAlunos.setOnClickListener(new View.OnClickListener() {
+        btEnviarPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                salvarPost(setDadosAgenda());
+                Agenda post = setDadosAgenda();
+                salvarPost(post);
                 chamaListaPost();
                 finish();
             }
@@ -59,12 +60,12 @@ public class ViewRealizarPostagem extends AppCompatActivity {
         agenda.setMensagem(ctMsgPost.getText().toString());
         String idUsuario = Base64Custon.codificadorBase64(agenda.getData());
         agenda.setId(idUsuario);
-        agenda.setNomeCriador(dadosLogados.getNomeLogado());
+        agenda.setNomeCriador("não codificado");
         return agenda;
     }
 
     private void salvarPost(Agenda a){
-        DatabaseReference data = ConfiguracaoFirebase.getFirebase().child("post");
+        DatabaseReference data = ConfiguracaoFirebase.getFirebase().child("agenda");
         data.push().setValue(a);
     }
 }

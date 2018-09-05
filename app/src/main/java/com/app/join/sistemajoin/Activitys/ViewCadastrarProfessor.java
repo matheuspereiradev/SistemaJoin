@@ -49,10 +49,8 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
         //==========inicio da conexão java cm xml
         ctNomeProf = (EditText) findViewById(R.id.ctNomeProf);
         ctEmailProf = (EditText) findViewById(R.id.ctEmailProf);
-        ctDataNascProf = (EditText) findViewById(R.id.ctDataNascProf);
         btProximoProf1 = (Button) findViewById(R.id.btProximoProf1);
         ctCPFProf = (EditText) findViewById(R.id.ctCPFProf);
-        ctRGProf = (EditText) findViewById(R.id.ctRGProf);
         ctTelProf = (EditText) findViewById(R.id.ctTelProf);
         //fim da conexão==========
 

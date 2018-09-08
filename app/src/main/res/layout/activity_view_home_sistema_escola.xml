@@ -7,6 +7,102 @@
     tools:context=".Activitys.ViewHomeSistemaEscola"
     tools:layout_editor_absoluteY="81dp">
 
+    <Button
+        android:id="@+id/LTurma"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/lista_turma"
+        android:text="Listar Turma"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline103"
+        app:layout_constraintEnd_toStartOf="@+id/guideline106"
+        app:layout_constraintStart_toStartOf="@+id/guideline104"
+        app:layout_constraintTop_toTopOf="@+id/guideline4" />
+
+    <Button
+        android:id="@+id/NProf"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/cad_prof"
+        android:text="Novo Professor"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline109"
+        app:layout_constraintEnd_toStartOf="@+id/guideline107"
+        app:layout_constraintStart_toStartOf="@+id/guideline106"
+        app:layout_constraintTop_toTopOf="@+id/guideline108" />
+
+    <Button
+        android:id="@+id/LProf"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/listar_prof"
+        android:text="Listar Professor"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline109"
+        app:layout_constraintEnd_toStartOf="@+id/guideline106"
+        app:layout_constraintStart_toStartOf="@+id/guideline104"
+        app:layout_constraintTop_toTopOf="@+id/guideline108" />
+
+    <Button
+        android:id="@+id/NAluno"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/cad_aluno"
+        android:text="Novo Aluno"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline108"
+        app:layout_constraintEnd_toStartOf="@+id/guideline106"
+        app:layout_constraintStart_toStartOf="@+id/guideline104"
+        app:layout_constraintTop_toTopOf="@+id/guideline103" />
+
+    <Button
+        android:id="@+id/LAluno"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/lista_aluno"
+        android:text="Listar Aluno"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline108"
+        app:layout_constraintEnd_toStartOf="@+id/guideline107"
+        app:layout_constraintStart_toStartOf="@+id/guideline106"
+        app:layout_constraintTop_toTopOf="@+id/guideline103" />
+
+    <Button
+        android:id="@+id/NTurma"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/cad_turma"
+        android:text="Nova Turma"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline103"
+        app:layout_constraintEnd_toStartOf="@+id/guideline107"
+        app:layout_constraintStart_toStartOf="@+id/guideline106"
+        app:layout_constraintTop_toTopOf="@+id/guideline4" />
+
     <TextView
         android:id="@+id/textView16"
         android:layout_width="wrap_content"
@@ -63,14 +159,13 @@
 
     <Button
         android:id="@+id/btSairEsc"
-        android:layout_width="114dp"
-        android:layout_height="45dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="4dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:background="@android:color/holo_red_dark"
         android:drawableLeft="@drawable/sharp_power_settings_new_24"
         android:paddingLeft="5dp"
@@ -79,10 +174,8 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView3"
-        app:layout_constraintVertical_bias="0.6" />
+        app:layout_constraintStart_toStartOf="@+id/guideline101"
+        app:layout_constraintTop_toTopOf="@+id/guideline98" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline3"
@@ -98,83 +191,60 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.22" />
 
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline98"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9" />
 
-    <ScrollView
-        android:id="@+id/scrollView3"
-        android:layout_width="356dp"
-        android:layout_height="338dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline4"
-        app:layout_constraintVertical_bias="0.0">
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline101"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.66" />
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="349dp"
-            android:layout_height="310dp"
-            android:orientation="vertical">
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline103"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.445" />
 
-            <Button
-                android:id="@+id/NProf"
-                android:layout_width="match_parent"
-                android:layout_height="85dp"
-                android:text="Novo Professor"
-                android:background="@drawable/professor_novo"
-                android:textSize="25sp" />
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline104"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.02" />
 
-            <Button
-                android:id="@+id/LProf"
-                android:layout_width="match_parent"
-                android:layout_height="85dp"
-                android:background="@drawable/listar_prof"
-                android:text="Listar Professor"
-                android:textSize="25sp"
-                android:layout_marginTop="5dp"/>
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline106"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.50" />
 
-            <Button
-                android:id="@+id/NAluno"
-                android:layout_width="match_parent"
-                android:layout_height="85dp"
-                android:text="Novo Aluno"
-                android:background="@drawable/aluno"
-                android:layout_marginTop="5dp"
-                android:textSize="25sp" />
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline107"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.98" />
 
-            <Button
-                android:id="@+id/LAluno"
-                android:layout_width="match_parent"
-                android:layout_height="85dp"
-                android:text="Listar Aluno"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/aluno_lista"
-                android:textSize="25sp" />
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline108"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.665" />
 
-            <Button
-                android:id="@+id/NTurma"
-                android:layout_width="match_parent"
-                android:layout_height="85dp"
-                android:text="Nova Turma"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/turma"
-                android:textSize="25sp" />
-
-            <Button
-                android:id="@+id/LTurma"
-                android:layout_width="match_parent"
-                android:layout_height="85dp"
-                android:text="Listar Turma"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/turma_lista"
-                android:textSize="25sp" />
-
-        </LinearLayout>
-    </ScrollView>
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline109"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.885" />
 
 </android.support.constraint.ConstraintLayout>

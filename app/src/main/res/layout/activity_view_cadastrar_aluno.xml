@@ -6,132 +6,150 @@
     android:layout_height="match_parent"
     tools:context=".Activitys.ViewCadastrarAluno">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/guideline79"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline78">
+
+        <TextView
+            android:id="@+id/textView36"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nome:"
+            android:textColor="@android:color/background_dark"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/ctNomeAluno"
+            android:layout_width="337dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Nome"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/textView52"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Telefone"
+            android:textColor="@android:color/background_dark"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/ctTelAluno"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Telefone"
+            android:inputType="phone" />
+
+        <TextView
+            android:id="@+id/textView55"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nome do responsável"
+            android:textColor="@android:color/background_dark"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/ctNomeResponsavel"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Nome do responsável"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/textView54"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CPF do responsável"
+            android:textColor="@android:color/background_dark"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/ctCPFResp"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="CPF"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/textView91"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email do responsável:"
+            android:textColor="@android:color/background_dark"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/ctEmailResp"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="email do responsável"
+            android:inputType="textEmailAddress|textEmailSubject" />
+
+    </LinearLayout>
+
     <TextView
         android:id="@+id/textView34"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:layout_marginTop="16dp"
         android:text="Cadastrar aluno"
         android:textColor="@android:color/background_dark"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView5"
+        app:layout_constraintBottom_toTopOf="@+id/guideline78"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ScrollView
-        android:id="@+id/scrollView5"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="6dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginRight="2dp"
-        android:layout_marginStart="2dp"
-        android:paddingLeft="8dp"
+    <Button
+        android:id="@+id/SalvarAluno"
+        android:layout_width="163dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/botao_customizado"
+        android:text="Salvar"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView34">
+        app:layout_constraintTop_toTopOf="@+id/guideline79" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline78"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.11" />
 
-            <TextView
-                android:id="@+id/textView36"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nome:"
-                android:textColor="@android:color/background_dark"
-                android:textSize="17sp" />
-
-            <EditText
-                android:id="@+id/ctNomeAluno"
-                android:layout_width="337dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Nome"
-                android:inputType="textPersonName" />
-
-            <TextView
-                android:id="@+id/textView52"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Telefone"
-                android:textColor="@android:color/background_dark"
-                android:textSize="17sp" />
-
-            <EditText
-                android:id="@+id/ctTelAluno"
-                android:layout_width="340dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Telefone"
-                android:inputType="phone" />
-
-            <TextView
-                android:id="@+id/textView55"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nome do responsável"
-                android:textColor="@android:color/background_dark"
-                android:textSize="17sp" />
-
-            <EditText
-                android:id="@+id/ctNomeResponsavel"
-                android:layout_width="340dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Nome do responsável"
-                android:inputType="textPersonName" />
-
-            <TextView
-                android:id="@+id/textView54"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="CPF do responsável"
-                android:textColor="@android:color/background_dark"
-                android:textSize="17sp" />
-
-            <EditText
-                android:id="@+id/ctCPFResp"
-                android:layout_width="340dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="CPF"
-                android:inputType="number" />
-
-            <TextView
-                android:id="@+id/textView91"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Email do responsável:"
-                android:textColor="@android:color/background_dark"
-                android:textSize="17sp" />
-
-            <EditText
-                android:id="@+id/ctEmailResp"
-                android:layout_width="340dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="email do responsável"
-                android:inputType="textEmailAddress|textEmailSubject" />
-
-            <Button
-                android:id="@+id/SalvarAluno"
-                android:layout_width="163dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center"
-                android:background="@drawable/botao_customizado"
-                android:text="Salvar"
-                android:layout_marginTop="15dp"
-                android:textColor="#ffffff"
-                android:textSize="20sp" />
-        </LinearLayout>
-    </ScrollView>
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline79"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.83" />
 
 
 </android.support.constraint.ConstraintLayout>

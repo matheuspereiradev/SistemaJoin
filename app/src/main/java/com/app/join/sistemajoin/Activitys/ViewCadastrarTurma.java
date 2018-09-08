@@ -29,7 +29,7 @@ public class ViewCadastrarTurma extends AppCompatActivity {
 
         nome = findViewById(R.id.ctNomeTurma);
         salvar = findViewById(R.id.btSalvarTurma);
-        turno=findViewById(R.id.spnTurno);
+        //turno=findViewById(R.id.spnTurno);
 
         ArrayAdapter adapterTurno=  ArrayAdapter.createFromResource(getBaseContext(),R.array.turno,
                 R.layout.support_simple_spinner_dropdown_item);

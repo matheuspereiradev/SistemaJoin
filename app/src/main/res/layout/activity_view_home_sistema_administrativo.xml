@@ -21,6 +21,7 @@
         android:text="Seja bem vindo,"
         android:textColor="@android:color/background_dark"
         android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/btCadEscola"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
@@ -46,8 +47,8 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="116dp"
-        android:layout_height="97dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
@@ -55,24 +56,20 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toTopOf="@+id/btCadEscola"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toStartOf="@+id/textView25"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/logo" />
 
     <Button
         android:id="@+id/btCadEscola"
-        android:layout_width="363dp"
+        android:layout_width="0dp"
         android:layout_height="120dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginRight="1dp"
         android:layout_marginTop="8dp"
-        android:paddingLeft="12dp"
         android:background="@drawable/escola"
         android:drawableLeft="@drawable/iconnovo"
+        android:paddingLeft="12dp"
         android:text="Adicionar nova escola"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
         android:textSize="30sp"
@@ -85,13 +82,9 @@
 
     <Button
         android:id="@+id/btListaEscola"
-        android:layout_width="363dp"
+        android:layout_width="0dp"
         android:layout_height="120dp"
         android:layout_marginBottom="72dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/escola_ensino"
         android:drawableLeft="@drawable/iconlista"
@@ -127,5 +120,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btListaEscola"
         app:layout_constraintVertical_bias="1.0" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline48"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.33" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline49"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.22" />
 
 </android.support.constraint.ConstraintLayout>

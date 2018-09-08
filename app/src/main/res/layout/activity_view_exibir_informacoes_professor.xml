@@ -20,6 +20,7 @@
         android:text="Informações sobre o professor"
         android:textColor="@android:color/background_dark"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline13"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,14 +28,14 @@
 
     <GridLayout
         android:id="@+id/gridLayout3"
-        android:layout_width="328dp"
-        android:layout_height="242dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         android:columnCount="2"
         android:rowCount="7"
         app:layout_constraintBottom_toTopOf="@+id/guideline12"
@@ -163,18 +164,24 @@
 
     <ImageButton
         android:id="@+id/btEditProf"
-        android:layout_width="107dp"
+        android:layout_width="0dp"
         android:layout_height="47dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:background="@android:color/holo_blue_dark"
         android:src="@android:drawable/ic_menu_edit"
-        app:layout_constraintBottom_toBottomOf="@+id/btConfigProf"
-        app:layout_constraintEnd_toStartOf="@+id/btConfigProf"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline36"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btConfigProf" />
+        app:layout_constraintTop_toTopOf="@+id/guideline12" />
 
     <ImageButton
         android:id="@+id/btConfigProf"
-        android:layout_width="107dp"
+        android:layout_width="0dp"
         android:layout_height="47dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
@@ -185,31 +192,33 @@
         android:background="@android:color/holo_green_dark"
         android:src="@android:drawable/ic_menu_preferences"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline37"
+        app:layout_constraintStart_toStartOf="@+id/guideline36"
         app:layout_constraintTop_toTopOf="@+id/guideline12" />
 
     <ImageButton
         android:id="@+id/btExcluirProf"
-        android:layout_width="107dp"
+        android:layout_width="0dp"
         android:layout_height="47dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:background="@android:color/holo_red_dark"
         android:src="@android:drawable/ic_menu_delete"
-        app:layout_constraintBottom_toBottomOf="@+id/btConfigProf"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btConfigProf"
-        app:layout_constraintTop_toTopOf="@+id/btConfigProf" />
+        app:layout_constraintStart_toStartOf="@+id/guideline37"
+        app:layout_constraintTop_toTopOf="@+id/guideline12" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.75" />
+        app:layout_constraintGuide_percent="0.77" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline13"
@@ -217,5 +226,33 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.15459883" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline36"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.33333333333" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline37"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.666666666" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline39"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.04" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline40"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.96" />
 
 </android.support.constraint.ConstraintLayout>

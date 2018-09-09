@@ -61,32 +61,28 @@
     <Button
         android:id="@+id/btVisualizarPost"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="2dp"
         android:background="@drawable/visualiza_post"
         android:text="Visualizar postagem"
         android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/btVisualizarAvaliacao"
+        app:layout_constraintBottom_toTopOf="@+id/guideline105"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView32"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="@+id/guideline102" />
 
     <Button
         android:id="@+id/btVisualizarAvaliacao"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="2dp"
         android:background="@drawable/visualiza_avaliacao"
         android:text="Visualizar avaliação"
         android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/guideline110"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline8"
-        app:layout_constraintVertical_bias="0.6" />
+        app:layout_constraintTop_toTopOf="@+id/guideline105" />
 
     <Button
         android:id="@+id/btSairPai"
@@ -136,5 +132,26 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.65" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline102"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline105"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.53" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline110"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.77" />
 
 </android.support.constraint.ConstraintLayout>

@@ -10,14 +10,25 @@ public class Turma {
     private String nome;
     private String id;
     private String nomeProfessor;
+    private String idEscola;
 
     @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("nome", getNome());
         hashMap.put("id", getId());
-        hashMap.put("nomeprofessor", getId());
+        hashMap.put("nomeprofessor", getNomeProfessor());
+        hashMap.put("idEscola", getIdEscola());
+
         return hashMap;
+    }
+
+    public String getIdEscola() {
+        return idEscola;
+    }
+
+    public void setIdEscola(String idEscola) {
+        this.idEscola = idEscola;
     }
 
     public String getNome() {

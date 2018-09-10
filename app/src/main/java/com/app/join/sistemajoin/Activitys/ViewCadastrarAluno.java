@@ -8,9 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.app.join.sistemajoin.Model.Aluno;
-import com.app.join.sistemajoin.Model.Professor;
 import com.app.join.sistemajoin.R;
 import com.app.join.sistemajoin.Tools.Base64Custon;
 import com.app.join.sistemajoin.Tools.ConfiguracaoFirebase;
@@ -24,8 +22,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.Query;
-
 import java.util.InputMismatchException;
 
 public class ViewCadastrarAluno extends AppCompatActivity {
@@ -34,7 +30,7 @@ public class ViewCadastrarAluno extends AppCompatActivity {
     EditText ctNomeAluno, ctTelAluno, ctNomeResponsavel, ctCPFResp, ctEmailResp;
 
 
-    String key = "";
+    String key, idemail;
     private DatabaseReference firebase;
     FirebaseAuth autenticacao;
     Intent intent = null;
@@ -61,6 +57,7 @@ public class ViewCadastrarAluno extends AppCompatActivity {
 
         intent = getIntent();
         key = intent.getStringExtra("key");
+        idemail = intent.getStringExtra("id");
 
         if (key != null) {
             preencheCampos();
@@ -104,9 +101,7 @@ public class ViewCadastrarAluno extends AppCompatActivity {
                         Toast.makeText(getBaseContext(), "CPF Invalido!", Toast.LENGTH_SHORT).show();
 
                     } else {
-                        Aluno set = setDadosSalvar();
-                        cadastrar(set);
-                        salvarAluno(set);
+                        cadastrar(setDadosSalvar());
                         chamaTelaListaAlunos();
                         finish();
                     }
@@ -123,6 +118,7 @@ public class ViewCadastrarAluno extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
+                                    salvarAluno(a);
                                     Preferencias preferencias = new Preferencias(ViewCadastrarAluno.this);
                                     preferencias.salvaUsuarioLogado(a.getMatricola(), a.getNome());
                                 } else {
@@ -219,6 +215,8 @@ public class ViewCadastrarAluno extends AppCompatActivity {
         aluno.setCpfResponsavel(ctCPFResp.getText().toString());
         aluno.setTelefone(ctTelAluno.getText().toString());
         aluno.setKeyTurma("sem Turma");
+        String id = Base64Custon.codificadorBase64(idemail);
+        aluno.setIdEscola(id);
         return aluno;
     }
 
@@ -233,6 +231,8 @@ public class ViewCadastrarAluno extends AppCompatActivity {
         aluno.setCpfResponsavel(ctCPFResp.getText().toString());
         aluno.setTelefone(ctTelAluno.getText().toString());
         aluno.setKeyTurma("sem Turma");
+        aluno.setIdEscola(intent.getStringExtra("idEscola"));
+
         return aluno;
     }
 

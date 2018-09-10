@@ -10,6 +10,7 @@ public class Professor extends Pessoa {
     private String idProfessor;
     private String email;
     private String cpf;
+    private String idEscola;
 
     @Exclude
     public Map<String, Object> toMap() {
@@ -23,8 +24,16 @@ public class Professor extends Pessoa {
         hashMapProfessor.put("status", getStatus());
         hashMapProfessor.put("keyTurma", getKeyTurma());
         hashMapProfessor.put("senha", getSenha());
-
+        hashMapProfessor.put("idEscola", getIdEscola());
         return hashMapProfessor;
+    }
+
+    public String getIdEscola() {
+        return idEscola;
+    }
+
+    public void setIdEscola(String idEscola) {
+        this.idEscola = idEscola;
     }
 
     public String getIdProfessor() {

@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import com.app.join.sistemajoin.Model.Aluno;
 import com.app.join.sistemajoin.Model.Escola;
 import com.app.join.sistemajoin.Model.Professor;
 import com.app.join.sistemajoin.Tools.ConfiguracaoFirebase;
@@ -19,8 +20,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class ViewTelaLogin extends AppCompatActivity {
 
@@ -30,7 +34,7 @@ public class ViewTelaLogin extends AppCompatActivity {
 
     private FirebaseAuth autenticacao;
     private AdmJoin admJoin;
-    private Escola escola;
+    private Escola escola, esc;
     private Professor professor;
     private DatabaseReference firebase;
 
@@ -43,6 +47,7 @@ public class ViewTelaLogin extends AppCompatActivity {
         btEntrar = (Button) findViewById(R.id.btEntrar);
         ctSenhaUsr = (EditText) findViewById(R.id.ctSenhaUsr);
         ctLoginUsr = (EditText) findViewById(R.id.ctLoginUsr);
+
 
         btEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,11 +70,13 @@ public class ViewTelaLogin extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
+                    escola = confereEscola();
                     if (admJoin.getEmail().equals("projetojoin.thread@gmail.com")) {
                         Intent in = new Intent(ViewTelaLogin.this, ViewHomeSistemaAdministrativo.class);
                         startActivity(in);
-                    } else if (admJoin.getEmail().equals("escola@join.com")) {
+                    } else if (confereEscola() != null) {
                         Intent in = new Intent(ViewTelaLogin.this, ViewHomeSistemaEscola.class);
+                        in.putExtra("id", admJoin.getEmail());
                         startActivity(in);
                     } else if (admJoin.getEmail().equals("professor@join.com")) {
                         Intent in = new Intent(ViewTelaLogin.this, ViewHomeProfessor.class);
@@ -77,7 +84,7 @@ public class ViewTelaLogin extends AppCompatActivity {
                     } else if (admJoin.getEmail().equals("aluno@join.com")) {
                         Intent in = new Intent(ViewTelaLogin.this, ViewTelaHomeAluno.class);
                         startActivity(in);
-                    }else{
+                    } else {
                         Toast.makeText(ViewTelaLogin.this, "Erro no login", Toast.LENGTH_SHORT).show();
 
                     }
@@ -88,22 +95,46 @@ public class ViewTelaLogin extends AppCompatActivity {
         });
     }
 
-    private boolean confereEscola() {
-        firebase = ConfiguracaoFirebase.getFirebase().child("escola").child("email");
-        Query query = firebase.orderByChild("email").equalTo(admJoin.getEmail());
-        if (query != null) {
-            return true;
-        }
-        return false;
+    private Escola confereEscola() {
+        esc = new Escola();
+        firebase = ConfiguracaoFirebase.getFirebase();
+        Query query = firebase.child("escola").orderByChild("email").equalTo(admJoin.getEmail());
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot dados : dataSnapshot.getChildren()) {
+                    esc = dados.getValue(Escola.class);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        return esc;
     }
 
-    private boolean confereProfessor() {
+    private Professor confereProfessor() {
         firebase = ConfiguracaoFirebase.getFirebase().child("professor");
-        Query query = firebase.getParent().child("email").equalTo(admJoin.getEmail());
-        if (query != null) {
-            return true;
-        }
-        return false;
+        Query query = firebase;
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot dados : dataSnapshot.getChildren()) {
+                    Professor pro = dados.getValue(Professor.class);
+                    if (pro.getEmail().equals(admJoin.getEmail())) {
+                        professor = pro;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        return professor;
     }
 
 }

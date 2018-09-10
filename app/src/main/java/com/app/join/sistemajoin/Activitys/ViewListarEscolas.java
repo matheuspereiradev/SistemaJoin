@@ -79,7 +79,7 @@ public class ViewListarEscolas extends AppCompatActivity {
                 in.putExtra("status", variavel.getStatus());
                 in.putExtra("senha", variavel.getSenha());
                 startActivity(in);
-
+                finish();
             }
         });
 

@@ -83,6 +83,7 @@ public class ViewExibirInformacoesAluno extends AppCompatActivity {
                 cadAluno.putExtra("status", in.getStringExtra("status"));
                 cadAluno.putExtra("senha", in.getStringExtra("senha"));
                 cadAluno.putExtra("nomeRes", in.getStringExtra("nomeRes"));
+                cadAluno.putExtra("idEscola", in.getStringExtra("idEscola"));
                 startActivity(cadAluno);
                 finish();
             }

@@ -90,6 +90,7 @@ public class ViewExibirInformacoesProfessor extends AppCompatActivity {
                 in.putExtra("status", intent.getStringExtra("status"));
                 in.putExtra("senha", intent.getStringExtra("senha"));
                 in.putExtra("keyTurma", intent.getStringExtra("keyTurma"));
+                in.putExtra("idEscola", intent.getStringExtra("idEscola"));
                 startActivity(in);
                 finish();
             }

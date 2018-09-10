@@ -6,10 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import com.app.join.sistemajoin.R;
+import com.app.join.sistemajoin.Tools.DadosLogados;
 
 public class ViewHomeSistemaEscola extends AppCompatActivity {
 
     Button LTurma, NTurma, NProf, LProf, LAluno, NAluno, btSairEsc;
+    Intent pegaDados;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +25,8 @@ public class ViewHomeSistemaEscola extends AppCompatActivity {
         LAluno = (Button) findViewById(R.id.LAluno);
         NAluno = (Button) findViewById(R.id.NAluno);
         btSairEsc= (Button) findViewById(R.id.btSairEsc);
+
+        pegaDados = getIntent();
 
         LProf.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,31 +74,37 @@ public class ViewHomeSistemaEscola extends AppCompatActivity {
 
     public void ChamaCadastroAluno() {
         Intent cadAluno = new Intent(ViewHomeSistemaEscola.this, ViewCadastrarAluno.class);
+        cadAluno.putExtra("id", pegaDados.getStringExtra("id"));
         startActivity(cadAluno);
     }
 
     public void ChamaCadastroProfessor() {
         Intent cadProf = new Intent(ViewHomeSistemaEscola.this, ViewCadastrarProfessor.class);
+        cadProf.putExtra("id", pegaDados.getStringExtra("id"));
         startActivity(cadProf);
     }
 
     public void ChamaCadastroTurma() {
         Intent cadTurma = new Intent(ViewHomeSistemaEscola.this, ViewCadastrarTurma.class);
+        cadTurma.putExtra("id", pegaDados.getStringExtra("id"));
         startActivity(cadTurma);
     }
 
     public void ChamaListarTurma() {
         Intent listTurma = new Intent(ViewHomeSistemaEscola.this, ViewListarTurmas.class);
+        listTurma.putExtra("id", pegaDados.getStringExtra("id"));
         startActivity(listTurma);
     }
 
     public void ChamaListarProfessor() {
         Intent listProf = new Intent(ViewHomeSistemaEscola.this, ViewListaProfessores.class);
+        listProf.putExtra("id", pegaDados.getStringExtra("id"));
         startActivity(listProf);
     }
 
     public void ChamaListarAluno() {
         Intent listaluno = new Intent(ViewHomeSistemaEscola.this, ViewListarAlunos.class);
+        listaluno.putExtra("id", pegaDados.getStringExtra("id"));
         startActivity(listaluno);
     }
 }

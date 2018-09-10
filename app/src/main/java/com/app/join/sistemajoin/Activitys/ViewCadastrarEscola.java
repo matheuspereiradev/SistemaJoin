@@ -120,7 +120,15 @@ public class ViewCadastrarEscola extends AppCompatActivity {
 
                     } else {
                         cadastrar();
-                        salvar(escola);
+                        autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
+                        autenticacao.signInWithEmailAndPassword(escola.getEmail(), escola.getSenha()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    salvar(escola);
+                                }
+                            }
+                        });
                         chamatelaListaescola();
                         finish();
                     }
@@ -143,10 +151,8 @@ public class ViewCadastrarEscola extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    //salvar(escola);
                                     Preferencias preferencias = new Preferencias(ViewCadastrarEscola.this);
                                     preferencias.salvaUsuarioLogado(escola.getId(), escola.getNome());
-
                                 } else {
                                     String erroExcecao = "";
                                     try {
@@ -161,7 +167,6 @@ public class ViewCadastrarEscola extends AppCompatActivity {
                                     }
                                     Toast.makeText(getBaseContext(), "ERRO! " + erroExcecao, Toast.LENGTH_SHORT).show();
                                 }
-
                             }
                         });
     }
@@ -183,8 +188,8 @@ public class ViewCadastrarEscola extends AppCompatActivity {
     }
 
     private void salvar(Escola e) {
-        DatabaseReference data = ConfiguracaoFirebase.getFirebase().child("escola");
-        data.child(e.getId()).setValue(e);
+        DatabaseReference dataEscola = ConfiguracaoFirebase.getFirebase().child("escola");
+        dataEscola.child(e.getId()).setValue(e);
 
     }
 

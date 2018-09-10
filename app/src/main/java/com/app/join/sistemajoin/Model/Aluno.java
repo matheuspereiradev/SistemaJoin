@@ -11,6 +11,7 @@ public class Aluno extends Pessoa {
     private String cpfResponsavel;
     private String nomeResponsavel;
     private String EmailResponsavel;
+    private String idEscola;
 
     @Exclude
     public Map<String, Object> toMap() {
@@ -24,7 +25,17 @@ public class Aluno extends Pessoa {
         hashMap.put("status", getStatus());
         hashMap.put("keyTurma", getKeyTurma());
         hashMap.put("senha", getSenha());
+        hashMap.put("idEscola", getIdEscola());
+
         return hashMap;
+    }
+
+    public String getIdEscola() {
+        return idEscola;
+    }
+
+    public void setIdEscola(String idEscola) {
+        this.idEscola = idEscola;
     }
 
     public String getMatricola() {

@@ -17,14 +17,10 @@ public class Escola {
     private String senha;
     private String status;
 
-    public Escola() {
-    }
-
 
     @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> hashMapUsuarios = new HashMap<>();
-
         hashMapUsuarios.put("id", getId());
         hashMapUsuarios.put("nome", getNome());
         hashMapUsuarios.put("cnpj", getCnpj());
@@ -32,7 +28,6 @@ public class Escola {
         hashMapUsuarios.put("email", getEmail());
         hashMapUsuarios.put("senha", getSenha());
         hashMapUsuarios.put("status", getStatus());
-
         return hashMapUsuarios;
     }
 

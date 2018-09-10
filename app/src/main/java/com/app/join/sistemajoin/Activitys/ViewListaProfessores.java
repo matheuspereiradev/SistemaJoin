@@ -30,30 +30,29 @@ public class ViewListaProfessores extends AppCompatActivity {
     private Professor professor, variavel;
     private DatabaseReference firebase;
     private ValueEventListener valueEventListener;
+    private Intent pegaDados;
+    private String idEscola;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_lista_professores);
 
-
+        Toast.makeText(ViewListaProfessores.this, "Clique na Lista para ver as informações completas do professor", Toast.LENGTH_LONG).show();
+        pegaDados = getIntent();
+        idEscola = pegaDados.getStringExtra("id");
         lista = new ArrayList();
         listview = findViewById(R.id.lwProfessoresCadastrados);
         adapter = new ProfessorAdapter(this, lista);
         listview.setAdapter(adapter);
         firebase = ConfiguracaoFirebase.getFirebase().child("professor");
-
-        Toast.makeText(ViewListaProfessores.this, "Clique na Lista para ver as informações completas do professor", Toast.LENGTH_LONG).show();
-
-
         valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 lista.clear();
                 for (DataSnapshot dados : dataSnapshot.getChildren()) {
                     professor = dados.getValue(Professor.class);
-
-                    lista.add(professor);
+                        lista.add(professor);
                 }
                 adapter.notifyDataSetChanged();
 
@@ -69,8 +68,6 @@ public class ViewListaProfessores extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 variavel = adapter.getItem(i);
-                firebase = ConfiguracaoFirebase.getFirebase().child("professor");
-                firebase.child(variavel.getIdProfessor());
                 Intent in = new Intent(ViewListaProfessores.this, ViewExibirInformacoesProfessor.class);
                 in.putExtra("key", variavel.getIdProfessor());
                 in.putExtra("nome", variavel.getNome());
@@ -80,6 +77,7 @@ public class ViewListaProfessores extends AppCompatActivity {
                 in.putExtra("status", variavel.getStatus());
                 in.putExtra("senha", variavel.getSenha());
                 in.putExtra("keyTurma", variavel.getKeyTurma());
+                in.putExtra("idEscola", variavel.getIdEscola());
                 startActivity(in);
                 finish();
             }

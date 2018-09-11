@@ -16,7 +16,7 @@ import com.google.firebase.database.DatabaseReference;
 
 public class ViewExibirInformacoesAluno extends AppCompatActivity {
 
-    TextView tvNomeAluno, tvMatriculaAluno, tvTelResponsavel, tvNomeResponsavel, tvCPFResponsavel, tvSenhaAluno;
+    TextView tvNomeAluno, tvMatriculaAluno, tvTelResponsavel, tvNomeResponsavel, tvCPFResponsavel, tvSenhaAluno,tvEmailResp;
     ImageButton btExcluirAluno, btEditarAluno, btConfigAluno;
 
     private DatabaseReference firebase;
@@ -36,6 +36,7 @@ public class ViewExibirInformacoesAluno extends AppCompatActivity {
         tvNomeResponsavel = (TextView) findViewById(R.id.tvNomeResponsavel);
         tvCPFResponsavel = (TextView) findViewById(R.id.tvCPFResponsavel);
         tvSenhaAluno = (TextView) findViewById(R.id.tvSenhaAluno);
+        tvEmailResp = (TextView) findViewById(R.id.tvEmailResponsavel);
         btConfigAluno = (ImageButton) findViewById(R.id.btConfigAluno);
         btEditarAluno = (ImageButton) findViewById(R.id.btEditarAluno);
         btExcluirAluno = (ImageButton) findViewById(R.id.btExcluirAluno);
@@ -97,6 +98,7 @@ public class ViewExibirInformacoesAluno extends AppCompatActivity {
         tvMatriculaAluno.setText(in.getStringExtra("key"));
         tvTelResponsavel.setText(in.getStringExtra("tel"));
         tvNomeResponsavel.setText(in.getStringExtra("nomeRes"));
+        tvEmailResp.setText(in.getStringExtra("email"));
         tvCPFResponsavel.setText(in.getStringExtra("cpf"));
         tvSenhaAluno.setText(in.getStringExtra("senha"));
 

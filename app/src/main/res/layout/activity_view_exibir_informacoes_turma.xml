@@ -60,25 +60,6 @@
 
 
         <TextView
-            android:id="@+id/textView70"
-            android:layout_width="128dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="15dp"
-            android:text="Turno:"
-            android:textColor="@android:color/background_dark"
-            android:textSize="17sp" />
-
-        <TextView
-            android:id="@+id/cmpTurnoTurma"
-            android:layout_width="210dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="15dp"
-            android:text="TextView"
-            android:textSize="17sp" />
-
-        <TextView
             android:id="@+id/textView71"
             android:layout_width="128dp"
             android:layout_height="wrap_content"

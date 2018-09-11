@@ -122,25 +122,6 @@
             android:textSize="17sp" />
 
         <TextView
-            android:id="@+id/textView48"
-            android:layout_width="95dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="15dp"
-            android:text="Data de nascimento"
-            android:textColor="@android:color/background_dark"
-            android:textSize="17sp" />
-
-        <TextView
-            android:id="@+id/cmpDataNascProf"
-            android:layout_width="220dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="25dp"
-            android:text="TextView"
-            android:textSize="17sp" />
-
-        <TextView
             android:id="@+id/textView50"
             android:layout_width="95dp"
             android:layout_height="wrap_content"

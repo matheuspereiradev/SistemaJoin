@@ -31,7 +31,7 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
     EditText ctEmailProf, ctNomeProf, ctDataNascProf, ctCPFProf, ctRGProf, ctTelProf;
     Button btProximoProf1;
     Professor professor;
-    String key, idemail;
+    String key, idEscola;
     FirebaseAuth autenticacao;
     private Intent intent = null;
 
@@ -61,7 +61,7 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
         //fim mascara======
         intent = getIntent();
         key = intent.getStringExtra("key");
-        idemail = intent.getStringExtra("id");
+        idEscola = intent.getStringExtra("id");
         if (key != null) {
             preencheCampos();
             btProximoProf1.setOnClickListener(new View.OnClickListener() {
@@ -227,8 +227,7 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
         professor.setCpf(ctCPFProf.getText().toString());
         professor.setTelefone(ctTelProf.getText().toString());
         professor.setKeyTurma("sem Turma");
-        String id = Base64Custon.codificadorBase64(idemail);
-        professor.setIdEscola(id);
+        professor.setIdEscola(idEscola);
         return professor;
     }
 

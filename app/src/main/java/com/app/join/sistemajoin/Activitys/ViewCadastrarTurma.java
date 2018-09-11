@@ -20,7 +20,9 @@ import com.google.firebase.database.DatabaseReference;
 public class ViewCadastrarTurma extends AppCompatActivity {
     EditText nome;
     Button salvar;
+    private String id;
     Spinner turno;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,12 +31,16 @@ public class ViewCadastrarTurma extends AppCompatActivity {
 
         nome = findViewById(R.id.ctNomeTurma);
         salvar = findViewById(R.id.btSalvarTurma);
-        //turno=findViewById(R.id.spnTurno);
 
-        ArrayAdapter adapterTurno=  ArrayAdapter.createFromResource(getBaseContext(),R.array.turno,
+        Intent idemail = getIntent();
+        id = idemail.getStringExtra("id");
+
+
+       /* ArrayAdapter adapterTurno = ArrayAdapter.createFromResource(getBaseContext(), R.array.turno,
                 R.layout.support_simple_spinner_dropdown_item);
 
         turno.setAdapter(adapterTurno);
+        */
         salvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,6 +52,7 @@ public class ViewCadastrarTurma extends AppCompatActivity {
                     String idUsuario = Base64Custon.codificadorBase64(turma.getNome());
                     turma.setId(idUsuario);
                     turma.setNomeProfessor("sem Professor");
+                    turma.setIdEscola(id);
                     salvarTurma(turma);
                     chamaTelaListaTurma();
                     finish();

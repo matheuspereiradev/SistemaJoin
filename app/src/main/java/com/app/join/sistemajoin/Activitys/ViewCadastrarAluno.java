@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import com.app.join.sistemajoin.Model.Aluno;
 import com.app.join.sistemajoin.R;
 import com.app.join.sistemajoin.Tools.Base64Custon;
@@ -22,16 +23,14 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.database.DatabaseReference;
+
 import java.util.InputMismatchException;
 
 public class ViewCadastrarAluno extends AppCompatActivity {
 
     Button SalvarAluno;
     EditText ctNomeAluno, ctTelAluno, ctNomeResponsavel, ctCPFResp, ctEmailResp;
-
-
-    String key, idemail;
-    private DatabaseReference firebase;
+    String key, idEscola;
     FirebaseAuth autenticacao;
     Intent intent = null;
 
@@ -57,7 +56,7 @@ public class ViewCadastrarAluno extends AppCompatActivity {
 
         intent = getIntent();
         key = intent.getStringExtra("key");
-        idemail = intent.getStringExtra("id");
+        idEscola = intent.getStringExtra("id");
 
         if (key != null) {
             preencheCampos();
@@ -65,17 +64,11 @@ public class ViewCadastrarAluno extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     if (ctNomeAluno.getText().equals("") || ctTelAluno.getText().equals("")
-                            || ctNomeResponsavel.getText().equals("") || ctCPFResp.getText().equals("")) {
-                        Toast.makeText(getBaseContext(), "Preemcha todos os campos!", Toast.LENGTH_SHORT).show();
-                    } else if (ctTelAluno.getText().length() < 13) {
-                        Toast.makeText(getBaseContext(), "Telefone Incompleto!", Toast.LENGTH_SHORT).show();
-
-                    } else if (ctCPFResp.getText().length() < 14) {
-                        Toast.makeText(getBaseContext(), "CPF Incompleto!", Toast.LENGTH_SHORT).show();
-
+                            || ctNomeResponsavel.getText().equals("") || ctCPFResp.getText().equals("") ||
+                            ctCPFResp.getText().length() < 14 || ctTelAluno.getText().length() < 13) {
+                        Toast.makeText(getBaseContext(), "Preemcha todos os campos corretamente", Toast.LENGTH_SHORT).show();
                     } else if (!validaCpf(ctCPFResp.getText().toString())) {
                         Toast.makeText(getBaseContext(), "CPF Invalido!", Toast.LENGTH_SHORT).show();
-
                     } else {
                         editarAluno(setDadosEditar());
                         chamaTelaListaAlunos();
@@ -89,19 +82,13 @@ public class ViewCadastrarAluno extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     if (ctNomeAluno.getText().equals("") || ctTelAluno.getText().equals("")
-                            || ctNomeResponsavel.getText().equals("") || ctCPFResp.getText().equals("")) {
-                        Toast.makeText(getBaseContext(), "Preencha todos os campos!", Toast.LENGTH_SHORT).show();
-                    } else if (ctTelAluno.getText().length() < 13) {
-                        Toast.makeText(getBaseContext(), "Telefone Incompleto!", Toast.LENGTH_SHORT).show();
-
-                    } else if (ctCPFResp.getText().length() < 14) {
-                        Toast.makeText(getBaseContext(), "CPF Incompleto!", Toast.LENGTH_SHORT).show();
-
-                    } else if (!validaCpf(ctCPFResp.getText().toString())) {
+                            || ctNomeResponsavel.getText().equals("") || ctCPFResp.getText().equals("") ||
+                            ctCPFResp.getText().length() < 14 || ctTelAluno.getText().length() < 13) {
+                        Toast.makeText(getBaseContext(), "Preemcha todos os campos corretamente", Toast.LENGTH_SHORT).show();
+                    }else if (!validaCpf(ctCPFResp.getText().toString())) {
                         Toast.makeText(getBaseContext(), "CPF Invalido!", Toast.LENGTH_SHORT).show();
-
                     } else {
-                        cadastrar(setDadosSalvar());
+                        salvarAluno(setDadosSalvar());
                         chamaTelaListaAlunos();
                         finish();
                     }
@@ -120,7 +107,7 @@ public class ViewCadastrarAluno extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     salvarAluno(a);
                                     Preferencias preferencias = new Preferencias(ViewCadastrarAluno.this);
-                                    preferencias.salvaUsuarioLogado(a.getMatricola(), a.getNome());
+                                    preferencias.salvaUsuarioLogado(a.getIdAluno(), a.getNome());
                                 } else {
                                     String erroExcecao = "";
                                     try {
@@ -200,23 +187,22 @@ public class ViewCadastrarAluno extends AppCompatActivity {
 
     private void salvarAluno(Aluno a) {
         DatabaseReference dataAluno = ConfiguracaoFirebase.getFirebase().child("aluno");
-        dataAluno.child(a.getMatricola()).setValue(a);
+        dataAluno.child(a.getIdAluno()).setValue(a);
     }
 
     private Aluno setDadosSalvar() {
         Aluno aluno = new Aluno();
         aluno.setNome(ctNomeAluno.getText().toString());
         aluno.setEmailResponsavel(ctEmailResp.getText().toString());
-        String idUsuario = Base64Custon.codificadorBase64(aluno.getEmailResponsavel());
-        aluno.setMatricola(idUsuario);
+        aluno.setCpfResponsavel(ctCPFResp.getText().toString());
+        String idUsuario = Base64Custon.codificadorBase64(aluno.getCpfResponsavel()+aluno.getNome());
+        aluno.setIdAluno(idUsuario);
         aluno.setNomeResponsavel(ctNomeResponsavel.getText().toString());
         aluno.setSenha(geraSenha());
         aluno.setStatus("Ativo");
-        aluno.setCpfResponsavel(ctCPFResp.getText().toString());
         aluno.setTelefone(ctTelAluno.getText().toString());
         aluno.setKeyTurma("sem Turma");
-        String id = Base64Custon.codificadorBase64(idemail);
-        aluno.setIdEscola(id);
+        aluno.setIdEscola(idEscola);
         return aluno;
     }
 
@@ -224,7 +210,7 @@ public class ViewCadastrarAluno extends AppCompatActivity {
         Aluno aluno = new Aluno();
         aluno.setNome(ctNomeAluno.getText().toString());
         aluno.setEmailResponsavel(ctEmailResp.getText().toString());
-        aluno.setMatricola(intent.getStringExtra("key"));
+        aluno.setIdAluno(intent.getStringExtra("key"));
         aluno.setSenha(intent.getStringExtra("senha"));
         aluno.setNomeResponsavel(ctNomeResponsavel.getText().toString());
         aluno.setStatus("Ativo");
@@ -249,7 +235,7 @@ public class ViewCadastrarAluno extends AppCompatActivity {
 
     private void editarAluno(Aluno a) {
         DatabaseReference data = ConfiguracaoFirebase.getFirebase().child("aluno");
-        data.child(a.getMatricola()).updateChildren(a.toMap());
+        data.child(a.getIdAluno()).updateChildren(a.toMap());
     }
 
     private void preencheCampos() {

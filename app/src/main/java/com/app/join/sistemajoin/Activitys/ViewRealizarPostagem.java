@@ -20,7 +20,6 @@ public class ViewRealizarPostagem extends AppCompatActivity {
 
     EditText ctTituloPost,ctMsgPost;
     Button btEnviarPost;
-    DadosLogados dadosLogados;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,9 +57,7 @@ public class ViewRealizarPostagem extends AppCompatActivity {
         agenda.setTitulo(ctTituloPost.getText().toString());
         agenda.setIdDestino(post.getStringExtra("key"));
         agenda.setMensagem(ctMsgPost.getText().toString());
-        String idUsuario = Base64Custon.codificadorBase64(agenda.getData());
-        agenda.setId(idUsuario);
-        agenda.setNomeCriador("não codificado");
+        agenda.setNomeProfessor("não codificado");
         return agenda;
     }
 

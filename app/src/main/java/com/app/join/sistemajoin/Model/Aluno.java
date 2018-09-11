@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class Aluno extends Pessoa {
 
-    private String matricola;
+    private String idAluno;
     private String cpfResponsavel;
     private String nomeResponsavel;
     private String EmailResponsavel;
@@ -16,7 +16,7 @@ public class Aluno extends Pessoa {
     @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put("matricola", getMatricola());
+        hashMap.put("idAluno", getIdAluno());
         hashMap.put("nomeResponsavel", getNomeResponsavel());
         hashMap.put("cpfResponsavel", getCpfResponsavel());
         hashMap.put("emailResponsavel", getEmailResponsavel());
@@ -38,12 +38,12 @@ public class Aluno extends Pessoa {
         this.idEscola = idEscola;
     }
 
-    public String getMatricola() {
-        return matricola;
+    public String getIdAluno() {
+        return idAluno;
     }
 
-    public void setMatricola(String matricola) {
-        this.matricola = matricola;
+    public void setIdAluno(String idAluno) {
+        this.idAluno = idAluno;
     }
 
     public String getCpfResponsavel() {

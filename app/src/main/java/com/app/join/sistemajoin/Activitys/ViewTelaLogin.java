@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.app.join.sistemajoin.Model.Aluno;
 import com.app.join.sistemajoin.Model.Escola;
 import com.app.join.sistemajoin.Model.Professor;
+import com.app.join.sistemajoin.Tools.Base64Custon;
 import com.app.join.sistemajoin.Tools.ConfiguracaoFirebase;
 import com.app.join.sistemajoin.Model.AdmJoin;
 import com.app.join.sistemajoin.R;
@@ -34,8 +35,9 @@ public class ViewTelaLogin extends AppCompatActivity {
 
     private FirebaseAuth autenticacao;
     private AdmJoin admJoin;
-    private Escola escola, esc;
-    private Professor professor;
+    private Escola esc;
+    private Professor pro;
+    private Aluno alu, aluno;
     private DatabaseReference firebase;
 
     @Override
@@ -56,6 +58,7 @@ public class ViewTelaLogin extends AppCompatActivity {
                     admJoin = new AdmJoin();
                     admJoin.setEmail(ctLoginUsr.getText().toString());
                     admJoin.setSenha(ctSenhaUsr.getText().toString());
+                    aluno = confereAluno();
                     validaLogin();
                 } else {
                     Toast.makeText(ViewTelaLogin.this, "Prencha todos os campos", Toast.LENGTH_SHORT).show();
@@ -70,19 +73,22 @@ public class ViewTelaLogin extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    escola = confereEscola();
+                    String id = Base64Custon.codificadorBase64(admJoin.getEmail());
                     if (admJoin.getEmail().equals("projetojoin.thread@gmail.com")) {
                         Intent in = new Intent(ViewTelaLogin.this, ViewHomeSistemaAdministrativo.class);
                         startActivity(in);
                     } else if (confereEscola() != null) {
                         Intent in = new Intent(ViewTelaLogin.this, ViewHomeSistemaEscola.class);
-                        in.putExtra("id", admJoin.getEmail());
+                        in.putExtra("id", id);
                         startActivity(in);
-                    } else if (admJoin.getEmail().equals("professor@join.com")) {
+                    } else if (confereProfessor() != null) {
                         Intent in = new Intent(ViewTelaLogin.this, ViewHomeProfessor.class);
+                        in.putExtra("id", id);
                         startActivity(in);
-                    } else if (admJoin.getEmail().equals("aluno@join.com")) {
+                    } else if (confereAluno()!=null) {
                         Intent in = new Intent(ViewTelaLogin.this, ViewTelaHomeAluno.class);
+                        //in.putExtra("id", aluno.getCpfResponsavel());
+                        in.putExtra("id", aluno.getIdAluno());
                         startActivity(in);
                     } else {
                         Toast.makeText(ViewTelaLogin.this, "Erro no login", Toast.LENGTH_SHORT).show();
@@ -116,16 +122,14 @@ public class ViewTelaLogin extends AppCompatActivity {
     }
 
     private Professor confereProfessor() {
-        firebase = ConfiguracaoFirebase.getFirebase().child("professor");
-        Query query = firebase;
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
+        pro = new Professor();
+        firebase = ConfiguracaoFirebase.getFirebase();
+        Query query = firebase.child("professor").orderByChild("email").equalTo(admJoin.getEmail());
+        query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot dados : dataSnapshot.getChildren()) {
-                    Professor pro = dados.getValue(Professor.class);
-                    if (pro.getEmail().equals(admJoin.getEmail())) {
-                        professor = pro;
-                    }
+                    pro = dados.getValue(Professor.class);
                 }
             }
 
@@ -134,7 +138,27 @@ public class ViewTelaLogin extends AppCompatActivity {
 
             }
         });
-        return professor;
+        return pro;
+    }
+
+    private Aluno confereAluno() {
+        alu = new Aluno();
+        firebase = ConfiguracaoFirebase.getFirebase();
+        Query query = firebase.child("aluno").orderByChild("cpfResponsavel").equalTo(admJoin.getEmail());
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot dados : dataSnapshot.getChildren()) {
+                    alu = dados.getValue(Aluno.class);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        return alu;
     }
 
 }

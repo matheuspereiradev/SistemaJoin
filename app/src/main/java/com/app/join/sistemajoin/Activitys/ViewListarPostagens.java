@@ -61,23 +61,22 @@ public class ViewListarPostagens extends AppCompatActivity {
 
             }
         };
-
+/*
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 variavel = adapter.getItem(i);
-                firebase = ConfiguracaoFirebase.getFirebase().child("agenda");
-                firebase.child(variavel.getId());
                 Intent in = new Intent(ViewListarPostagens.this, ViewVisualizarPostagem.class);
-                in.putExtra("key", variavel.getId());
+                in.putExtra("key", variavel.getIdDestino());
                 in.putExtra("titulo", variavel.getTitulo());
                 in.putExtra("msg", variavel.getMensagem());
-                in.putExtra("nomeCriador", variavel.getNomeCriador());
+                in.putExtra("nomeCriador", variavel.getNomeProfessor());
                 in.putExtra("data", variavel.getData());
                 startActivity(in);
 
             }
         });
+ */
     }
 
     @Override

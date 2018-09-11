@@ -35,8 +35,8 @@ public class ViewTelaLogin extends AppCompatActivity {
 
     private FirebaseAuth autenticacao;
     private AdmJoin admJoin;
-    private Escola esc;
-    private Professor pro;
+    private Escola esc, escola;
+    private Professor pro, professor;
     private Aluno alu, aluno;
     private DatabaseReference firebase;
 
@@ -59,6 +59,8 @@ public class ViewTelaLogin extends AppCompatActivity {
                     admJoin.setEmail(ctLoginUsr.getText().toString());
                     admJoin.setSenha(ctSenhaUsr.getText().toString());
                     aluno = confereAluno();
+                    escola = confereEscola();
+                    professor = confereProfessor();
                     validaLogin();
                 } else {
                     Toast.makeText(ViewTelaLogin.this, "Prencha todos os campos", Toast.LENGTH_SHORT).show();
@@ -77,15 +79,15 @@ public class ViewTelaLogin extends AppCompatActivity {
                     if (admJoin.getEmail().equals("projetojoin.thread@gmail.com")) {
                         Intent in = new Intent(ViewTelaLogin.this, ViewHomeSistemaAdministrativo.class);
                         startActivity(in);
-                    } else if (confereEscola() != null) {
+                    } else if (escola.getEmail().equals(admJoin.getEmail())) {
                         Intent in = new Intent(ViewTelaLogin.this, ViewHomeSistemaEscola.class);
                         in.putExtra("id", id);
                         startActivity(in);
-                    } else if (confereProfessor() != null) {
+                    } else if (professor.getEmail().equals(admJoin.getEmail())) {
                         Intent in = new Intent(ViewTelaLogin.this, ViewHomeProfessor.class);
                         in.putExtra("id", id);
                         startActivity(in);
-                    } else if (confereAluno()!=null) {
+                    } else if (admJoin.getEmail().equals(admJoin.getSenha()) && aluno!=null) {
                         Intent in = new Intent(ViewTelaLogin.this, ViewTelaHomeAluno.class);
                         //in.putExtra("id", aluno.getCpfResponsavel());
                         in.putExtra("id", aluno.getIdAluno());

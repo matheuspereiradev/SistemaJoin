@@ -63,12 +63,18 @@ public class ViewSelecionarAlunos extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 variavel = adapter.getItem(i);
                 firebase = ConfiguracaoFirebase.getFirebase().child("aluno");
+<<<<<<< Updated upstream
                 //firebase.child(variavel.getMatricola());
+=======
+>>>>>>> Stashed changes
                 firebase.child(variavel.getIdAluno());
 
                 if(cdg.getStringExtra("codigo").equals(2)){
                 Intent in = new Intent(ViewSelecionarAlunos.this, ViewRealizarPostagem.class);
+<<<<<<< Updated upstream
                 //in.putExtra("key", variavel.getMatricola());
+=======
+>>>>>>> Stashed changes
                 in.putExtra("key", variavel.getIdAluno());
                 in.putExtra("nome", variavel.getNome());
                 startActivity(in);
@@ -76,7 +82,10 @@ public class ViewSelecionarAlunos extends AppCompatActivity {
                 }else{
                     Intent in = new Intent(ViewSelecionarAlunos.this, ViewRealizarAvaliacao.class);
                     in.putExtra("codigo", 2);
+<<<<<<< Updated upstream
                     //in.putExtra("key", variavel.getMatricola());
+=======
+>>>>>>> Stashed changes
                     in.putExtra("key", variavel.getIdAluno());
                     in.putExtra("nome", variavel.getNome());
                     startActivity(in);

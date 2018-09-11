@@ -30,11 +30,11 @@ public class TurmaAdapter extends ArrayAdapter<Turma> {
             view = inflater.inflate(R.layout.layout_tabela_exibir_turmas, parent, false);
 
             TextView textViewNome = view.findViewById(R.id.tvNomeTurma);
-            TextView textViewTelefone = view.findViewById(R.id.tvTurnoTurma);
+            //TextView textViewTelefone = view.findViewById(R.id.tvTurnoTurma);
 
             Turma tur = turmas.get(position);
             textViewNome.setText(tur.getNome());
-            textViewTelefone.setText(tur.getNomeProfessor());
+            //textViewTelefone.setText(tur.getNomeProfessor());
         }
         return view;
     }

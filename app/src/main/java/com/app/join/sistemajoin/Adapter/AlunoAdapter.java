@@ -38,7 +38,8 @@ public class AlunoAdapter extends ArrayAdapter<Aluno> {
 
             Aluno alu = alunos.get(position);
             textViewNome.setText(alu.getNome());
-            textViewTelefone.setText(alu.getMatricola());
+            //textViewTelefone.setText(alu.getMatricola());
+            textViewTelefone.setText(alu.getIdAluno());
             textViewStatus.setText(alu.getStatus());
         }
         return view;

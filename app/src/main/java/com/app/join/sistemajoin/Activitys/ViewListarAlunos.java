@@ -63,9 +63,11 @@ public class ViewListarAlunos extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 variavel = adapter.getItem(i);
                 firebase = ConfiguracaoFirebase.getFirebase().child("aluno");
-                firebase.child(variavel.getMatricola());
+                //firebase.child(variavel.getMatricola());
+                firebase.child(variavel.getIdAluno());
                 Intent in = new Intent(getBaseContext(), ViewExibirInformacoesAluno.class);
-                in.putExtra("key", variavel.getMatricola());
+                //in.putExtra("key", variavel.getMatricola());
+                in.putExtra("key", variavel.getIdAluno());
                 in.putExtra("nome", variavel.getNome());
                 in.putExtra("tel", variavel.getTelefone());
                 in.putExtra("email", variavel.getEmailResponsavel());

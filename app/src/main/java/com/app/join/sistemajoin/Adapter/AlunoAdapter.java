@@ -38,10 +38,6 @@ public class AlunoAdapter extends ArrayAdapter<Aluno> {
 
             Aluno alu = alunos.get(position);
             textViewNome.setText(alu.getNome());
-<<<<<<< Updated upstream
-            //textViewTelefone.setText(alu.getMatricola());
-=======
->>>>>>> Stashed changes
             textViewTelefone.setText(alu.getIdAluno());
             textViewStatus.setText(alu.getStatus());
         }

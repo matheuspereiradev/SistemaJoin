@@ -30,5 +30,12 @@ public class ViewTelaHomeAluno extends AppCompatActivity {
                 startActivity(verPost);
             }
         });
+
+        btSairPai.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.exit(0);
+            }
+        });
     }
 }

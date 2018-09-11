@@ -79,11 +79,11 @@ public class ViewTelaLogin extends AppCompatActivity {
                     if (admJoin.getEmail().equals("projetojoin.thread@gmail.com")) {
                         Intent in = new Intent(ViewTelaLogin.this, ViewHomeSistemaAdministrativo.class);
                         startActivity(in);
-                    } else if (escola.getEmail().equals(admJoin.getEmail())) {
+                    } else if (escola.getEmail()!=null) {
                         Intent in = new Intent(ViewTelaLogin.this, ViewHomeSistemaEscola.class);
                         in.putExtra("id", id);
                         startActivity(in);
-                    } else if (professor.getEmail().equals(admJoin.getEmail())) {
+                    } else if (professor!=null) {
                         Intent in = new Intent(ViewTelaLogin.this, ViewHomeProfessor.class);
                         in.putExtra("id", id);
                         startActivity(in);

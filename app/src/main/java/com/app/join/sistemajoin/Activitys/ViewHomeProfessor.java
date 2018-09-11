@@ -11,7 +11,6 @@ import com.app.join.sistemajoin.R;
 public class ViewHomeProfessor extends AppCompatActivity {
 
     Button btVerPost, btRealizaPost, btVerAvaliacao, btRealizarAvaliacao, btSairProf;
-    Intent select = new Intent(ViewHomeProfessor.this, ViewSelecionarAlunos.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,15 +26,23 @@ public class ViewHomeProfessor extends AppCompatActivity {
         btRealizaPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                select.putExtra("codigo", 2);
-                startActivity(select);
+                Intent post = new Intent(ViewHomeProfessor.this, ViewSelecionarAlunos.class);
+                post.putExtra("codigo", 2);
+                startActivity(post);
             }
         });
         btRealizarAvaliacao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                select.putExtra("codigo", 1);
-                startActivity(select);
+                Intent av = new Intent(ViewHomeProfessor.this, ViewSelecionarAlunos.class);
+                av.putExtra("codigo", 1);
+                startActivity(av);
+            }
+        });
+        btSairProf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.exit(0);
             }
         });
 

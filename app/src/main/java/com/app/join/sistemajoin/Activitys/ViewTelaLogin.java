@@ -58,9 +58,6 @@ public class ViewTelaLogin extends AppCompatActivity {
                     admJoin = new AdmJoin();
                     admJoin.setEmail(ctLoginUsr.getText().toString());
                     admJoin.setSenha(ctSenhaUsr.getText().toString());
-                    aluno = confereAluno();
-                    escola = confereEscola();
-                    professor = confereProfessor();
                     validaLogin();
                 } else {
                     Toast.makeText(ViewTelaLogin.this, "Prencha todos os campos", Toast.LENGTH_SHORT).show();
@@ -83,7 +80,7 @@ public class ViewTelaLogin extends AppCompatActivity {
                         Intent in = new Intent(ViewTelaLogin.this, ViewHomeSistemaEscola.class);
                         in.putExtra("id", id);
                         startActivity(in);
-                    } else if (professor!=null) {
+                    } else if (professor.getEmail()!=null) {
                         Intent in = new Intent(ViewTelaLogin.this, ViewHomeProfessor.class);
                         in.putExtra("id", id);
                         startActivity(in);
@@ -112,6 +109,7 @@ public class ViewTelaLogin extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot dados : dataSnapshot.getChildren()) {
                     esc = dados.getValue(Escola.class);
+                    escola.setEmail(esc.getEmail());
                 }
             }
 
@@ -132,6 +130,7 @@ public class ViewTelaLogin extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot dados : dataSnapshot.getChildren()) {
                     pro = dados.getValue(Professor.class);
+                    professor.setEmail(pro.getEmail());
                 }
             }
 

@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
@@ -27,6 +28,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class ViewTelaLogin extends AppCompatActivity {
 
     Switch swManterConectado;
@@ -39,6 +42,7 @@ public class ViewTelaLogin extends AppCompatActivity {
     private Professor pro, professor;
     private Aluno alu, aluno;
     private DatabaseReference firebase;
+    private ValueEventListener valueEventListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,15 +80,15 @@ public class ViewTelaLogin extends AppCompatActivity {
                     if (admJoin.getEmail().equals("projetojoin.thread@gmail.com")) {
                         Intent in = new Intent(ViewTelaLogin.this, ViewHomeSistemaAdministrativo.class);
                         startActivity(in);
-                    } else if (escola.getEmail()!=null) {
+                    } else if (confereEscola()==true) {
                         Intent in = new Intent(ViewTelaLogin.this, ViewHomeSistemaEscola.class);
                         in.putExtra("id", id);
                         startActivity(in);
-                    } else if (professor.getEmail()!=null) {
+                    } else if (confereProfessor()==true) {
                         Intent in = new Intent(ViewTelaLogin.this, ViewHomeProfessor.class);
                         in.putExtra("id", id);
                         startActivity(in);
-                    } else if (admJoin.getEmail().equals(admJoin.getSenha()) && aluno!=null) {
+                    } else if (admJoin.getEmail().equals(admJoin.getSenha()) && confereAluno()==true) {
                         Intent in = new Intent(ViewTelaLogin.this, ViewTelaHomeAluno.class);
                         //in.putExtra("id", aluno.getCpfResponsavel());
                         in.putExtra("id", aluno.getIdAluno());
@@ -100,17 +104,18 @@ public class ViewTelaLogin extends AppCompatActivity {
         });
     }
 
-    private Escola confereEscola() {
-        esc = new Escola();
-        firebase = ConfiguracaoFirebase.getFirebase();
-        Query query = firebase.child("escola").orderByChild("email").equalTo(admJoin.getEmail());
-        query.addValueEventListener(new ValueEventListener() {
+    private boolean confereEscola() {
+        String id = Base64Custon.codificadorBase64(admJoin.getEmail());
+        firebase = ConfiguracaoFirebase.getFirebase().child("escola");
+        Query query = firebase.orderByChild("id").equalTo(id);
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot dados : dataSnapshot.getChildren()) {
-                    esc = dados.getValue(Escola.class);
-                    escola.setEmail(esc.getEmail());
+                    escola = dados.getValue(Escola.class);
+
                 }
+
             }
 
             @Override
@@ -118,40 +123,49 @@ public class ViewTelaLogin extends AppCompatActivity {
 
             }
         });
-        return esc;
+        if(query==null){
+            return false;
+        }else{
+            return true;
+        }
     }
 
-    private Professor confereProfessor() {
-        pro = new Professor();
-        firebase = ConfiguracaoFirebase.getFirebase();
-        Query query = firebase.child("professor").orderByChild("email").equalTo(admJoin.getEmail());
-        query.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot dados : dataSnapshot.getChildren()) {
-                    pro = dados.getValue(Professor.class);
-                    professor.setEmail(pro.getEmail());
-                }
-            }
+    private boolean confereProfessor() {
+        String id = Base64Custon.codificadorBase64(admJoin.getEmail());
+        firebase = ConfiguracaoFirebase.getFirebase().child("professor");
+        Query query = firebase.orderByChild("idProfessor").equalTo(id);
+       query.addListenerForSingleValueEvent(new ValueEventListener() {
+           @Override
+           public void onDataChange(DataSnapshot dataSnapshot) {
+               for (DataSnapshot dados : dataSnapshot.getChildren()) {
+                   professor = dados.getValue(Professor.class);
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+               }
 
-            }
-        });
-        return pro;
+           }
+
+           @Override
+           public void onCancelled(DatabaseError databaseError) {
+
+           }
+       });
+       if(query==null){
+           return false;
+       }else{
+           return true;
+       }
     }
 
-    private Aluno confereAluno() {
-        alu = new Aluno();
-        firebase = ConfiguracaoFirebase.getFirebase();
-        Query query = firebase.child("aluno").orderByChild("cpfResponsavel").equalTo(admJoin.getEmail());
-        query.addValueEventListener(new ValueEventListener() {
+    private boolean confereAluno() {
+        firebase = ConfiguracaoFirebase.getFirebase().child("aluno");
+        Query query = firebase.orderByChild("cpfResponsavel").equalTo(admJoin.getEmail());
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot dados : dataSnapshot.getChildren()) {
-                    alu = dados.getValue(Aluno.class);
+                    aluno = dados.getValue(Aluno.class);
                 }
+
             }
 
             @Override
@@ -159,7 +173,11 @@ public class ViewTelaLogin extends AppCompatActivity {
 
             }
         });
-        return alu;
+        if(query==null){
+            return false;
+        }else{
+            return true;
+        }
     }
 
 }

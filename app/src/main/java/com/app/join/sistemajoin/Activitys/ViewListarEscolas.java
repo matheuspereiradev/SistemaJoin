@@ -68,8 +68,6 @@ public class ViewListarEscolas extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 variavel = adapter.getItem(i);
-                firebase = ConfiguracaoFirebase.getFirebase().child("escola");
-                firebase.child(variavel.getId());
                 Intent in = new Intent(getBaseContext(), ViewExibirInformacoesEscola.class);
                 in.putExtra("key", variavel.getId());
                 in.putExtra("nome", variavel.getNome());

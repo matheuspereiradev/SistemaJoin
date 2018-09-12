@@ -23,7 +23,6 @@
         </activity>
         <activity android:name=".Activitys.MainActivity" />
         <activity android:name=".Activitys.ViewCadastrarEscola" />
-        <activity android:name=".Activitys.ViewCadastrarEndereco" />
         <activity android:name=".Activitys.ViewListarEscolas" />
         <activity android:name=".Activitys.ViewHomeSistemaAdministrativo" />
         <activity android:name=".Activitys.ViewTelaLogin" />

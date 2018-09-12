@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.app.join.sistemajoin.R;
 
@@ -21,15 +22,8 @@ public class ViewVisualizarPostagem extends AppCompatActivity {
         dataPostagem=(TextView) findViewById(R.id.dataPostagem);
         nomeAutor = findViewById(R.id.tvRemetenteMsg);
 
-        preencheCampos();
-
+        Toast.makeText(ViewVisualizarPostagem.this, "aparecera a lista de postagens feitas pelo professor", Toast.LENGTH_LONG).show();
     }
 
-    private void preencheCampos(){
-        post = getIntent();
-        tituloPostagem.setText(post.getStringExtra("titulo"));
-        textoPostagem.setText(post.getStringExtra("msg"));
-        dataPostagem.setText(post.getStringExtra("data"));
-        nomeAutor.setText(post.getStringExtra("nomeCriador"));
-    }
+
 }

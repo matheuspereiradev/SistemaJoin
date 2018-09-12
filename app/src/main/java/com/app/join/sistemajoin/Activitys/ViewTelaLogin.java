@@ -39,8 +39,8 @@ public class ViewTelaLogin extends AppCompatActivity {
     private FirebaseAuth autenticacao;
     private AdmJoin admJoin;
     private Escola esc, escola;
-    private Professor pro, professor;
-    private Aluno alu, aluno;
+    private Professor professor;
+    private Aluno aluno;
     private DatabaseReference firebase;
     private ValueEventListener valueEventListener;
 
@@ -80,75 +80,33 @@ public class ViewTelaLogin extends AppCompatActivity {
                     if (admJoin.getEmail().equals("projetojoin.thread@gmail.com")) {
                         Intent in = new Intent(ViewTelaLogin.this, ViewHomeSistemaAdministrativo.class);
                         startActivity(in);
-                    } else if (confereEscola()==true) {
-                        Intent in = new Intent(ViewTelaLogin.this, ViewHomeSistemaEscola.class);
-                        in.putExtra("id", id);
-                        startActivity(in);
                     } else if (confereProfessor()==true) {
                         Intent in = new Intent(ViewTelaLogin.this, ViewHomeProfessor.class);
                         in.putExtra("id", id);
                         startActivity(in);
-                    } else if (admJoin.getEmail().equals(admJoin.getSenha()) && confereAluno()==true) {
-                        Intent in = new Intent(ViewTelaLogin.this, ViewTelaHomeAluno.class);
-                        //in.putExtra("id", aluno.getCpfResponsavel());
-                        in.putExtra("id", aluno.getIdAluno());
-                        startActivity(in);
                     } else {
-                        Toast.makeText(ViewTelaLogin.this, "Erro no login", Toast.LENGTH_SHORT).show();
-
+                        Intent in = new Intent(ViewTelaLogin.this, ViewHomeSistemaEscola.class);
+                        in.putExtra("id", id);
+                        startActivity(in);
                     }
                 } else {
-                    Toast.makeText(ViewTelaLogin.this, "Email ou Senha Inválido", Toast.LENGTH_SHORT).show();
+                     if (admJoin.getEmail().equals(admJoin.getSenha()) && confereAluno()==true) {
+                        Intent in = new Intent(ViewTelaLogin.this, ViewTelaHomeAluno.class);
+                        //in.putExtra("id", aluno.getCpfResponsavel());
+                        in.putExtra("id", admJoin.getEmail());
+                        startActivity(in);
+                    }else {
+                         Toast.makeText(ViewTelaLogin.this, "Email ou Senha Inválido", Toast.LENGTH_SHORT).show();
+                     }
                 }
             }
         });
-    }
-
-    private boolean confereEscola() {
-        String id = Base64Custon.codificadorBase64(admJoin.getEmail());
-        firebase = ConfiguracaoFirebase.getFirebase().child("escola");
-        Query query = firebase.orderByChild("id").equalTo(id);
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot dados : dataSnapshot.getChildren()) {
-                    escola = dados.getValue(Escola.class);
-
-                }
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-        if(query==null){
-            return false;
-        }else{
-            return true;
-        }
     }
 
     private boolean confereProfessor() {
         String id = Base64Custon.codificadorBase64(admJoin.getEmail());
         firebase = ConfiguracaoFirebase.getFirebase().child("professor");
-        Query query = firebase.orderByChild("idProfessor").equalTo(id);
-       query.addListenerForSingleValueEvent(new ValueEventListener() {
-           @Override
-           public void onDataChange(DataSnapshot dataSnapshot) {
-               for (DataSnapshot dados : dataSnapshot.getChildren()) {
-                   professor = dados.getValue(Professor.class);
-
-               }
-
-           }
-
-           @Override
-           public void onCancelled(DatabaseError databaseError) {
-
-           }
-       });
+        Query query = firebase.child(id).orderByChild("idProfessor").equalTo(id);
        if(query==null){
            return false;
        }else{

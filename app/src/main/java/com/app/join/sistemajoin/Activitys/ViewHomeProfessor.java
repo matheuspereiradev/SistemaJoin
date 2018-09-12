@@ -27,15 +27,21 @@ public class ViewHomeProfessor extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent post = new Intent(ViewHomeProfessor.this, ViewSelecionarAlunos.class);
-                post.putExtra("codigo", 2);
+                post.putExtra("codigo", "2");
                 startActivity(post);
+            }
+        });
+        btVerPost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent verPost = new Intent(ViewHomeProfessor.this, ViewVisualizarPostagem.class);
             }
         });
         btRealizarAvaliacao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent av = new Intent(ViewHomeProfessor.this, ViewSelecionarAlunos.class);
-                av.putExtra("codigo", 1);
+                av.putExtra("codigo", "1");
                 startActivity(av);
             }
         });

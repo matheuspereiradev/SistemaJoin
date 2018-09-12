@@ -59,12 +59,13 @@ public class ViewSelecionarAlunos extends AppCompatActivity {
 
             }
         };
-        final Intent cdg = getIntent();
+        Intent cdg = getIntent();
+        final String codigo = cdg.getStringExtra("codigo");
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 variavel = adapter.getItem(i);
-                if (cdg.getStringExtra("codigo").equals(2)) {
+                if (codigo.equals("2")) {
                     Intent in = new Intent(ViewSelecionarAlunos.this, ViewRealizarPostagem.class);
                     in.putExtra("key", variavel.getIdAluno());
                     in.putExtra("nome", variavel.getNome());
@@ -72,7 +73,6 @@ public class ViewSelecionarAlunos extends AppCompatActivity {
                     finish();
                 } else {
                     Intent in = new Intent(ViewSelecionarAlunos.this, ViewRealizarAvaliacao.class);
-                    in.putExtra("codigo", 2);
                     in.putExtra("key", variavel.getIdAluno());
                     in.putExtra("nome", variavel.getNome());
                     startActivity(in);

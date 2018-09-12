@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import com.app.join.sistemajoin.R;
-import com.app.join.sistemajoin.Tools.DadosLogados;
 
 public class ViewHomeSistemaEscola extends AppCompatActivity {
 

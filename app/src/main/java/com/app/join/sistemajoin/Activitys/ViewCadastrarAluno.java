@@ -31,7 +31,6 @@ public class ViewCadastrarAluno extends AppCompatActivity {
     Button SalvarAluno;
     EditText ctNomeAluno, ctTelAluno, ctNomeResponsavel, ctCPFResp, ctEmailResp;
     String key, idEscola;
-    FirebaseAuth autenticacao;
     Intent intent = null;
 
     @Override
@@ -95,36 +94,6 @@ public class ViewCadastrarAluno extends AppCompatActivity {
                 }
             });
         }
-    }
-
-    public void cadastrar(final Aluno a) {
-        autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
-        autenticacao.createUserWithEmailAndPassword(a.getEmailResponsavel(), a.getSenha())
-                .addOnCompleteListener(ViewCadastrarAluno.this,
-                        new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    salvarAluno(a);
-                                    Preferencias preferencias = new Preferencias(ViewCadastrarAluno.this);
-                                    preferencias.salvaUsuarioLogado(a.getIdAluno(), a.getNome());
-                                } else {
-                                    String erroExcecao = "";
-                                    try {
-                                        throw task.getException();
-                                    } catch (FirebaseAuthInvalidCredentialsException e) {
-                                        erroExcecao = "E-mail invalido!";
-                                    } catch (FirebaseAuthUserCollisionException e) {
-                                        erroExcecao = "E-mail ja esta cadastrado em outro usuario!";
-                                    } catch (Exception e) {
-                                        erroExcecao = "Erro no cadastro!";
-                                        e.printStackTrace();
-                                    }
-                                    Toast.makeText(getBaseContext(), "ERRO! " + erroExcecao, Toast.LENGTH_SHORT).show();
-                                }
-
-                            }
-                        });
     }
 
     private boolean validaCpf(String CPF) {
@@ -194,7 +163,11 @@ public class ViewCadastrarAluno extends AppCompatActivity {
         Aluno aluno = new Aluno();
         aluno.setNome(ctNomeAluno.getText().toString());
         aluno.setEmailResponsavel(ctEmailResp.getText().toString());
-        aluno.setCpfResponsavel(ctCPFResp.getText().toString());
+        String CPF = ctCPFResp.getText().toString();
+        CPF = CPF.replace('.', ' ');
+        CPF = CPF.replace('-', ' ');
+        CPF = CPF.replaceAll(" ", "");
+        aluno.setCpfResponsavel(CPF);
         String idUsuario = Base64Custon.codificadorBase64(aluno.getCpfResponsavel()+aluno.getNome());
         aluno.setIdAluno(idUsuario);
         aluno.setNomeResponsavel(ctNomeResponsavel.getText().toString());
@@ -214,7 +187,11 @@ public class ViewCadastrarAluno extends AppCompatActivity {
         aluno.setSenha(intent.getStringExtra("senha"));
         aluno.setNomeResponsavel(ctNomeResponsavel.getText().toString());
         aluno.setStatus("Ativo");
-        aluno.setCpfResponsavel(ctCPFResp.getText().toString());
+        String CPF = ctCPFResp.getText().toString();
+        CPF = CPF.replace('.', ' ');
+        CPF = CPF.replace('-', ' ');
+        CPF = CPF.replaceAll(" ", "");
+        aluno.setCpfResponsavel(CPF);
         aluno.setTelefone(ctTelAluno.getText().toString());
         aluno.setKeyTurma("sem Turma");
         aluno.setIdEscola(intent.getStringExtra("idEscola"));

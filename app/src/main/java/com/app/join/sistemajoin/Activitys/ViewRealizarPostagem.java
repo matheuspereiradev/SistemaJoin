@@ -9,9 +9,7 @@ import android.widget.EditText;
 
 import com.app.join.sistemajoin.Model.Agenda;
 import com.app.join.sistemajoin.R;
-import com.app.join.sistemajoin.Tools.Base64Custon;
 import com.app.join.sistemajoin.Tools.ConfiguracaoFirebase;
-import com.app.join.sistemajoin.Tools.DadosLogados;
 import com.google.firebase.database.DatabaseReference;
 
 import java.text.SimpleDateFormat;

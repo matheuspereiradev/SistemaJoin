@@ -16,7 +16,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:foregroundGravity="center"
-        android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/guideline79"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,7 +26,7 @@
             android:id="@+id/textView36"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nome:"
+            android:text="Nome do aluno:"
             android:textColor="@android:color/background_dark"
             android:textSize="17sp" />
 
@@ -38,22 +37,6 @@
             android:ems="10"
             android:hint="Nome"
             android:inputType="textPersonName" />
-
-        <TextView
-            android:id="@+id/textView52"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Telefone"
-            android:textColor="@android:color/background_dark"
-            android:textSize="17sp" />
-
-        <EditText
-            android:id="@+id/ctTelAluno"
-            android:layout_width="340dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Telefone"
-            android:inputType="phone" />
 
         <TextView
             android:id="@+id/textView55"
@@ -72,20 +55,21 @@
             android:inputType="textPersonName" />
 
         <TextView
-            android:id="@+id/textView54"
+            android:id="@+id/textView52"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CPF do responsável"
+            android:text="Telefone do reponsável"
             android:textColor="@android:color/background_dark"
             android:textSize="17sp" />
 
         <EditText
-            android:id="@+id/ctCPFResp"
+            android:id="@+id/ctTelAluno"
             android:layout_width="340dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="CPF"
-            android:inputType="number" />
+            android:hint="Telefone"
+            android:inputType="phone" />
+
 
         <TextView
             android:id="@+id/textView91"
@@ -102,6 +86,22 @@
             android:ems="10"
             android:hint="email do responsável"
             android:inputType="textEmailAddress|textEmailSubject" />
+
+        <TextView
+            android:id="@+id/textView54"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CPF do responsável"
+            android:textColor="@android:color/background_dark"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/ctCPFResp"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="CPF"
+            android:inputType="number" />
 
     </LinearLayout>
 

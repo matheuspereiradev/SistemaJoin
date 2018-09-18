@@ -84,7 +84,7 @@
         android:layout_marginBottom="103dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintGuide_percent="0.77" />
+        app:layout_constraintGuide_percent="0.7" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline20"
@@ -136,6 +136,7 @@
         app:layout_constraintGuide_percent="0.84" />
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginEnd="8dp"
@@ -174,25 +175,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"
-                android:text="TextView"
-                android:textSize="17sp" />
-
-            <TextView
-                android:id="@+id/textView59"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="15dp"
-                android:text="Matrícula:"
-                android:textColor="@android:color/black"
-                android:textSize="17sp" />
-
-            <TextView
-                android:id="@+id/tvMatriculaAluno"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="15dp"
                 android:text="TextView"
                 android:textSize="17sp" />
 
@@ -255,6 +237,25 @@
                 android:textSize="17sp" />
 
             <TextView
+                android:id="@+id/textView29"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="15dp"
+                android:text="Email do responsável:"
+                android:textColor="@android:color/black"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/tvEmailResponsavel"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="15dp"
+                android:text="TextView"
+                android:textSize="17sp" />
+
+            <TextView
                 android:id="@+id/textView63"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
@@ -273,25 +274,32 @@
                 android:text="TextView"
                 android:textSize="17sp" />
 
-            <TextView
-                android:id="@+id/textView29"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="15dp"
-                android:text="Email do responsável:"
-                android:textColor="@android:color/black"
-                android:textSize="17sp" />
 
-            <TextView
-                android:id="@+id/tvEmailResponsavel"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="15dp"
-                android:text="TextView"
-                android:textSize="17sp" />
         </GridLayout>
     </ScrollView>
+
+    <Switch
+        android:id="@+id/swAtvAln"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Ativar/desativar conta"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline111"
+        app:layout_constraintEnd_toStartOf="@+id/guideline41"
+        app:layout_constraintStart_toStartOf="@+id/guideline38"
+        app:layout_constraintTop_toTopOf="@+id/guideline18" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline111"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.80" />
 
 </android.support.constraint.ConstraintLayout>

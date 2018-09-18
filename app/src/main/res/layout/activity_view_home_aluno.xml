@@ -35,7 +35,7 @@
         android:textColor="@android:color/background_dark"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView32"
+        app:layout_constraintBottom_toTopOf="@+id/tvNomePai"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/guideline46"
@@ -43,7 +43,7 @@
         app:layout_constraintVertical_bias="0.31" />
 
     <TextView
-        android:id="@+id/textView32"
+        android:id="@+id/tvNomePai"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"

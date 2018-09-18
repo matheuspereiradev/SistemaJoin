@@ -22,13 +22,16 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+
 
 public class ViewTelaLogin extends AppCompatActivity {
 
@@ -38,11 +41,12 @@ public class ViewTelaLogin extends AppCompatActivity {
 
     private FirebaseAuth autenticacao;
     private AdmJoin admJoin;
-    private Escola esc, escola;
-    private Professor professor;
+    private Escola escola;
     private Aluno aluno;
+    private Professor professor;
     private DatabaseReference firebase;
-    private ValueEventListener valueEventListener;
+    boolean variavel = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +57,8 @@ public class ViewTelaLogin extends AppCompatActivity {
         btEntrar = (Button) findViewById(R.id.btEntrar);
         ctSenhaUsr = (EditText) findViewById(R.id.ctSenhaUsr);
         ctLoginUsr = (EditText) findViewById(R.id.ctLoginUsr);
+
+        firebase = ConfiguracaoFirebase.getFirebase().child("professor");
 
 
         btEntrar.setOnClickListener(new View.OnClickListener() {
@@ -77,41 +83,63 @@ public class ViewTelaLogin extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     String id = Base64Custon.codificadorBase64(admJoin.getEmail());
+                    confereProfessor();
                     if (admJoin.getEmail().equals("projetojoin.thread@gmail.com")) {
                         Intent in = new Intent(ViewTelaLogin.this, ViewHomeSistemaAdministrativo.class);
                         startActivity(in);
-                    } else if (confereProfessor()==true) {
-                        Intent in = new Intent(ViewTelaLogin.this, ViewHomeProfessor.class);
+                    } else if (admJoin.getEmail().equals("threadescola@join.com")) {
+                        Intent in = new Intent(ViewTelaLogin.this, ViewHomeSistemaEscola.class);
                         in.putExtra("id", id);
                         startActivity(in);
                     } else {
-                        Intent in = new Intent(ViewTelaLogin.this, ViewHomeSistemaEscola.class);
+                        Intent in = new Intent(ViewTelaLogin.this, ViewHomeProfessor.class);
                         in.putExtra("id", id);
                         startActivity(in);
                     }
                 } else {
-                     if (admJoin.getEmail().equals(admJoin.getSenha()) && confereAluno()==true) {
+                    if (admJoin.getEmail().equals(admJoin.getSenha()) && confereAluno() == true) {
                         Intent in = new Intent(ViewTelaLogin.this, ViewTelaHomeAluno.class);
                         //in.putExtra("id", aluno.getCpfResponsavel());
                         in.putExtra("id", admJoin.getEmail());
                         startActivity(in);
-                    }else {
-                         Toast.makeText(ViewTelaLogin.this, "Email ou Senha Inválido", Toast.LENGTH_SHORT).show();
-                     }
+                    } else {
+                        Toast.makeText(ViewTelaLogin.this, "Email ou Senha Inválido", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
     }
 
-    private boolean confereProfessor() {
+    public Professor confereProfessor() {
         String id = Base64Custon.codificadorBase64(admJoin.getEmail());
-        firebase = ConfiguracaoFirebase.getFirebase().child("professor");
-        Query query = firebase.child(id).orderByChild("idProfessor").equalTo(id);
-       if(query==null){
-           return false;
-       }else{
-           return true;
-       }
+        Query query = FirebaseDatabase.getInstance().getReference().child("professor").orderByKey().limitToFirst(1);
+        query.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                professor = dataSnapshot.getValue(Professor.class);
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        return professor;
     }
 
     private boolean confereAluno() {
@@ -131,9 +159,9 @@ public class ViewTelaLogin extends AppCompatActivity {
 
             }
         });
-        if(query==null){
+        if (query == null) {
             return false;
-        }else{
+        } else {
             return true;
         }
     }

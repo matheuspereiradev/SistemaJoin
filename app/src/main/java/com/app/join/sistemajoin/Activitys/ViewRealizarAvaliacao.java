@@ -47,6 +47,9 @@ public class ViewRealizarAvaliacao extends AppCompatActivity {
                 avaliacao.setDataAv(dateString);
                 avaliacao.setIdAluno(cdg.getStringExtra("key"));
                 salvarAvaliacao(avaliacao);
+                Intent in =new Intent(ViewRealizarAvaliacao.this, ViewSelecionarAlunos.class);
+                in.putExtra("codigo", "1");
+                startActivity(in);
             }
         });
     }

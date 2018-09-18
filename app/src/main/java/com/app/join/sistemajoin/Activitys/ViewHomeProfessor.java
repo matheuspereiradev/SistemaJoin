@@ -34,7 +34,8 @@ public class ViewHomeProfessor extends AppCompatActivity {
         btVerPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent verPost = new Intent(ViewHomeProfessor.this, ViewVisualizarPostagem.class);
+                Intent verPost = new Intent(ViewHomeProfessor.this, ViewListarPostagens.class);
+                startActivity(verPost);
             }
         });
         btRealizarAvaliacao.setOnClickListener(new View.OnClickListener() {

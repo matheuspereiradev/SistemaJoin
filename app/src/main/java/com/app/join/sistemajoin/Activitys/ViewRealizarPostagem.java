@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.app.join.sistemajoin.Model.Agenda;
 import com.app.join.sistemajoin.R;
@@ -16,36 +17,41 @@ import java.text.SimpleDateFormat;
 
 public class ViewRealizarPostagem extends AppCompatActivity {
 
-    EditText ctTituloPost,ctMsgPost;
+    EditText ctTituloPost, ctMsgPost;
     Button btEnviarPost;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_realizar_postagem);
 
-        ctTituloPost=(EditText)findViewById(R.id.ctTituloPost);
-        ctMsgPost=(EditText)findViewById(R.id.ctMsgPost);
-        btEnviarPost=(Button)findViewById(R.id.btEnviarPost);
+        ctTituloPost = (EditText) findViewById(R.id.ctTituloPost);
+        ctMsgPost = (EditText) findViewById(R.id.ctMsgPost);
+        btEnviarPost = (Button) findViewById(R.id.btEnviarPost);
 
 
         btEnviarPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Agenda post = setDadosAgenda();
-                salvarPost(post);
-                chamaListaPost();
-                finish();
+                if (ctTituloPost.equals("") && ctMsgPost.equals("")) {
+                    Toast.makeText(ViewRealizarPostagem.this, "Favor Preencha todos os campos!", Toast.LENGTH_LONG).show();
+                } else {
+                    Agenda post = setDadosAgenda();
+                    salvarPost(post);
+                    chamaListaPost();
+                    finish();
+                }
             }
         });
 
     }
 
     private void chamaListaPost() {
-        Intent listPost = new Intent(ViewRealizarPostagem.this, ViewListarPostagens.class);
+        Intent listPost = new Intent(ViewRealizarPostagem.this, ViewHomeProfessor.class);
         startActivity(listPost);
     }
 
-    private Agenda setDadosAgenda(){
+    private Agenda setDadosAgenda() {
         Intent post = getIntent();
         Agenda agenda = new Agenda();
         long date = System.currentTimeMillis();
@@ -59,7 +65,7 @@ public class ViewRealizarPostagem extends AppCompatActivity {
         return agenda;
     }
 
-    private void salvarPost(Agenda a){
+    private void salvarPost(Agenda a) {
         DatabaseReference data = ConfiguracaoFirebase.getFirebase().child("agenda");
         data.push().setValue(a);
     }

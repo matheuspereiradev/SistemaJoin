@@ -11,12 +11,35 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/imgTipoPost"
+
+        <android.support.constraint.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            app:srcCompat="@mipmap/aluno" />
+            android:layout_weight="0"
+            android:layout_gravity="right">
+
+            <ImageView
+                android:id="@+id/imgTipoPostUnic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@mipmap/aluno" />
+
+            <ImageView
+                android:id="@+id/imgTipoPostTurm"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@mipmap/turma" />
+
+        </android.support.constraint.ConstraintLayout>
 
         <TextView
             android:id="@+id/tvTituloPost"

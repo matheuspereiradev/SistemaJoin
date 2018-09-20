@@ -7,9 +7,7 @@ import java.util.Map;
 
 public class Avaliacao {
 
-    private int avComportamento;
-    private int avAtividade;
-    private int avParticipacao;
+    private int av;
     private String idAluno;
     private String dataAv;
 
@@ -17,9 +15,7 @@ public class Avaliacao {
     public Map<String, Object> toMap() {
         HashMap<String, Object> hashMapAvaliacao = new HashMap<>();
         hashMapAvaliacao.put("idAluno", getIdAluno());
-        hashMapAvaliacao.put("avParticipacao", getAvParticipacao());
-        hashMapAvaliacao.put("avAtividade", getAvAtividade());
-        hashMapAvaliacao.put("avComportamento", getAvComportamento());
+        hashMapAvaliacao.put("av", getAv());
         hashMapAvaliacao.put("dataAv", getDataAv());
         return hashMapAvaliacao;
     }
@@ -32,28 +28,12 @@ public class Avaliacao {
         this.dataAv = dataAv;
     }
 
-    public int getAvComportamento() {
-        return avComportamento;
+    public int getAv() {
+        return av;
     }
 
-    public void setAvComportamento(int avComportamento) {
-        this.avComportamento = avComportamento;
-    }
-
-    public int getAvAtividade() {
-        return avAtividade;
-    }
-
-    public void setAvAtividade(int avAtividade) {
-        this.avAtividade = avAtividade;
-    }
-
-    public int getAvParticipacao() {
-        return avParticipacao;
-    }
-
-    public void setAvParticipacao(int avParticipacao) {
-        this.avParticipacao = avParticipacao;
+    public void setAv(int av) {
+        this.av = av;
     }
 
     public String getIdAluno() {

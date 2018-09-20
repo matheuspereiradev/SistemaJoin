@@ -27,14 +27,17 @@ public class ViewListarPostagens extends AppCompatActivity {
     private ListView listview;
     private ArrayAdapter<Agenda> adapter;
     private ArrayList<Agenda> lista;
-    private Agenda agenda, variavel;
+    private Agenda agenda;
     private DatabaseReference firebase;
     private ValueEventListener valueEventListener;
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_listar_postagens);
+
+        intent = getIntent();
 
         lista = new ArrayList();
         listview = findViewById(R.id.tbPostagens);
@@ -50,8 +53,9 @@ public class ViewListarPostagens extends AppCompatActivity {
                 lista.clear();
                 for (DataSnapshot dados : dataSnapshot.getChildren()) {
                     agenda = dados.getValue(Agenda.class);
-
-                    lista.add(agenda);
+                    if("MDEzMDU2NjMzMDZTYWRhbSBIdXNlaW4".equals(agenda.getIdDestino())) {
+                        lista.add(agenda);
+                    }
                 }
                 adapter.notifyDataSetChanged();
             }

@@ -34,7 +34,7 @@ public class ViewTelaHomeAluno extends AppCompatActivity {
         btVisualizarAvaliacao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent verPost = new Intent(ViewTelaHomeAluno.this, View.class);
+                Intent verPost = new Intent(ViewTelaHomeAluno.this, ViewListarPostagens.class);
                 verPost.putExtra("idAluno", idAluno.getStringExtra("id"));
                 startActivity(verPost);
             }

@@ -23,7 +23,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="scalingPercent" value="60" />
+                                                <entry key="scalingPercent" value="57" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -35,8 +35,9 @@
                                     <map>
                                       <entry key="backgroundAssetType" value="COLOR" />
                                       <entry key="backgroundColor" value="ffffff" />
-                                      <entry key="foregroundImage" value="C:\Users\Matheus Lima\Desktop\reaction\feliz.png" />
-                                      <entry key="outputName" value="reaction_happy" />
+                                      <entry key="backgroundLayerName" value="reaction_unhapy_background" />
+                                      <entry key="foregroundImage" value="C:\Users\Matheus Lima\Desktop\reaction\triste.png" />
+                                      <entry key="outputName" value="reaction_unhappy" />
                                     </map>
                                   </option>
                                 </PersistentState>

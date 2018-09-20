@@ -28,6 +28,7 @@ public class ViewListarTurmas extends AppCompatActivity {
     private Turma turma, variavel;
     private DatabaseReference firebase;
     private ValueEventListener valueEventListener;
+    private Intent intent;
 
 
     @Override
@@ -35,6 +36,7 @@ public class ViewListarTurmas extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_listar_turmas);
 
+        intent = getIntent();
         lista = new ArrayList();
         listview = findViewById(R.id.lvTurmas);
         adapter = new TurmaAdapter(this, lista);
@@ -49,8 +51,9 @@ public class ViewListarTurmas extends AppCompatActivity {
                 lista.clear();
                 for (DataSnapshot dados : dataSnapshot.getChildren()) {
                     turma = dados.getValue(Turma.class);
-
-                    lista.add(turma);
+                    if(intent.getStringExtra("id").equals(turma.getIdEscola())) {
+                        lista.add(turma);
+                    }
                 }
                 adapter.notifyDataSetChanged();
             }

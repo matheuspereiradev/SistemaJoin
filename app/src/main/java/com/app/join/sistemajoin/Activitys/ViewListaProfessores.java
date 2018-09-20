@@ -27,7 +27,6 @@ public class ViewListaProfessores extends AppCompatActivity {
     private DatabaseReference firebase;
     private ValueEventListener valueEventListener;
     private Intent pegaDados;
-    private String idEscola;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +35,6 @@ public class ViewListaProfessores extends AppCompatActivity {
 
         Toast.makeText(ViewListaProfessores.this, "Clique na Lista para ver as informações completas do professor", Toast.LENGTH_LONG).show();
         pegaDados = getIntent();
-        idEscola = pegaDados.getStringExtra("id");
         lista = new ArrayList();
         listview = findViewById(R.id.lwProfessoresCadastrados);
         adapter = new ProfessorAdapter(this, lista);
@@ -48,7 +46,9 @@ public class ViewListaProfessores extends AppCompatActivity {
                 lista.clear();
                 for (DataSnapshot dados : dataSnapshot.getChildren()) {
                     professor = dados.getValue(Professor.class);
+                    if(pegaDados.getStringExtra("id").equals(professor.getIdEscola())) {
                         lista.add(professor);
+                    }
                 }
                 adapter.notifyDataSetChanged();
 

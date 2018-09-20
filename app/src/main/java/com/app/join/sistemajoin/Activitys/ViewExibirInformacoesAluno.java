@@ -31,7 +31,6 @@ public class ViewExibirInformacoesAluno extends AppCompatActivity {
         setContentView(R.layout.activity_view_exibir_informacoes_aluno);
 
         tvNomeAluno = (TextView) findViewById(R.id.tvNomeAluno);
-        tvMatriculaAluno = (TextView) findViewById(R.id.tvMatriculaAluno);
         tvTelResponsavel = (TextView) findViewById(R.id.tvTelResponsavel);
         tvNomeResponsavel = (TextView) findViewById(R.id.tvNomeResponsavel);
         tvCPFResponsavel = (TextView) findViewById(R.id.tvCPFResponsavel);
@@ -50,7 +49,7 @@ public class ViewExibirInformacoesAluno extends AppCompatActivity {
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(ViewExibirInformacoesAluno.this);
                 builder.setTitle("Excluir!");
-                builder.setMessage("Deseja realmente excluir " + in.getStringExtra("nome") + "?");
+                builder.setMessage("Deseja realmente excluir?");
                 builder.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {

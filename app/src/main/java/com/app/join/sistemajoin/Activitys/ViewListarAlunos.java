@@ -28,10 +28,13 @@ public class ViewListarAlunos extends AppCompatActivity {
     private Aluno aluno, variavel;
     private DatabaseReference firebase;
     private ValueEventListener valueEventListener;
+    Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_listar_alunos);
+
+        intent = getIntent();
 
         lista = new ArrayList();
         listview = findViewById(R.id.lwListaAlunos);
@@ -47,8 +50,9 @@ public class ViewListarAlunos extends AppCompatActivity {
                 lista.clear();
                 for (DataSnapshot dados : dataSnapshot.getChildren()) {
                     aluno = dados.getValue(Aluno.class);
-
-                    lista.add(aluno);
+                    if(intent.getStringExtra("id").equals(aluno.getIdEscola())) {
+                        lista.add(aluno);
+                    }
                 }
                 adapter.notifyDataSetChanged();
             }

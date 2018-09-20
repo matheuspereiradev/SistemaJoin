@@ -17,7 +17,7 @@ import java.text.SimpleDateFormat;
 
 public class ViewRealizarAvaliacao extends AppCompatActivity {
 
-    RatingBar rbComp,rbAtvd,rbPart;
+    RatingBar ratingBar;
     Button btEnviarAv;
     TextView tvNomeAluno;
 
@@ -26,9 +26,8 @@ public class ViewRealizarAvaliacao extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_realizar_avaliacao);
 
-        rbComp=(RatingBar)findViewById(R.id.rbComp);
-        rbAtvd=(RatingBar)findViewById(R.id.rbAtvd);
-        rbPart=(RatingBar)findViewById(R.id.rbPart);
+
+        ratingBar=(RatingBar)findViewById(R.id.ratingBar);
         btEnviarAv=(Button) findViewById(R.id.btEnviarAv);
         tvNomeAluno=(TextView)findViewById(R.id.tvNomeAluno);
 
@@ -38,11 +37,9 @@ public class ViewRealizarAvaliacao extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Avaliacao avaliacao = new Avaliacao();
-                avaliacao.setAvComportamento(rbComp.getNumStars());
-                avaliacao.setAvAtividade(rbAtvd.getNumStars());
-                avaliacao.setAvParticipacao(rbPart.getNumStars());
+                avaliacao.setAv(ratingBar.getNumStars());
                 long date = System.currentTimeMillis();
-                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                SimpleDateFormat sdf = new SimpleDateFormat("MM/yyyy");
                 String dateString = sdf.format(date);
                 avaliacao.setDataAv(dateString);
                 avaliacao.setIdAluno(cdg.getStringExtra("key"));

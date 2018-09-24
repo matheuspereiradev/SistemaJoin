@@ -65,9 +65,9 @@ public class ViewCadastrarAluno extends AppCompatActivity {
                     if (ctNomeAluno.getText().equals("") || ctTelAluno.getText().equals("")
                             || ctNomeResponsavel.getText().equals("") || ctCPFResp.getText().equals("") ||
                             ctCPFResp.getText().length() < 14 || ctTelAluno.getText().length() < 13) {
-                        Toast.makeText(getBaseContext(), "Preemcha todos os campos corretamente", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
                     } else if (!validaCpf(ctCPFResp.getText().toString())) {
-                        Toast.makeText(getBaseContext(), "CPF Invalido!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getBaseContext(), "Os dados inseridos são inválidos!", Toast.LENGTH_SHORT).show();
                     } else {
                         editarAluno(setDadosEditar());
                         chamaTelaListaAlunos();
@@ -83,9 +83,9 @@ public class ViewCadastrarAluno extends AppCompatActivity {
                     if (ctNomeAluno.getText().equals("") || ctTelAluno.getText().equals("")
                             || ctNomeResponsavel.getText().equals("") || ctCPFResp.getText().equals("") ||
                             ctCPFResp.getText().length() < 14 || ctTelAluno.getText().length() < 13) {
-                        Toast.makeText(getBaseContext(), "Preemcha todos os campos corretamente", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
                     }else if (!validaCpf(ctCPFResp.getText().toString())) {
-                        Toast.makeText(getBaseContext(), "CPF Invalido!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getBaseContext(), "Os dados inseridos são inválidos!", Toast.LENGTH_SHORT).show();
                     } else {
                         salvarAluno(setDadosSalvar());
                         chamaTelaListaAlunos();

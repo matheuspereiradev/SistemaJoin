@@ -28,7 +28,7 @@ import java.util.InputMismatchException;
 
 public class ViewCadastrarProfessor extends AppCompatActivity {
 
-    EditText ctEmailProf, ctNomeProf, ctDataNascProf, ctCPFProf, ctRGProf, ctTelProf;
+    EditText ctEmailProf, ctNomeProf, ctCPFProf, ctTelProf;
     Button btProximoProf1;
     Professor professor;
     String key, idEscola;
@@ -69,14 +69,26 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
                 public void onClick(View view) {
                     if (ctNomeProf.getText().equals("") || ctCPFProf.getText().equals("")
                             || ctEmailProf.getText().equals("") || ctTelProf.getText().equals("")) {
+                        if(ctNomeProf.getText().equals("")){
+                            ctNomeProf.isSelected();
+                        }else if(ctCPFProf.getText().equals("")){
+                            ctCPFProf.isSelected();
+                        }else if(ctTelProf.getText().equals("")){
+                            ctTelProf.isSelected();
+                        }else if(ctEmailProf.getText().equals("")){
+                            ctEmailProf.isSelected();
+                        }
                         Toast.makeText(getBaseContext(), "Preemcha todos os campos!", Toast.LENGTH_SHORT).show();
                     } else if (ctTelProf.getText().length() < 13) {
+                        ctTelProf.isSelected();
                         Toast.makeText(getBaseContext(), "Telefone Incompleto!", Toast.LENGTH_SHORT).show();
 
                     } else if (ctCPFProf.getText().length() < 14) {
+                        ctCPFProf.isSelected();
                         Toast.makeText(getBaseContext(), "CPF Incompleto!", Toast.LENGTH_SHORT).show();
 
                     } else if (!validaCpf(ctCPFProf.getText().toString())) {
+                        ctCPFProf.isSelected();
                         Toast.makeText(getBaseContext(), "CPF Invalido!", Toast.LENGTH_SHORT).show();
 
                     } else {
@@ -93,15 +105,15 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
                 public void onClick(View v) {
                     if (ctNomeProf.getText().equals("") || ctCPFProf.getText().equals("")
                             || ctEmailProf.getText().equals("") || ctTelProf.getText().equals("")) {
-                        Toast.makeText(getBaseContext(), "Preencha todos os campos!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
                     } else if (ctTelProf.getText().length() < 13) {
                         Toast.makeText(getBaseContext(), "Telefone Incompleto!", Toast.LENGTH_SHORT).show();
 
                     } else if (ctCPFProf.getText().length() < 14) {
-                        Toast.makeText(getBaseContext(), "CPF Incompleto!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getBaseContext(), " Favor, preencher os campos corretamente!", Toast.LENGTH_SHORT).show();
 
                     } else if (!validaCpf(ctCPFProf.getText().toString())) {
-                        Toast.makeText(getBaseContext(), "CPF Invalido!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getBaseContext(), "Os dados inseridos são inválidos!", Toast.LENGTH_SHORT).show();
 
                     } else {
                         professor = setDados();
@@ -265,8 +277,6 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
         ctNomeProf.setText(intent.getStringExtra("nome"));
         ctEmailProf.setText(intent.getStringExtra("email"));
         ctCPFProf.setText(intent.getStringExtra("cpf"));
-        ctDataNascProf.setText(intent.getStringExtra("data"));
-        ctRGProf.setText(intent.getStringExtra("rg"));
         ctTelProf.setText(intent.getStringExtra("tel"));
     }
 

@@ -8,9 +8,14 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import com.app.join.sistemajoin.Adapter.EscolaAdapter;
+import com.app.join.sistemajoin.Adapter.PostagemAdapter;
+import com.app.join.sistemajoin.Adapter.ProfessorAdapter;
+import com.app.join.sistemajoin.Model.Agenda;
 import com.app.join.sistemajoin.Model.Aluno;
 import com.app.join.sistemajoin.Model.Escola;
 import com.app.join.sistemajoin.Model.Professor;
@@ -41,11 +46,12 @@ public class ViewTelaLogin extends AppCompatActivity {
 
     private FirebaseAuth autenticacao;
     private AdmJoin admJoin;
-    private Escola escola;
-    private Aluno aluno;
-    private Professor professor;
+    private ListView listview;
+    private ArrayAdapter<Escola> adapter;
+    private ArrayList<Escola> lista;
+    private Escola escola, variavel;
     private DatabaseReference firebase;
-    boolean variavel = false;
+    private ValueEventListener valueEventListener;
 
 
     @Override
@@ -58,7 +64,29 @@ public class ViewTelaLogin extends AppCompatActivity {
         ctSenhaUsr = (EditText) findViewById(R.id.ctSenhaUsr);
         ctLoginUsr = (EditText) findViewById(R.id.ctLoginUsr);
 
-        firebase = ConfiguracaoFirebase.getFirebase().child("professor");
+        lista = new ArrayList();
+        listview = new ListView(this);
+        adapter = new EscolaAdapter(this, lista);
+        listview.setAdapter(adapter);
+
+        firebase = ConfiguracaoFirebase.getFirebase().child("escola");
+
+        valueEventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                lista.clear();
+                for (DataSnapshot dados : dataSnapshot.getChildren()) {
+                    escola = dados.getValue(Escola.class);
+                    lista.add(escola);
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        };
 
 
         btEntrar.setOnClickListener(new View.OnClickListener() {
@@ -83,11 +111,11 @@ public class ViewTelaLogin extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     String id = Base64Custon.codificadorBase64(admJoin.getEmail());
-                    confereProfessor();
+
                     if (admJoin.getEmail().equals("projetojoin.thread@gmail.com")) {
                         Intent in = new Intent(ViewTelaLogin.this, ViewHomeSistemaAdministrativo.class);
                         startActivity(in);
-                    } else if (admJoin.getEmail().equals("escolapedronogueira@gmail.com")) {
+                    } else if (confereEscola()) {
                         Intent in = new Intent(ViewTelaLogin.this, ViewHomeSistemaEscola.class);
                         in.putExtra("id", id);
                         startActivity(in);
@@ -97,7 +125,7 @@ public class ViewTelaLogin extends AppCompatActivity {
                         startActivity(in);
                     }
                 } else {
-                    if (admJoin.getEmail().equals(admJoin.getSenha()) && confereAluno() == true) {
+                    if (admJoin.getEmail().equals(admJoin.getSenha())) {
                         Intent in = new Intent(ViewTelaLogin.this, ViewTelaHomeAluno.class);
                         //in.putExtra("id", aluno.getCpfResponsavel());
                         in.putExtra("id", admJoin.getEmail());
@@ -110,60 +138,31 @@ public class ViewTelaLogin extends AppCompatActivity {
         });
     }
 
-    public Professor confereProfessor() {
-        String id = Base64Custon.codificadorBase64(admJoin.getEmail());
-        Query query = FirebaseDatabase.getInstance().getReference().child("professor").orderByKey().limitToFirst(1);
-        query.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                professor = dataSnapshot.getValue(Professor.class);
+    private boolean confereEscola() {
+        int tamanho = 0;
+        int position = 0;
+        boolean resposta = false;
+        tamanho = lista.size();
+        while (position < tamanho) {
+            variavel = lista.get(position);
+            if (variavel.getEmail().equals(admJoin.getEmail())) {
+                resposta = true;
             }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-        return professor;
+        position++;
+        }
+        return resposta;
     }
 
-    private boolean confereAluno() {
-        firebase = ConfiguracaoFirebase.getFirebase().child("aluno");
-        Query query = firebase.orderByChild("cpfResponsavel").equalTo(admJoin.getEmail());
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot dados : dataSnapshot.getChildren()) {
-                    aluno = dados.getValue(Aluno.class);
-                }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        firebase.removeEventListener(valueEventListener);
+    }
 
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-        if (query == null) {
-            return false;
-        } else {
-            return true;
-        }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        firebase.addValueEventListener(valueEventListener);
     }
 
 }

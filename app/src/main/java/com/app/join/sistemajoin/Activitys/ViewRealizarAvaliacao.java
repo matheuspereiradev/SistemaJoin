@@ -27,7 +27,7 @@ public class ViewRealizarAvaliacao extends AppCompatActivity {
         setContentView(R.layout.activity_view_realizar_avaliacao);
 
 
-        ratingBar=(RatingBar)findViewById(R.id.ratingBar);
+       // ratingBar=(RatingBar)findViewById(R.id.ratingBar);
         btEnviarAv=(Button) findViewById(R.id.btEnviarAv);
         tvNomeAluno=(TextView)findViewById(R.id.tvNomeAluno);
 

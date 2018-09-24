@@ -63,7 +63,7 @@ public class ViewExibirInformacoesEscola extends AppCompatActivity {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         firebase = ConfiguracaoFirebase.getFirebase().child("escola");
                         firebase.child(intent.getStringExtra("key")).removeValue();
-                        Intent in = new Intent(getBaseContext(), ViewHomeSistemaAdministrativo.class);
+                        Intent in = new Intent(getBaseContext(), ViewListarEscolas.class);
                         startActivity(in);
                         finish();
                     }

@@ -37,7 +37,7 @@ public class PostagemAdapter extends ArrayAdapter<Agenda> {
             TextView textViewNome = view.findViewById(R.id.tvTituloPost);
             TextView textViewData = view.findViewById(R.id.tvDataPost);
             TextView textContPost = view.findViewById(R.id.tvContPost);
-            ImageView image = view.findViewById(R.id.imgTipoPost);
+           // ImageView image = view.findViewById(R.id.imgTipoPost);
 
 
             Agenda age = agenda.get(position);

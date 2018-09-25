@@ -45,7 +45,8 @@
         <activity android:name=".Activitys.ViewExibirInformacoesTurma" />
         <activity android:name=".Activitys.ViewVisualizarPostagem" />
         <activity android:name=".Activitys.ViewListarPostagens" />
-        <activity android:name=".Activitys.ViewSelecionarFilho"></activity>
+        <activity android:name=".Activitys.ViewSelecionarFilho" />
+        <activity android:name=".Activitys.ViewVerGrafico"></activity>
     </application>
 
 </manifest>

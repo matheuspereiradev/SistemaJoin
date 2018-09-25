@@ -171,7 +171,7 @@ public class ViewCadastrarAluno extends AppCompatActivity {
         String idUsuario = Base64Custon.codificadorBase64(aluno.getCpfResponsavel()+aluno.getNome());
         aluno.setIdAluno(idUsuario);
         aluno.setNomeResponsavel(ctNomeResponsavel.getText().toString());
-        aluno.setSenha(geraSenha());
+        aluno.setSenha(geraSenha(aluno.getCpfResponsavel()));
         aluno.setStatus("Ativo");
         aluno.setTelefone(ctTelAluno.getText().toString());
         aluno.setKeyTurma("sem Turma");
@@ -199,13 +199,12 @@ public class ViewCadastrarAluno extends AppCompatActivity {
         return aluno;
     }
 
-    public String geraSenha() {
-        String[] carct = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
+    public String geraSenha(String CPF) {
+        CPF = CPF.replace('.', ' ');
+        CPF = CPF.replace('-', ' ');
+        CPF = CPF.replaceAll(" ", "");
         String senha = "";
-        for (int x = 0; x < 9; x++) {
-            int j = (int) (Math.random() * carct.length);
-            senha += carct[j];
-        }
+        senha = CPF.substring(0,5);
 
         return senha;
     }

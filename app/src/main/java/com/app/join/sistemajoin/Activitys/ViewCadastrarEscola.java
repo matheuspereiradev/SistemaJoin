@@ -103,7 +103,7 @@ public class ViewCadastrarEscola extends AppCompatActivity {
                     escola.setEmail(ctEmailEsc.getText().toString());
                     escola.setCnpj(ctCNPJEsc.getText().toString());
                     escola.setStatus("Ativo");
-                    escola.setSenha(geraSenha());
+                    escola.setSenha(geraSenha(escola.getCnpj()));
                     String idUsuario = Base64Custon.codificadorBase64(escola.getEmail());
                     escola.setId(idUsuario);
                     if (ctNomeEsc.getText().equals("") || ctTelEsc.getText().equals("") || ctEmailEsc.getText().equals("") || ctCNPJEsc.getText().equals("")) {
@@ -171,13 +171,13 @@ public class ViewCadastrarEscola extends AppCompatActivity {
                         });
     }
 
-    public String geraSenha() {
-        String[] carct = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
+    public String geraSenha(String CNPJ) {
+        CNPJ = CNPJ.replace('.', ' ');
+        CNPJ = CNPJ.replace('/', ' ');
+        CNPJ = CNPJ.replace('-', ' ');
+        CNPJ = CNPJ.replaceAll(" ", "");
         String senha = "";
-        for (int x = 0; x < 9; x++) {
-            int j = (int) (Math.random() * carct.length);
-            senha += carct[j];
-        }
+        senha = CNPJ.substring(0,5);
 
         return senha;
     }

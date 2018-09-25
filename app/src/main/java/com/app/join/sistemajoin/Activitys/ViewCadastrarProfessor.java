@@ -234,9 +234,9 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
         professor.setEmail(ctEmailProf.getText().toString());
         String idUsuario = Base64Custon.codificadorBase64(professor.getEmail());
         professor.setIdProfessor(idUsuario);
-        professor.setSenha(geraSenha());
-        professor.setStatus("Ativo");
         professor.setCpf(ctCPFProf.getText().toString());
+        professor.setSenha(geraSenha(professor.getCpf()));
+        professor.setStatus("Ativo");
         professor.setTelefone(ctTelProf.getText().toString());
         professor.setKeyTurma("sem Turma");
         professor.setIdEscola(idEscola);
@@ -257,13 +257,12 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
         return professor;
     }
 
-    public String geraSenha() {
-        String[] carct = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
+    public String geraSenha(String CPF) {
+        CPF = CPF.replace('.', ' ');
+        CPF = CPF.replace('-', ' ');
+        CPF = CPF.replaceAll(" ", "");
         String senha = "";
-        for (int x = 0; x < 9; x++) {
-            int j = (int) (Math.random() * carct.length);
-            senha += carct[j];
-        }
+        senha = CPF.substring(0,5);
 
         return senha;
     }

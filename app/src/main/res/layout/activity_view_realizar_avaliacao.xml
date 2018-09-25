@@ -200,7 +200,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@mipmap/reaction_normal" />
-        
+
         <ImageView
             android:id="@+id/imgTriste"
             android:layout_width="0dp"

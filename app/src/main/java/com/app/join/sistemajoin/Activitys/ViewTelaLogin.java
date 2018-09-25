@@ -12,6 +12,7 @@ import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import com.app.join.sistemajoin.Adapter.AlunoAdapter;
 import com.app.join.sistemajoin.Adapter.EscolaAdapter;
 import com.app.join.sistemajoin.Adapter.PostagemAdapter;
 import com.app.join.sistemajoin.Adapter.ProfessorAdapter;
@@ -46,12 +47,19 @@ public class ViewTelaLogin extends AppCompatActivity {
 
     private FirebaseAuth autenticacao;
     private AdmJoin admJoin;
-    private ListView listview;
-    private ArrayAdapter<Escola> adapter;
-    private ArrayList<Escola> lista;
-    private Escola escola, variavel;
-    private DatabaseReference firebase;
-    private ValueEventListener valueEventListener;
+    private ListView listviewEscola;
+    private ArrayAdapter<Escola> adapterEscola;
+    private ArrayList<Escola> listaEscola;
+    private Escola escola, variavelEscola;
+    private DatabaseReference firebaseEscola;
+    private ValueEventListener valueEventListenerEscola;
+
+    private ListView listviewAluno;
+    private ArrayAdapter<Aluno> adapterAluno;
+    private ArrayList<Aluno> listaAluno;
+    private Aluno aluno, variavelAluno;
+    private DatabaseReference firebaseAluno;
+    private ValueEventListener valueEventListenerAluno;
 
 
     @Override
@@ -64,22 +72,41 @@ public class ViewTelaLogin extends AppCompatActivity {
         ctSenhaUsr = (EditText) findViewById(R.id.ctSenhaUsr);
         ctLoginUsr = (EditText) findViewById(R.id.ctLoginUsr);
 
-        lista = new ArrayList();
-        listview = new ListView(this);
-        adapter = new EscolaAdapter(this, lista);
-        listview.setAdapter(adapter);
-
-        firebase = ConfiguracaoFirebase.getFirebase().child("escola");
-
-        valueEventListener = new ValueEventListener() {
+        listaEscola = new ArrayList();
+        listviewEscola = new ListView(this);
+        adapterEscola = new EscolaAdapter(this, listaEscola);
+        listviewEscola.setAdapter(adapterEscola);
+        firebaseEscola = ConfiguracaoFirebase.getFirebase().child("escola");
+        valueEventListenerEscola = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                lista.clear();
+                listaEscola.clear();
                 for (DataSnapshot dados : dataSnapshot.getChildren()) {
                     escola = dados.getValue(Escola.class);
-                    lista.add(escola);
+                    listaEscola.add(escola);
                 }
-                adapter.notifyDataSetChanged();
+                adapterEscola.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        };
+        listaAluno = new ArrayList();
+        listviewAluno = new ListView(this);
+        adapterAluno = new AlunoAdapter(this, listaAluno);
+        listviewAluno.setAdapter(adapterAluno);
+        firebaseAluno = ConfiguracaoFirebase.getFirebase().child("aluno");
+        valueEventListenerAluno = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                listaAluno.clear();
+                for (DataSnapshot dados : dataSnapshot.getChildren()) {
+                    aluno = dados.getValue(Aluno.class);
+                    listaAluno.add(aluno);
+                }
+                adapterAluno.notifyDataSetChanged();
             }
 
             @Override
@@ -111,7 +138,6 @@ public class ViewTelaLogin extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     String id = Base64Custon.codificadorBase64(admJoin.getEmail());
-
                     if (admJoin.getEmail().equals("projetojoin.thread@gmail.com")) {
                         Intent in = new Intent(ViewTelaLogin.this, ViewHomeSistemaAdministrativo.class);
                         startActivity(in);
@@ -125,10 +151,11 @@ public class ViewTelaLogin extends AppCompatActivity {
                         startActivity(in);
                     }
                 } else {
-                    if (admJoin.getEmail().equals(admJoin.getSenha())) {
+                    if (confereAluno()) {
+                        // confereAluno();
                         Intent in = new Intent(ViewTelaLogin.this, ViewTelaHomeAluno.class);
-                        //in.putExtra("id", aluno.getCpfResponsavel());
-                        in.putExtra("id", admJoin.getEmail());
+                        in.putExtra("id", aluno.getCpfResponsavel());
+                        in.putExtra("idEscola", aluno.getIdEscola());
                         startActivity(in);
                     } else {
                         Toast.makeText(ViewTelaLogin.this, "Email ou Senha Inválido", Toast.LENGTH_SHORT).show();
@@ -142,13 +169,29 @@ public class ViewTelaLogin extends AppCompatActivity {
         int tamanho = 0;
         int position = 0;
         boolean resposta = false;
-        tamanho = lista.size();
+        tamanho = listaEscola.size();
         while (position < tamanho) {
-            variavel = lista.get(position);
-            if (variavel.getEmail().equals(admJoin.getEmail())) {
+            variavelEscola = listaEscola.get(position);
+            if (variavelEscola.getEmail().equals(admJoin.getEmail())) {
                 resposta = true;
             }
-        position++;
+            position++;
+        }
+        return resposta;
+    }
+
+    private boolean confereAluno() {
+        int tamanho = 0;
+        int position = 0;
+        boolean resposta = false;
+        tamanho = listaAluno.size();
+        while (position < tamanho) {
+            variavelAluno = listaAluno.get(position);
+            if (variavelAluno.getCpfResponsavel().equals(admJoin.getEmail()) && variavelAluno.getSenha().equals(admJoin.getSenha())) {
+                resposta = true;
+                aluno = variavelAluno;
+            }
+            position++;
         }
         return resposta;
     }
@@ -156,13 +199,15 @@ public class ViewTelaLogin extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        firebase.removeEventListener(valueEventListener);
+        firebaseEscola.removeEventListener(valueEventListenerEscola);
+        firebaseAluno.removeEventListener(valueEventListenerAluno);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        firebase.addValueEventListener(valueEventListener);
+        firebaseEscola.addValueEventListener(valueEventListenerEscola);
+        firebaseAluno.addValueEventListener(valueEventListenerAluno);
     }
 
 }

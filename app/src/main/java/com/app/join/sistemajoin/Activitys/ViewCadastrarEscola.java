@@ -107,16 +107,16 @@ public class ViewCadastrarEscola extends AppCompatActivity {
                     String idUsuario = Base64Custon.codificadorBase64(escola.getEmail());
                     escola.setId(idUsuario);
                     if (ctNomeEsc.getText().equals("") || ctTelEsc.getText().equals("") || ctEmailEsc.getText().equals("") || ctCNPJEsc.getText().equals("")) {
-                        Toast.makeText(getBaseContext(), "Preemcha todos os campos!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
 
                     } else if (ctTelEsc.getText().length() < 13) {
-                        Toast.makeText(getBaseContext(), "Telefone Incompleto!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getBaseContext(), "Favor, preencher os campos corretamente!", Toast.LENGTH_SHORT).show();
 
                     } else if (ctCNPJEsc.getText().length() < 18) {
-                        Toast.makeText(getBaseContext(), "CNPJ Incompleto!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getBaseContext(), "Favor, preencher os campos corretamente!", Toast.LENGTH_SHORT).show();
 
                     } else if (!validaCnpj(ctCNPJEsc.getText().toString())) {
-                        Toast.makeText(getBaseContext(), "CNPJ Invalido!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getBaseContext(), "Os dados inseridos são inválidos!", Toast.LENGTH_SHORT).show();
 
                     } else {
                         cadastrar();

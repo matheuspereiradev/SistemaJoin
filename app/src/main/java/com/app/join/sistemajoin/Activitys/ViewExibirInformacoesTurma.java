@@ -16,7 +16,7 @@ import com.google.firebase.database.DatabaseReference;
 
 public class ViewExibirInformacoesTurma extends AppCompatActivity {
 
-    TextView cmpNomeTurma, cmpTurnoTurma, cmpProfTurma, cmpQntAlunosTurma;
+    TextView cmpNomeTurma, cmpProfTurma;
     ImageButton btEditTurma, btConfigTurma, btExcluirTurma;
 
     private DatabaseReference firebase;
@@ -30,7 +30,6 @@ public class ViewExibirInformacoesTurma extends AppCompatActivity {
         setContentView(R.layout.activity_view_exibir_informacoes_turma);
 
         cmpNomeTurma = (TextView) findViewById(R.id.cmpNomeTurma);
-      //  cmpTurnoTurma = (TextView) findViewById(R.id.cmpTurnoTurma);
         cmpProfTurma = (TextView) findViewById(R.id.cmpProfTurma);
         btEditTurma = (ImageButton) findViewById(R.id.btEditTurma);
         btConfigTurma = (ImageButton) findViewById(R.id.btConfigTurma);

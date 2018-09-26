@@ -46,7 +46,8 @@
         <activity android:name=".Activitys.ViewVisualizarPostagem" />
         <activity android:name=".Activitys.ViewListarPostagens" />
         <activity android:name=".Activitys.ViewSelecionarFilho" />
-        <activity android:name=".Activitys.ViewVerGrafico"></activity>
+        <activity android:name=".Activitys.ViewVerGrafico" />
+        <activity android:name=".Activitys.ViewListarAvaliacoes"></activity>
     </application>
 
 </manifest>

@@ -42,28 +42,8 @@ public class ViewRealizarAvaliacao extends AppCompatActivity {
 
         intent = getIntent();
 
-        ratingBar.setNumStars(5);
-        if (ratingBar.getNumStars() < 2) {
-            triste.setSelected(true);
-            normal.setSelected(false);
-            feliz.setSelected(false);
-            muitoFeliz.setSelected(false);
-        } else if (ratingBar.getNumStars() >= 2 && ratingBar.getNumStars() < 3) {
-            triste.setSelected(false);
-            normal.setSelected(true);
-            feliz.setSelected(false);
-            muitoFeliz.setSelected(false);
-        } else if (ratingBar.getNumStars() >= 3 && ratingBar.getNumStars() < 4) {
-            triste.setSelected(false);
-            normal.setSelected(false);
-            feliz.setSelected(true);
-            muitoFeliz.setSelected(false);
-        } else {
-            triste.setSelected(false);
-            normal.setSelected(false);
-            feliz.setSelected(false);
-            muitoFeliz.setSelected(true);
-        }
+        ratingBar.setRating(Integer.parseInt(intent.getStringExtra("rating")));
+
 
         tvNomeAluno.setText(intent.getStringExtra("nome"));
 

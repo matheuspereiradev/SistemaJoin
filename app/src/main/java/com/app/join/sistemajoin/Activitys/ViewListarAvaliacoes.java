@@ -32,6 +32,7 @@ public class ViewListarAvaliacoes extends AppCompatActivity {
     private Intent intent;
     private String cdg = "salvar";
     private String idAv;
+    private int rating;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +58,7 @@ public class ViewListarAvaliacoes extends AppCompatActivity {
                         if (avaliacao.getDataAv().equals(dateString)) {
                             cdg = "editar";
                             idAv = avaliacao.getIdAvaliacao();
+                            rating = avaliacao.getAv();
                         }
                     }
                     adapter.notifyDataSetChanged();
@@ -70,6 +72,7 @@ public class ViewListarAvaliacoes extends AppCompatActivity {
             Intent in = new Intent(ViewListarAvaliacoes.this, ViewRealizarAvaliacao.class);
             in.putExtra("cdg", cdg);
             in.putExtra("idAvaliacao", idAv);
+            in.putExtra("rating", rating);
             startActivity(in);
             finish();
         }else {

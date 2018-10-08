@@ -181,31 +181,6 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.84" />
 
-    <Button
-        android:id="@+id/btAddProf"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:drawableLeft="@drawable/iconnovo"
-        android:text="Adicionar professor"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline123"
-        app:layout_constraintEnd_toStartOf="@+id/guideline118"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline119"
-        app:layout_constraintTop_toTopOf="@+id/guideline122" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:drawableLeft="@drawable/iconnovo"
-        android:text="Adicionar Alunos"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline120"
-        app:layout_constraintEnd_toStartOf="@+id/guideline118"
-        app:layout_constraintStart_toStartOf="@+id/guideline119"
-        app:layout_constraintTop_toTopOf="@+id/guideline121" />
-
     <android.support.constraint.Guideline
         android:id="@+id/guideline118"
         android:layout_width="wrap_content"
@@ -225,27 +200,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.70" />
+        app:layout_constraintGuide_percent="0.8" />
 
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline121"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.55" />
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline122"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.35" />
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline123"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.50" />
+    <ListView
+        android:id="@+id/listadealunos"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline120"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline21" />
 
 </android.support.constraint.ConstraintLayout>

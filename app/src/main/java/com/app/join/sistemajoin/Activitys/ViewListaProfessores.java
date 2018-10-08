@@ -31,7 +31,7 @@ public class ViewListaProfessores extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_lista_professores);
+        setContentView(R.layout.activity_view_listar_professores);
 
         Toast.makeText(ViewListaProfessores.this, "Clique na Lista para ver as informações completas do professor", Toast.LENGTH_LONG).show();
         pegaDados = getIntent();

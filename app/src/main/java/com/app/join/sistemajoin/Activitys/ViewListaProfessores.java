@@ -46,7 +46,7 @@ public class ViewListaProfessores extends AppCompatActivity {
                 lista.clear();
                 for (DataSnapshot dados : dataSnapshot.getChildren()) {
                     professor = dados.getValue(Professor.class);
-                    if(pegaDados.getStringExtra("id").equals(professor.getIdEscola())) {
+                    if(pegaDados.getStringExtra("idEscola").equals(professor.getIdEscola())) {
                         lista.add(professor);
                     }
                 }
@@ -72,7 +72,7 @@ public class ViewListaProfessores extends AppCompatActivity {
                 in.putExtra("cpf", variavel.getCpf());
                 in.putExtra("status", variavel.getStatus());
                 in.putExtra("senha", variavel.getSenha());
-                in.putExtra("keyTurma", variavel.getKeyTurma());
+                in.putExtra("idTurma", variavel.getKeyTurma());
                 in.putExtra("idEscola", variavel.getIdEscola());
                 startActivity(in);
                 finish();

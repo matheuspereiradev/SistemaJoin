@@ -40,7 +40,7 @@ public class ProfessorAdapter extends ArrayAdapter<Professor> {
             Professor pro = professor.get(position);
             textViewNome.setText(pro.getNome());
             textViewTelefone.setText(pro.getTelefone());
-            textViewStatus.setText(pro.getStatus());
+            textViewStatus.setText(pro.getKeyTurma());
         }
         return view;
     }

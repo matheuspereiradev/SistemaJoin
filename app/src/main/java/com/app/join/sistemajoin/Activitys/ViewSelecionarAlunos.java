@@ -39,16 +39,13 @@ public class ViewSelecionarAlunos extends AppCompatActivity {
         adapter = new AlunoAdapter(this, lista);
         listview.setAdapter(adapter);
         firebase = ConfiguracaoFirebase.getFirebase().child("aluno");
-
-        Toast.makeText(ViewSelecionarAlunos.this, "Selecione o aluno para quem deseja enviar a anotação", Toast.LENGTH_LONG).show();
-
+        Toast.makeText(ViewSelecionarAlunos.this, "Selecione o aluno!", Toast.LENGTH_LONG).show();
         valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 lista.clear();
                 for (DataSnapshot dados : dataSnapshot.getChildren()) {
                     aluno = dados.getValue(Aluno.class);
-
                     lista.add(aluno);
                 }
                 adapter.notifyDataSetChanged();
@@ -59,7 +56,7 @@ public class ViewSelecionarAlunos extends AppCompatActivity {
 
             }
         };
-        Intent cdg = getIntent();
+        final Intent cdg = getIntent();
         final String codigo = cdg.getStringExtra("codigo");
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -67,14 +64,30 @@ public class ViewSelecionarAlunos extends AppCompatActivity {
                 variavel = adapter.getItem(i);
                 if (codigo.equals("2")) {
                     Intent in = new Intent(ViewSelecionarAlunos.this, ViewRealizarPostagem.class);
-                    in.putExtra("key", variavel.getIdAluno());
+                    in.putExtra("idAluno", variavel.getIdAluno());
+                    in.putExtra("nome", variavel.getNome());
+                    in.putExtra("idProfessor", cdg.getStringExtra("idprofessor"));
+                    in.putExtra("keyTurma", cdg.getStringExtra("keyTurma"));
+                    startActivity(in);
+                    finish();
+                } else if(codigo.equals("3")){
+                    Intent in = new Intent(ViewSelecionarAlunos.this, ViewListarAvaliacoes.class);
+                    in.putExtra("idAluno", variavel.getIdAluno());
+                    in.putExtra("nome", variavel.getNome());
+                    in.putExtra("codigo", "list");
+                    startActivity(in);
+                    finish();
+                }else if(codigo.equals("4")){
+                    Intent in = new Intent(ViewSelecionarAlunos.this, ViewListarPostagens.class);
+                    in.putExtra("idAluno", variavel.getIdAluno());
                     in.putExtra("nome", variavel.getNome());
                     startActivity(in);
                     finish();
-                } else {
-                    Intent in = new Intent(ViewSelecionarAlunos.this, ViewRealizarAvaliacao.class);
-                    in.putExtra("key", variavel.getIdAluno());
+                }else {
+                    Intent in = new Intent(ViewSelecionarAlunos.this, ViewListarAvaliacoes.class);
+                    in.putExtra("idAluno", variavel.getIdAluno());
                     in.putExtra("nome", variavel.getNome());
+                    in.putExtra("codigo", "av");
                     startActivity(in);
                     finish();
                 }

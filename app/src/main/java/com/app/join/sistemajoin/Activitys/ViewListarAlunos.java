@@ -28,7 +28,7 @@ public class ViewListarAlunos extends AppCompatActivity {
     private Aluno aluno, variavel;
     private DatabaseReference firebase;
     private ValueEventListener valueEventListener;
-    Intent intent;
+    private Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +50,7 @@ public class ViewListarAlunos extends AppCompatActivity {
                 lista.clear();
                 for (DataSnapshot dados : dataSnapshot.getChildren()) {
                     aluno = dados.getValue(Aluno.class);
-                    if(intent.getStringExtra("id").equals(aluno.getIdEscola())) {
+                    if(intent.getStringExtra("idEscola").equals(aluno.getIdEscola())) {
                         lista.add(aluno);
                     }
                 }

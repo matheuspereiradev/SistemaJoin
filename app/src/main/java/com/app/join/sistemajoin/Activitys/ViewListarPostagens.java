@@ -44,16 +44,14 @@ public class ViewListarPostagens extends AppCompatActivity {
         adapter = new PostagemAdapter(this, lista);
         listview.setAdapter(adapter);
         firebase = ConfiguracaoFirebase.getFirebase().child("agenda");
-
-        Toast.makeText(ViewListarPostagens.this, "Clique na Lista para ver o conteuda da Anotação", Toast.LENGTH_LONG).show();
-
+        firebase.orderByChild("data").limitToFirst(30);
         valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 lista.clear();
                 for (DataSnapshot dados : dataSnapshot.getChildren()) {
                     agenda = dados.getValue(Agenda.class);
-                    if("MDEzMDU2NjMzMDZTYWRhbSBIdXNlaW4".equals(agenda.getIdDestino())) {
+                    if(intent.getStringExtra("idAluno").equals(agenda.getIdDestino())) {
                         lista.add(agenda);
                     }
                 }
@@ -65,22 +63,7 @@ public class ViewListarPostagens extends AppCompatActivity {
 
             }
         };
-/*
-        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                variavel = adapter.getItem(i);
-                Intent in = new Intent(ViewListarPostagens.this, ViewVisualizarPostagem.class);
-                in.putExtra("key", variavel.getIdDestino());
-                in.putExtra("titulo", variavel.getTitulo());
-                in.putExtra("msg", variavel.getMensagem());
-                in.putExtra("nomeCriador", variavel.getNomeProfessor());
-                in.putExtra("data", variavel.getData());
-                startActivity(in);
 
-            }
-        });
- */
     }
 
     @Override

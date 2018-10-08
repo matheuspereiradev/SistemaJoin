@@ -10,7 +10,9 @@ import com.app.join.sistemajoin.R;
 
 public class ViewTelaHomeAluno extends AppCompatActivity {
 
-    Button btSairPai,btVisualizarPost,btVisualizarAvaliacao;
+    private Intent intent;
+    private Button btSairPai,btVisualizarPost,btVisualizarAvaliacao;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,13 +22,16 @@ public class ViewTelaHomeAluno extends AppCompatActivity {
         btVisualizarPost=(Button)findViewById(R.id.btVisualizarPost);
         btVisualizarAvaliacao=(Button)findViewById(R.id.btVisualizarAvaliacao);
 
-        final Intent idAluno = getIntent();
+        intent = getIntent();
 
         btVisualizarPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent verPost = new Intent(ViewTelaHomeAluno.this, ViewListarPostagens.class);
-                verPost.putExtra("idAluno", idAluno.getStringExtra("id"));
+                Intent verPost = new Intent(ViewTelaHomeAluno.this, ViewSelecionarFilho.class);
+                verPost.putExtra("idAluno", intent.getStringExtra("idAluno"));
+                verPost.putExtra("cpfRes", intent.getStringExtra("cpfRes"));
+                verPost.putExtra("idEscola", intent.getStringExtra("idEscola"));
+                verPost.putExtra("post", "post");
                 startActivity(verPost);
             }
         });
@@ -34,8 +39,11 @@ public class ViewTelaHomeAluno extends AppCompatActivity {
         btVisualizarAvaliacao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent verPost = new Intent(ViewTelaHomeAluno.this, ViewListarPostagens.class);
-                verPost.putExtra("idAluno", idAluno.getStringExtra("id"));
+                Intent verPost = new Intent(ViewTelaHomeAluno.this, ViewSelecionarFilho.class);
+                verPost.putExtra("idAluno", intent.getStringExtra("idAluno"));
+                verPost.putExtra("cpfRes", intent.getStringExtra("cpfRes"));
+                verPost.putExtra("idEscola", intent.getStringExtra("idEscola"));
+                verPost.putExtra("post", "graph");
                 startActivity(verPost);
             }
         });

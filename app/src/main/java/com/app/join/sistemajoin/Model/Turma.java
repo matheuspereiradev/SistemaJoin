@@ -8,16 +8,14 @@ import java.util.Map;
 public class Turma {
 
     private String nome;
-    private String id;
-    private String nomeProfessor;
+    private String idTurma;
     private String idEscola;
 
     @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("nome", getNome());
-        hashMap.put("id", getId());
-        hashMap.put("nomeprofessor", getNomeProfessor());
+        hashMap.put("idTurma", getIdTurma());
         hashMap.put("idEscola", getIdEscola());
 
         return hashMap;
@@ -39,20 +37,13 @@ public class Turma {
         this.nome = nome;
     }
 
-    public String getId() {
-        return id;
+    public String getIdTurma() {
+        return idTurma;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setIdTurma(String id) {
+        this.idTurma = id;
     }
 
-    public String getNomeProfessor() {
-        return nomeProfessor;
-    }
-
-    public void setNomeProfessor(String nomeProfessor) {
-        this.nomeProfessor = nomeProfessor;
-    }
 }
 

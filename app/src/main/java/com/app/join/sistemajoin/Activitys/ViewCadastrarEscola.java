@@ -76,7 +76,19 @@ public class ViewCadastrarEscola extends AppCompatActivity {
                     firebase.child(intent.getStringExtra("nome")).removeValue();
 
                     if (ctNomeEsc.getText().equals("") || ctTelEsc.getText().equals("") || ctEmailEsc.getText().equals("") || ctCNPJEsc.getText().equals("")) {
-                        Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
+                        if (ctNomeEsc.getText().equals("")) {
+                            ctNomeEsc.isSelected();
+                            Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
+                        }else if(ctTelEsc.getText().equals("")){
+                            ctTelEsc.isSelected();
+                            Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
+                        }else if(ctEmailEsc.getText().equals("") ){
+                            ctEmailEsc.isSelected();
+                            Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
+                        }else if( ctCNPJEsc.getText().equals("")){
+                            ctCNPJEsc.isSelected();
+                            Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
+                        }
                     } else if (ctTelEsc.getText().length() < 13) {
                         Toast.makeText(getBaseContext(), "Favor, preencher os campos corretamente!", Toast.LENGTH_SHORT).show();
 
@@ -107,15 +119,30 @@ public class ViewCadastrarEscola extends AppCompatActivity {
                     String idUsuario = Base64Custon.codificadorBase64(escola.getEmail());
                     escola.setId(idUsuario);
                     if (ctNomeEsc.getText().equals("") || ctTelEsc.getText().equals("") || ctEmailEsc.getText().equals("") || ctCNPJEsc.getText().equals("")) {
-                        Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
+                        if (ctNomeEsc.getText().equals("")) {
+                            ctNomeEsc.isSelected();
+                            Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
+                        }else if(ctTelEsc.getText().equals("")){
+                            ctTelEsc.isSelected();
+                            Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
+                        }else if(ctEmailEsc.getText().equals("") ){
+                            ctEmailEsc.isSelected();
+                            Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
+                        }else if( ctCNPJEsc.getText().equals("")){
+                            ctCNPJEsc.isSelected();
+                            Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
+                        }
 
                     } else if (ctTelEsc.getText().length() < 13) {
+                        ctTelEsc.isSelected();
                         Toast.makeText(getBaseContext(), "Favor, preencher os campos corretamente!", Toast.LENGTH_SHORT).show();
 
                     } else if (ctCNPJEsc.getText().length() < 18) {
+                        ctCNPJEsc.isSelected();
                         Toast.makeText(getBaseContext(), "Favor, preencher os campos corretamente!", Toast.LENGTH_SHORT).show();
 
                     } else if (!validaCnpj(ctCNPJEsc.getText().toString())) {
+                        ctCNPJEsc.isSelected();
                         Toast.makeText(getBaseContext(), "Os dados inseridos são inválidos!", Toast.LENGTH_SHORT).show();
 
                     } else {
@@ -126,11 +153,12 @@ public class ViewCadastrarEscola extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     salvar(escola);
+                                    chamatelaListaescola();
+                                    finish();
                                 }
                             }
                         });
-                        chamatelaListaescola();
-                        finish();
+
                     }
                 }
             });
@@ -177,7 +205,7 @@ public class ViewCadastrarEscola extends AppCompatActivity {
         CNPJ = CNPJ.replace('-', ' ');
         CNPJ = CNPJ.replaceAll(" ", "");
         String senha = "";
-        senha = CNPJ.substring(0,5);
+        senha = CNPJ.substring(0, 6);
 
         return senha;
     }

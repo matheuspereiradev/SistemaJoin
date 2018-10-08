@@ -28,10 +28,11 @@ import java.util.InputMismatchException;
 
 public class ViewCadastrarAluno extends AppCompatActivity {
 
-    Button SalvarAluno;
-    EditText ctNomeAluno, ctTelAluno, ctNomeResponsavel, ctCPFResp, ctEmailResp;
-    String key, idEscola;
-    Intent intent = null;
+    private Button SalvarAluno;
+    private EditText ctNomeAluno, ctTelAluno, ctNomeResponsavel, ctCPFResp, ctEmailResp;
+    private String key, idEscola;
+    private Aluno aluno;
+    private Intent intent = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +56,7 @@ public class ViewCadastrarAluno extends AppCompatActivity {
 
         intent = getIntent();
         key = intent.getStringExtra("key");
-        idEscola = intent.getStringExtra("id");
+        idEscola = intent.getStringExtra("idEscola");
 
         if (key != null) {
             preencheCampos();
@@ -65,12 +66,25 @@ public class ViewCadastrarAluno extends AppCompatActivity {
                     if (ctNomeAluno.getText().equals("") || ctTelAluno.getText().equals("")
                             || ctNomeResponsavel.getText().equals("") || ctCPFResp.getText().equals("") ||
                             ctCPFResp.getText().length() < 14 || ctTelAluno.getText().length() < 13) {
-                        Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
+                        if (ctNomeAluno.getText().equals("")) {
+                            ctNomeAluno.isSelected();
+                            Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
+                        } else if (ctTelAluno.getText().equals("") || ctTelAluno.getText().length() < 13) {
+                            ctTelAluno.isSelected();
+                            Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
+                        } else if (ctNomeResponsavel.getText().equals("")) {
+                            ctNomeResponsavel.isSelected();
+                            Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
+                        } else if (ctCPFResp.getText().equals("") || ctCPFResp.getText().length() < 14) {
+                            ctCPFResp.isSelected();
+                            Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
+                        }
                     } else if (!validaCpf(ctCPFResp.getText().toString())) {
+                        ctCPFResp.isSelected();
                         Toast.makeText(getBaseContext(), "Os dados inseridos são inválidos!", Toast.LENGTH_SHORT).show();
                     } else {
                         editarAluno(setDadosEditar());
-                        chamaTelaListaAlunos();
+                        chamaTelaListaTurma();
                         finish();
                     }
                 }
@@ -83,12 +97,25 @@ public class ViewCadastrarAluno extends AppCompatActivity {
                     if (ctNomeAluno.getText().equals("") || ctTelAluno.getText().equals("")
                             || ctNomeResponsavel.getText().equals("") || ctCPFResp.getText().equals("") ||
                             ctCPFResp.getText().length() < 14 || ctTelAluno.getText().length() < 13) {
-                        Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                    }else if (!validaCpf(ctCPFResp.getText().toString())) {
+                        if (ctNomeAluno.getText().equals("")) {
+                            ctNomeAluno.isSelected();
+                            Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
+                        } else if (ctTelAluno.getText().equals("") || ctTelAluno.getText().length() < 13) {
+                            ctTelAluno.isSelected();
+                            Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
+                        } else if (ctNomeResponsavel.getText().equals("")) {
+                            ctNomeResponsavel.isSelected();
+                            Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
+                        } else if (ctCPFResp.getText().equals("") || ctCPFResp.getText().length() < 14) {
+                            ctCPFResp.isSelected();
+                            Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
+                        }
+                    } else if (!validaCpf(ctCPFResp.getText().toString())) {
+                        ctCPFResp.isSelected();
                         Toast.makeText(getBaseContext(), "Os dados inseridos são inválidos!", Toast.LENGTH_SHORT).show();
                     } else {
                         salvarAluno(setDadosSalvar());
-                        chamaTelaListaAlunos();
+                        chamaTelaListaTurma();
                         finish();
                     }
                 }
@@ -149,9 +176,19 @@ public class ViewCadastrarAluno extends AppCompatActivity {
         }
     }
 
-    private void chamaTelaListaAlunos() {
-        Intent listAluno = new Intent(ViewCadastrarAluno.this, ViewListarAlunos.class);
-        startActivity(listAluno);
+    private void chamaTelaListaTurma() {
+        Intent listProf = new Intent(ViewCadastrarAluno.this, ViewListarTurmas.class);
+        listProf.putExtra("idAluno", aluno.getIdAluno());
+        listProf.putExtra("nome", aluno.getNome());
+        listProf.putExtra("tel", aluno.getTelefone());
+        listProf.putExtra("email", aluno.getEmailResponsavel());
+        listProf.putExtra("cpf", aluno.getCpfResponsavel());
+        listProf.putExtra("status", aluno.getStatus());
+        listProf.putExtra("senha", aluno.getSenha());
+        listProf.putExtra("keyTurma", aluno.getKeyTurma());
+        listProf.putExtra("idEscola", aluno.getIdEscola());
+        listProf.putExtra("remetente", "aluno");
+        startActivity(listProf);
     }
 
     private void salvarAluno(Aluno a) {
@@ -160,7 +197,7 @@ public class ViewCadastrarAluno extends AppCompatActivity {
     }
 
     private Aluno setDadosSalvar() {
-        Aluno aluno = new Aluno();
+        aluno = new Aluno();
         aluno.setNome(ctNomeAluno.getText().toString());
         aluno.setEmailResponsavel(ctEmailResp.getText().toString());
         String CPF = ctCPFResp.getText().toString();
@@ -168,19 +205,19 @@ public class ViewCadastrarAluno extends AppCompatActivity {
         CPF = CPF.replace('-', ' ');
         CPF = CPF.replaceAll(" ", "");
         aluno.setCpfResponsavel(CPF);
-        String idUsuario = Base64Custon.codificadorBase64(aluno.getCpfResponsavel()+aluno.getNome());
+        String idUsuario = Base64Custon.codificadorBase64(aluno.getCpfResponsavel() + aluno.getNome());
         aluno.setIdAluno(idUsuario);
         aluno.setNomeResponsavel(ctNomeResponsavel.getText().toString());
         aluno.setSenha(geraSenha(aluno.getCpfResponsavel()));
         aluno.setStatus("Ativo");
         aluno.setTelefone(ctTelAluno.getText().toString());
-        aluno.setKeyTurma("sem Turma");
+        aluno.setKeyTurma("0001");
         aluno.setIdEscola(idEscola);
         return aluno;
     }
 
     private Aluno setDadosEditar() {
-        Aluno aluno = new Aluno();
+        aluno = new Aluno();
         aluno.setNome(ctNomeAluno.getText().toString());
         aluno.setEmailResponsavel(ctEmailResp.getText().toString());
         aluno.setIdAluno(intent.getStringExtra("key"));
@@ -193,9 +230,8 @@ public class ViewCadastrarAluno extends AppCompatActivity {
         CPF = CPF.replaceAll(" ", "");
         aluno.setCpfResponsavel(CPF);
         aluno.setTelefone(ctTelAluno.getText().toString());
-        aluno.setKeyTurma("sem Turma");
+        //aluno.setKeyTurma("sem Turma");
         aluno.setIdEscola(intent.getStringExtra("idEscola"));
-
         return aluno;
     }
 
@@ -204,7 +240,7 @@ public class ViewCadastrarAluno extends AppCompatActivity {
         CPF = CPF.replace('-', ' ');
         CPF = CPF.replaceAll(" ", "");
         String senha = "";
-        senha = CPF.substring(0,5);
+        senha = CPF.substring(0, 6);
 
         return senha;
     }

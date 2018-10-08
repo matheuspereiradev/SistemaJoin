@@ -10,7 +10,9 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.app.join.sistemajoin.Model.Avaliacao;
+import com.app.join.sistemajoin.Model.Professor;
 import com.app.join.sistemajoin.R;
+import com.app.join.sistemajoin.Tools.Base64Custon;
 import com.app.join.sistemajoin.Tools.ConfiguracaoFirebase;
 import com.google.firebase.database.DatabaseReference;
 
@@ -22,6 +24,7 @@ public class ViewRealizarAvaliacao extends AppCompatActivity {
     Button btEnviarAv;
     TextView tvNomeAluno;
     ImageView triste, normal, feliz, muitoFeliz;
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,31 +40,32 @@ public class ViewRealizarAvaliacao extends AppCompatActivity {
         feliz = findViewById(R.id.imgFeliz);
         muitoFeliz = findViewById(R.id.imgMuitoFeliz);
 
-        ratingBar.setNumStars(3);
-        if(ratingBar.getNumStars()<2){
+        intent = getIntent();
+
+        ratingBar.setNumStars(5);
+        if (ratingBar.getNumStars() < 2) {
             triste.setSelected(true);
             normal.setSelected(false);
             feliz.setSelected(false);
             muitoFeliz.setSelected(false);
-        }else if(ratingBar.getNumStars()>=2 &&ratingBar.getNumStars()<3){
+        } else if (ratingBar.getNumStars() >= 2 && ratingBar.getNumStars() < 3) {
             triste.setSelected(false);
             normal.setSelected(true);
             feliz.setSelected(false);
             muitoFeliz.setSelected(false);
-        }else if(ratingBar.getNumStars()>=3 &&ratingBar.getNumStars()<4){
+        } else if (ratingBar.getNumStars() >= 3 && ratingBar.getNumStars() < 4) {
             triste.setSelected(false);
             normal.setSelected(false);
             feliz.setSelected(true);
             muitoFeliz.setSelected(false);
-        }else{
+        } else {
             triste.setSelected(false);
             normal.setSelected(false);
             feliz.setSelected(false);
             muitoFeliz.setSelected(true);
         }
 
-        final Intent cdg = getIntent();
-        tvNomeAluno.setText(cdg.getStringExtra("nome"));
+        tvNomeAluno.setText(intent.getStringExtra("nome"));
 
         btEnviarAv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,17 +76,29 @@ public class ViewRealizarAvaliacao extends AppCompatActivity {
                 SimpleDateFormat sdf = new SimpleDateFormat("MM/yyyy");
                 String dateString = sdf.format(date);
                 avaliacao.setDataAv(dateString);
-                avaliacao.setIdAluno(cdg.getStringExtra("key"));
-                salvarAvaliacao(avaliacao);
+                avaliacao.setIdAluno(intent.getStringExtra("idAluno"));
+                String idAv = Base64Custon.codificadorBase64(avaliacao.getDataAv()+avaliacao.getIdAluno());
+                avaliacao.setIdAvaliacao(idAv);
+                if(intent.getStringExtra("cdg").equals("editar")){
+                    editarAvaliacao(avaliacao);
+                }else {
+                    salvarAvaliacao(avaliacao);
+                }
                 Intent in = new Intent(ViewRealizarAvaliacao.this, ViewSelecionarAlunos.class);
                 in.putExtra("codigo", "1");
                 startActivity(in);
+                finish();
             }
         });
     }
 
     private void salvarAvaliacao(Avaliacao av) {
         DatabaseReference dataAv = ConfiguracaoFirebase.getFirebase().child("avaliacao");
-        dataAv.push().setValue(av);
+        dataAv.child(av.getIdAvaliacao()).setValue(av);
     }
+    private void editarAvaliacao(Avaliacao av) {
+        DatabaseReference dataAv = ConfiguracaoFirebase.getFirebase().child("avaliacao");
+        dataAv.child(av.getIdAvaliacao()).updateChildren(av.toMap());
+    }
+
 }

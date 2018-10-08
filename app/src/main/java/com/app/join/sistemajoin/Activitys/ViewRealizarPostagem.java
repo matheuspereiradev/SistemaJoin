@@ -19,6 +19,7 @@ public class ViewRealizarPostagem extends AppCompatActivity {
 
     EditText ctTituloPost, ctMsgPost;
     Button btEnviarPost;
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,8 @@ public class ViewRealizarPostagem extends AppCompatActivity {
         ctTituloPost = (EditText) findViewById(R.id.ctTituloPost);
         ctMsgPost = (EditText) findViewById(R.id.ctMsgPost);
         btEnviarPost = (Button) findViewById(R.id.btEnviarPost);
+
+        intent=getIntent();
 
 
         btEnviarPost.setOnClickListener(new View.OnClickListener() {
@@ -48,6 +51,7 @@ public class ViewRealizarPostagem extends AppCompatActivity {
 
     private void chamaListaPost() {
         Intent listPost = new Intent(ViewRealizarPostagem.this, ViewHomeProfessor.class);
+        listPost.putExtra("idProfessor", intent.getStringExtra("idprofessor"));
         startActivity(listPost);
     }
 
@@ -61,7 +65,7 @@ public class ViewRealizarPostagem extends AppCompatActivity {
         agenda.setTitulo(ctTituloPost.getText().toString());
         agenda.setIdDestino(post.getStringExtra("key"));
         agenda.setMensagem(ctMsgPost.getText().toString());
-        agenda.setNomeProfessor("não codificado");
+        agenda.setIdProfessor(intent.getStringExtra("idprofessor"));
         return agenda;
     }
 

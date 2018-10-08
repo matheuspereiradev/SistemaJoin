@@ -8,6 +8,7 @@ import java.util.Map;
 public class Avaliacao {
 
     private int av;
+    private String idAvaliacao;
     private String idAluno;
     private String dataAv;
 
@@ -17,6 +18,7 @@ public class Avaliacao {
         hashMapAvaliacao.put("idAluno", getIdAluno());
         hashMapAvaliacao.put("av", getAv());
         hashMapAvaliacao.put("dataAv", getDataAv());
+        hashMapAvaliacao.put("idAvaliacao", getIdAvaliacao());
         return hashMapAvaliacao;
     }
 
@@ -26,6 +28,14 @@ public class Avaliacao {
 
     public void setDataAv(String dataAv) {
         this.dataAv = dataAv;
+    }
+
+    public String getIdAvaliacao() {
+        return idAvaliacao;
+    }
+
+    public void setIdAvaliacao(String idAvaliacao) {
+        this.idAvaliacao = idAvaliacao;
     }
 
     public int getAv() {

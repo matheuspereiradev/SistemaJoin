@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:background="@drawable/layout_tabela"
     android:columnCount="3"
@@ -21,6 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="1dp"
+        android:inputType="text|number"
         android:text="Media"
         android:textColor="@android:color/background_dark"
         android:textSize="15sp" />

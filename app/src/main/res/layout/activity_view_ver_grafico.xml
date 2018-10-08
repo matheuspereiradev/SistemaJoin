@@ -21,7 +21,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline126"></LinearLayout>
+        app:layout_constraintTop_toTopOf="@+id/guideline126">
+        <com.jjoe64.graphview.GraphView
+            android:layout_width="match_parent"
+            android:layout_height="200dip"
+            android:id="@+id/graph" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textView28"

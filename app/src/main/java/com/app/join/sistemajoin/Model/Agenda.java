@@ -12,7 +12,7 @@ public class Agenda {
     private String titulo;
     private String mensagem;
     private String data;
-    private String nomeProfessor;
+    private String idProfessor;
     private String idDestino;
 
     @Exclude
@@ -21,7 +21,7 @@ public class Agenda {
         hashAgenda.put("titulo", getTitulo());
         hashAgenda.put("mensagem", getMensagem());
         hashAgenda.put("data", getData());
-        hashAgenda.put("nomeProfessor", getNomeProfessor());
+        hashAgenda.put("idProfessor", getidProfessor());
         hashAgenda.put("idDestino", getIdDestino());
         return hashAgenda;
     }
@@ -50,12 +50,12 @@ public class Agenda {
         this.data = data;
     }
 
-    public String getNomeProfessor() {
-        return nomeProfessor;
+    public String getidProfessor() {
+        return idProfessor;
     }
 
-    public void setNomeProfessor(String nomeProfessor) {
-        this.nomeProfessor = nomeProfessor;
+    public void setIdProfessor(String nomeProfessor) {
+        this.idProfessor = nomeProfessor;
     }
 
     public String getIdDestino() {

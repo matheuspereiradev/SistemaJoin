@@ -20,7 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 public class ViewCadastrarTurma extends AppCompatActivity {
     EditText nome;
     Button salvar;
-    private String id;
+    private String idEscola;
     Spinner turno;
 
 
@@ -33,7 +33,7 @@ public class ViewCadastrarTurma extends AppCompatActivity {
         salvar = findViewById(R.id.btSalvarTurma);
 
         Intent idemail = getIntent();
-        id = idemail.getStringExtra("id");
+        idEscola = idemail.getStringExtra("idEscola");
 
 
        /* ArrayAdapter adapterTurno = ArrayAdapter.createFromResource(getBaseContext(), R.array.turno,
@@ -50,9 +50,8 @@ public class ViewCadastrarTurma extends AppCompatActivity {
                     Turma turma = new Turma();
                     turma.setNome(nome.getText().toString());
                     String idUsuario = Base64Custon.codificadorBase64(turma.getNome());
-                    turma.setId(idUsuario);
-                    turma.setNomeProfessor("sem Professor");
-                    turma.setIdEscola(id);
+                    turma.setIdTurma(idUsuario);
+                    turma.setIdEscola(idEscola);
                     salvarTurma(turma);
                     chamaTelaListaTurma();
                     finish();
@@ -65,11 +64,13 @@ public class ViewCadastrarTurma extends AppCompatActivity {
 
     private void salvarTurma(Turma t) {
         DatabaseReference dataTurma = ConfiguracaoFirebase.getFirebase().child("turma");
-        dataTurma.child(t.getId()).setValue(t);
+        dataTurma.child(t.getIdTurma()).setValue(t);
     }
 
     private void chamaTelaListaTurma() {
         Intent listTurma = new Intent(ViewCadastrarTurma.this, ViewListarTurmas.class);
+        listTurma.putExtra("idEscola", idEscola);
+        listTurma.putExtra("remetente", "home");
         startActivity(listTurma);
     }
 

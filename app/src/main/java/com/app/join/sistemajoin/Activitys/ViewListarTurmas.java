@@ -10,6 +10,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.app.join.sistemajoin.Adapter.TurmaAdapter;
+import com.app.join.sistemajoin.Model.Aluno;
+import com.app.join.sistemajoin.Model.Professor;
 import com.app.join.sistemajoin.Model.Turma;
 import com.app.join.sistemajoin.R;
 import com.app.join.sistemajoin.Tools.ConfiguracaoFirebase;
@@ -29,6 +31,8 @@ public class ViewListarTurmas extends AppCompatActivity {
     private DatabaseReference firebase;
     private ValueEventListener valueEventListener;
     private Intent intent;
+    private Professor professor;
+    private Aluno aluno;
 
 
     @Override
@@ -42,16 +46,13 @@ public class ViewListarTurmas extends AppCompatActivity {
         adapter = new TurmaAdapter(this, lista);
         listview.setAdapter(adapter);
         firebase = ConfiguracaoFirebase.getFirebase().child("turma");
-
-        Toast.makeText(ViewListarTurmas.this, "Clique na Lista para ver as informações completas da Turma", Toast.LENGTH_LONG).show();
-
         valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 lista.clear();
                 for (DataSnapshot dados : dataSnapshot.getChildren()) {
                     turma = dados.getValue(Turma.class);
-                    if(intent.getStringExtra("id").equals(turma.getIdEscola())) {
+                    if (intent.getStringExtra("idEscola").equals(turma.getIdEscola())) {
                         lista.add(turma);
                     }
                 }
@@ -67,14 +68,43 @@ public class ViewListarTurmas extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 variavel = adapter.getItem(i);
-                firebase = ConfiguracaoFirebase.getFirebase().child("turma");
-                firebase.child(variavel.getId());
-                Intent in = new Intent(getBaseContext(), ViewExibirInformacoesTurma.class);
-                in.putExtra("key", variavel.getId());
-                in.putExtra("nome", variavel.getNome());
-                in.putExtra("nomeProfessor", variavel.getNomeProfessor());
-                startActivity(in);
-                finish();
+                if (intent.getStringExtra("remetente").equals("home")) {
+                    Intent in = new Intent(getBaseContext(), ViewExibirInformacoesTurma.class);
+                    in.putExtra("idTurma", variavel.getIdTurma());
+                    in.putExtra("nome", variavel.getNome());
+                    startActivity(in);
+                    finish();
+                } else if (intent.getStringExtra("remetente").equals("professor")) {
+                    Intent listPro = new Intent(ViewListarTurmas.this, ViewListaProfessores.class);
+                    listPro.putExtra("idEscola", intent.getStringExtra("idEscola"));
+                    professor.setKeyTurma(variavel.getNome());
+                    professor.setIdProfessor(intent.getStringExtra("key"));
+                    professor.setNome(intent.getStringExtra("nome"));
+                    professor.setTelefone(intent.getStringExtra("tel"));
+                    professor.setEmail(intent.getStringExtra("email"));
+                    professor.setCpf(intent.getStringExtra("cpf"));
+                    professor.setStatus(intent.getStringExtra("status"));
+                    professor.setSenha(intent.getStringExtra("senha"));
+                    professor.setIdEscola(intent.getStringExtra("idEscola"));
+                    editarProfessor(professor);
+                    startActivity(listPro);
+                    finish();
+                } else {
+                    Intent listAlu = new Intent(ViewListarTurmas.this, ViewListarAlunos.class);
+                    listAlu.putExtra("idEscola", intent.getStringExtra("idEscola"));
+                    aluno.setKeyTurma(variavel.getNome());
+                    aluno.setIdAluno(intent.getStringExtra("idAluno"));
+                    aluno.setNome(intent.getStringExtra("nome"));
+                    aluno.setTelefone(intent.getStringExtra("tel"));
+                    aluno.setEmailResponsavel(intent.getStringExtra("email"));
+                    aluno.setCpfResponsavel(intent.getStringExtra("cpf"));
+                    aluno.setStatus(intent.getStringExtra("status"));
+                    aluno.setSenha(intent.getStringExtra("senha"));
+                    aluno.setIdEscola(intent.getStringExtra("idEscola"));
+                    editarAluno(aluno);
+                    startActivity(listAlu);
+                    finish();
+                }
             }
         });
 
@@ -92,7 +122,15 @@ public class ViewListarTurmas extends AppCompatActivity {
         firebase.addValueEventListener(valueEventListener);
     }
 
+    private void editarProfessor(Professor p) {
+        DatabaseReference data = ConfiguracaoFirebase.getFirebase().child("professor");
+        data.child(p.getIdProfessor()).updateChildren(professor.toMap());
+    }
 
+    private void editarAluno(Aluno a) {
+        DatabaseReference data = ConfiguracaoFirebase.getFirebase().child("aluno");
+        data.child(a.getIdAluno()).updateChildren(a.toMap());
+    }
 
 
 }

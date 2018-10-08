@@ -28,11 +28,11 @@ import java.util.InputMismatchException;
 
 public class ViewCadastrarProfessor extends AppCompatActivity {
 
-    EditText ctEmailProf, ctNomeProf, ctCPFProf, ctTelProf;
-    Button btProximoProf1;
-    Professor professor;
-    String key, idEscola;
-    FirebaseAuth autenticacao;
+    private EditText ctEmailProf, ctNomeProf, ctCPFProf, ctTelProf;
+    private Button btProximoProf1;
+    private Professor professor;
+    private String key, idEscola, ok;
+    private FirebaseAuth autenticacao;
     private Intent intent = null;
 
     @Override
@@ -61,7 +61,7 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
         //fim mascara======
         intent = getIntent();
         key = intent.getStringExtra("key");
-        idEscola = intent.getStringExtra("id");
+        idEscola = intent.getStringExtra("idEscola");
         if (key != null) {
             preencheCampos();
             btProximoProf1.setOnClickListener(new View.OnClickListener() {
@@ -69,31 +69,34 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
                 public void onClick(View view) {
                     if (ctNomeProf.getText().equals("") || ctCPFProf.getText().equals("")
                             || ctEmailProf.getText().equals("") || ctTelProf.getText().equals("")) {
-                        if(ctNomeProf.getText().equals("")){
+                        if (ctNomeProf.getText().equals("")) {
                             ctNomeProf.isSelected();
-                        }else if(ctCPFProf.getText().equals("")){
+                            Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
+                        } else if (ctCPFProf.getText().equals("")) {
                             ctCPFProf.isSelected();
-                        }else if(ctTelProf.getText().equals("")){
+                            Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
+                        } else if (ctTelProf.getText().equals("")) {
                             ctTelProf.isSelected();
-                        }else if(ctEmailProf.getText().equals("")){
+                            Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
+                        } else if (ctEmailProf.getText().equals("")) {
                             ctEmailProf.isSelected();
+                            Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
                         }
-                        Toast.makeText(getBaseContext(), "Preemcha todos os campos!", Toast.LENGTH_SHORT).show();
                     } else if (ctTelProf.getText().length() < 13) {
                         ctTelProf.isSelected();
-                        Toast.makeText(getBaseContext(), "Telefone Incompleto!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getBaseContext(), "Favor, preencher os campos corretamente!", Toast.LENGTH_SHORT).show();
 
                     } else if (ctCPFProf.getText().length() < 14) {
                         ctCPFProf.isSelected();
-                        Toast.makeText(getBaseContext(), "CPF Incompleto!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getBaseContext(), "Favor, preencher os campos corretamente!", Toast.LENGTH_SHORT).show();
 
                     } else if (!validaCpf(ctCPFProf.getText().toString())) {
                         ctCPFProf.isSelected();
-                        Toast.makeText(getBaseContext(), "CPF Invalido!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getBaseContext(), "Os dados inseridos são inválidos!", Toast.LENGTH_SHORT).show();
 
                     } else {
                         editarProfessor(setDadosEditar());
-                        chamaTelaListaProfessor();
+                        chamaTelaListaTurma();
                         finish();
                     }
                 }
@@ -105,9 +108,21 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
                 public void onClick(View v) {
                     if (ctNomeProf.getText().equals("") || ctCPFProf.getText().equals("")
                             || ctEmailProf.getText().equals("") || ctTelProf.getText().equals("")) {
-                        Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
+                        if (ctNomeProf.getText().equals("")) {
+                            ctNomeProf.isSelected();
+                            Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
+                        } else if (ctCPFProf.getText().equals("")) {
+                            ctCPFProf.isSelected();
+                            Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
+                        } else if (ctTelProf.getText().equals("")) {
+                            ctTelProf.isSelected();
+                            Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
+                        } else if (ctEmailProf.getText().equals("")) {
+                            ctEmailProf.isSelected();
+                            Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
+                        }
                     } else if (ctTelProf.getText().length() < 13) {
-                        Toast.makeText(getBaseContext(), "Telefone Incompleto!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getBaseContext(), "Favor, preencher os campos corretamente!", Toast.LENGTH_SHORT).show();
 
                     } else if (ctCPFProf.getText().length() < 14) {
                         Toast.makeText(getBaseContext(), " Favor, preencher os campos corretamente!", Toast.LENGTH_SHORT).show();
@@ -118,22 +133,24 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
                     } else {
                         professor = setDados();
                         cadastrar();
-                        autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
-                        autenticacao.signInWithEmailAndPassword(professor.getEmail(), professor.getSenha()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    salvarProfessor(professor);
+                        if (ok.equals("ok")) {
+                            autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
+                            autenticacao.signInWithEmailAndPassword(professor.getEmail(), professor.getSenha()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        salvarProfessor(professor);
+                                        chamaTelaListaTurma();
+                                    }
                                 }
-                            }
-                        });
-                        chamaTelaListaProfessor();
-                        finish();
+                            });
+                        }
                     }
                 }
             });
         }
     }
+
 
     public void cadastrar() {
         autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
@@ -143,8 +160,9 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
+                                    ok = "0k";
                                     Preferencias preferencias = new Preferencias(ViewCadastrarProfessor.this);
-                                    preferencias.salvaUsuarioLogado(professor.getIdProfessor(), professor.getNome());
+                                    preferencias.salvaUsuarioLogado(professor.getEmail(), professor.getNome());
                                 } else {
                                     String erroExcecao = "";
                                     try {
@@ -217,15 +235,24 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
         }
     }
 
-    private void chamaTelaListaProfessor() {
-        Intent listProf = new Intent(ViewCadastrarProfessor.this, ViewListaProfessores.class);
-        listProf.putExtra("id", intent.getStringExtra("id"));
-        startActivity(listProf);
-    }
-
     private void salvarProfessor(Professor p) {
         DatabaseReference data = ConfiguracaoFirebase.getFirebase().child("professor");
         data.child(p.getIdProfessor()).setValue(p);
+    }
+
+    private void chamaTelaListaTurma() {
+        Intent listProf = new Intent(ViewCadastrarProfessor.this, ViewListarTurmas.class);
+        listProf.putExtra("key", professor.getIdProfessor());
+        listProf.putExtra("nome", professor.getNome());
+        listProf.putExtra("tel", professor.getTelefone());
+        listProf.putExtra("email", professor.getEmail());
+        listProf.putExtra("cpf", professor.getCpf());
+        listProf.putExtra("status", professor.getStatus());
+        listProf.putExtra("senha", professor.getSenha());
+        listProf.putExtra("keyTurma", professor.getKeyTurma());
+        listProf.putExtra("idEscola", professor.getIdEscola());
+        listProf.putExtra("remetente", "professor");
+        startActivity(listProf);
     }
 
     private Professor setDados() {
@@ -238,7 +265,7 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
         professor.setSenha(geraSenha(professor.getCpf()));
         professor.setStatus("Ativo");
         professor.setTelefone(ctTelProf.getText().toString());
-        professor.setKeyTurma("sem Turma");
+        professor.setKeyTurma("0001");
         professor.setIdEscola(idEscola);
         return professor;
     }
@@ -252,8 +279,8 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
         professor.setStatus("Ativo");
         professor.setCpf(ctCPFProf.getText().toString());
         professor.setTelefone(ctTelProf.getText().toString());
-        professor.setKeyTurma(intent.getStringExtra("keyTurma"));
-        professor.setIdEscola("idEscola");
+        professor.setKeyTurma(intent.getStringExtra("idTurma"));
+        professor.setIdEscola(idEscola);
         return professor;
     }
 
@@ -262,7 +289,7 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
         CPF = CPF.replace('-', ' ');
         CPF = CPF.replaceAll(" ", "");
         String senha = "";
-        senha = CPF.substring(0,5);
+        senha = CPF.substring(0, 6);
 
         return senha;
     }

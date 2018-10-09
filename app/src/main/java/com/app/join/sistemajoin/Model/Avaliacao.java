@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class Avaliacao {
 
-    private int av;
+    private float av;
     private String idAvaliacao;
     private String idAluno;
     private String dataAv;
@@ -38,11 +38,11 @@ public class Avaliacao {
         this.idAvaliacao = idAvaliacao;
     }
 
-    public int getAv() {
+    public float getAv() {
         return av;
     }
 
-    public void setAv(int av) {
+    public void setAv(float av) {
         this.av = av;
     }
 

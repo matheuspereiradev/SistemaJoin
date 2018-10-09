@@ -37,7 +37,7 @@ public class AvaliacaoAdapter extends ArrayAdapter<Avaliacao> {
 
             Avaliacao av = avaliacaos.get(position);
             mes.setText(av.getDataAv());
-            media.setText(av.getAv());
+            media.setText(String.valueOf(av.getAv()));
 
         }
         return view;

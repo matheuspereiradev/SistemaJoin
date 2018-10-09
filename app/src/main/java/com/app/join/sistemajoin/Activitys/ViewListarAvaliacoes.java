@@ -32,7 +32,7 @@ public class ViewListarAvaliacoes extends AppCompatActivity {
     private Intent intent;
     private String cdg = "salvar";
     private String idAv;
-    private int rating;
+    private float rating;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +73,7 @@ public class ViewListarAvaliacoes extends AppCompatActivity {
             in.putExtra("cdg", cdg);
             in.putExtra("idAvaliacao", idAv);
             in.putExtra("rating", rating);
+            in.putExtra("idAluno", intent.getStringExtra("idAluno"));
             startActivity(in);
             finish();
         }else {

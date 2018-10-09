@@ -56,14 +56,13 @@ public class ViewRealizarPostagem extends AppCompatActivity {
     }
 
     private Agenda setDadosAgenda() {
-        Intent post = getIntent();
         Agenda agenda = new Agenda();
         long date = System.currentTimeMillis();
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         String dateString = sdf.format(date);
         agenda.setData(dateString);
         agenda.setTitulo(ctTituloPost.getText().toString());
-        agenda.setIdDestino(post.getStringExtra("key"));
+        agenda.setIdDestino(intent.getStringExtra("idAluno"));
         agenda.setMensagem(ctMsgPost.getText().toString());
         agenda.setIdProfessor(intent.getStringExtra("idprofessor"));
         return agenda;

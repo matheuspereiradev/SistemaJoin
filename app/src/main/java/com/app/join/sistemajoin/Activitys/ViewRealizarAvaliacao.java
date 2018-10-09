@@ -42,8 +42,6 @@ public class ViewRealizarAvaliacao extends AppCompatActivity {
 
         intent = getIntent();
 
-        ratingBar.setRating(Integer.parseInt(intent.getStringExtra("rating")));
-
 
         tvNomeAluno.setText(intent.getStringExtra("nome"));
 
@@ -51,7 +49,7 @@ public class ViewRealizarAvaliacao extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Avaliacao avaliacao = new Avaliacao();
-                avaliacao.setAv(ratingBar.getNumStars());
+                avaliacao.setAv(ratingBar.getRating());
                 long date = System.currentTimeMillis();
                 SimpleDateFormat sdf = new SimpleDateFormat("MM/yyyy");
                 String dateString = sdf.format(date);

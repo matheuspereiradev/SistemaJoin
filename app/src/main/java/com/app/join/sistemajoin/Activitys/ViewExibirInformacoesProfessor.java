@@ -31,8 +31,9 @@ public class ViewExibirInformacoesProfessor extends AppCompatActivity {
     private FirebaseAuth autenticacao;
     private AlertDialog alertDialog;
     private Professor professor;
+    private Intent intent;
+
     String key = "";
-    Intent in = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +49,8 @@ public class ViewExibirInformacoesProfessor extends AppCompatActivity {
         btConfigProf = (ImageButton) findViewById(R.id.btConfigProf);
         btExcluirProf = (ImageButton) findViewById(R.id.btExcluirProf);
 
-        in = getIntent();
-        key = in.getStringExtra("key");
+        intent = getIntent();
+        key = intent.getStringExtra("key");
         preencheCampos();
 
         btExcluirProf.setOnClickListener(new View.OnClickListener() {
@@ -62,7 +63,7 @@ public class ViewExibirInformacoesProfessor extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         firebase = ConfiguracaoFirebase.getFirebase().child("professor");
-                        firebase.child(in.getStringExtra("key")).removeValue();
+                        firebase.child(intent.getStringExtra("key")).removeValue();
                         Intent in = new Intent(getBaseContext(), ViewHomeSistemaEscola.class);
                         startActivity(in);
                         finish();
@@ -83,7 +84,6 @@ public class ViewExibirInformacoesProfessor extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent in = new Intent(getBaseContext(), ViewCadastrarProfessor.class);
-                Intent intent = getIntent();
                 in.putExtra("key", intent.getStringExtra("key"));
                 in.putExtra("nome", intent.getStringExtra("nome"));
                 in.putExtra("tel", intent.getStringExtra("tel"));
@@ -98,14 +98,34 @@ public class ViewExibirInformacoesProfessor extends AppCompatActivity {
             }
         });
 
+        btConfigProf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                    Intent listProf = new Intent(ViewExibirInformacoesProfessor.this, ViewListarTurmas.class);
+                    listProf.putExtra("key", intent.getStringExtra("key"));
+                    listProf.putExtra("nome", intent.getStringExtra("nome"));
+                    listProf.putExtra("tel", intent.getStringExtra("tel"));
+                    listProf.putExtra("email", intent.getStringExtra("email"));
+                    listProf.putExtra("cpf", intent.getStringExtra("cpf"));
+                    listProf.putExtra("status", intent.getStringExtra("status"));
+                    listProf.putExtra("senha", intent.getStringExtra("senha"));
+                    listProf.putExtra("keyTurma", intent.getStringExtra("keyTurma"));
+                    listProf.putExtra("idEscola", intent.getStringExtra("idEscola"));
+                    listProf.putExtra("remetente", "professor");
+                    startActivity(listProf);
+                    finish();
+                }
+
+        });
+
     }
 
     private void preencheCampos() {
-        cmpNomeProf.setText(in.getStringExtra("nome"));
-        cmpEmailProf.setText(in.getStringExtra("email"));
-        cmpCPFProf.setText(in.getStringExtra("cpf"));
-        cmpSenhaProf.setText(in.getStringExtra("senha"));
-        cmpTelProf.setText(in.getStringExtra("tel"));
+        cmpNomeProf.setText(intent.getStringExtra("nome"));
+        cmpEmailProf.setText(intent.getStringExtra("email"));
+        cmpCPFProf.setText(intent.getStringExtra("cpf"));
+        cmpSenhaProf.setText(intent.getStringExtra("senha"));
+        cmpTelProf.setText(intent.getStringExtra("tel"));
 
     }
 }

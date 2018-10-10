@@ -1,7 +1,6 @@
 package com.app.join.sistemajoin.Model;
 
 import com.google.firebase.database.Exclude;
-
 import java.util.HashMap;
 import java.util.Map;
 

@@ -89,6 +89,25 @@ public class ViewExibirInformacoesAluno extends AppCompatActivity {
             }
         });
 
+        btEditarAluno.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent cadAluno = new Intent(getBaseContext(), ViewListarTurmas.class);
+                cadAluno.putExtra("idAluno", in.getStringExtra("key"));
+                cadAluno.putExtra("nome", in.getStringExtra("nome"));
+                cadAluno.putExtra("tel", in.getStringExtra("tel"));
+                cadAluno.putExtra("email", in.getStringExtra("email"));
+                cadAluno.putExtra("cpf", in.getStringExtra("cpf"));
+                cadAluno.putExtra("status", in.getStringExtra("status"));
+                cadAluno.putExtra("senha", in.getStringExtra("senha"));
+                cadAluno.putExtra("nomeRes", in.getStringExtra("nomeRes"));
+                cadAluno.putExtra("idEscola", in.getStringExtra("idEscola"));
+                cadAluno.putExtra("remetente", in.getStringExtra("aluno"));
+                startActivity(cadAluno);
+                finish();
+            }
+        });
+
 
     }
 

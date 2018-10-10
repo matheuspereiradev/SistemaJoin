@@ -96,7 +96,7 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
 
                     } else {
                         editarProfessor(setDadosEditar());
-                        chamaTelaListaTurma();
+                        chamaListaPro();
                         finish();
                     }
                 }
@@ -303,6 +303,13 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
         ctEmailProf.setText(intent.getStringExtra("email"));
         ctCPFProf.setText(intent.getStringExtra("cpf"));
         ctTelProf.setText(intent.getStringExtra("tel"));
+    }
+
+    private void chamaListaPro(){
+        Intent listProf = new Intent(ViewCadastrarProfessor.this, ViewListaProfessores.class);
+        listProf.putExtra("idEscola", professor.getIdEscola());
+        startActivity(listProf);
+        finish();
     }
 
 }

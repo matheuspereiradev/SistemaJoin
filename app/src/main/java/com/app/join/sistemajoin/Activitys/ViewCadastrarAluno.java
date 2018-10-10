@@ -84,7 +84,7 @@ public class ViewCadastrarAluno extends AppCompatActivity {
                         Toast.makeText(getBaseContext(), "Os dados inseridos são inválidos!", Toast.LENGTH_SHORT).show();
                     } else {
                         editarAluno(setDadosEditar());
-                        chamaTelaListaTurma();
+                        chamaListarAluno();
                         finish();
                     }
                 }
@@ -191,6 +191,12 @@ public class ViewCadastrarAluno extends AppCompatActivity {
         startActivity(listProf);
     }
 
+    private void chamaListarAluno() {
+        Intent listaluno = new Intent(ViewCadastrarAluno.this, ViewListarAlunos.class);
+        listaluno.putExtra("idEscola", intent.getStringExtra("idEscola"));
+        startActivity(listaluno);
+    }
+
     private void salvarAluno(Aluno a) {
         DatabaseReference dataAluno = ConfiguracaoFirebase.getFirebase().child("aluno");
         dataAluno.child(a.getIdAluno()).setValue(a);
@@ -235,7 +241,7 @@ public class ViewCadastrarAluno extends AppCompatActivity {
         return aluno;
     }
 
-    public String geraSenha(String CPF) {
+    private String geraSenha(String CPF) {
         CPF = CPF.replace('.', ' ');
         CPF = CPF.replace('-', ' ');
         CPF = CPF.replaceAll(" ", "");

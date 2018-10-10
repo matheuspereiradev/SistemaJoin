@@ -6,23 +6,33 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.TextView;
-
+import com.app.join.sistemajoin.Adapter.AlunoAdapter;
 import com.app.join.sistemajoin.Model.Aluno;
 import com.app.join.sistemajoin.R;
 import com.app.join.sistemajoin.Tools.ConfiguracaoFirebase;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
+import java.util.ArrayList;
 
 public class ViewExibirInformacoesTurma extends AppCompatActivity {
 
-    TextView cmpNomeTurma, cmpProfTurma;
-    ImageButton btEditTurma, btConfigTurma, btExcluirTurma;
-
+    private TextView cmpNomeTurma, cmpProfTurma;
+    private ImageButton btEditTurma, btConfigTurma, btExcluirTurma;
+    private ListView listview;
+    private ArrayAdapter<Aluno> adapter;
+    private ArrayList<Aluno> lista;
+    private Aluno aluno, variavel;
     private DatabaseReference firebase;
+    private ValueEventListener valueEventListener;
     private AlertDialog alertDialog;
-    String key = "";
-    Intent in = null;
+    private String key = "";
+    private Intent in = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +48,31 @@ public class ViewExibirInformacoesTurma extends AppCompatActivity {
         in = getIntent();
         key = in.getStringExtra("key");
         preencheCampos();
+
+
+        lista = new ArrayList();
+        listview = findViewById(R.id.listadealunos);
+        adapter = new AlunoAdapter(this, lista);
+        listview.setAdapter(adapter);
+        firebase = ConfiguracaoFirebase.getFirebase().child("aluno");
+        valueEventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                lista.clear();
+                for (DataSnapshot dados : dataSnapshot.getChildren()) {
+                    aluno = dados.getValue(Aluno.class);
+                    if(in.getStringExtra("idTurma").equals(aluno.getKeyTurma())) {
+                        lista.add(aluno);
+                    }
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        };
 
         btExcluirTurma.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,7 +106,6 @@ public class ViewExibirInformacoesTurma extends AppCompatActivity {
 
     private void preencheCampos() {
         cmpNomeTurma.setText(in.getStringExtra("nome"));
-        cmpProfTurma.setText(in.getStringExtra("nomeProfessor"));
 
     }
 

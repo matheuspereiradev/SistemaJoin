@@ -65,7 +65,7 @@ public class ViewVerGrafico extends AppCompatActivity {
 
         graph = (GraphView) findViewById(R.id.graph);
         LineGraphSeries<DataPoint> series = new LineGraphSeries<>(
-               /* new DataPoint[]{
+                new DataPoint[]{
                         new DataPoint(01,2),
                         new DataPoint(02, 5),
                         new DataPoint(03, 3),
@@ -74,8 +74,7 @@ public class ViewVerGrafico extends AppCompatActivity {
                         new DataPoint(06, 4),
                         new DataPoint(07, 5)
 
-                }*/
-               generateData()
+                }
         );
         graph.addSeries(series);
 

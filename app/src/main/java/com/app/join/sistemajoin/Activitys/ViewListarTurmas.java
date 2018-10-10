@@ -77,7 +77,8 @@ public class ViewListarTurmas extends AppCompatActivity {
                 } else if (intent.getStringExtra("remetente").equals("professor")) {
                     Intent listPro = new Intent(ViewListarTurmas.this, ViewListaProfessores.class);
                     listPro.putExtra("idEscola", intent.getStringExtra("idEscola"));
-                    professor.setKeyTurma(variavel.getNome());
+                    professor = new Professor();
+                    professor.setKeyTurma(variavel.getIdTurma());
                     professor.setIdProfessor(intent.getStringExtra("key"));
                     professor.setNome(intent.getStringExtra("nome"));
                     professor.setTelefone(intent.getStringExtra("tel"));
@@ -92,7 +93,8 @@ public class ViewListarTurmas extends AppCompatActivity {
                 } else {
                     Intent listAlu = new Intent(ViewListarTurmas.this, ViewListarAlunos.class);
                     listAlu.putExtra("idEscola", intent.getStringExtra("idEscola"));
-                    aluno.setKeyTurma(variavel.getNome());
+                    aluno = new Aluno();
+                    aluno.setKeyTurma(variavel.getIdTurma());
                     aluno.setIdAluno(intent.getStringExtra("idAluno"));
                     aluno.setNome(intent.getStringExtra("nome"));
                     aluno.setTelefone(intent.getStringExtra("tel"));

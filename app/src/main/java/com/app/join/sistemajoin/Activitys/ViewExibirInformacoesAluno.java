@@ -94,7 +94,6 @@ public class ViewExibirInformacoesAluno extends AppCompatActivity {
 
     private void preencheCampos() {
         tvNomeAluno.setText(in.getStringExtra("nome"));
-        tvMatriculaAluno.setText(in.getStringExtra("key"));
         tvTelResponsavel.setText(in.getStringExtra("tel"));
         tvNomeResponsavel.setText(in.getStringExtra("nomeRes"));
         tvEmailResp.setText(in.getStringExtra("email"));

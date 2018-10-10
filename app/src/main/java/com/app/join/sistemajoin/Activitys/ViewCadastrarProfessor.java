@@ -31,7 +31,7 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
     private EditText ctEmailProf, ctNomeProf, ctCPFProf, ctTelProf;
     private Button btProximoProf1;
     private Professor professor;
-    private String key, idEscola, ok;
+    private String key, idEscola;
     private FirebaseAuth autenticacao;
     private Intent intent = null;
 
@@ -133,7 +133,6 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
                     } else {
                         professor = setDados();
                         cadastrar();
-                        if (ok.equals("ok")) {
                             autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
                             autenticacao.signInWithEmailAndPassword(professor.getEmail(), professor.getSenha()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                 @Override
@@ -144,7 +143,7 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
                                     }
                                 }
                             });
-                        }
+
                     }
                 }
             });
@@ -160,7 +159,6 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    ok = "0k";
                                     Preferencias preferencias = new Preferencias(ViewCadastrarProfessor.this);
                                     preferencias.salvaUsuarioLogado(professor.getEmail(), professor.getNome());
                                 } else {
@@ -253,6 +251,7 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
         listProf.putExtra("idEscola", professor.getIdEscola());
         listProf.putExtra("remetente", "professor");
         startActivity(listProf);
+        finish();
     }
 
     private Professor setDados() {

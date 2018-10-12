@@ -89,7 +89,7 @@ public class ViewExibirInformacoesAluno extends AppCompatActivity {
             }
         });
 
-        btEditarAluno.setOnClickListener(new View.OnClickListener() {
+        btConfigAluno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent cadAluno = new Intent(getBaseContext(), ViewListarTurmas.class);
@@ -102,7 +102,7 @@ public class ViewExibirInformacoesAluno extends AppCompatActivity {
                 cadAluno.putExtra("senha", in.getStringExtra("senha"));
                 cadAluno.putExtra("nomeRes", in.getStringExtra("nomeRes"));
                 cadAluno.putExtra("idEscola", in.getStringExtra("idEscola"));
-                cadAluno.putExtra("remetente", in.getStringExtra("aluno"));
+                cadAluno.putExtra("remetente", "aluno");
                 startActivity(cadAluno);
                 finish();
             }

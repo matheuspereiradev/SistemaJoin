@@ -66,8 +66,8 @@ public class ViewVerGrafico extends AppCompatActivity {
         graph = (GraphView) findViewById(R.id.graph);
         LineGraphSeries<DataPoint> series = new LineGraphSeries<>(
                 new DataPoint[]{
-                        new DataPoint(01,2),
-                        new DataPoint(02, 5),
+                        new DataPoint(2,2),
+                        new DataPoint(2, 5),
                         new DataPoint(03, 3),
                         new DataPoint(04, 2),
                         new DataPoint(05, 3),
@@ -75,19 +75,21 @@ public class ViewVerGrafico extends AppCompatActivity {
                         new DataPoint(07, 5)
 
                 }
+
         );
         graph.addSeries(series);
 
     }
 
     private DataPoint[] generateData() {
-        int tamanho = lista.size();
+        //int tamanho = lista.size();
+        int tamanho = 8;
         DataPoint[] values = new DataPoint[tamanho];
         for (int i = 0; i < tamanho; i++) {
-            variavel = lista.get(i);
+           // variavel = lista.get(i);
             double x = i;
             //double f = mRand.nextDouble()*0.15+0.3;
-            double y = variavel.getAv();
+            double y = i+2;
             DataPoint v = new DataPoint(x, y);
             values[i] = v;
         }

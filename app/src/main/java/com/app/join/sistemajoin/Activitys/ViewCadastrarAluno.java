@@ -46,7 +46,7 @@ public class ViewCadastrarAluno extends AppCompatActivity {
         ctCPFResp = (EditText) findViewById(R.id.ctCPFResp);
         SalvarAluno = (Button) findViewById(R.id.SalvarAluno);
 
-        SimpleMaskFormatter simpleMaskTelAl = new SimpleMaskFormatter("(NN) N NNNN NNNN");
+        SimpleMaskFormatter simpleMaskTelAl = new SimpleMaskFormatter("(NN) N NNNN-NNNN");
         MaskTextWatcher mascaraTelAl = new MaskTextWatcher(ctTelAluno, simpleMaskTelAl);
         ctTelAluno.addTextChangedListener(mascaraTelAl);
 

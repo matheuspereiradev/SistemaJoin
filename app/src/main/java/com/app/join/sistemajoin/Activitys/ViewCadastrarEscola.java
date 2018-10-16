@@ -44,7 +44,7 @@ public class ViewCadastrarEscola extends AppCompatActivity {
         ctCNPJEsc = (EditText) findViewById(R.id.ctCNPJEsc);
         btSalvarEsc = (Button) findViewById(R.id.btSalvarEscola);
 
-        SimpleMaskFormatter simpleMaskTel = new SimpleMaskFormatter("(NN) N NNNN NNNN");
+        SimpleMaskFormatter simpleMaskTel = new SimpleMaskFormatter("(NN) N NNNN-NNNN");
         MaskTextWatcher mascaraTel = new MaskTextWatcher(ctTelEsc, simpleMaskTel);
         ctTelEsc.addTextChangedListener(mascaraTel);
 

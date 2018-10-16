@@ -44,7 +44,7 @@ public class ViewCadastrarEscola extends AppCompatActivity {
         ctCNPJEsc = (EditText) findViewById(R.id.ctCNPJEsc);
         btSalvarEsc = (Button) findViewById(R.id.btSalvarEscola);
 
-        SimpleMaskFormatter simpleMaskTel = new SimpleMaskFormatter("(NN) N NNNN-NNNN");
+        SimpleMaskFormatter simpleMaskTel = new SimpleMaskFormatter("(NN) NNNNN-NNNN");
         MaskTextWatcher mascaraTel = new MaskTextWatcher(ctTelEsc, simpleMaskTel);
         ctTelEsc.addTextChangedListener(mascaraTel);
 
@@ -89,7 +89,7 @@ public class ViewCadastrarEscola extends AppCompatActivity {
                             ctCNPJEsc.isSelected();
                             Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
                         }
-                    } else if (ctTelEsc.getText().length() < 13) {
+                    } else if (ctTelEsc.getText().length() < 15) {
                         Toast.makeText(getBaseContext(), "Favor, preencher os campos corretamente!", Toast.LENGTH_SHORT).show();
 
                     } else if (ctCNPJEsc.getText().length() < 18) {
@@ -133,7 +133,7 @@ public class ViewCadastrarEscola extends AppCompatActivity {
                             Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
                         }
 
-                    } else if (ctTelEsc.getText().length() < 13) {
+                    } else if (ctTelEsc.getText().length() < 15) {
                         ctTelEsc.isSelected();
                         Toast.makeText(getBaseContext(), "Favor, preencher os campos corretamente!", Toast.LENGTH_SHORT).show();
 

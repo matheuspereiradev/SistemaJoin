@@ -1,6 +1,8 @@
 package com.app.join.sistemajoin.Activitys;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -27,9 +29,10 @@ public class ViewListarPostagens extends AppCompatActivity {
     private ListView listview;
     private ArrayAdapter<Agenda> adapter;
     private ArrayList<Agenda> lista;
-    private Agenda agenda;
+    private Agenda agenda, variavel;
     private DatabaseReference firebase;
     private ValueEventListener valueEventListener;
+    private AlertDialog alertDialog;
     private Intent intent;
 
     @Override
@@ -51,7 +54,7 @@ public class ViewListarPostagens extends AppCompatActivity {
                 lista.clear();
                 for (DataSnapshot dados : dataSnapshot.getChildren()) {
                     agenda = dados.getValue(Agenda.class);
-                    if(intent.getStringExtra("idAluno").equals(agenda.getIdDestino())) {
+                    if (intent.getStringExtra("idAluno").equals(agenda.getIdDestino())) {
                         lista.add(agenda);
                     }
                 }
@@ -63,6 +66,34 @@ public class ViewListarPostagens extends AppCompatActivity {
 
             }
         };
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                variavel = adapter.getItem(i);
+                AlertDialog.Builder builder = new AlertDialog.Builder(ViewListarPostagens.this);
+                builder.setTitle("Falta o titulo");
+                builder.setMessage("Editar ou Excluir?");
+                builder.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        // firebase = ConfiguracaoFirebase.getFirebase().child("agenda");
+                        // firebase.child(variavel.getData()).removeValue();
+                        Intent in = new Intent(getBaseContext(), ViewListarPostagens.class);
+                        in.putExtra("idEscola", in.getStringExtra("idEscola"));
+                        startActivity(in);
+                        finish();
+                    }
+                });
+                builder.setNegativeButton("não", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+                alertDialog = builder.create();
+                alertDialog.show();
+            }
+        });
 
     }
 

@@ -34,7 +34,6 @@
         <activity android:name=".Activitys.ViewListaProfessores" />
         <activity android:name=".Activitys.ViewExibirInformacoesProfessor" />
         <activity android:name=".Activitys.ViewExibirInformacoesEscola" />
-        <activity android:name=".Activitys.ViewConfigurarConta" />
         <activity android:name=".Activitys.ViewHomeProfessor" />
         <activity android:name=".Activitys.ViewCadastrarAluno" />
         <activity android:name=".Activitys.ViewTelaHomeAluno" />

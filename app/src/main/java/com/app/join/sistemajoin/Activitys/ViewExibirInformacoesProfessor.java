@@ -64,7 +64,8 @@ public class ViewExibirInformacoesProfessor extends AppCompatActivity {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         firebase = ConfiguracaoFirebase.getFirebase().child("professor");
                         firebase.child(intent.getStringExtra("key")).removeValue();
-                        Intent in = new Intent(getBaseContext(), ViewHomeSistemaEscola.class);
+                        Intent in = new Intent(getBaseContext(), ViewListaProfessores.class);
+                        in.putExtra("idEscola", intent.getStringExtra("idEscola"));
                         startActivity(in);
                         finish();
                     }

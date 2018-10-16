@@ -55,7 +55,7 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
         //fim mascara======
 
         //========aplicando mascara telefone
-        SimpleMaskFormatter maskTel = new SimpleMaskFormatter("(NN) N NNNN-NNNN");
+        SimpleMaskFormatter maskTel = new SimpleMaskFormatter("(NN) NNNNN-NNNN");
         MaskTextWatcher mascaraTel = new MaskTextWatcher(ctTelProf, maskTel);
         ctTelProf.addTextChangedListener(mascaraTel);
         //fim mascara======
@@ -82,7 +82,7 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
                             ctEmailProf.isSelected();
                             Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
                         }
-                    } else if (ctTelProf.getText().length() < 13) {
+                    } else if (ctTelProf.getText().length() < 15) {
                         ctTelProf.isSelected();
                         Toast.makeText(getBaseContext(), "Favor, preencher os campos corretamente!", Toast.LENGTH_SHORT).show();
 
@@ -121,7 +121,7 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
                             ctEmailProf.isSelected();
                             Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
                         }
-                    } else if (ctTelProf.getText().length() < 13) {
+                    } else if (ctTelProf.getText().length() < 15) {
                         Toast.makeText(getBaseContext(), "Favor, preencher os campos corretamente!", Toast.LENGTH_SHORT).show();
 
                     } else if (ctCPFProf.getText().length() < 14) {

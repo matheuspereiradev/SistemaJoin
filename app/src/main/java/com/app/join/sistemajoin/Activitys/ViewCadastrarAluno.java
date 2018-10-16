@@ -46,7 +46,7 @@ public class ViewCadastrarAluno extends AppCompatActivity {
         ctCPFResp = (EditText) findViewById(R.id.ctCPFResp);
         SalvarAluno = (Button) findViewById(R.id.SalvarAluno);
 
-        SimpleMaskFormatter simpleMaskTelAl = new SimpleMaskFormatter("(NN) N NNNN-NNNN");
+        SimpleMaskFormatter simpleMaskTelAl = new SimpleMaskFormatter("(NN) NNNNN-NNNN");
         MaskTextWatcher mascaraTelAl = new MaskTextWatcher(ctTelAluno, simpleMaskTelAl);
         ctTelAluno.addTextChangedListener(mascaraTelAl);
 
@@ -65,11 +65,11 @@ public class ViewCadastrarAluno extends AppCompatActivity {
                 public void onClick(View view) {
                     if (ctNomeAluno.getText().equals("") || ctTelAluno.getText().equals("")
                             || ctNomeResponsavel.getText().equals("") || ctCPFResp.getText().equals("") ||
-                            ctCPFResp.getText().length() < 14 || ctTelAluno.getText().length() < 13) {
+                            ctCPFResp.getText().length() < 14 || ctTelAluno.getText().length() < 15) {
                         if (ctNomeAluno.getText().equals("")) {
                             ctNomeAluno.isSelected();
                             Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                        } else if (ctTelAluno.getText().equals("") || ctTelAluno.getText().length() < 13) {
+                        } else if (ctTelAluno.getText().equals("") || ctTelAluno.getText().length() < 15) {
                             ctTelAluno.isSelected();
                             Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
                         } else if (ctNomeResponsavel.getText().equals("")) {
@@ -96,11 +96,11 @@ public class ViewCadastrarAluno extends AppCompatActivity {
                 public void onClick(View v) {
                     if (ctNomeAluno.getText().equals("") || ctTelAluno.getText().equals("")
                             || ctNomeResponsavel.getText().equals("") || ctCPFResp.getText().equals("") ||
-                            ctCPFResp.getText().length() < 14 || ctTelAluno.getText().length() < 13) {
+                            ctCPFResp.getText().length() < 14 || ctTelAluno.getText().length() < 15) {
                         if (ctNomeAluno.getText().equals("")) {
                             ctNomeAluno.isSelected();
                             Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                        } else if (ctTelAluno.getText().equals("") || ctTelAluno.getText().length() < 13) {
+                        } else if (ctTelAluno.getText().equals("") || ctTelAluno.getText().length() < 15) {
                             ctTelAluno.isSelected();
                             Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
                         } else if (ctNomeResponsavel.getText().equals("")) {

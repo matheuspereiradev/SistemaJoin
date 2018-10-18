@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.app.join.sistemajoin.Model.Agenda;
 import com.app.join.sistemajoin.R;
+import com.app.join.sistemajoin.Tools.Base64Custon;
 import com.app.join.sistemajoin.Tools.ConfiguracaoFirebase;
 import com.google.firebase.database.DatabaseReference;
 
@@ -30,23 +31,39 @@ public class ViewRealizarPostagem extends AppCompatActivity {
         ctMsgPost = (EditText) findViewById(R.id.ctMsgPost);
         btEnviarPost = (Button) findViewById(R.id.btEnviarPost);
 
-        intent=getIntent();
+        intent = getIntent();
 
-
-        btEnviarPost.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (ctTituloPost.equals("") && ctMsgPost.equals("")) {
-                    Toast.makeText(ViewRealizarPostagem.this, "Favor Preencha todos os campos!", Toast.LENGTH_LONG).show();
-                } else {
-                    Agenda post = setDadosAgenda();
-                    salvarPost(post);
-                    chamaListaPost();
-                    finish();
+        if (intent.getStringExtra("remetente").equals("editar")) {
+            preencheCampos();
+            btEnviarPost.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (ctTituloPost.equals("") && ctMsgPost.equals("")) {
+                        Toast.makeText(ViewRealizarPostagem.this, "Favor Preencha todos os campos!", Toast.LENGTH_LONG).show();
+                    } else {
+                        Agenda post = setDadosEditarAgenda();
+                        editarPost(post);
+                        chamaListaPost();
+                        finish();
+                    }
                 }
-            }
-        });
+            });
+        } else {
+            btEnviarPost.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (ctTituloPost.equals("") && ctMsgPost.equals("")) {
+                        Toast.makeText(ViewRealizarPostagem.this, "Favor Preencha todos os campos!", Toast.LENGTH_LONG).show();
+                    } else {
+                        Agenda post = setDadosAgenda();
+                        salvarPost(post);
+                        chamaListaPost();
+                        finish();
+                    }
+                }
+            });
 
+        }
     }
 
     private void chamaListaPost() {
@@ -65,11 +82,37 @@ public class ViewRealizarPostagem extends AppCompatActivity {
         agenda.setIdDestino(intent.getStringExtra("idAluno"));
         agenda.setMensagem(ctMsgPost.getText().toString());
         agenda.setIdProfessor(intent.getStringExtra("idprofessor"));
+        String idUsuario = Base64Custon.codificadorBase64(agenda.getMensagem()+agenda.getData());
+        agenda.setIdAgenda(idUsuario);
+        return agenda;
+    }
+
+    private Agenda setDadosEditarAgenda() {
+        Agenda agenda = new Agenda();
+        long date = System.currentTimeMillis();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String dateString = sdf.format(date);
+        agenda.setData(dateString);
+        agenda.setTitulo(ctTituloPost.getText().toString());
+        agenda.setIdDestino(intent.getStringExtra("idAluno"));
+        agenda.setMensagem(ctMsgPost.getText().toString());
+        agenda.setIdProfessor(intent.getStringExtra("idprofessor"));
+        agenda.setIdAgenda(intent.getStringExtra("idAgenda"));
         return agenda;
     }
 
     private void salvarPost(Agenda a) {
         DatabaseReference data = ConfiguracaoFirebase.getFirebase().child("agenda");
-        data.push().setValue(a);
+        data.child(a.getIdAgenda()).setValue(a);
+    }
+
+    private void preencheCampos() {
+        ctTituloPost.setText(intent.getStringExtra("titulo"));
+        ctMsgPost.setText(intent.getStringExtra("msg"));
+    }
+
+    private void editarPost(Agenda a) {
+        DatabaseReference data = ConfiguracaoFirebase.getFirebase().child("agenda");
+        data.child(intent.getStringExtra("idAgenda")).updateChildren(a.toMap());
     }
 }

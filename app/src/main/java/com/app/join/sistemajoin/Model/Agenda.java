@@ -8,7 +8,7 @@ import java.util.Map;
 public class Agenda {
 
 
-
+    private String idAgenda;
     private String titulo;
     private String mensagem;
     private String data;
@@ -21,9 +21,22 @@ public class Agenda {
         hashAgenda.put("titulo", getTitulo());
         hashAgenda.put("mensagem", getMensagem());
         hashAgenda.put("data", getData());
-        hashAgenda.put("idProfessor", getidProfessor());
+        hashAgenda.put("idProfessor", getIdProfessor());
         hashAgenda.put("idDestino", getIdDestino());
+        hashAgenda.put("idAgenda", getIdAgenda());
         return hashAgenda;
+    }
+
+    public String getIdAgenda() {
+        return idAgenda;
+    }
+
+    public void setIdAgenda(String idAgenda) {
+        this.idAgenda = idAgenda;
+    }
+
+    public String getIdProfessor() {
+        return idProfessor;
     }
 
     public String getTitulo() {
@@ -48,10 +61,6 @@ public class Agenda {
 
     public void setData(String data) {
         this.data = data;
-    }
-
-    public String getidProfessor() {
-        return idProfessor;
     }
 
     public void setIdProfessor(String nomeProfessor) {

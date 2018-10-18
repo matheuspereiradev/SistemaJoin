@@ -66,35 +66,61 @@ public class ViewListarPostagens extends AppCompatActivity {
 
             }
         };
-        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                variavel = adapter.getItem(i);
-                AlertDialog.Builder builder = new AlertDialog.Builder(ViewListarPostagens.this);
-                builder.setTitle("Falta o titulo");
-                builder.setMessage("Editar ou Excluir?");
-                builder.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        // firebase = ConfiguracaoFirebase.getFirebase().child("agenda");
-                        // firebase.child(variavel.getData()).removeValue();
-                        Intent in = new Intent(getBaseContext(), ViewListarPostagens.class);
-                        in.putExtra("idEscola", in.getStringExtra("idEscola"));
-                        startActivity(in);
-                        finish();
-                    }
-                });
-                builder.setNegativeButton("não", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
+        if (intent.getStringExtra("remetente").equals("professor")) {
+            listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    variavel = adapter.getItem(i);
+                    AlertDialog.Builder builder = new AlertDialog.Builder(ViewListarPostagens.this);
+                    builder.setMessage("O que deseja fazer?");
+                    builder.setPositiveButton("Editar", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            Intent edtPost = new Intent(ViewListarPostagens.this, ViewRealizarPostagem.class);
+                            edtPost.putExtra("msg", variavel.getMensagem());
+                            edtPost.putExtra("data", variavel.getData());
+                            edtPost.putExtra("idDestino", variavel.getIdDestino());
+                            edtPost.putExtra("idProfessor", variavel.getIdProfessor());
+                            edtPost.putExtra("titulo", variavel.getTitulo());
+                            edtPost.putExtra("idAgenda", variavel.getIdAgenda());
+                            edtPost.putExtra("remetente", "editar");
+                            startActivity(edtPost);
+                        }
+                    });
+                    builder.setNegativeButton("Excluir", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(ViewListarPostagens.this);
+                            builder.setMessage("Deseja realmente excluir a postagem?");
+                            builder.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
 
-                    }
-                });
-                alertDialog = builder.create();
-                alertDialog.show();
-            }
-        });
+                                    firebase = ConfiguracaoFirebase.getFirebase().child("agenda");
+                                    firebase.child(variavel.getMensagem()).removeValue();
+                                    Intent in = new Intent(getBaseContext(), ViewListarPostagens.class);
+                                    in.putExtra("idAluno", in.getStringExtra("idAluno"));
+                                    startActivity(in);
+                                    finish();
 
+                                }
+                            });
+                            builder.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+
+                                }
+                            });
+                            alertDialog = builder.create();
+                            alertDialog.show();
+                        }
+                    });
+                    alertDialog = builder.create();
+                    alertDialog.show();
+                }
+            });
+
+        }
     }
 
     @Override

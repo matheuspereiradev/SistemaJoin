@@ -23,7 +23,7 @@ import java.util.ArrayList;
 
 public class ViewHomeProfessor extends AppCompatActivity {
 
-    Button btVerPost, btRealizaPost, btVerAvaliacao, btRealizarAvaliacao, btSairProf;
+    private Button btVerPost, btRealizaPost, btVerAvaliacao, btRealizarAvaliacao, btSairProf;
     private Intent intent;
     private ListView listview;
     private ArrayAdapter<Professor> adapter;
@@ -57,11 +57,12 @@ public class ViewHomeProfessor extends AppCompatActivity {
                 for (DataSnapshot dados : dataSnapshot.getChildren()) {
                     professor = dados.getValue(Professor.class);
                     //if(pegaDados.getStringExtra("id").equals(professor.getIdEscola())) {
-                        lista.add(professor);
+                    lista.add(professor);
                     //}
                 }
                 adapter.notifyDataSetChanged();
             }
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
             }

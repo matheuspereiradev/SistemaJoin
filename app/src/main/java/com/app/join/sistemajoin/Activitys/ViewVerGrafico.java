@@ -18,7 +18,10 @@ import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class ViewVerGrafico extends AppCompatActivity {
     private ListView listview;
@@ -64,32 +67,38 @@ public class ViewVerGrafico extends AppCompatActivity {
         };
 
         graph = (GraphView) findViewById(R.id.graph);
-        LineGraphSeries<DataPoint> series = new LineGraphSeries<>(
-                new DataPoint[]{
-                        new DataPoint(2,2),
-                        new DataPoint(2, 5),
-                        new DataPoint(03, 3),
-                        new DataPoint(04, 2),
-                        new DataPoint(05, 3),
-                        new DataPoint(06, 4),
-                        new DataPoint(07, 5)
+        LineGraphSeries<DataPoint> series = null;
+        try {
+            series = new LineGraphSeries<>(
+                /*    new DataPoint[]{
+                            new DataPoint(2,2),
+                            new DataPoint(2, 5),
+                            new DataPoint(03, 3),
+                            new DataPoint(04, 2),
+                            new DataPoint(05, 3),
+                            new DataPoint(06, 4),
+                            new DataPoint(07, 5)
 
-                }
-
-        );
+                    }*/
+                    generateData()
+            );
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         graph.addSeries(series);
 
     }
 
-    private DataPoint[] generateData() {
-        //int tamanho = lista.size();
-        int tamanho = 8;
+    private DataPoint[] generateData() throws ParseException {
+        int tamanho = lista.size();
+        SimpleDateFormat formato = new SimpleDateFormat("MM/yyyy");
+        // int tamanho = 8;
         DataPoint[] values = new DataPoint[tamanho];
         for (int i = 0; i < tamanho; i++) {
-           // variavel = lista.get(i);
-            double x = i;
-            //double f = mRand.nextDouble()*0.15+0.3;
-            double y = i+2;
+            variavel = lista.get(i);
+            String data = variavel.getDataAv();
+            Date x = formato.parse(data);
+            double y = variavel.getAv();
             DataPoint v = new DataPoint(x, y);
             values[i] = v;
         }

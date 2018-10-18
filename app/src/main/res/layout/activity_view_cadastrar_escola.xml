@@ -39,32 +39,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline81">
 
-        <TextView
-            android:id="@+id/textView11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nome da escola:"
-            android:textColor="@android:color/background_dark"
-            android:textSize="17sp" />
 
         <EditText
             android:id="@+id/ctNomeEsc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="Nome da escola"
             android:inputType="textPersonName"
             tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="88dp" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Telefone da escola:"
-            android:textColor="@android:color/background_dark"
-            android:textSize="17sp"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="224dp" />
+            tools:layout_editor_absoluteY="88dp"
+            android:layout_marginBottom="10dp" />
 
         <EditText
             android:id="@+id/ctTelEsc"
@@ -72,20 +57,13 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
+            android:hint="Telefone"
             android:ems="10"
             android:inputType="phone"
             tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="247dp" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Email da escola:"
-            android:textColor="@android:color/background_dark"
-            android:textSize="17sp"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="143dp" />
+            tools:layout_editor_absoluteY="247dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"/>
 
         <EditText
             android:id="@+id/ctEmailEsc"
@@ -94,19 +72,13 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:ems="10"
+            android:hint="Email"
             android:inputType="textEmailAddress"
             tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="166dp" />
+            tools:layout_editor_absoluteY="166dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"/>
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="CNPJ:"
-            android:textColor="@android:color/background_dark"
-            android:textSize="17sp"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="313dp" />
 
         <EditText
             android:id="@+id/ctCNPJEsc"
@@ -114,8 +86,11 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="number"
+            android:hint="CNPJ"
             tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="330dp" />
+            tools:layout_editor_absoluteY="330dp"
+
+            android:layout_marginTop="10dp"/>
 
 
     </LinearLayout>

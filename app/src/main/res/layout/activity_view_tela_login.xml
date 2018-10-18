@@ -26,7 +26,6 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
-            android:background="@color/camposTexto"
             android:ems="10"
             android:hint="Login"
             android:inputType="textEmailAddress"
@@ -37,42 +36,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginEnd="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:text="Senha"
-            android:textColor="@android:color/background_dark"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/ctSenhaUsr"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.51"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline58" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp"
-            android:text="Login"
-            android:textColor="@android:color/background_dark"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/ctLoginUsr"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.48000002" />
 
         <EditText
             android:id="@+id/ctSenhaUsr"
@@ -84,7 +47,6 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
-            android:background="@color/camposTexto"
             android:ems="10"
             android:hint="Senha"
             android:inputType="textPassword"

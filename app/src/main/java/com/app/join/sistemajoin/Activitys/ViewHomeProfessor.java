@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.app.join.sistemajoin.Adapter.ProfessorAdapter;
 import com.app.join.sistemajoin.Model.Aluno;
@@ -26,6 +27,7 @@ public class ViewHomeProfessor extends AppCompatActivity {
     Button btVerPost, btRealizaPost, btVerAvaliacao, btRealizarAvaliacao, btSairProf;
     private Intent intent;
     private ListView listview;
+    private TextView tvNomeProf;
     private ArrayAdapter<Professor> adapter;
     private ArrayList<Professor> lista;
     private Professor professor, variavel;
@@ -37,6 +39,7 @@ public class ViewHomeProfessor extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_home_professor);
 
+        tvNomeProf=(TextView)findViewById(R.id.tvNomeProf);
         btVerPost = (Button) findViewById(R.id.btVerPost);
         btRealizaPost = (Button) findViewById(R.id.btRealizaPost);
         btVerAvaliacao = (Button) findViewById(R.id.btVerAvaliacao);

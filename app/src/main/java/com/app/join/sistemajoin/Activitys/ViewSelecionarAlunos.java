@@ -68,6 +68,7 @@ public class ViewSelecionarAlunos extends AppCompatActivity {
                     in.putExtra("nome", variavel.getNome());
                     in.putExtra("idProfessor", cdg.getStringExtra("idprofessor"));
                     in.putExtra("keyTurma", cdg.getStringExtra("keyTurma"));
+                    in.putExtra("remetente", cdg.getStringExtra("post"));
                     startActivity(in);
                     finish();
                 } else if(codigo.equals("3")){
@@ -81,6 +82,7 @@ public class ViewSelecionarAlunos extends AppCompatActivity {
                     Intent in = new Intent(ViewSelecionarAlunos.this, ViewListarPostagens.class);
                     in.putExtra("idAluno", variavel.getIdAluno());
                     in.putExtra("nome", variavel.getNome());
+                    in.putExtra("remetente", "professor");
                     startActivity(in);
                     finish();
                 }else {

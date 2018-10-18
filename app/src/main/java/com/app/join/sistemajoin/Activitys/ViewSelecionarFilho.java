@@ -69,6 +69,7 @@ public class ViewSelecionarFilho extends AppCompatActivity {
                     verPost.putExtra("idAluno", intent.getStringExtra("idAluno"));
                     verPost.putExtra("cpfRes", intent.getStringExtra("cpfRes"));
                     verPost.putExtra("idEscola", intent.getStringExtra("idEscola"));
+                    verPost.putExtra("remetente", "aluno");
                     startActivity(verPost);
                 } else {
                     Intent verPost = new Intent(ViewSelecionarFilho.this, ViewVerGrafico.class);

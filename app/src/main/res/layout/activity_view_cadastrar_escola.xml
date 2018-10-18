@@ -52,7 +52,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Nome da escola"
             android:inputType="textPersonName"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="88dp" />
@@ -74,7 +73,6 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:ems="10"
-            android:hint="Telefone"
             android:inputType="phone"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="247dp" />
@@ -96,7 +94,6 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:ems="10"
-            android:hint="Email da escola"
             android:inputType="textEmailAddress"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="166dp" />
@@ -116,7 +113,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="CNPJ"
             android:inputType="number"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="330dp" />

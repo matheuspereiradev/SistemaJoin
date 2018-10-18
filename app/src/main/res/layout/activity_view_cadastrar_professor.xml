@@ -74,24 +74,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Nome"
             android:inputType="textPersonName" />
 
-
-        <TextView
-            android:id="@+id/textView30"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Email:"
-            android:textColor="@android:color/background_dark"
-            android:textSize="17sp" />
-
-        <EditText
-            android:id="@+id/ctEmailProf"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email"
-            android:inputType="textEmailAddress" />
 
         <TextView
             android:id="@+id/textView51"
@@ -106,8 +90,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Telefone"
             android:inputType="number" />
+
+        <TextView
+            android:id="@+id/textView30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email:"
+            android:textColor="@android:color/background_dark"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/ctEmailProf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress" />
 
         <TextView
             android:id="@+id/textView53"
@@ -122,7 +119,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="CPF"
             android:inputType="number" />
 
     </LinearLayout>

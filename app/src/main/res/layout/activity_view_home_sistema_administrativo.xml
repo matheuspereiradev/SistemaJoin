@@ -92,13 +92,14 @@
     <Button
         android:id="@+id/btSairAdm"
         android:layout_width="0dp"
+
         android:layout_height="0dp"
         android:layout_marginBottom="4dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:background="@android:color/holo_red_dark"
+        android:background="@drawable/btsair"
         android:drawableLeft="@drawable/sharp_power_settings_new_24"
         android:paddingLeft="5dp"
         android:shadowColor="@android:color/background_light"

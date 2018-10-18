@@ -41,21 +41,6 @@
         app:srcCompat="@android:drawable/ic_menu_delete" />
 
     <ImageButton
-        android:id="@+id/btEditarAluno"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:background="@android:color/holo_blue_dark"
-        app:layout_constraintBottom_toTopOf="@+id/guideline88"
-        app:layout_constraintEnd_toStartOf="@+id/guideline26"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline89"
-        app:srcCompat="@android:drawable/ic_menu_edit" />
-
-    <ImageButton
         android:id="@+id/btConfigAluno"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -76,15 +61,6 @@
         android:layout_height="0dp"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.0" />
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="103dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintGuide_percent="0.7" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline20"
@@ -139,15 +115,15 @@
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline18"
+        app:layout_constraintBottom_toTopOf="@+id/guideline89"
         app:layout_constraintEnd_toStartOf="@+id/guideline41"
         app:layout_constraintStart_toStartOf="@+id/guideline38"
-        app:layout_constraintTop_toTopOf="@+id/guideline20"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toTopOf="@+id/guideline20">
 
         <GridLayout
             android:id="@+id/gridLayout5"
@@ -179,6 +155,26 @@
                 android:textSize="17sp" />
 
             <TextView
+                android:id="@+id/textView60"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="15dp"
+                android:text="Nome do Responsável:"
+                android:textColor="@android:color/black"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/tvNomeResponsavel"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="23dp"
+                android:text="TextView"
+                android:textSize="17sp" />
+
+
+            <TextView
                 android:id="@+id/textView62"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
@@ -198,24 +194,7 @@
                 android:textSize="17sp" />
 
 
-            <TextView
-                android:id="@+id/textView60"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="15dp"
-                android:text="Nome do Responsável:"
-                android:textColor="@android:color/black"
-                android:textSize="17sp" />
 
-            <TextView
-                android:id="@+id/tvNomeResponsavel"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="23dp"
-                android:text="TextView"
-                android:textSize="17sp" />
 
             <TextView
                 android:id="@+id/textView61"
@@ -256,6 +235,25 @@
                 android:textSize="17sp" />
 
             <TextView
+                android:id="@+id/textView600"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="15dp"
+                android:text="Turma:"
+                android:textColor="@android:color/black"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/tvTurma"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="23dp"
+                android:text="TextView"
+                android:textSize="17sp" />
+
+            <TextView
                 android:id="@+id/textView63"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
@@ -278,28 +276,21 @@
         </GridLayout>
     </ScrollView>
 
-    <Switch
-        android:id="@+id/swAtvAln"
-        android:layout_width="wrap_content"
+    <ImageButton
+        android:id="@+id/btEditarAluno"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Ativar/desativar conta"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline111"
-        app:layout_constraintEnd_toStartOf="@+id/guideline41"
-        app:layout_constraintStart_toStartOf="@+id/guideline38"
-        app:layout_constraintTop_toTopOf="@+id/guideline18" />
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline111"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.80" />
+        android:background="@android:color/holo_blue_dark"
+        app:layout_constraintBottom_toTopOf="@+id/guideline88"
+        app:layout_constraintEnd_toStartOf="@+id/guideline26"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline89"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@android:drawable/ic_menu_edit" />
 
 </android.support.constraint.ConstraintLayout>

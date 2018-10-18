@@ -35,7 +35,6 @@
             android:layout_width="337dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Nome"
             android:inputType="textPersonName" />
 
         <TextView
@@ -51,7 +50,6 @@
             android:layout_width="340dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Nome do responsável"
             android:inputType="textPersonName" />
 
         <TextView
@@ -67,7 +65,6 @@
             android:layout_width="340dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Telefone"
             android:inputType="phone" />
 
 
@@ -84,7 +81,6 @@
             android:layout_width="340dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="email do responsável"
             android:inputType="textEmailAddress|textEmailSubject" />
 
         <TextView
@@ -100,7 +96,6 @@
             android:layout_width="340dp"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="CPF"
             android:inputType="number" />
 
     </LinearLayout>

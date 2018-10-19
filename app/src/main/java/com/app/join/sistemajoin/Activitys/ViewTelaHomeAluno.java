@@ -30,9 +30,7 @@ public class ViewTelaHomeAluno extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent verPost = new Intent(ViewTelaHomeAluno.this, ViewSelecionarFilho.class);
-                verPost.putExtra("idAluno", intent.getStringExtra("idAluno"));
                 verPost.putExtra("cpfRes", intent.getStringExtra("cpfRes"));
-                verPost.putExtra("idEscola", intent.getStringExtra("idEscola"));
                 verPost.putExtra("post", "post");
                 startActivity(verPost);
             }
@@ -42,9 +40,7 @@ public class ViewTelaHomeAluno extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent verPost = new Intent(ViewTelaHomeAluno.this, ViewSelecionarFilho.class);
-                verPost.putExtra("idAluno", intent.getStringExtra("idAluno"));
                 verPost.putExtra("cpfRes", intent.getStringExtra("cpfRes"));
-                verPost.putExtra("idEscola", intent.getStringExtra("idEscola"));
                 verPost.putExtra("post", "graph");
                 startActivity(verPost);
             }

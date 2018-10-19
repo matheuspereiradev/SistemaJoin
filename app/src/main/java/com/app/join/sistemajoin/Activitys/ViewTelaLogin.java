@@ -155,8 +155,6 @@ public class ViewTelaLogin extends AppCompatActivity {
                         // confereAluno();
                         Intent in = new Intent(ViewTelaLogin.this, ViewTelaHomeAluno.class);
                         in.putExtra("cpfRes", aluno.getCpfResponsavel());
-                        in.putExtra("idEscola", aluno.getIdEscola());
-                        in.putExtra("idAluno", aluno.getIdAluno());
                         startActivity(in);
                     } else {
                         Toast.makeText(ViewTelaLogin.this, "Email ou Senha Inválido", Toast.LENGTH_SHORT).show();

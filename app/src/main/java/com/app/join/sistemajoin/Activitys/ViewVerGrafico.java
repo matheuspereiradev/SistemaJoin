@@ -32,6 +32,7 @@ public class ViewVerGrafico extends AppCompatActivity {
     private ValueEventListener valueEventListener;
     private Intent intent;
     private GraphView graph;
+    LineGraphSeries<DataPoint> series;
     int x = 0, y = 0;
 
 
@@ -39,6 +40,8 @@ public class ViewVerGrafico extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_ver_grafico);
+
+        graph = (GraphView) findViewById(R.id.graph);
 
         intent = getIntent();
         lista = new ArrayList();
@@ -53,11 +56,11 @@ public class ViewVerGrafico extends AppCompatActivity {
                 for (DataSnapshot dados : dataSnapshot.getChildren()) {
                     avaliacao = dados.getValue(Avaliacao.class);
                     if (avaliacao.getIdAluno().equals(intent.getStringExtra("idAluno"))) {
-                        lista.add(avaliacao);
-
+                    lista.add(avaliacao);
                     }
                 }
                 adapter.notifyDataSetChanged();
+
             }
 
             @Override
@@ -66,39 +69,26 @@ public class ViewVerGrafico extends AppCompatActivity {
             }
         };
 
-        graph = (GraphView) findViewById(R.id.graph);
-        LineGraphSeries<DataPoint> series = null;
-        try {
-            series = new LineGraphSeries<>(
-                /*    new DataPoint[]{
-                            new DataPoint(2,2),
-                            new DataPoint(2, 5),
-                            new DataPoint(03, 3),
-                            new DataPoint(04, 2),
-                            new DataPoint(05, 3),
-                            new DataPoint(06, 4),
-                            new DataPoint(07, 5)
+        series = new LineGraphSeries<>(
+                generateData()
+        );
 
-                    }*/
-                    generateData()
-            );
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
         graph.addSeries(series);
 
     }
 
-    private DataPoint[] generateData() throws ParseException {
-        int tamanho = lista.size();
+    private DataPoint[] generateData() {
+        //int tamanho = lista.size();
         SimpleDateFormat formato = new SimpleDateFormat("MM/yyyy");
-        // int tamanho = 8;
+         int tamanho = 8;
         DataPoint[] values = new DataPoint[tamanho];
         for (int i = 0; i < tamanho; i++) {
-            variavel = lista.get(i);
-            String data = variavel.getDataAv();
-            Date x = formato.parse(data);
-            double y = variavel.getAv();
+            // variavel = lista.get(i);
+            // String data = variavel.getDataAv();
+            // Date x = formato.parse(data);
+            float x = i + 1;
+            float y = i + 2;
+            //float y = variavel.getAv();
             DataPoint v = new DataPoint(x, y);
             values[i] = v;
         }

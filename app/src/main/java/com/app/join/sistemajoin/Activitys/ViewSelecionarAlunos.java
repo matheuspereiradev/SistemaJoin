@@ -68,7 +68,7 @@ public class ViewSelecionarAlunos extends AppCompatActivity {
                     in.putExtra("nome", variavel.getNome());
                     in.putExtra("idProfessor", cdg.getStringExtra("idprofessor"));
                     in.putExtra("keyTurma", cdg.getStringExtra("keyTurma"));
-                    in.putExtra("remetente", cdg.getStringExtra("post"));
+                    in.putExtra("remetente", "post");
                     startActivity(in);
                     finish();
                 } else if(codigo.equals("3")){

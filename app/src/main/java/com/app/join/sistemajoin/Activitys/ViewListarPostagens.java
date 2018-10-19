@@ -47,7 +47,7 @@ public class ViewListarPostagens extends AppCompatActivity {
         adapter = new PostagemAdapter(this, lista);
         listview.setAdapter(adapter);
         firebase = ConfiguracaoFirebase.getFirebase().child("agenda");
-        firebase.orderByChild("data").limitToLast(20);
+        firebase.orderByChild("data").limitToFirst(10);
         valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

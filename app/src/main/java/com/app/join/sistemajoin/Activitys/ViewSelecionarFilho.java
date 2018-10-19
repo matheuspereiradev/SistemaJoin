@@ -66,16 +66,14 @@ public class ViewSelecionarFilho extends AppCompatActivity {
                 firebase.child(variavel.getIdAluno());
                 if (intent.getStringExtra("post").equals("post")) {
                     Intent verPost = new Intent(ViewSelecionarFilho.this, ViewListarPostagens.class);
-                    verPost.putExtra("idAluno", intent.getStringExtra("idAluno"));
-                    verPost.putExtra("cpfRes", intent.getStringExtra("cpfRes"));
-                    verPost.putExtra("idEscola", intent.getStringExtra("idEscola"));
+                    verPost.putExtra("idAluno", variavel.getIdAluno());
+                    verPost.putExtra("cpfRes", variavel.getCpfResponsavel());
                     verPost.putExtra("remetente", "aluno");
                     startActivity(verPost);
                 } else {
                     Intent verPost = new Intent(ViewSelecionarFilho.this, ViewVerGrafico.class);
-                    verPost.putExtra("idAluno", intent.getStringExtra("idAluno"));
-                    verPost.putExtra("cpfRes", intent.getStringExtra("cpfRes"));
-                    verPost.putExtra("idEscola", intent.getStringExtra("idEscola"));
+                    verPost.putExtra("idAluno", variavel.getIdAluno());
+                    verPost.putExtra("cpfRes", variavel.getCpfResponsavel());
                     startActivity(verPost);
                 }
             }

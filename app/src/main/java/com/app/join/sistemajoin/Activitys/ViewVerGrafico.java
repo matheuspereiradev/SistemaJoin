@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
 import com.app.join.sistemajoin.Adapter.AvaliacaoAdapter;
 import com.app.join.sistemajoin.Model.Avaliacao;
 import com.app.join.sistemajoin.R;
@@ -17,11 +16,9 @@ import com.google.firebase.database.ValueEventListener;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
-
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
+
 
 public class ViewVerGrafico extends AppCompatActivity {
     private ListView listview;

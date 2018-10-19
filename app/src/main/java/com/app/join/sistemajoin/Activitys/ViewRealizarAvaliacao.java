@@ -8,22 +8,19 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
-
 import com.app.join.sistemajoin.Model.Avaliacao;
-import com.app.join.sistemajoin.Model.Professor;
 import com.app.join.sistemajoin.R;
 import com.app.join.sistemajoin.Tools.Base64Custon;
 import com.app.join.sistemajoin.Tools.ConfiguracaoFirebase;
 import com.google.firebase.database.DatabaseReference;
-
 import java.text.SimpleDateFormat;
 
 public class ViewRealizarAvaliacao extends AppCompatActivity {
 
-    RatingBar ratingBar;
-    Button btEnviarAv;
-    TextView tvNomeAluno;
-    ImageView triste, normal, feliz, muitoFeliz;
+    private RatingBar ratingBar;
+    private Button btEnviarAv;
+    private TextView tvNomeAluno;
+    private ImageView triste, normal, feliz, muitoFeliz;
     private Intent intent;
 
     @Override
@@ -55,11 +52,11 @@ public class ViewRealizarAvaliacao extends AppCompatActivity {
                 String dateString = sdf.format(date);
                 avaliacao.setDataAv(dateString);
                 avaliacao.setIdAluno(intent.getStringExtra("idAluno"));
-                String idAv = Base64Custon.codificadorBase64(avaliacao.getDataAv()+avaliacao.getIdAluno());
+                String idAv = Base64Custon.codificadorBase64(avaliacao.getDataAv() + avaliacao.getIdAluno());
                 avaliacao.setIdAvaliacao(idAv);
-                if(intent.getStringExtra("cdg").equals("editar")){
+                if (intent.getStringExtra("cdg").equals("editar")) {
                     editarAvaliacao(avaliacao);
-                }else {
+                } else {
                     salvarAvaliacao(avaliacao);
                 }
                 Intent in = new Intent(ViewRealizarAvaliacao.this, ViewSelecionarAlunos.class);
@@ -74,6 +71,7 @@ public class ViewRealizarAvaliacao extends AppCompatActivity {
         DatabaseReference dataAv = ConfiguracaoFirebase.getFirebase().child("avaliacao");
         dataAv.child(av.getIdAvaliacao()).setValue(av);
     }
+
     private void editarAvaliacao(Avaliacao av) {
         DatabaseReference dataAv = ConfiguracaoFirebase.getFirebase().child("avaliacao");
         dataAv.child(av.getIdAvaliacao()).updateChildren(av.toMap());

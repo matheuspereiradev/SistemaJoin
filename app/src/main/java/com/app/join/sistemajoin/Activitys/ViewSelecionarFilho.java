@@ -7,8 +7,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
-
 import com.app.join.sistemajoin.Adapter.AlunoAdapter;
 import com.app.join.sistemajoin.Model.Aluno;
 import com.app.join.sistemajoin.R;
@@ -17,7 +15,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
 
 public class ViewSelecionarFilho extends AppCompatActivity {

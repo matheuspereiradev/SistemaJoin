@@ -123,25 +123,6 @@
             android:textSize="17sp" />
 
         <TextView
-            android:id="@+id/textView14"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="15dp"
-            android:text="Status:"
-            android:textColor="@android:color/background_dark"
-            android:textSize="17sp" />
-
-        <TextView
-            android:id="@+id/cmpLoginEsc"
-            android:layout_width="220dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="15dp"
-            android:text="TextView"
-            android:textSize="17dp" />
-
-        <TextView
             android:id="@+id/textView21"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
@@ -275,22 +256,5 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.80" />
-
-    <Switch
-        android:id="@+id/swAtvEsc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Ativar/desativar conta"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline112"
-        app:layout_constraintEnd_toStartOf="@+id/guideline31"
-        app:layout_constraintStart_toStartOf="@+id/guideline30"
-        app:layout_constraintTop_toTopOf="@+id/guideline17" />
 
 </android.support.constraint.ConstraintLayout>

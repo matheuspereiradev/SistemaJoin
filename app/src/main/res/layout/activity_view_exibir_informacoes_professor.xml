@@ -122,6 +122,25 @@
             android:textSize="17sp" />
 
         <TextView
+            android:id="@+id/textView600"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="15dp"
+            android:text="Turma:"
+            android:textColor="@android:color/black"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/tvTurmaProf"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="15dp"
+            android:text="TextView"
+            android:textSize="17sp" />
+
+        <TextView
             android:id="@+id/textView50"
             android:layout_width="95dp"
             android:layout_height="wrap_content"
@@ -167,7 +186,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:background="@android:color/holo_green_dark"
-        android:src="@android:drawable/ic_menu_preferences"
+        android:src="@drawable/mudar"
         app:layout_constraintBottom_toTopOf="@+id/guideline90"
         app:layout_constraintEnd_toStartOf="@+id/guideline37"
         app:layout_constraintStart_toStartOf="@+id/guideline36"

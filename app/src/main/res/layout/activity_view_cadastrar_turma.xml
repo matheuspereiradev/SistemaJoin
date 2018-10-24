@@ -34,12 +34,12 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline85"
         app:layout_constraintStart_toStartOf="@+id/guideline84"
         app:layout_constraintTop_toTopOf="@+id/guideline14"
-        app:layout_constraintVertical_bias="0.3" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btSalvarTurma"
-        android:layout_width="202dp"
-        android:layout_height="68dp"
+        android:layout_width="163dp"
+        android:layout_height="60dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"

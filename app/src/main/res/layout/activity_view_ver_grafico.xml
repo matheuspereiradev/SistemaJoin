@@ -54,18 +54,6 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.1" />
 
-    <TextView
-        android:id="@+id/tvMesAv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mês"
-        android:textColor="@android:color/background_dark"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline126"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline125" />
-
     <android.support.constraint.Guideline
         android:id="@+id/guideline126"
         android:layout_width="wrap_content"

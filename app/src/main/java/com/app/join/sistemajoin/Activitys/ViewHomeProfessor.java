@@ -39,12 +39,12 @@ public class ViewHomeProfessor extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_home_professor);
 
-        tvNomeProf=(TextView)findViewById(R.id.tvNomeProf);
+
         btVerPost = (Button) findViewById(R.id.btVerPost);
         btRealizaPost = (Button) findViewById(R.id.btRealizaPost);
         btVerAvaliacao = (Button) findViewById(R.id.btVerAvaliacao);
         btRealizarAvaliacao = (Button) findViewById(R.id.btRealizarAvaliacao);
-        btSairProf = (Button) findViewById(R.id.btSairProf);
+
 
         intent = getIntent();
         lista = new ArrayList();
@@ -112,12 +112,6 @@ public class ViewHomeProfessor extends AppCompatActivity {
                 listav.putExtra("keyTurma", professor.getKeyTurma());
 
                 startActivity(listav);
-            }
-        });
-        btSairProf.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                System.exit(0);
             }
         });
 

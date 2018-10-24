@@ -20,10 +20,9 @@ public class ViewTelaHomeAluno extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_home_aluno);
 
-        btSairPai=(Button)findViewById(R.id.btSairPai);
         btVisualizarPost=(Button)findViewById(R.id.btVisualizarPost);
         btVisualizarAvaliacao=(Button)findViewById(R.id.btVisualizarAvaliacao);
-        tvNomePai=(TextView)findViewById(R.id.tvNomePai);
+
         intent = getIntent();
 
         btVisualizarPost.setOnClickListener(new View.OnClickListener() {
@@ -46,11 +45,6 @@ public class ViewTelaHomeAluno extends AppCompatActivity {
             }
         });
 
-        btSairPai.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                System.exit(0);
-            }
-        });
+
     }
 }

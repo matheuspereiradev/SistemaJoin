@@ -35,7 +35,6 @@ public class ViewExibirInformacoesEscola extends AppCompatActivity {
         cmpTelEsc = (TextView) findViewById(R.id.cmpTelEsc);
         cmpEmailEsc = (TextView) findViewById(R.id.cmpEmailEsc);
         cmpCNPJEsc = (TextView) findViewById(R.id.cmpCNPJEscola);
-        cmpLoginEsc = (TextView) findViewById(R.id.cmpLoginEsc);
         cmpSenhaEsc = (TextView) findViewById(R.id.cmpSenhaEscola);
         btConfigEsc = (ImageButton) findViewById(R.id.btConfigEsc);
         btEditarEsc = (ImageButton) findViewById(R.id.btEditarEsc);

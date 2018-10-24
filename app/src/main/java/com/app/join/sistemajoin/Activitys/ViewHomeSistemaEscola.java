@@ -27,8 +27,8 @@ public class ViewHomeSistemaEscola extends AppCompatActivity {
         NTurma = (Button) findViewById(R.id.NTurma);
         LAluno = (Button) findViewById(R.id.LAluno);
         NAluno = (Button) findViewById(R.id.NAluno);
-        btSairEsc= (Button) findViewById(R.id.btSairEsc);
-        tvNomeEsc =(TextView)findViewById(R.id.tvNomeEsc);
+
+
 
         pegaDados = getIntent();
 
@@ -74,12 +74,6 @@ public class ViewHomeSistemaEscola extends AppCompatActivity {
             }
         });
 
-        btSairEsc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                System.exit(0);
-            }
-        });
 
     }
 

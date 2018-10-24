@@ -20,7 +20,6 @@ public class ViewRealizarAvaliacao extends AppCompatActivity {
     private RatingBar ratingBar;
     private Button btEnviarAv;
     private TextView tvNomeAluno;
-    private ImageView triste, normal, feliz, muitoFeliz;
     private Intent intent;
 
     @Override
@@ -29,13 +28,10 @@ public class ViewRealizarAvaliacao extends AppCompatActivity {
         setContentView(R.layout.activity_view_realizar_avaliacao);
 
 
-        ratingBar = (RatingBar) findViewById(R.id.tbAvaliacao);
+
         btEnviarAv = (Button) findViewById(R.id.btEnviarAv);
         tvNomeAluno = (TextView) findViewById(R.id.tvNomeAluno);
-        triste = findViewById(R.id.imgTriste);
-        normal = findViewById(R.id.imgNormal);
-        feliz = findViewById(R.id.imgFeliz);
-        muitoFeliz = findViewById(R.id.imgMuitoFeliz);
+
 
         intent = getIntent();
 

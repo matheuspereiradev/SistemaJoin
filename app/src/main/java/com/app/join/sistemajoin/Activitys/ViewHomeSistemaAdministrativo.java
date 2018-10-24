@@ -19,7 +19,7 @@ public class ViewHomeSistemaAdministrativo extends AppCompatActivity {
 
         cadEscola = findViewById(R.id.btCadEscola);
         listaEscola = findViewById(R.id.btListaEscola);
-        btSair = findViewById(R.id.btSairAdm);
+
 
         cadEscola.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,12 +37,6 @@ public class ViewHomeSistemaAdministrativo extends AppCompatActivity {
             }
         });
 
-        btSair.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                System.exit(0);
-            }
-        });
 
     }
 }

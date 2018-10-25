@@ -8,7 +8,6 @@
 
     <LinearLayout
         android:id="@+id/layGrafico"
-        android:background="@color/colorPrimary"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
@@ -22,11 +21,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline126">
+
         <com.jjoe64.graphview.GraphView
-            android:layout_width="match_parent"
-            android:layout_height="200dip"
             android:id="@+id/graph"
-            />
+            android:layout_width="match_parent"
+            android:layout_height="200dip" />
     </LinearLayout>
 
     <TextView

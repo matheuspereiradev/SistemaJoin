@@ -44,12 +44,12 @@
             android:id="@+id/ctNomeEsc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:ems="10"
             android:hint="Nome da escola"
             android:inputType="textPersonName"
             tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="88dp"
-            android:layout_marginBottom="10dp" />
+            tools:layout_editor_absoluteY="88dp" />
 
         <EditText
             android:id="@+id/ctTelEsc"

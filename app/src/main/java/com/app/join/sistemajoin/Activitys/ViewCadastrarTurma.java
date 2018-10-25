@@ -18,10 +18,10 @@ import com.app.join.sistemajoin.Tools.ConfiguracaoFirebase;
 import com.google.firebase.database.DatabaseReference;
 
 public class ViewCadastrarTurma extends AppCompatActivity {
-    EditText nome;
+    EditText nome, idadeMin,idadeMax;
     Button salvar;
     private String idEscola;
-    Spinner turno;
+
 
 
     @Override
@@ -31,16 +31,13 @@ public class ViewCadastrarTurma extends AppCompatActivity {
 
         nome = findViewById(R.id.ctNomeTurma);
         salvar = findViewById(R.id.btSalvarTurma);
+        idadeMin = findViewById(R.id.etidadeMin);
+        idadeMax = findViewById(R.id.etIdadeMax);
 
         Intent idemail = getIntent();
         idEscola = idemail.getStringExtra("idEscola");
 
 
-       /* ArrayAdapter adapterTurno = ArrayAdapter.createFromResource(getBaseContext(), R.array.turno,
-                R.layout.support_simple_spinner_dropdown_item);
-
-        turno.setAdapter(adapterTurno);
-        */
         salvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

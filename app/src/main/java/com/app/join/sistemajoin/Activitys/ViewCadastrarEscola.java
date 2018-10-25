@@ -64,16 +64,7 @@ public class ViewCadastrarEscola extends AppCompatActivity {
             btSalvarEsc.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    escola = new Escola();
-                    escola.setNome(ctNomeEsc.getText().toString());
-                    escola.setTelefone(ctTelEsc.getText().toString());
-                    escola.setEmail(ctEmailEsc.getText().toString());
-                    escola.setCnpj(ctCNPJEsc.getText().toString());
-                    escola.setId(key);
-                    escola.setStatus(intent.getStringExtra("status"));
-                    escola.setSenha(intent.getStringExtra("senha"));
-                    DatabaseReference firebase = ConfiguracaoFirebase.getFirebase().child("escola");
-                    firebase.child(intent.getStringExtra("nome")).removeValue();
+
 
                     if (ctNomeEsc.getText().equals("") || ctTelEsc.getText().equals("") || ctEmailEsc.getText().equals("") || ctCNPJEsc.getText().equals("")) {
                         if (ctNomeEsc.getText().equals("")) {
@@ -99,6 +90,16 @@ public class ViewCadastrarEscola extends AppCompatActivity {
                         Toast.makeText(getBaseContext(), "Os dados inseridos são inválidos!", Toast.LENGTH_SHORT).show();
 
                     } else {
+                        escola = new Escola();
+                        escola.setNome(ctNomeEsc.getText().toString());
+                        escola.setTelefone(ctTelEsc.getText().toString());
+                        escola.setEmail(ctEmailEsc.getText().toString());
+                        escola.setCnpj(ctCNPJEsc.getText().toString());
+                        escola.setId(key);
+                        escola.setStatus(intent.getStringExtra("status"));
+                        escola.setSenha(intent.getStringExtra("senha"));
+                        DatabaseReference firebase = ConfiguracaoFirebase.getFirebase().child("escola");
+                        firebase.child(intent.getStringExtra("nome")).removeValue();
                         editar(escola);
                         chamatelaListaescola();
                         finish();
@@ -109,15 +110,7 @@ public class ViewCadastrarEscola extends AppCompatActivity {
             btSalvarEsc.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    escola = new Escola();
-                    escola.setNome(ctNomeEsc.getText().toString());
-                    escola.setTelefone(ctTelEsc.getText().toString());
-                    escola.setEmail(ctEmailEsc.getText().toString());
-                    escola.setCnpj(ctCNPJEsc.getText().toString());
-                    escola.setStatus("Ativo");
-                    escola.setSenha(geraSenha(escola.getCnpj()));
-                    String idUsuario = Base64Custon.codificadorBase64(escola.getEmail());
-                    escola.setId(idUsuario);
+
                     if (ctNomeEsc.getText().equals("") || ctTelEsc.getText().equals("") || ctEmailEsc.getText().equals("") || ctCNPJEsc.getText().equals("")) {
                         if (ctNomeEsc.getText().equals("")) {
                             ctNomeEsc.isSelected();
@@ -146,6 +139,15 @@ public class ViewCadastrarEscola extends AppCompatActivity {
                         Toast.makeText(getBaseContext(), "Os dados inseridos são inválidos!", Toast.LENGTH_SHORT).show();
 
                     } else {
+                        escola = new Escola();
+                        escola.setNome(ctNomeEsc.getText().toString());
+                        escola.setTelefone(ctTelEsc.getText().toString());
+                        escola.setEmail(ctEmailEsc.getText().toString());
+                        escola.setCnpj(ctCNPJEsc.getText().toString());
+                        escola.setStatus("Ativo");
+                        escola.setSenha(geraSenha(escola.getCnpj()));
+                        String idUsuario = Base64Custon.codificadorBase64(escola.getEmail());
+                        escola.setId(idUsuario);
                         cadastrar();
                         autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
                         autenticacao.signInWithEmailAndPassword(escola.getEmail(), escola.getSenha()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {

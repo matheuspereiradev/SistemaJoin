@@ -48,7 +48,6 @@ public class ViewExibirInformacoesEscola extends AppCompatActivity {
         cmpTelEsc.setText(intent.getStringExtra("tel"));
         cmpCNPJEsc.setText(intent.getStringExtra("cnpj"));
         cmpEmailEsc.setText(intent.getStringExtra("email"));
-        cmpLoginEsc.setText(intent.getStringExtra("status"));
         cmpSenhaEsc.setText(intent.getStringExtra("senha"));
 
         btExcluirEsc.setOnClickListener(new View.OnClickListener() {

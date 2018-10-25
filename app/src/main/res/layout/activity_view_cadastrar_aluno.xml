@@ -95,7 +95,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@drawable/botao_customizado"
+        android:background="@drawable/botaoarredondado"
         android:text="Salvar"
         android:textColor="#ffffff"
         android:textSize="20sp"

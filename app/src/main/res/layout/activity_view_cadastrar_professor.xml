@@ -19,7 +19,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@drawable/botao_customizado"
+        android:background="@drawable/botaoarredondado"
         android:text="Salvar"
         android:textColor="#ffffff"
         android:textSize="20sp"
@@ -114,7 +114,10 @@
         android:id="@+id/guideline83"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintGuide_percent="0.75" />
 
 </android.support.constraint.ConstraintLayout>

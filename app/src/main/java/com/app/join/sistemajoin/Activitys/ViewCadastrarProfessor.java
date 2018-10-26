@@ -67,33 +67,28 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
             btProximoProf1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (ctNomeProf.getText().equals("") || ctCPFProf.getText().equals("")
-                            || ctEmailProf.getText().equals("") || ctTelProf.getText().equals("")) {
-                        if (ctNomeProf.getText().equals("")) {
+                    if (ctNomeProf.getText().length()<1 || ctCPFProf.getText().length()<1
+                            || ctEmailProf.getText().length()<1 || ctTelProf.getText().length()<1) {
+                        if (ctNomeProf.getText().length()<1) {
                             ctNomeProf.isSelected();
                             Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                        } else if (ctCPFProf.getText().equals("")) {
+                        } else if (ctCPFProf.getText().length()<1) {
                             ctCPFProf.isSelected();
                             Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                        } else if (ctTelProf.getText().equals("")) {
+                        } else if (ctTelProf.getText().length()<1) {
                             ctTelProf.isSelected();
                             Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                        } else if (ctEmailProf.getText().equals("")) {
+                        } else if (ctEmailProf.getText().length()<1) {
                             ctEmailProf.isSelected();
                             Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
                         }
-                    } else if (ctTelProf.getText().length() < 15) {
+                    } else if (ctTelProf.getText().length() < 15 && ctTelProf.getText().length() >1) {
                         ctTelProf.isSelected();
                         Toast.makeText(getBaseContext(), "Favor, preencher os campos corretamente!", Toast.LENGTH_SHORT).show();
 
-                    } else if (ctCPFProf.getText().length() < 14) {
-                        ctCPFProf.isSelected();
-                        Toast.makeText(getBaseContext(), "Favor, preencher os campos corretamente!", Toast.LENGTH_SHORT).show();
-
-                    } else if (!validaCpf(ctCPFProf.getText().toString())) {
+                    } else if (ctCPFProf.getText().length() < 14 && ctCPFProf.getText().length() >1 && !validaCpf(ctCPFProf.getText().toString())) {
                         ctCPFProf.isSelected();
                         Toast.makeText(getBaseContext(), "Os dados inseridos são inválidos!", Toast.LENGTH_SHORT).show();
-
                     } else {
                         editarProfessor(setDadosEditar());
                         chamaListaPro();
@@ -106,30 +101,28 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
             btProximoProf1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (ctNomeProf.getText().equals("") || ctCPFProf.getText().equals("")
-                            || ctEmailProf.getText().equals("") || ctTelProf.getText().equals("")) {
-                        if (ctNomeProf.getText().equals("")) {
+                    if (ctNomeProf.getText().length()<1 || ctCPFProf.getText().length()<1
+                            || ctEmailProf.getText().length()<1 || ctTelProf.getText().length()<1) {
+                        if (ctNomeProf.getText().length()<1) {
                             ctNomeProf.isSelected();
                             Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                        } else if (ctCPFProf.getText().equals("")) {
+                        } else if (ctCPFProf.getText().length()<1) {
                             ctCPFProf.isSelected();
                             Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                        } else if (ctTelProf.getText().equals("")) {
+                        } else if (ctTelProf.getText().length()<1) {
                             ctTelProf.isSelected();
                             Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                        } else if (ctEmailProf.getText().equals("")) {
+                        } else if (ctEmailProf.getText().length()<1) {
                             ctEmailProf.isSelected();
                             Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
                         }
-                    } else if (ctTelProf.getText().length() < 15) {
+                    } else if (ctTelProf.getText().length() < 15 && ctTelProf.getText().length() >1) {
+                        ctTelProf.isSelected();
                         Toast.makeText(getBaseContext(), "Favor, preencher os campos corretamente!", Toast.LENGTH_SHORT).show();
 
-                    } else if (ctCPFProf.getText().length() < 14) {
-                        Toast.makeText(getBaseContext(), " Favor, preencher os campos corretamente!", Toast.LENGTH_SHORT).show();
-
-                    } else if (!validaCpf(ctCPFProf.getText().toString())) {
+                    } else if (ctCPFProf.getText().length() < 14 && ctCPFProf.getText().length() >1 && !validaCpf(ctCPFProf.getText().toString())) {
+                        ctCPFProf.isSelected();
                         Toast.makeText(getBaseContext(), "Os dados inseridos são inválidos!", Toast.LENGTH_SHORT).show();
-
                     } else {
                         professor = setDados();
                         cadastrar();

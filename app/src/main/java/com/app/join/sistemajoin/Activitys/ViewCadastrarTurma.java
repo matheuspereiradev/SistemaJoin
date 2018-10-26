@@ -41,7 +41,7 @@ public class ViewCadastrarTurma extends AppCompatActivity {
         salvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (nome.getText().equals("")) {
+                if (nome.getText().length()<1) {
                     Toast.makeText(getBaseContext(), "Preencha todos os campos!", Toast.LENGTH_SHORT).show();
                 } else {
                     Turma turma = new Turma();
@@ -49,6 +49,8 @@ public class ViewCadastrarTurma extends AppCompatActivity {
                     String idUsuario = Base64Custon.codificadorBase64(turma.getNome());
                     turma.setIdTurma(idUsuario);
                     turma.setIdEscola(idEscola);
+                    turma.setIdadeMax(Integer.parseInt(idadeMax.getText().toString()));
+                    turma.setIdadeMin(Integer.parseInt(idadeMin.getText().toString()));
                     salvarTurma(turma);
                     chamaTelaListaTurma();
                     finish();

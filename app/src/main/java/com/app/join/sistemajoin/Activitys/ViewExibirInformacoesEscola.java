@@ -17,8 +17,8 @@ import com.google.firebase.database.ValueEventListener;
 
 public class ViewExibirInformacoesEscola extends AppCompatActivity {
 
-    TextView cmpNomeEsc, cmpTelEsc, cmpEmailEsc, cmpCNPJEsc, cmpLoginEsc, cmpSenhaEsc;
-    ImageButton btEditarEsc, btExcluirEsc, btConfigEsc;
+    TextView cmpNomeEsc, cmpTelEsc, cmpEmailEsc, cmpCNPJEsc, cmpSenhaEsc;
+    ImageButton btEditarEsc, btExcluirEsc;
 
     private DatabaseReference firebase;
     private ValueEventListener valueEventListener;
@@ -36,7 +36,6 @@ public class ViewExibirInformacoesEscola extends AppCompatActivity {
         cmpEmailEsc = (TextView) findViewById(R.id.cmpEmailEsc);
         cmpCNPJEsc = (TextView) findViewById(R.id.cmpCNPJEscola);
         cmpSenhaEsc = (TextView) findViewById(R.id.cmpSenhaEscola);
-       // btConfigEsc = (ImageButton) findViewById(R.id.btConfigEsc);
         btEditarEsc = (ImageButton) findViewById(R.id.btEditarEsc);
         btExcluirEsc = (ImageButton) findViewById(R.id.btExcluirEsc);
         //fim conexão java com xml===========
@@ -92,12 +91,7 @@ public class ViewExibirInformacoesEscola extends AppCompatActivity {
             }
         });
 
-        btConfigEsc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-            }
-        });
 
     }
 }

@@ -15,7 +15,7 @@ public class Escola {
     private String telefone;
     private String email;
     private String senha;
-    private String status;
+
 
 
     @Exclude
@@ -27,7 +27,6 @@ public class Escola {
         hashMapUsuarios.put("telefone", getTelefone());
         hashMapUsuarios.put("email", getEmail());
         hashMapUsuarios.put("senha", getSenha());
-        hashMapUsuarios.put("status", getStatus());
         return hashMapUsuarios;
     }
 
@@ -80,11 +79,4 @@ public class Escola {
         this.senha = senha;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
 }

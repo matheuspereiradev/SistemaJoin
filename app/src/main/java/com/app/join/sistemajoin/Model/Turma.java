@@ -9,6 +9,8 @@ public class Turma {
     private String nome;
     private String idTurma;
     private String idEscola;
+    private int idadeMax;
+    private int idadeMin;
 
     @Exclude
     public Map<String, Object> toMap() {
@@ -16,7 +18,8 @@ public class Turma {
         hashMap.put("nome", getNome());
         hashMap.put("idTurma", getIdTurma());
         hashMap.put("idEscola", getIdEscola());
-
+        hashMap.put("idadeMax", getIdadeMax());
+        hashMap.put("idadeMin", getIdadeMin());
         return hashMap;
     }
 
@@ -44,5 +47,20 @@ public class Turma {
         this.idTurma = id;
     }
 
+    public int getIdadeMax() {
+        return idadeMax;
+    }
+
+    public void setIdadeMax(int idadeMax) {
+        this.idadeMax = idadeMax;
+    }
+
+    public int getIdadeMin() {
+        return idadeMin;
+    }
+
+    public void setIdadeMin(int idadeMin) {
+        this.idadeMin = idadeMin;
+    }
 }
 

@@ -76,6 +76,7 @@ public class ViewListarEscolas extends AppCompatActivity {
                 in.putExtra("cnpj", variavel.getCnpj());
                 in.putExtra("senha", variavel.getSenha());
                 startActivity(in);
+                finish();
 
             }
         });

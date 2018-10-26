@@ -28,10 +28,10 @@ import java.util.InputMismatchException;
 
 public class ViewCadastrarEscola extends AppCompatActivity {
 
-    EditText ctNomeEsc, ctTelEsc, ctEmailEsc, ctCNPJEsc;
-    Button btSalvarEsc;
-    FirebaseAuth autenticacao;
-    Escola escola;
+    private EditText ctNomeEsc, ctTelEsc, ctEmailEsc, ctCNPJEsc;
+    private Button btSalvarEsc;
+    private FirebaseAuth autenticacao;
+    private Escola escola;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,46 +60,40 @@ public class ViewCadastrarEscola extends AppCompatActivity {
             ctTelEsc.setText(intent.getStringExtra("tel"));
             ctCNPJEsc.setText(intent.getStringExtra("cnpj"));
             ctEmailEsc.setText(intent.getStringExtra("email"));
-
+            escola = new Escola();
+            escola.setNome(ctNomeEsc.getText().toString());
+            escola.setTelefone(ctTelEsc.getText().toString());
+            escola.setEmail(ctEmailEsc.getText().toString());
+            escola.setCnpj(ctCNPJEsc.getText().toString());
+            escola.setId(key);
+            escola.setSenha(intent.getStringExtra("senha"));
             btSalvarEsc.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
-
-                    if (ctNomeEsc.getText().equals("") || ctTelEsc.getText().equals("") || ctEmailEsc.getText().equals("") || ctCNPJEsc.getText().equals("")) {
-                        if (ctNomeEsc.getText().equals("")) {
+                    if (ctNomeEsc.getText().length()<1 || ctTelEsc.getText().length()<1 || ctEmailEsc.getText().length()<1 || ctCNPJEsc.getText().length()<1) {
+                        if (ctNomeEsc.getText().length()<1) {
                             ctNomeEsc.isSelected();
                             Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                        }else if(ctTelEsc.getText().equals("")){
+                        } else if (ctTelEsc.getText().length()<1) {
                             ctTelEsc.isSelected();
                             Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                        }else if(ctEmailEsc.getText().equals("") ){
+                        } else if (ctEmailEsc.getText().length()<1) {
                             ctEmailEsc.isSelected();
                             Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                        }else if( ctCNPJEsc.getText().equals("")){
+                        } else if (ctCNPJEsc.getText().length()<1) {
                             ctCNPJEsc.isSelected();
                             Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
                         }
-                    } else if (ctTelEsc.getText().length() < 15) {
+
+                    } else if (ctTelEsc.getText().length() < 15 && ctTelEsc.getText().length() > 1) {
+                        ctTelEsc.isSelected();
                         Toast.makeText(getBaseContext(), "Favor, preencher os campos corretamente!", Toast.LENGTH_SHORT).show();
 
-                    } else if (ctCNPJEsc.getText().length() < 18) {
+                    } else if (ctCNPJEsc.getText().length() < 18 && ctCNPJEsc.getText().length() > 1 && !validaCnpj(ctCNPJEsc.getText().toString())) {
+                        ctCNPJEsc.isSelected();
                         Toast.makeText(getBaseContext(), "Favor, preencher os campos corretamente!", Toast.LENGTH_SHORT).show();
-
-                    } else if (!validaCnpj(ctCNPJEsc.getText().toString())) {
-                        Toast.makeText(getBaseContext(), "Os dados inseridos são inválidos!", Toast.LENGTH_SHORT).show();
 
                     } else {
-                        escola = new Escola();
-                        escola.setNome(ctNomeEsc.getText().toString());
-                        escola.setTelefone(ctTelEsc.getText().toString());
-                        escola.setEmail(ctEmailEsc.getText().toString());
-                        escola.setCnpj(ctCNPJEsc.getText().toString());
-                        escola.setId(key);
-                        escola.setStatus(intent.getStringExtra("status"));
-                        escola.setSenha(intent.getStringExtra("senha"));
-                        DatabaseReference firebase = ConfiguracaoFirebase.getFirebase().child("escola");
-                        firebase.child(intent.getStringExtra("nome")).removeValue();
                         editar(escola);
                         chamatelaListaescola();
                         finish();
@@ -107,44 +101,34 @@ public class ViewCadastrarEscola extends AppCompatActivity {
                 }
             });
         } else {
+            escola = new Escola();
+            escola.setNome(ctNomeEsc.getText().toString());
+            escola.setTelefone(ctTelEsc.getText().toString());
+            escola.setEmail(ctEmailEsc.getText().toString());
+            escola.setCnpj(ctCNPJEsc.getText().toString());
+
             btSalvarEsc.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
-                    if (ctNomeEsc.getText().equals("") || ctTelEsc.getText().equals("") || ctEmailEsc.getText().equals("") || ctCNPJEsc.getText().equals("")) {
-                        if (ctNomeEsc.getText().equals("")) {
-                            ctNomeEsc.isSelected();
-                            Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                        }else if(ctTelEsc.getText().equals("")){
-                            ctTelEsc.isSelected();
-                            Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                        }else if(ctEmailEsc.getText().equals("") ){
-                            ctEmailEsc.isSelected();
-                            Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                        }else if( ctCNPJEsc.getText().equals("")){
-                            ctCNPJEsc.isSelected();
-                            Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                        }
-
-                    } else if (ctTelEsc.getText().length() < 15) {
+                    if (ctNomeEsc.getText().length()< 1) {
+                        ctNomeEsc.isSelected();
+                        Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
+                    } else if (ctTelEsc.getText().length()<1) {
+                        ctTelEsc.isSelected();
+                        Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
+                    } else if (ctEmailEsc.getText().length()<1) {
+                        ctEmailEsc.isSelected();
+                        Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
+                    } else if (ctCNPJEsc.getText().length()<1) {
+                        ctCNPJEsc.isSelected();
+                        Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
+                    } else if (ctTelEsc.getText().length() < 15 && ctTelEsc.getText().length() > 1) {
                         ctTelEsc.isSelected();
                         Toast.makeText(getBaseContext(), "Favor, preencher os campos corretamente!", Toast.LENGTH_SHORT).show();
-
-                    } else if (ctCNPJEsc.getText().length() < 18) {
+                    } else if (ctCNPJEsc.getText().length() < 18 && ctCNPJEsc.getText().length() > 1 && !validaCnpj(ctCNPJEsc.getText().toString())) {
                         ctCNPJEsc.isSelected();
                         Toast.makeText(getBaseContext(), "Favor, preencher os campos corretamente!", Toast.LENGTH_SHORT).show();
-
-                    } else if (!validaCnpj(ctCNPJEsc.getText().toString())) {
-                        ctCNPJEsc.isSelected();
-                        Toast.makeText(getBaseContext(), "Os dados inseridos são inválidos!", Toast.LENGTH_SHORT).show();
-
                     } else {
-                        escola = new Escola();
-                        escola.setNome(ctNomeEsc.getText().toString());
-                        escola.setTelefone(ctTelEsc.getText().toString());
-                        escola.setEmail(ctEmailEsc.getText().toString());
-                        escola.setCnpj(ctCNPJEsc.getText().toString());
-                        escola.setStatus("Ativo");
                         escola.setSenha(geraSenha(escola.getCnpj()));
                         String idUsuario = Base64Custon.codificadorBase64(escola.getEmail());
                         escola.setId(idUsuario);
@@ -208,7 +192,6 @@ public class ViewCadastrarEscola extends AppCompatActivity {
         CNPJ = CNPJ.replaceAll(" ", "");
         String senha = "";
         senha = CNPJ.substring(0, 6);
-
         return senha;
     }
 

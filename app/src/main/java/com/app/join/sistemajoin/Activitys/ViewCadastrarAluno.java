@@ -63,19 +63,19 @@ public class ViewCadastrarAluno extends AppCompatActivity {
             SalvarAluno.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (ctNomeAluno.getText().equals("") || ctTelAluno.getText().equals("")
-                            || ctNomeResponsavel.getText().equals("") || ctCPFResp.getText().equals("") ||
+                    if (ctNomeAluno.getText().length()<1 || ctTelAluno.getText().length()<1
+                            || ctNomeResponsavel.getText().length()<1 || ctCPFResp.getText().length()<1 ||
                             ctCPFResp.getText().length() < 14 || ctTelAluno.getText().length() < 15) {
-                        if (ctNomeAluno.getText().equals("")) {
+                        if (ctNomeAluno.getText().length()<1) {
                             ctNomeAluno.isSelected();
                             Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                        } else if (ctTelAluno.getText().equals("") || ctTelAluno.getText().length() < 15) {
+                        } else if (ctTelAluno.getText().length()<1 || ctTelAluno.getText().length() < 15) {
                             ctTelAluno.isSelected();
                             Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                        } else if (ctNomeResponsavel.getText().equals("")) {
+                        } else if (ctNomeResponsavel.getText().length()<1) {
                             ctNomeResponsavel.isSelected();
                             Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                        } else if (ctCPFResp.getText().equals("") || ctCPFResp.getText().length() < 14) {
+                        } else if (ctCPFResp.getText().length()<1 || ctCPFResp.getText().length() < 14) {
                             ctCPFResp.isSelected();
                             Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
                         }
@@ -94,19 +94,19 @@ public class ViewCadastrarAluno extends AppCompatActivity {
             SalvarAluno.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (ctNomeAluno.getText().equals("") || ctTelAluno.getText().equals("")
-                            || ctNomeResponsavel.getText().equals("") || ctCPFResp.getText().equals("") ||
+                    if (ctNomeAluno.getText().length()<1 || ctTelAluno.getText().length()<1
+                            || ctNomeResponsavel.getText().length()<1 || ctCPFResp.getText().length()<1 ||
                             ctCPFResp.getText().length() < 14 || ctTelAluno.getText().length() < 15) {
-                        if (ctNomeAluno.getText().equals("")) {
+                        if (ctNomeAluno.getText().length()<1) {
                             ctNomeAluno.isSelected();
                             Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                        } else if (ctTelAluno.getText().equals("") || ctTelAluno.getText().length() < 15) {
+                        } else if (ctTelAluno.getText().length()<1 || ctTelAluno.getText().length() < 15) {
                             ctTelAluno.isSelected();
                             Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                        } else if (ctNomeResponsavel.getText().equals("")) {
+                        } else if (ctNomeResponsavel.getText().length()<1) {
                             ctNomeResponsavel.isSelected();
                             Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                        } else if (ctCPFResp.getText().equals("") || ctCPFResp.getText().length() < 14) {
+                        } else if (ctCPFResp.getText().length()<1 || ctCPFResp.getText().length() < 14) {
                             ctCPFResp.isSelected();
                             Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
                         }

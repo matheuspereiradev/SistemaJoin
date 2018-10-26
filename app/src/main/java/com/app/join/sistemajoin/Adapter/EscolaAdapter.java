@@ -35,12 +35,12 @@ public class EscolaAdapter extends ArrayAdapter<Escola> {
 
             TextView textViewNome = view.findViewById(R.id.campoNomeEscola);
             TextView textViewTelefone = view.findViewById(R.id.campoTelEscola);
-            TextView textViewStatus = view.findViewById(R.id.campoStatusEscola);
+
 
             Escola esc = escolas.get(position);
             textViewNome.setText(esc.getNome());
             textViewTelefone.setText(esc.getTelefone());
-            textViewStatus.setText(esc.getStatus());
+
         }
         return view;
     }

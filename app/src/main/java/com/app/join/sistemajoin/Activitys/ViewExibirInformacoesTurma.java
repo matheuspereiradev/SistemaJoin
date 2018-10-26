@@ -23,7 +23,7 @@ import java.util.ArrayList;
 public class ViewExibirInformacoesTurma extends AppCompatActivity {
 
     private TextView cmpNomeTurma, cmpProfTurma;
-    private ImageButton btEditTurma, btConfigTurma, btExcluirTurma;
+    private ImageButton btEditTurma, btExcluirTurma;
     private ListView listview;
     private ArrayAdapter<Aluno> adapter;
     private ArrayList<Aluno> lista;
@@ -42,7 +42,6 @@ public class ViewExibirInformacoesTurma extends AppCompatActivity {
         cmpNomeTurma = (TextView) findViewById(R.id.cmpNomeTurma);
         cmpProfTurma = (TextView) findViewById(R.id.cmpProfTurma);
         btEditTurma = (ImageButton) findViewById(R.id.btEditTurma);
-      //  btConfigTurma = (ImageButton) findViewById(R.id.btConfigTurma);
         btExcluirTurma = (ImageButton) findViewById(R.id.btExcluirTurma);
 
         in = getIntent();
@@ -98,6 +97,18 @@ public class ViewExibirInformacoesTurma extends AppCompatActivity {
                 });
                 alertDialog = builder.create();
                 alertDialog.show();
+            }
+        });
+
+        btEditTurma.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent edt = new Intent(ViewExibirInformacoesTurma.this, ViewCadastrarTurma.class);
+                edt.putExtra("nome", "nome");
+                edt.putExtra("faixa1", "faixa");
+                edt.putExtra("faixa2", "faixa");
+                startActivity(edt);
+                finish();
             }
         });
 

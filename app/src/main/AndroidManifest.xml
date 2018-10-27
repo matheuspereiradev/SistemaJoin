@@ -9,9 +9,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/icone"
+        android:icon="@mipmap/icone_app_join"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/icone_app_join"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Activitys.Splash">

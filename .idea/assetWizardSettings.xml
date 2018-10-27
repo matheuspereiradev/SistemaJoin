@@ -99,7 +99,6 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="paddingPercent" value="20" />
                                                 <entry key="trimmed" value="true" />
                                               </map>
                                             </option>
@@ -110,15 +109,21 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="backgroundColor" value="ff1000" />
+                                      <entry key="assetType" value="IMAGE" />
                                       <entry key="cropped" value="true" />
-                                      <entry key="imageAsset" value="C:\Users\Matheus Lima\Desktop\round_delete_black_48dp.png" />
-                                      <entry key="outputName" value="delete" />
+                                      <entry key="iconShape" value="NONE" />
+                                      <entry key="imageAsset" value="C:\Users\Matheus Lima\Desktop\logos\logomarca join alt.png" />
+                                      <entry key="outputName" value="icone_app_join" />
                                     </map>
                                   </option>
                                 </PersistentState>
                               </value>
                             </entry>
+                          </map>
+                        </option>
+                        <option name="values">
+                          <map>
+                            <entry key="outputIconType" value="LAUNCHER_LEGACY" />
                           </map>
                         </option>
                       </PersistentState>

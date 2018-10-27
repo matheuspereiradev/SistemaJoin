@@ -26,10 +26,10 @@
             android:id="@+id/ctNomeAluno"
             android:layout_width="337dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:ems="10"
             android:hint="Nome do aluno"
-            android:inputType="textPersonName"
-            android:layout_marginBottom="10dp" />
+            android:inputType="textPersonName" />
 
         <EditText
             android:id="@+id/ctNomeResponsavel"

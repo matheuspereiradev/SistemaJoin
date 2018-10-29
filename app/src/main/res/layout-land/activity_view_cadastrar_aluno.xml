@@ -21,22 +21,17 @@
 
     <Button
         android:id="@+id/SalvarAluno"
-        android:layout_width="163dp"
-        android:layout_height="60dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_gravity="center"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="4dp"
         android:background="@drawable/botaoarredondado"
         android:text="Salvar"
         android:textColor="#ffffff"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline111"
+        app:layout_constraintStart_toStartOf="@+id/guideline121"
         app:layout_constraintTop_toTopOf="@+id/guideline79" />
 
     <android.support.constraint.Guideline
@@ -125,6 +120,20 @@
         </LinearLayout>
 
     </ScrollView>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline111"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.62" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline121"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.38" />
 
 
 </android.support.constraint.ConstraintLayout>

@@ -4,12 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activitys.ViewExibirInformacoesEscola"
+    tools:context=".Activitys.ViewExibirInformacoesProfessor"
     tools:layout_editor_absoluteY="81dp">
 
-
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/textView45"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -18,34 +17,18 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Informações sobre a escola"
+        android:text="Informações sobre o professor"
         android:textColor="@android:color/background_dark"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/guideline19"
-        app:layout_constraintEnd_toStartOf="@+id/guideline31"
-        app:layout_constraintStart_toStartOf="@+id/guideline30"
-        app:layout_constraintTop_toTopOf="@+id/guideline16" />
-
-
-
-    <ImageButton
-        android:id="@+id/btExcluirEsc"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:background="@android:color/holo_red_dark"
-        app:layout_constraintBottom_toTopOf="@+id/guideline86"
+        app:layout_constraintBottom_toTopOf="@+id/guideline13"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline28"
-        app:layout_constraintTop_toTopOf="@+id/guideline87"
-        app:srcCompat="@android:drawable/ic_menu_delete" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <ImageButton
-        android:id="@+id/btEditarEsc"
+        android:id="@+id/btEditProf"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="8dp"
@@ -53,101 +36,122 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:background="@android:color/holo_blue_dark"
-        app:layout_constraintBottom_toTopOf="@+id/guideline86"
-        app:layout_constraintEnd_toStartOf="@+id/guideline28"
+        android:src="@android:drawable/ic_menu_edit"
+        app:layout_constraintBottom_toTopOf="@+id/guideline90"
+        app:layout_constraintEnd_toStartOf="@+id/guideline36"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline87"
-        app:srcCompat="@android:drawable/ic_menu_edit" />
+        app:layout_constraintTop_toTopOf="@+id/guideline91" />
+
+    <ImageButton
+        android:id="@+id/btConfigProf"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@android:color/holo_green_dark"
+        android:src="@drawable/mudar"
+        app:layout_constraintBottom_toTopOf="@+id/guideline90"
+        app:layout_constraintEnd_toStartOf="@+id/guideline37"
+        app:layout_constraintStart_toStartOf="@+id/guideline36"
+        app:layout_constraintTop_toTopOf="@+id/guideline91" />
+
+    <ImageButton
+        android:id="@+id/btExcluirProf"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@android:color/holo_red_dark"
+        android:src="@android:drawable/ic_menu_delete"
+        app:layout_constraintBottom_toTopOf="@+id/guideline90"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline37"
+        app:layout_constraintTop_toTopOf="@+id/guideline91" />
 
     <android.support.constraint.Guideline
-        android:id="@+id/guideline16"
+        android:id="@+id/guideline12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.0" />
+        app:layout_constraintGuide_percent="0.69" />
 
     <android.support.constraint.Guideline
-        android:id="@+id/guideline17"
+        android:id="@+id/guideline13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.70" />
+        app:layout_constraintGuide_percent="0.15459883" />
 
     <android.support.constraint.Guideline
-        android:id="@+id/guideline19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.12" />
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline28"
+        android:id="@+id/guideline36"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.50" />
+        app:layout_constraintGuide_percent="0.33333333333" />
 
     <android.support.constraint.Guideline
-        android:id="@+id/guideline30"
+        android:id="@+id/guideline37"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.041666668" />
+        app:layout_constraintGuide_percent="0.666666666" />
 
     <android.support.constraint.Guideline
-        android:id="@+id/guideline31"
+        android:id="@+id/guideline39"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.04" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline40"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.96" />
 
     <android.support.constraint.Guideline
-        android:id="@+id/guideline86"
+        android:id="@+id/guideline90"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.93" />
 
     <android.support.constraint.Guideline
-        android:id="@+id/guideline87"
+        android:id="@+id/guideline91"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.84" />
-
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline112"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.80" />
+        app:layout_constraintGuide_percent="0.76" />
 
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline17"
-        app:layout_constraintEnd_toStartOf="@+id/guideline31"
-        app:layout_constraintStart_toStartOf="@+id/guideline30"
-        app:layout_constraintTop_toTopOf="@+id/guideline19"
-        app:layout_constraintVertical_bias="0.0"
-        android:background="@color/cinza">
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/cinza"
+        android:layout_marginRight="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline12"
+        app:layout_constraintEnd_toStartOf="@+id/guideline40"
+        app:layout_constraintStart_toStartOf="@+id/guideline39"
+        app:layout_constraintTop_toTopOf="@+id/guideline13">
 
         <GridLayout
             android:id="@+id/gridLayout3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:columnCount="2"
-            android:rowCount="6">
+            android:rowCount="7">
 
             <TextView
-                android:id="@+id/textView19"
-                android:layout_width="80dp"
+                android:id="@+id/textView23"
+                android:layout_width="95dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="5dp"
@@ -156,7 +160,7 @@
                 android:textSize="17sp" />
 
             <TextView
-                android:id="@+id/cmpNomeEsc"
+                android:id="@+id/cmpNomeProf"
                 android:layout_width="220dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
@@ -165,8 +169,8 @@
                 android:textSize="17sp" />
 
             <TextView
-                android:id="@+id/textView15"
-                android:layout_width="80dp"
+                android:id="@+id/textView24"
+                android:layout_width="95dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="15dp"
@@ -175,7 +179,7 @@
                 android:textSize="17sp" />
 
             <TextView
-                android:id="@+id/cmpTelEsc"
+                android:id="@+id/cmpTelProf"
                 android:layout_width="220dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
@@ -184,36 +188,38 @@
                 android:textSize="17sp" />
 
             <TextView
-                android:id="@+id/textView20"
-                android:layout_width="80dp"
+                android:id="@+id/textView42"
+                android:layout_width="95dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="15dp"
                 android:text="Email:"
                 android:textColor="@android:color/background_dark"
-                android:textSize="17dp" />
+                android:textSize="17sp" />
 
             <TextView
-                android:id="@+id/cmpEmailEsc"
+                android:id="@+id/cmpEmailProf"
                 android:layout_width="220dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="15dp"
                 android:text="TextView"
-                android:textSize="17sp" />
+                android:textSize="17sp"
+                tools:layout_editor_absoluteX="156dp"
+                tools:layout_editor_absoluteY="144dp" />
 
             <TextView
-                android:id="@+id/textView18"
-                android:layout_width="80dp"
+                android:id="@+id/textView46"
+                android:layout_width="95dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="15dp"
-                android:text="CNPJ:"
+                android:text="CPF:"
                 android:textColor="@android:color/background_dark"
                 android:textSize="17sp" />
 
             <TextView
-                android:id="@+id/cmpCNPJEscola"
+                android:id="@+id/cmpCPFProf"
                 android:layout_width="220dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
@@ -222,8 +228,27 @@
                 android:textSize="17sp" />
 
             <TextView
-                android:id="@+id/textView21"
-                android:layout_width="80dp"
+                android:id="@+id/textView600"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="15dp"
+                android:text="Turma:"
+                android:textColor="@android:color/black"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/tvTurmaProf"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="15dp"
+                android:text="TextView"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/textView50"
+                android:layout_width="95dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="15dp"
@@ -232,13 +257,14 @@
                 android:textSize="17sp" />
 
             <TextView
-                android:id="@+id/cmpSenhaEscola"
+                android:id="@+id/cmpSenhaProf"
                 android:layout_width="220dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="15dp"
                 android:text="TextView"
                 android:textSize="17sp" />
+
         </GridLayout>
     </ScrollView>
 

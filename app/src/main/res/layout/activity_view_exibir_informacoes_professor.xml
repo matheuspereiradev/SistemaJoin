@@ -26,22 +26,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <GridLayout
-        android:id="@+id/gridLayout3"
+    <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:columnCount="2"
-        android:rowCount="7"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/cinza"
+        android:layout_marginRight="8dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline12"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline40"
+        app:layout_constraintStart_toStartOf="@+id/guideline39"
         app:layout_constraintTop_toTopOf="@+id/guideline13">
+
+    <GridLayout
+        android:id="@+id/gridLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnCount="2"
+        android:rowCount="7">
 
         <TextView
             android:id="@+id/textView23"
@@ -159,7 +163,7 @@
             android:text="TextView"
             android:textSize="17sp" />
 
-    </GridLayout>
+    </GridLayout></ScrollView>
 
 
     <ImageButton

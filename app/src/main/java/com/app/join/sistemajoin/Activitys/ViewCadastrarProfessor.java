@@ -238,7 +238,6 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
         listProf.putExtra("tel", professor.getTelefone());
         listProf.putExtra("email", professor.getEmail());
         listProf.putExtra("cpf", professor.getCpf());
-        listProf.putExtra("status", professor.getStatus());
         listProf.putExtra("senha", professor.getSenha());
         listProf.putExtra("keyTurma", professor.getKeyTurma());
         listProf.putExtra("idEscola", professor.getIdEscola());
@@ -255,7 +254,6 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
         professor.setIdProfessor(idUsuario);
         professor.setCpf(ctCPFProf.getText().toString());
         professor.setSenha(geraSenha(professor.getCpf()));
-        professor.setStatus("Ativo");
         professor.setTelefone(ctTelProf.getText().toString());
         professor.setKeyTurma("0001");
         professor.setIdEscola(idEscola);
@@ -268,10 +266,9 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
         professor.setEmail(ctEmailProf.getText().toString());
         professor.setIdProfessor(intent.getStringExtra("key"));
         professor.setSenha(intent.getStringExtra("senha"));
-        professor.setStatus("Ativo");
         professor.setCpf(ctCPFProf.getText().toString());
         professor.setTelefone(ctTelProf.getText().toString());
-        professor.setKeyTurma(intent.getStringExtra("idTurma"));
+        professor.setKeyTurma(intent.getStringExtra("keyTurma"));
         professor.setIdEscola(idEscola);
         return professor;
     }

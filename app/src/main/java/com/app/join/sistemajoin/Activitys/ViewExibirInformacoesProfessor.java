@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.app.join.sistemajoin.Model.Escola;
 import com.app.join.sistemajoin.Model.Professor;
 import com.app.join.sistemajoin.R;
+import com.app.join.sistemajoin.Tools.Base64Custon;
 import com.app.join.sistemajoin.Tools.ConfiguracaoFirebase;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
@@ -24,16 +25,12 @@ import com.google.firebase.database.ValueEventListener;
 
 public class ViewExibirInformacoesProfessor extends AppCompatActivity {
 
-    TextView cmpNomeProf, cmpTelProf, cmpEmailProf, cmpCPFProf, cmpSenhaProf;
-    ImageButton btEditProf, btConfigProf, btExcluirProf;
-
+    private TextView cmpNomeProf, cmpTelProf, cmpEmailProf, cmpCPFProf, cmpSenhaProf, campTurmaProf;
+    private ImageButton btEditProf, btConfigProf, btExcluirProf;
     private DatabaseReference firebase;
-    private FirebaseAuth autenticacao;
     private AlertDialog alertDialog;
-    private Professor professor;
     private Intent intent;
-
-    String key = "";
+    private String key = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +42,7 @@ public class ViewExibirInformacoesProfessor extends AppCompatActivity {
         cmpEmailProf = (TextView) findViewById(R.id.cmpEmailProf);
         cmpCPFProf = (TextView) findViewById(R.id.cmpCPFProf);
         cmpSenhaProf = (TextView) findViewById(R.id.cmpSenhaProf);
+        campTurmaProf = findViewById(R.id.tvTurmaProf);
         btEditProf = (ImageButton) findViewById(R.id.btEditProf);
         btConfigProf = (ImageButton) findViewById(R.id.btConfigProf);
         btExcluirProf = (ImageButton) findViewById(R.id.btExcluirProf);
@@ -90,7 +88,6 @@ public class ViewExibirInformacoesProfessor extends AppCompatActivity {
                 in.putExtra("tel", intent.getStringExtra("tel"));
                 in.putExtra("email", intent.getStringExtra("email"));
                 in.putExtra("cpf", intent.getStringExtra("cpf"));
-                in.putExtra("status", intent.getStringExtra("status"));
                 in.putExtra("senha", intent.getStringExtra("senha"));
                 in.putExtra("keyTurma", intent.getStringExtra("keyTurma"));
                 in.putExtra("idEscola", intent.getStringExtra("idEscola"));
@@ -108,7 +105,6 @@ public class ViewExibirInformacoesProfessor extends AppCompatActivity {
                     listProf.putExtra("tel", intent.getStringExtra("tel"));
                     listProf.putExtra("email", intent.getStringExtra("email"));
                     listProf.putExtra("cpf", intent.getStringExtra("cpf"));
-                    listProf.putExtra("status", intent.getStringExtra("status"));
                     listProf.putExtra("senha", intent.getStringExtra("senha"));
                     listProf.putExtra("keyTurma", intent.getStringExtra("keyTurma"));
                     listProf.putExtra("idEscola", intent.getStringExtra("idEscola"));
@@ -127,6 +123,6 @@ public class ViewExibirInformacoesProfessor extends AppCompatActivity {
         cmpCPFProf.setText(intent.getStringExtra("cpf"));
         cmpSenhaProf.setText(intent.getStringExtra("senha"));
         cmpTelProf.setText(intent.getStringExtra("tel"));
-
+        campTurmaProf.setText(intent.getStringExtra("idTurma"));
     }
 }

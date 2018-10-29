@@ -71,20 +71,22 @@ public class ViewListarTurmas extends AppCompatActivity {
                 if (intent.getStringExtra("remetente").equals("home")) {
                     Intent in = new Intent(getBaseContext(), ViewExibirInformacoesTurma.class);
                     in.putExtra("idTurma", variavel.getIdTurma());
+                    in.putExtra("idEscola", variavel.getIdEscola());
                     in.putExtra("nome", variavel.getNome());
+                    in.putExtra("faixa1", variavel.getIdadeMin());
+                    in.putExtra("faixa2", variavel.getIdadeMax());
                     startActivity(in);
                     finish();
                 } else if (intent.getStringExtra("remetente").equals("professor")) {
                     Intent listPro = new Intent(ViewListarTurmas.this, ViewListaProfessores.class);
                     listPro.putExtra("idEscola", intent.getStringExtra("idEscola"));
                     professor = new Professor();
-                    professor.setKeyTurma(variavel.getIdTurma());
+                    professor.setKeyTurma(variavel.getNome());
                     professor.setIdProfessor(intent.getStringExtra("key"));
                     professor.setNome(intent.getStringExtra("nome"));
                     professor.setTelefone(intent.getStringExtra("tel"));
                     professor.setEmail(intent.getStringExtra("email"));
                     professor.setCpf(intent.getStringExtra("cpf"));
-                    professor.setStatus(intent.getStringExtra("status"));
                     professor.setSenha(intent.getStringExtra("senha"));
                     professor.setIdEscola(intent.getStringExtra("idEscola"));
                     editarProfessor(professor);
@@ -94,13 +96,13 @@ public class ViewListarTurmas extends AppCompatActivity {
                     Intent listAlu = new Intent(ViewListarTurmas.this, ViewListarAlunos.class);
                     listAlu.putExtra("idEscola", intent.getStringExtra("idEscola"));
                     aluno = new Aluno();
-                    aluno.setKeyTurma(variavel.getIdTurma());
+                    aluno.setKeyTurma(variavel.getNome());
                     aluno.setIdAluno(intent.getStringExtra("idAluno"));
                     aluno.setNome(intent.getStringExtra("nome"));
                     aluno.setTelefone(intent.getStringExtra("tel"));
                     aluno.setEmailResponsavel(intent.getStringExtra("email"));
                     aluno.setCpfResponsavel(intent.getStringExtra("cpf"));
-                    aluno.setStatus(intent.getStringExtra("status"));
+                    aluno.setNomeResponsavel(intent.getStringExtra("nomeRes"));
                     aluno.setSenha(intent.getStringExtra("senha"));
                     aluno.setIdEscola(intent.getStringExtra("idEscola"));
                     editarAluno(aluno);

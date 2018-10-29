@@ -27,7 +27,7 @@ public class ViewExibirInformacoesTurma extends AppCompatActivity {
     private ListView listview;
     private ArrayAdapter<Aluno> adapter;
     private ArrayList<Aluno> lista;
-    private Aluno aluno, variavel;
+    private Aluno aluno;
     private DatabaseReference firebase;
     private ValueEventListener valueEventListener;
     private AlertDialog alertDialog;
@@ -45,9 +45,7 @@ public class ViewExibirInformacoesTurma extends AppCompatActivity {
         btExcluirTurma = (ImageButton) findViewById(R.id.btExcluirTurma);
 
         in = getIntent();
-        key = in.getStringExtra("key");
         preencheCampos();
-
 
         lista = new ArrayList();
         listview = findViewById(R.id.listadealunos);
@@ -83,9 +81,11 @@ public class ViewExibirInformacoesTurma extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         firebase = ConfiguracaoFirebase.getFirebase().child("turma");
-                        firebase.child(in.getStringExtra("key")).removeValue();
-                        Intent in = new Intent(getBaseContext(), ViewListarTurmas.class);
-                        startActivity(in);
+                        firebase.child(in.getStringExtra("nome")).removeValue();
+                        Intent listTurma = new Intent(getBaseContext(), ViewListarTurmas.class);
+                        listTurma.putExtra("remetente", "home");
+                        listTurma.putExtra("idEscola", in.getStringExtra("idEscola"));
+                        startActivity(listTurma);
                         finish();
                     }
                 });
@@ -104,9 +104,12 @@ public class ViewExibirInformacoesTurma extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent edt = new Intent(ViewExibirInformacoesTurma.this, ViewCadastrarTurma.class);
-                edt.putExtra("nome", "nome");
-                edt.putExtra("faixa1", "faixa");
-                edt.putExtra("faixa2", "faixa");
+                edt.putExtra("nome", in.getStringExtra("nome"));
+                edt.putExtra("faixa1", in.getStringExtra("faixa1"));
+                edt.putExtra("faixa2", in.getStringExtra("faixa2"));
+                edt.putExtra("idEscola", in.getStringExtra("idEscola"));
+                edt.putExtra("idTurma", in.getStringExtra("idTurma"));
+                edt.putExtra("cdg", "edt");
                 startActivity(edt);
                 finish();
             }

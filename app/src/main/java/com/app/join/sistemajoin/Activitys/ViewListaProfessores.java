@@ -70,7 +70,6 @@ public class ViewListaProfessores extends AppCompatActivity {
                 in.putExtra("tel", variavel.getTelefone());
                 in.putExtra("email", variavel.getEmail());
                 in.putExtra("cpf", variavel.getCpf());
-                in.putExtra("status", variavel.getStatus());
                 in.putExtra("senha", variavel.getSenha());
                 in.putExtra("idTurma", variavel.getKeyTurma());
                 in.putExtra("idEscola", variavel.getIdEscola());

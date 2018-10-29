@@ -180,10 +180,10 @@ public class ViewCadastrarAluno extends AppCompatActivity {
         Intent listProf = new Intent(ViewCadastrarAluno.this, ViewListarTurmas.class);
         listProf.putExtra("idAluno", aluno.getIdAluno());
         listProf.putExtra("nome", aluno.getNome());
+        listProf.putExtra("nomeRes", aluno.getNomeResponsavel());
         listProf.putExtra("tel", aluno.getTelefone());
         listProf.putExtra("email", aluno.getEmailResponsavel());
         listProf.putExtra("cpf", aluno.getCpfResponsavel());
-        listProf.putExtra("status", aluno.getStatus());
         listProf.putExtra("senha", aluno.getSenha());
         listProf.putExtra("keyTurma", aluno.getKeyTurma());
         listProf.putExtra("idEscola", aluno.getIdEscola());
@@ -215,7 +215,6 @@ public class ViewCadastrarAluno extends AppCompatActivity {
         aluno.setIdAluno(idUsuario);
         aluno.setNomeResponsavel(ctNomeResponsavel.getText().toString());
         aluno.setSenha(geraSenha(aluno.getCpfResponsavel()));
-        aluno.setStatus("Ativo");
         aluno.setTelefone(ctTelAluno.getText().toString());
         aluno.setKeyTurma("0001");
         aluno.setIdEscola(idEscola);
@@ -229,15 +228,14 @@ public class ViewCadastrarAluno extends AppCompatActivity {
         aluno.setIdAluno(intent.getStringExtra("key"));
         aluno.setSenha(intent.getStringExtra("senha"));
         aluno.setNomeResponsavel(ctNomeResponsavel.getText().toString());
-        aluno.setStatus("Ativo");
         String CPF = ctCPFResp.getText().toString();
         CPF = CPF.replace('.', ' ');
         CPF = CPF.replace('-', ' ');
         CPF = CPF.replaceAll(" ", "");
         aluno.setCpfResponsavel(CPF);
         aluno.setTelefone(ctTelAluno.getText().toString());
-        //aluno.setKeyTurma("sem Turma");
         aluno.setIdEscola(intent.getStringExtra("idEscola"));
+        aluno.setKeyTurma(intent.getStringExtra("turma"));
         return aluno;
     }
 

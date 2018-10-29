@@ -60,13 +60,7 @@ public class ViewCadastrarEscola extends AppCompatActivity {
             ctTelEsc.setText(intent.getStringExtra("tel"));
             ctCNPJEsc.setText(intent.getStringExtra("cnpj"));
             ctEmailEsc.setText(intent.getStringExtra("email"));
-            escola = new Escola();
-            escola.setNome(ctNomeEsc.getText().toString());
-            escola.setTelefone(ctTelEsc.getText().toString());
-            escola.setEmail(ctEmailEsc.getText().toString());
-            escola.setCnpj(ctCNPJEsc.getText().toString());
-            escola.setId(key);
-            escola.setSenha(intent.getStringExtra("senha"));
+
             btSalvarEsc.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -94,6 +88,13 @@ public class ViewCadastrarEscola extends AppCompatActivity {
                         Toast.makeText(getBaseContext(), "Favor, preencher os campos corretamente!", Toast.LENGTH_SHORT).show();
 
                     } else {
+                        escola = new Escola();
+                        escola.setNome(ctNomeEsc.getText().toString());
+                        escola.setTelefone(ctTelEsc.getText().toString());
+                        escola.setEmail(ctEmailEsc.getText().toString());
+                        escola.setCnpj(ctCNPJEsc.getText().toString());
+                        escola.setId(key);
+                        escola.setSenha(intent.getStringExtra("senha"));
                         editar(escola);
                         chamatelaListaescola();
                         finish();
@@ -101,12 +102,6 @@ public class ViewCadastrarEscola extends AppCompatActivity {
                 }
             });
         } else {
-            escola = new Escola();
-            escola.setNome(ctNomeEsc.getText().toString());
-            escola.setTelefone(ctTelEsc.getText().toString());
-            escola.setEmail(ctEmailEsc.getText().toString());
-            escola.setCnpj(ctCNPJEsc.getText().toString());
-
             btSalvarEsc.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -129,7 +124,12 @@ public class ViewCadastrarEscola extends AppCompatActivity {
                         ctCNPJEsc.isSelected();
                         Toast.makeText(getBaseContext(), "Favor, preencher os campos corretamente!", Toast.LENGTH_SHORT).show();
                     } else {
-                        escola.setSenha(geraSenha(escola.getCnpj()));
+                        escola = new Escola();
+                        escola.setNome(ctNomeEsc.getText().toString());
+                        escola.setTelefone(ctTelEsc.getText().toString());
+                        escola.setEmail(ctEmailEsc.getText().toString());
+                        escola.setCnpj(ctCNPJEsc.getText().toString());
+                        escola.setSenha(geraSenha(ctCNPJEsc.getText().toString()));
                         String idUsuario = Base64Custon.codificadorBase64(escola.getEmail());
                         escola.setId(idUsuario);
                         cadastrar();

@@ -22,7 +22,6 @@ public class Aluno extends Pessoa {
         hashMap.put("emailResponsavel", getEmailResponsavel());
         hashMap.put("nome", getNome());
         hashMap.put("telefone", getTelefone());
-        hashMap.put("status", getStatus());
         hashMap.put("keyTurma", getKeyTurma());
         hashMap.put("senha", getSenha());
         hashMap.put("idEscola", getIdEscola());

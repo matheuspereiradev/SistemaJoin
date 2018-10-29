@@ -92,6 +92,7 @@ public class ViewHomeSistemaEscola extends AppCompatActivity {
     public void ChamaCadastroTurma() {
         Intent cadTurma = new Intent(ViewHomeSistemaEscola.this, ViewCadastrarTurma.class);
         cadTurma.putExtra("idEscola", pegaDados.getStringExtra("id"));
+        cadTurma.putExtra("cdg", "home");
         startActivity(cadTurma);
     }
 

@@ -9,21 +9,19 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.app.join.sistemajoin.Model.Aluno;
 import com.app.join.sistemajoin.R;
+import com.app.join.sistemajoin.Tools.Base64Custon;
 import com.app.join.sistemajoin.Tools.ConfiguracaoFirebase;
 import com.google.firebase.database.DatabaseReference;
 
 public class ViewExibirInformacoesAluno extends AppCompatActivity {
 
-    TextView tvNomeAluno, tvMatriculaAluno, tvTelResponsavel, tvNomeResponsavel, tvCPFResponsavel, tvSenhaAluno,tvEmailResp;
-    ImageButton btExcluirAluno, btEditarAluno, btConfigAluno;
-
+    private TextView tvNomeAluno, tvTelResponsavel, tvNomeResponsavel, tvCPFResponsavel, tvSenhaAluno, tvEmailResp, tvTurmaAluno;
+    private ImageButton btExcluirAluno, btEditarAluno, btConfigAluno;
     private DatabaseReference firebase;
     private AlertDialog alertDialog;
-    private Aluno aluno;
-    String key = "";
-    Intent in = null;
+    private String key = "";
+    private Intent in = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +34,7 @@ public class ViewExibirInformacoesAluno extends AppCompatActivity {
         tvCPFResponsavel = (TextView) findViewById(R.id.tvCPFResponsavel);
         tvSenhaAluno = (TextView) findViewById(R.id.tvSenhaAluno);
         tvEmailResp = (TextView) findViewById(R.id.tvEmailResponsavel);
+        tvTurmaAluno = findViewById(R.id.tvTurma);
         btConfigAluno = (ImageButton) findViewById(R.id.btConfigAluno);
         btEditarAluno = (ImageButton) findViewById(R.id.btEditarAluno);
         btExcluirAluno = (ImageButton) findViewById(R.id.btExcluirAluno);
@@ -55,9 +54,9 @@ public class ViewExibirInformacoesAluno extends AppCompatActivity {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         firebase = ConfiguracaoFirebase.getFirebase().child("aluno");
                         firebase.child(in.getStringExtra("key")).removeValue();
-                        Intent in = new Intent(getBaseContext(), ViewListarAlunos.class);
-                        in.putExtra("idEscola", in.getStringExtra("idEscola"));
-                        startActivity(in);
+                        Intent listAluno = new Intent(ViewExibirInformacoesAluno.this, ViewListarAlunos.class);
+                        listAluno.putExtra("idEscola", in.getStringExtra("idEscola"));
+                        startActivity(listAluno);
                         finish();
                     }
                 });
@@ -81,8 +80,8 @@ public class ViewExibirInformacoesAluno extends AppCompatActivity {
                 cadAluno.putExtra("tel", in.getStringExtra("tel"));
                 cadAluno.putExtra("email", in.getStringExtra("email"));
                 cadAluno.putExtra("cpf", in.getStringExtra("cpf"));
-                cadAluno.putExtra("status", in.getStringExtra("status"));
                 cadAluno.putExtra("senha", in.getStringExtra("senha"));
+                cadAluno.putExtra("turma", in.getStringExtra("turma"));
                 cadAluno.putExtra("nomeRes", in.getStringExtra("nomeRes"));
                 cadAluno.putExtra("idEscola", in.getStringExtra("idEscola"));
                 startActivity(cadAluno);
@@ -99,8 +98,8 @@ public class ViewExibirInformacoesAluno extends AppCompatActivity {
                 cadAluno.putExtra("tel", in.getStringExtra("tel"));
                 cadAluno.putExtra("email", in.getStringExtra("email"));
                 cadAluno.putExtra("cpf", in.getStringExtra("cpf"));
-                cadAluno.putExtra("status", in.getStringExtra("status"));
                 cadAluno.putExtra("senha", in.getStringExtra("senha"));
+                cadAluno.putExtra("turma", in.getStringExtra("turma"));
                 cadAluno.putExtra("nomeRes", in.getStringExtra("nomeRes"));
                 cadAluno.putExtra("idEscola", in.getStringExtra("idEscola"));
                 cadAluno.putExtra("remetente", "aluno");
@@ -119,6 +118,6 @@ public class ViewExibirInformacoesAluno extends AppCompatActivity {
         tvEmailResp.setText(in.getStringExtra("email"));
         tvCPFResponsavel.setText(in.getStringExtra("cpf"));
         tvSenhaAluno.setText(in.getStringExtra("senha"));
-
+        tvTurmaAluno.setText(in.getStringExtra("turma"));
     }
 }

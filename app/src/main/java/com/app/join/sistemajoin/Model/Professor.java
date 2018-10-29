@@ -15,13 +15,11 @@ public class Professor extends Pessoa {
     @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> hashMapProfessor = new HashMap<>();
-
         hashMapProfessor.put("idProfessor", getIdProfessor());
         hashMapProfessor.put("email", getEmail());
         hashMapProfessor.put("cpf", getCpf());
         hashMapProfessor.put("nome", getNome());
         hashMapProfessor.put("telefone", getTelefone());
-        hashMapProfessor.put("status", getStatus());
         hashMapProfessor.put("keyTurma", getKeyTurma());
         hashMapProfessor.put("senha", getSenha());
         hashMapProfessor.put("idEscola", getIdEscola());

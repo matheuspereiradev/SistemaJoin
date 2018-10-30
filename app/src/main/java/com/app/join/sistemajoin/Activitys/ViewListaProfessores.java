@@ -71,7 +71,7 @@ public class ViewListaProfessores extends AppCompatActivity {
                 in.putExtra("email", variavel.getEmail());
                 in.putExtra("cpf", variavel.getCpf());
                 in.putExtra("senha", variavel.getSenha());
-                in.putExtra("idTurma", variavel.getKeyTurma());
+                in.putExtra("keyTurma", variavel.getKeyTurma());
                 in.putExtra("idEscola", variavel.getIdEscola());
                 startActivity(in);
                 finish();

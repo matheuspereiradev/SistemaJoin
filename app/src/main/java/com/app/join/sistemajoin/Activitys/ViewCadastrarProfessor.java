@@ -67,32 +67,54 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
             btProximoProf1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (ctNomeProf.getText().length()<1 || ctCPFProf.getText().length()<1
-                            || ctEmailProf.getText().length()<1 || ctTelProf.getText().length()<1) {
-                        if (ctNomeProf.getText().length()<1) {
+                    if (ctNomeProf.getText().length() < 1 || ctCPFProf.getText().length() < 1
+                            || ctEmailProf.getText().length() < 1 || ctTelProf.getText().length() < 1) {
+                        if (ctNomeProf.getText().length() < 1) {
                             ctNomeProf.isSelected();
                             Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                        } else if (ctCPFProf.getText().length()<1) {
+                        } else if (ctCPFProf.getText().length() < 1) {
                             ctCPFProf.isSelected();
                             Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                        } else if (ctTelProf.getText().length()<1) {
+                        } else if (ctTelProf.getText().length() < 1) {
                             ctTelProf.isSelected();
                             Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                        } else if (ctEmailProf.getText().length()<1) {
+                        } else if (ctEmailProf.getText().length() < 1) {
                             ctEmailProf.isSelected();
                             Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
                         }
-                    } else if (ctTelProf.getText().length() < 15 && ctTelProf.getText().length() >1) {
+                    } else if (ctTelProf.getText().length() < 15 && ctTelProf.getText().length() > 1) {
                         ctTelProf.isSelected();
                         Toast.makeText(getBaseContext(), "Favor, preencher os campos corretamente!", Toast.LENGTH_SHORT).show();
 
-                    } else if (ctCPFProf.getText().length() < 14 && ctCPFProf.getText().length() >1 && !validaCpf(ctCPFProf.getText().toString())) {
+                    } else if (ctCPFProf.getText().length() < 14 && ctCPFProf.getText().length() > 1 && !validaCpf(ctCPFProf.getText().toString())) {
                         ctCPFProf.isSelected();
                         Toast.makeText(getBaseContext(), "Os dados inseridos são inválidos!", Toast.LENGTH_SHORT).show();
                     } else {
-                        editarProfessor(setDadosEditar());
-                        chamaListaPro();
-                        finish();
+                        professor = setDadosEditar();
+                        autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
+                        autenticacao.signInWithEmailAndPassword(professor.getEmail(), professor.getSenha()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    editarProfessor(professor);
+                                    chamaListaPro();
+                                    finish();
+                                }else{
+                                    cadastrar();
+                                    autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
+                                    autenticacao.signInWithEmailAndPassword(professor.getEmail(), professor.getSenha()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<AuthResult> task) {
+                                            if (task.isSuccessful()) {
+                                                editarProfessor(professor);
+                                                chamaListaPro();
+                                                finish();
+                                            }
+                                        }
+                                    });
+                                }
+                            }
+                        });
                     }
                 }
             });
@@ -101,41 +123,41 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
             btProximoProf1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (ctNomeProf.getText().length()<1 || ctCPFProf.getText().length()<1
-                            || ctEmailProf.getText().length()<1 || ctTelProf.getText().length()<1) {
-                        if (ctNomeProf.getText().length()<1) {
+                    if (ctNomeProf.getText().length() < 1 || ctCPFProf.getText().length() < 1
+                            || ctEmailProf.getText().length() < 1 || ctTelProf.getText().length() < 1) {
+                        if (ctNomeProf.getText().length() < 1) {
                             ctNomeProf.isSelected();
                             Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                        } else if (ctCPFProf.getText().length()<1) {
+                        } else if (ctCPFProf.getText().length() < 1) {
                             ctCPFProf.isSelected();
                             Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                        } else if (ctTelProf.getText().length()<1) {
+                        } else if (ctTelProf.getText().length() < 1) {
                             ctTelProf.isSelected();
                             Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                        } else if (ctEmailProf.getText().length()<1) {
+                        } else if (ctEmailProf.getText().length() < 1) {
                             ctEmailProf.isSelected();
                             Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
                         }
-                    } else if (ctTelProf.getText().length() < 15 && ctTelProf.getText().length() >1) {
+                    } else if (ctTelProf.getText().length() < 15 && ctTelProf.getText().length() > 1) {
                         ctTelProf.isSelected();
                         Toast.makeText(getBaseContext(), "Favor, preencher os campos corretamente!", Toast.LENGTH_SHORT).show();
 
-                    } else if (ctCPFProf.getText().length() < 14 && ctCPFProf.getText().length() >1 && !validaCpf(ctCPFProf.getText().toString())) {
+                    } else if (ctCPFProf.getText().length() < 14 && ctCPFProf.getText().length() > 1 && !validaCpf(ctCPFProf.getText().toString())) {
                         ctCPFProf.isSelected();
                         Toast.makeText(getBaseContext(), "Os dados inseridos são inválidos!", Toast.LENGTH_SHORT).show();
                     } else {
                         professor = setDados();
                         cadastrar();
-                            autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
-                            autenticacao.signInWithEmailAndPassword(professor.getEmail(), professor.getSenha()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                                @Override
-                                public void onComplete(@NonNull Task<AuthResult> task) {
-                                    if (task.isSuccessful()) {
-                                        salvarProfessor(professor);
-                                        chamaTelaListaTurma();
-                                    }
+                        autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
+                        autenticacao.signInWithEmailAndPassword(professor.getEmail(), professor.getSenha()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    salvarProfessor(professor);
+                                    chamaTelaListaTurma();
                                 }
-                            });
+                            }
+                        });
 
                     }
                 }
@@ -295,7 +317,7 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
         ctTelProf.setText(intent.getStringExtra("tel"));
     }
 
-    private void chamaListaPro(){
+    private void chamaListaPro() {
         Intent listProf = new Intent(ViewCadastrarProfessor.this, ViewListaProfessores.class);
         listProf.putExtra("idEscola", professor.getIdEscola());
         startActivity(listProf);

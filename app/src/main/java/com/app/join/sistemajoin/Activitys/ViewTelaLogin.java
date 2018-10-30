@@ -41,10 +41,9 @@ import java.util.ArrayList;
 
 public class ViewTelaLogin extends AppCompatActivity {
 
-    Switch swManterConectado;
-    Button btEntrar;
-    EditText ctSenhaUsr, ctLoginUsr;
-
+    private Switch swManterConectado;
+    private Button btEntrar;
+    private EditText ctSenhaUsr, ctLoginUsr;
     private FirebaseAuth autenticacao;
     private AdmJoin admJoin;
     private ListView listviewEscola;
@@ -53,7 +52,6 @@ public class ViewTelaLogin extends AppCompatActivity {
     private Escola escola, variavelEscola;
     private DatabaseReference firebaseEscola;
     private ValueEventListener valueEventListenerEscola;
-
     private ListView listviewAluno;
     private ArrayAdapter<Aluno> adapterAluno;
     private ArrayList<Aluno> listaAluno;
@@ -116,10 +114,11 @@ public class ViewTelaLogin extends AppCompatActivity {
         };
 
 
+
         btEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!ctLoginUsr.getText().toString().equals("") && !ctSenhaUsr.getText().toString().equals("")) {
+                if (ctLoginUsr.getText().length()>1 && ctSenhaUsr.getText().length()>1) {
                     admJoin = new AdmJoin();
                     admJoin.setEmail(ctLoginUsr.getText().toString());
                     admJoin.setSenha(ctSenhaUsr.getText().toString());

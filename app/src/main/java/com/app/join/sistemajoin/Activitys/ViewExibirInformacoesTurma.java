@@ -10,28 +10,35 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+
 import com.app.join.sistemajoin.Adapter.AlunoAdapter;
+import com.app.join.sistemajoin.Adapter.ProfessorAdapter;
 import com.app.join.sistemajoin.Model.Aluno;
+import com.app.join.sistemajoin.Model.Professor;
 import com.app.join.sistemajoin.R;
 import com.app.join.sistemajoin.Tools.ConfiguracaoFirebase;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 
 public class ViewExibirInformacoesTurma extends AppCompatActivity {
 
     private TextView cmpNomeTurma, cmpFaixaEtaria;
     private ImageButton btEditTurma, btExcluirTurma;
-    private ListView listadealunos,listadeprofessores;
-    private ArrayAdapter<Aluno> adapter;
-    private ArrayList<Aluno> lista;
+    private ListView listadealunos, listadeprofessores;
+    private ArrayAdapter<Aluno> adapterAluno;
+    private ArrayList<Aluno> listaAluno;
     private Aluno aluno;
-    private DatabaseReference firebase;
-    private ValueEventListener valueEventListener;
+    private ValueEventListener valueEventListenerAluno;
+    private ArrayAdapter<Professor> adapterPro;
+    private ArrayList<Professor> listaPro;
+    private Professor professor;
+    private ValueEventListener valueEventListenerPro;
+    private DatabaseReference firebaseAluno, firebasePro, firebase;
     private AlertDialog alertDialog;
-    private String key = "";
     private Intent in = null;
 
     @Override
@@ -47,22 +54,46 @@ public class ViewExibirInformacoesTurma extends AppCompatActivity {
         in = getIntent();
         preencheCampos();
 
-        lista = new ArrayList();
+        listaAluno = new ArrayList();
         listadealunos = findViewById(R.id.listadealunos);
-        adapter = new AlunoAdapter(this, lista);
-        listadealunos.setAdapter(adapter);
-        firebase = ConfiguracaoFirebase.getFirebase().child("aluno");
-        valueEventListener = new ValueEventListener() {
+        adapterAluno = new AlunoAdapter(this, listaAluno);
+        listadealunos.setAdapter(adapterAluno);
+        firebaseAluno = ConfiguracaoFirebase.getFirebase().child("aluno");
+        valueEventListenerAluno = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                lista.clear();
+                listaAluno.clear();
                 for (DataSnapshot dados : dataSnapshot.getChildren()) {
                     aluno = dados.getValue(Aluno.class);
-                    if(in.getStringExtra("idTurma").equals(aluno.getKeyTurma())) {
-                        lista.add(aluno);
+                    if (in.getStringExtra("nome").equals(aluno.getKeyTurma())) {
+                        listaAluno.add(aluno);
                     }
                 }
-                adapter.notifyDataSetChanged();
+                adapterAluno.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        };
+
+        listaPro = new ArrayList();
+        listadeprofessores = findViewById(R.id.listadeprofessores);
+        adapterPro = new ProfessorAdapter(this, listaPro);
+        listadeprofessores.setAdapter(adapterPro);
+        firebasePro = ConfiguracaoFirebase.getFirebase().child("professor");
+        valueEventListenerPro = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                listaPro.clear();
+                for (DataSnapshot dados : dataSnapshot.getChildren()) {
+                    professor = dados.getValue(Professor.class);
+                    if (in.getStringExtra("nome").equals(professor.getKeyTurma())) {
+                        listaPro.add(professor);
+                    }
+                }
+                adapterPro.notifyDataSetChanged();
             }
 
             @Override
@@ -120,7 +151,21 @@ public class ViewExibirInformacoesTurma extends AppCompatActivity {
 
     private void preencheCampos() {
         cmpNomeTurma.setText(in.getStringExtra("nome"));
+        cmpFaixaEtaria.setText(in.getStringExtra("faixa1") + " A " + in.getStringExtra("faixa2") + " anos");
+    }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        firebase.removeEventListener(valueEventListenerAluno);
+        firebase.removeEventListener(valueEventListenerPro);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        firebase.addValueEventListener(valueEventListenerAluno);
+        firebase.addValueEventListener(valueEventListenerPro);
     }
 
 }

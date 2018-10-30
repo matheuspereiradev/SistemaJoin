@@ -7,10 +7,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import com.app.join.sistemajoin.Model.Turma;
 import com.app.join.sistemajoin.R;
 import com.app.join.sistemajoin.Tools.Base64Custon;
 import com.app.join.sistemajoin.Tools.ConfiguracaoFirebase;
+import com.github.rtoshiro.util.format.SimpleMaskFormatter;
+import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 import com.google.firebase.database.DatabaseReference;
 
 public class ViewCadastrarTurma extends AppCompatActivity {
@@ -19,7 +22,6 @@ public class ViewCadastrarTurma extends AppCompatActivity {
     private Button salvar;
     private Intent intent;
     private String nomeTurma;
-
 
 
     @Override
@@ -32,32 +34,38 @@ public class ViewCadastrarTurma extends AppCompatActivity {
         idadeMin = findViewById(R.id.etidadeMin);
         idadeMax = findViewById(R.id.etIdadeMax);
 
+        SimpleMaskFormatter mask = new SimpleMaskFormatter("NNN");
+        MaskTextWatcher mascaraMin = new MaskTextWatcher(idadeMin, mask);
+        MaskTextWatcher mascaraMax = new MaskTextWatcher(idadeMax, mask);
+        idadeMin.addTextChangedListener(mascaraMin);
+        idadeMax.addTextChangedListener(mascaraMax);
+
         intent = getIntent();
 
-        if(intent.getStringExtra("cdg").equals("edt")){
+        if (intent.getStringExtra("cdg").equals("edt")) {
             nomeTurma = intent.getStringExtra("nome");
             nome.setText(intent.getStringExtra("nome"));
-            idadeMin.setText(Integer.parseInt(intent.getStringExtra("faixa1")));
-            idadeMax.setText(Integer.parseInt(intent.getStringExtra("faixa2")));
+            idadeMin.setText(intent.getStringExtra("faixa1"));
+            idadeMax.setText(intent.getStringExtra("faixa2"));
             salvar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (nome.getText().length() < 1) {
+                    if (nome.getText().length() < 1 && idadeMin.length() < 1 && idadeMax.length() < 1) {
                         Toast.makeText(getBaseContext(), "Preencha todos os campos!", Toast.LENGTH_SHORT).show();
                     } else {
                         Turma turma = new Turma();
                         turma.setNome(nome.getText().toString());
                         turma.setIdTurma(intent.getStringExtra("idturma"));
                         turma.setIdEscola(intent.getStringExtra("idEscola"));
-                        turma.setIdadeMax(Integer.parseInt(idadeMax.getText().toString()));
-                        turma.setIdadeMin(Integer.parseInt(idadeMin.getText().toString()));
+                        turma.setIdadeMax(idadeMax.getText().toString());
+                        turma.setIdadeMin(idadeMin.getText().toString());
                         editarTurma(turma);
                         chamaTelaListaTurma();
                         finish();
                     }
                 }
             });
-        }else {
+        } else {
             salvar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -69,11 +77,11 @@ public class ViewCadastrarTurma extends AppCompatActivity {
                         String idUsuario = Base64Custon.codificadorBase64(turma.getNome());
                         turma.setIdTurma(idUsuario);
                         turma.setIdEscola(intent.getStringExtra("idEscola"));
-                        turma.setIdadeMax(Integer.parseInt(idadeMax.getText().toString()));
-                        turma.setIdadeMin(Integer.parseInt(idadeMin.getText().toString()));
+                        turma.setIdadeMax(idadeMax.getText().toString());
+                        turma.setIdadeMin(idadeMin.getText().toString());
                         salvarTurma(turma);
-                        finish();
                         chamaTelaListaTurma();
+                        finish();
                     }
                 }
             });
@@ -87,10 +95,10 @@ public class ViewCadastrarTurma extends AppCompatActivity {
         dataTurma.child(t.getNome()).setValue(t);
     }
 
-    private void editarTurma(Turma t){
+    private void editarTurma(Turma t) {
         DatabaseReference dataTurma = ConfiguracaoFirebase.getFirebase().child("turma");
-        dataTurma.child(nomeTurma).updateChildren(t.toMap());
-
+        dataTurma.child(nomeTurma).removeValue();
+        dataTurma.child(t.getNome()).updateChildren(t.toMap());
     }
 
     private void chamaTelaListaTurma() {

@@ -9,8 +9,8 @@ public class Turma {
     private String nome;
     private String idTurma;
     private String idEscola;
-    private int idadeMax;
-    private int idadeMin;
+    private String idadeMax;
+    private String idadeMin;
 
     @Exclude
     public Map<String, Object> toMap() {
@@ -47,19 +47,19 @@ public class Turma {
         this.idTurma = id;
     }
 
-    public int getIdadeMax() {
+    public String getIdadeMax() {
         return idadeMax;
     }
 
-    public void setIdadeMax(int idadeMax) {
+    public void setIdadeMax(String idadeMax) {
         this.idadeMax = idadeMax;
     }
 
-    public int getIdadeMin() {
+    public String getIdadeMin() {
         return idadeMin;
     }
 
-    public void setIdadeMin(int idadeMin) {
+    public void setIdadeMin(String idadeMin) {
         this.idadeMin = idadeMin;
     }
 }

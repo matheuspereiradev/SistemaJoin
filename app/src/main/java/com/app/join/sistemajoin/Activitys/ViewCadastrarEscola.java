@@ -95,9 +95,18 @@ public class ViewCadastrarEscola extends AppCompatActivity {
                         escola.setCnpj(ctCNPJEsc.getText().toString());
                         escola.setId(key);
                         escola.setSenha(intent.getStringExtra("senha"));
-                        editar(escola);
-                        chamatelaListaescola();
-                        finish();
+                        cadastrar();
+                        autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
+                        autenticacao.signInWithEmailAndPassword(escola.getEmail(), escola.getSenha()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    editar(escola);
+                                    chamatelaListaescola();
+                                    finish();
+                                }
+                            }
+                        });
                     }
                 }
             });

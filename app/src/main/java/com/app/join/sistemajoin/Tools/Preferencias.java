@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 public class Preferencias {
     private Context context;
     private SharedPreferences preferences;
-    private String nomeAquivo = "ProjetoFirebase.preferencias";
+    private String nomeAquivo = "Join.preferencias";
     private int mode = 0;
     private SharedPreferences.Editor editor;
 

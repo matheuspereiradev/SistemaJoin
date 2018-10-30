@@ -30,9 +30,7 @@ public class ViewListarAvaliacoes extends AppCompatActivity {
     private DatabaseReference firebase;
     private ValueEventListener valueEventListener;
     private Intent intent;
-    private String cdg = "salvar";
-    private String idAv;
-    private float rating;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,64 +38,32 @@ public class ViewListarAvaliacoes extends AppCompatActivity {
         setContentView(R.layout.activity_view_listar_avaliacoes);
 
         intent = getIntent();
+
         lista = new ArrayList();
         listview = findViewById(R.id.tbListaAvaliacoes);
         adapter = new AvaliacaoAdapter(this, lista);
         listview.setAdapter(adapter);
         firebase = ConfiguracaoFirebase.getFirebase().child("avaliacao");
-        if(intent.getStringExtra("codigo").equals("av")){
-            long date = System.currentTimeMillis();
-            SimpleDateFormat sdf = new SimpleDateFormat("MM/yyyy");
-            final String dateString = sdf.format(date);
-            valueEventListener = new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    lista.clear();
-                    for (DataSnapshot dados : dataSnapshot.getChildren()) {
-                        avaliacao = dados.getValue(Avaliacao.class);
-                        if (avaliacao.getDataAv().equals(dateString)) {
-                            cdg = "editar";
-                            idAv = avaliacao.getIdAvaliacao();
-                            rating = avaliacao.getAv();
-                        }
+        valueEventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                lista.clear();
+                for (DataSnapshot dados : dataSnapshot.getChildren()) {
+                    avaliacao = dados.getValue(Avaliacao.class);
+                    if (intent.getStringExtra("idAluno").equals(avaliacao.getIdAluno())) {
+                        lista.add(avaliacao);
                     }
-                    adapter.notifyDataSetChanged();
                 }
+                adapter.notifyDataSetChanged();
+            }
 
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
 
-                }
-            };
-            Intent in = new Intent(ViewListarAvaliacoes.this, ViewRealizarAvaliacao.class);
-            in.putExtra("cdg", cdg);
-            in.putExtra("idAvaliacao", idAv);
-            in.putExtra("rating", rating);
-            in.putExtra("idAluno", intent.getStringExtra("idAluno"));
-            startActivity(in);
-            finish();
-        }else {
-            valueEventListener = new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    lista.clear();
-                    for (DataSnapshot dados : dataSnapshot.getChildren()) {
-                        avaliacao = dados.getValue(Avaliacao.class);
-                        if (intent.getStringExtra("idAluno").equals(avaliacao.getIdAluno())) {
-                            lista.add(avaliacao);
-                        }
-                    }
-                    adapter.notifyDataSetChanged();
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-
-                }
-            };
-        }
-
+            }
+        };
     }
+
 
     @Override
     protected void onStop() {

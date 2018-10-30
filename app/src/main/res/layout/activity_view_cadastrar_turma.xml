@@ -40,12 +40,12 @@
         android:id="@+id/btSalvarTurma"
         android:layout_width="163dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/botaoarredondado"
         android:text="Salvar"
         android:textColor="#ffffff"
@@ -54,7 +54,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline15"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.49" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline14"
@@ -170,6 +170,7 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="number"
+        android:gravity="center_horizontal"
         app:layout_constraintBottom_toTopOf="@+id/guideline34"
         app:layout_constraintEnd_toStartOf="@+id/guideline50"
         app:layout_constraintStart_toStartOf="@+id/guideline45"
@@ -183,6 +184,7 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="number"
+        android:gravity="center_horizontal"
         app:layout_constraintBottom_toTopOf="@+id/guideline34"
         app:layout_constraintEnd_toStartOf="@+id/guideline47"
         app:layout_constraintStart_toStartOf="@+id/guideline48"
@@ -193,14 +195,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.52" />
+        app:layout_constraintGuide_percent="0.58" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline35"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.41" />
+        app:layout_constraintGuide_percent="0.47" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline45"

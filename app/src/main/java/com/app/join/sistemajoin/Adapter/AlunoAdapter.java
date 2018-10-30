@@ -33,13 +33,13 @@ public class AlunoAdapter extends ArrayAdapter<Aluno> {
             view = inflater.inflate(R.layout.layout_tabela_exibir_alunos, parent, false);
 
             TextView textViewNome = view.findViewById(R.id.campoNomeAluno);
-            TextView textViewTelefone = view.findViewById(R.id.campoMatriculaAluno);
-            TextView textViewStatus = view.findViewById(R.id.campoStatusAluno);
+            TextView campoResponsávelAluno = view.findViewById(R.id.campoResponsávelAluno);
+           // TextView textViewStatus = view.findViewById(R.id.campoStatusAluno);
 
             Aluno alu = alunos.get(position);
             textViewNome.setText(alu.getNome());
-            textViewTelefone.setText(alu.getNomeResponsavel());
-            textViewStatus.setText(alu.getTelefone());
+            campoResponsávelAluno.setText(alu.getNomeResponsavel());
+           // textViewStatus.setText(alu.getTelefone());
         }
         return view;
     }

@@ -34,13 +34,13 @@ public class ProfessorAdapter extends ArrayAdapter<Professor> {
             view = inflater.inflate(R.layout.layout_tabela_exibir_professores, parent, false);
 
             TextView textViewNome = view.findViewById(R.id.campoNomeProf);
-            TextView textViewTelefone = view.findViewById(R.id.campoTelProf);
-            TextView textViewStatus = view.findViewById(R.id.campoStatusProf);
+           TextView textViewTelefone = view.findViewById(R.id.campoTelProf);
+           // TextView textViewStatus = view.findViewById(R.id.campoStatusProf);
 
             Professor pro = professor.get(position);
             textViewNome.setText(pro.getNome());
             textViewTelefone.setText(pro.getTelefone());
-            textViewStatus.setText(pro.getKeyTurma());
+            //textViewStatus.setText(pro.getKeyTurma());
         }
         return view;
     }

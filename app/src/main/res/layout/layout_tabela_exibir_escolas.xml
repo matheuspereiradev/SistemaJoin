@@ -9,7 +9,7 @@
 
     <TextView
         android:id="@+id/campoNomeEscola"
-        android:layout_width="155dp"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="1dp"
@@ -19,21 +19,11 @@
 
     <TextView
         android:id="@+id/campoTelEscola"
-        android:layout_width="120dp"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="1dp"
         android:text="Telefone"
-        android:textColor="@android:color/background_dark"
-        android:textSize="15sp" />
-
-    <TextView
-        android:id="@+id/campoStatusEscola"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="1dp"
-        android:text="Status"
         android:textColor="@android:color/background_dark"
         android:textSize="15sp" />
 

@@ -40,7 +40,7 @@ public class ViewExibirInformacoesTurma extends AppCompatActivity {
         setContentView(R.layout.activity_view_exibir_informacoes_turma);
 
         cmpNomeTurma = (TextView) findViewById(R.id.cmpNomeTurma);
-        cmpProfTurma = (TextView) findViewById(R.id.cmpProfTurma);
+        cmpProfTurma = (TextView) findViewById(R.id.cmpFaixaEtaria);
         btEditTurma = (ImageButton) findViewById(R.id.btEditTurma);
         btExcluirTurma = (ImageButton) findViewById(R.id.btExcluirTurma);
 

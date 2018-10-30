@@ -69,53 +69,83 @@
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/ctNomeAluno"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:ems="10"
-                android:hint="Nome do aluno"
-                android:inputType="textPersonName" />
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/colorPrimaryDark">
+                <EditText
+                    android:id="@+id/ctNomeAluno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:ems="10"
+                    android:hint="Nome do aluno"
+                    android:inputType="textPersonName" />
+            </android.support.design.widget.TextInputLayout>
 
-            <EditText
-                android:id="@+id/ctNomeResponsavel"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:ems="10"
-                android:hint="Nome do responsável"
-                android:inputType="textPersonName" />
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/colorPrimaryDark">
+                <EditText
+                    android:id="@+id/ctNomeResponsavel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:ems="10"
+                    android:hint="Nome do responsável"
+                    android:inputType="textPersonName" />
+            </android.support.design.widget.TextInputLayout>
 
-            <EditText
-                android:id="@+id/ctTelAluno"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:ems="10"
-                android:hint="Telefone do reponsável"
-                android:inputType="phone" />
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/colorPrimaryDark">
+                <EditText
+                    android:id="@+id/ctTelAluno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:ems="10"
+                    android:hint="Telefone do reponsável"
+                    android:inputType="phone" />
+            </android.support.design.widget.TextInputLayout>
 
-            <EditText
-                android:id="@+id/ctEmailResp"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:ems="10"
-                android:hint="Email do responsável"
-                android:inputType="textEmailAddress|textEmailSubject" />
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/colorPrimaryDark">
+                <EditText
+                    android:id="@+id/ctEmailResp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:ems="10"
+                    android:hint="Email do responsável"
+                    android:inputType="textEmailAddress|textEmailSubject" />
+            </android.support.design.widget.TextInputLayout>
 
-            <EditText
-                android:id="@+id/ctCPFResp"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:ems="10"
-                android:hint="CPF do responsável"
-                android:inputType="number" />
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/colorPrimaryDark">
+                <EditText
+                    android:id="@+id/ctCPFResp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:ems="10"
+                    android:hint="CPF do responsável"
+                    android:inputType="number" />
+            </android.support.design.widget.TextInputLayout>
 
         </LinearLayout>
 

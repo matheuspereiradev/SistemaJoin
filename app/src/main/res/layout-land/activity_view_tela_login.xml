@@ -91,7 +91,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline24"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/logo_ico_app_join" />
+        app:srcCompat="@drawable/logomarca_sistema" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline52"

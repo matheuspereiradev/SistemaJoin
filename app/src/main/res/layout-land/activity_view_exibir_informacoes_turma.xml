@@ -5,43 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activitys.ViewExibirInformacoesTurma"
-    tools:layout_editor_absoluteY="81dp">
+    tools:layout_editor_absoluteY="25dp">
 
     <TextView
         android:id="@+id/textView67"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:text="Informações sobre a turma"
         android:textColor="@android:color/background_dark"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/guideline22"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="121dp" />
 
     <GridLayout
-        android:layout_width="0dp"
+        android:layout_width="529dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginRight="2dp"
         android:columnCount="2"
         android:rowCount="5"
-        app:layout_constraintBottom_toTopOf="@+id/guideline133"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline22">
+        tools:layout_editor_absoluteX="2dp"
+        tools:layout_editor_absoluteY="15dp">
 
         <TextView
             android:id="@+id/textView68"
             android:layout_width="128dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:text="Nome da turma:"
             android:textColor="@android:color/background_dark"
@@ -61,6 +49,7 @@
             android:id="@+id/textView71"
             android:layout_width="128dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
             android:layout_marginTop="15dp"
             android:text="Faixa etária:"
             android:textColor="@android:color/background_dark"
@@ -80,108 +69,96 @@
 
     <ImageButton
         android:id="@+id/btEditTurma"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_width="251dp"
+        android:layout_height="27dp"
         android:background="@android:color/holo_blue_dark"
         android:src="@android:drawable/ic_menu_edit"
-        app:layout_constraintBottom_toTopOf="@+id/guideline92"
-        app:layout_constraintEnd_toStartOf="@+id/guideline44"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline93" />
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="250dp" />
 
     <ImageButton
         android:id="@+id/btExcluirTurma"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_width="251dp"
+        android:layout_height="27dp"
         android:background="@android:color/holo_red_dark"
         android:src="@android:drawable/ic_menu_delete"
-        app:layout_constraintBottom_toTopOf="@+id/guideline92"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline44"
-        app:layout_constraintTop_toTopOf="@+id/guideline93" />
+        tools:layout_editor_absoluteX="275dp"
+        tools:layout_editor_absoluteY="250dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.46" />
+        app:layout_constraintGuide_begin="136dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.10" />
+        app:layout_constraintGuide_begin="29dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline42"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.04" />
+        app:layout_constraintGuide_begin="21dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline43"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.96" />
+        app:layout_constraintGuide_begin="512dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline44"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.50" />
+        app:layout_constraintGuide_begin="267dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline92"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.94" />
+        app:layout_constraintGuide_end="19dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline93"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.85" />
+        app:layout_constraintGuide_begin="251dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline118"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.9" />
+        app:layout_constraintGuide_begin="480dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline119"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.1" />
+        app:layout_constraintGuide_begin="53dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline120"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.83" />
+        app:layout_constraintGuide_begin="245dp" />
 
 
     <ScrollView
         android:layout_width="0dp"
-        android:layout_height="183dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline120"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -209,12 +186,9 @@
 
     <ListView
         android:id="@+id/listadeprofessores"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline131"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline132" />
+        android:layout_width="533dp"
+        android:layout_height="38dp"
+        tools:layout_editor_absoluteY="82dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline133"
@@ -229,11 +203,8 @@
         android:layout_height="wrap_content"
         android:text="Professores:"
         android:textColor="@color/preto"
-        app:layout_constraintBottom_toTopOf="@+id/guideline132"
-        app:layout_constraintEnd_toStartOf="@+id/guideline44"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline133" />
+        tools:layout_editor_absoluteX="9dp"
+        tools:layout_editor_absoluteY="66dp" />
 
     <TextView
         android:id="@+id/textView10"
@@ -241,10 +212,7 @@
         android:layout_height="wrap_content"
         android:text="Alunos:"
         android:textColor="@color/preto"
-        app:layout_constraintBottom_toTopOf="@+id/guideline21"
-        app:layout_constraintEnd_toStartOf="@+id/guideline44"
-        app:layout_constraintHorizontal_bias="0.06"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline131" />
+        tools:layout_editor_absoluteX="13dp"
+        tools:layout_editor_absoluteY="118dp" />
 
 </android.support.constraint.ConstraintLayout>

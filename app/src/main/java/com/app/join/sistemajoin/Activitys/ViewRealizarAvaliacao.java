@@ -18,8 +18,8 @@ import java.text.SimpleDateFormat;
 public class ViewRealizarAvaliacao extends AppCompatActivity {
 
     private RatingBar ratingBar;
-    private Button btEnviarAv;
-    private TextView tvNomeAluno;
+    private Button btEnviarAv,btmenos,btmais;
+    private TextView tvNomeAluno,tvtotaladd;
     private Intent intent;
 
     @Override
@@ -27,14 +27,13 @@ public class ViewRealizarAvaliacao extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_realizar_avaliacao);
 
-
-
+        btmenos= (Button) findViewById(R.id.btmenos);
+        btmais= (Button) findViewById(R.id.btmais);
+        tvtotaladd= (TextView) findViewById(R.id.tvtotaladd);
         btEnviarAv = (Button) findViewById(R.id.btEnviarAv);
         tvNomeAluno = (TextView) findViewById(R.id.tvNomeAluno);
 
-
         intent = getIntent();
-
 
         tvNomeAluno.setText(intent.getStringExtra("nome"));
 

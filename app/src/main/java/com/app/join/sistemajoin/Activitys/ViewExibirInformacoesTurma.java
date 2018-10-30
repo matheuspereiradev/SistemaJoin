@@ -22,9 +22,9 @@ import java.util.ArrayList;
 
 public class ViewExibirInformacoesTurma extends AppCompatActivity {
 
-    private TextView cmpNomeTurma, cmpProfTurma;
+    private TextView cmpNomeTurma, cmpFaixaEtaria;
     private ImageButton btEditTurma, btExcluirTurma;
-    private ListView listview;
+    private ListView listadealunos,listadeprofessores;
     private ArrayAdapter<Aluno> adapter;
     private ArrayList<Aluno> lista;
     private Aluno aluno;
@@ -40,7 +40,7 @@ public class ViewExibirInformacoesTurma extends AppCompatActivity {
         setContentView(R.layout.activity_view_exibir_informacoes_turma);
 
         cmpNomeTurma = (TextView) findViewById(R.id.cmpNomeTurma);
-        cmpProfTurma = (TextView) findViewById(R.id.cmpFaixaEtaria);
+        cmpFaixaEtaria = (TextView) findViewById(R.id.cmpFaixaEtaria);
         btEditTurma = (ImageButton) findViewById(R.id.btEditTurma);
         btExcluirTurma = (ImageButton) findViewById(R.id.btExcluirTurma);
 
@@ -48,9 +48,9 @@ public class ViewExibirInformacoesTurma extends AppCompatActivity {
         preencheCampos();
 
         lista = new ArrayList();
-        listview = findViewById(R.id.listadealunos);
+        listadealunos = findViewById(R.id.listadealunos);
         adapter = new AlunoAdapter(this, lista);
-        listview.setAdapter(adapter);
+        listadealunos.setAdapter(adapter);
         firebase = ConfiguracaoFirebase.getFirebase().child("aluno");
         valueEventListener = new ValueEventListener() {
             @Override

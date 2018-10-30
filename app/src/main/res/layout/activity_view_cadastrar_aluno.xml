@@ -24,12 +24,12 @@
         android:layout_width="163dp"
         android:layout_height="60dp"
         android:layout_gravity="center"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/botaoarredondado"
         android:text="Salvar"
         android:textColor="#ffffff"
@@ -79,6 +79,7 @@
                 android:layout_height="wrap_content"
                 app:passwordToggleEnabled="true"
                 app:passwordToggleTint="@color/colorPrimaryDark">
+
                 <EditText
                     android:id="@+id/ctNomeAluno"
                     android:layout_width="match_parent"
@@ -94,6 +95,7 @@
                 android:layout_height="wrap_content"
                 app:passwordToggleEnabled="true"
                 app:passwordToggleTint="@color/colorPrimaryDark">
+
                 <EditText
                     android:id="@+id/ctNomeResponsavel"
                     android:layout_width="match_parent"
@@ -110,6 +112,7 @@
                 android:layout_height="wrap_content"
                 app:passwordToggleEnabled="true"
                 app:passwordToggleTint="@color/colorPrimaryDark">
+
                 <EditText
                     android:id="@+id/ctTelAluno"
                     android:layout_width="match_parent"
@@ -127,6 +130,7 @@
                 android:layout_height="wrap_content"
                 app:passwordToggleEnabled="true"
                 app:passwordToggleTint="@color/colorPrimaryDark">
+
                 <EditText
                     android:id="@+id/ctEmailResp"
                     android:layout_width="match_parent"
@@ -143,6 +147,7 @@
                 android:layout_height="wrap_content"
                 app:passwordToggleEnabled="true"
                 app:passwordToggleTint="@color/colorPrimaryDark">
+
                 <EditText
                     android:id="@+id/ctCPFResp"
                     android:layout_width="match_parent"

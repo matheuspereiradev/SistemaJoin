@@ -76,59 +76,71 @@
             android:layout_height="0dp"
             android:orientation="vertical">
 
-
-            <EditText
-                android:id="@+id/ctNomeEsc"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:ems="10"
-                android:hint="Nome da escola"
-                android:inputType="textPersonName"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="88dp" />
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/colorPrimaryDark">
+                <EditText
+                    android:id="@+id/ctNomeEsc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:ems="10"
+                    android:hint="Nome da escola"
+                    android:inputType="textPersonName"/>
+            </android.support.design.widget.TextInputLayout>
 
-            <EditText
-                android:id="@+id/ctTelEsc"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:ems="10"
-                android:hint="Telefone"
-                android:inputType="phone"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="247dp" />
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/colorPrimaryDark">
+                <EditText
+                    android:id="@+id/ctTelEsc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:ems="10"
+                    android:hint="Telefone"
+                    android:inputType="phone" />
+            </android.support.design.widget.TextInputLayout>
 
-            <EditText
-                android:id="@+id/ctEmailEsc"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:ems="10"
-                android:hint="Email"
-                android:inputType="textEmailAddress"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="166dp" />
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/colorPrimaryDark">
+                <EditText
+                    android:id="@+id/ctEmailEsc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:ems="10"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress" />
+            </android.support.design.widget.TextInputLayout>
 
-
-            <EditText
-                android:id="@+id/ctCNPJEsc"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:ems="10"
-                android:hint="CNPJ"
-                android:inputType="number"
-                tools:layout_editor_absoluteX="16dp"
-
-                tools:layout_editor_absoluteY="330dp" />
-
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/colorPrimaryDark">
+                <EditText
+                    android:id="@+id/ctCNPJEsc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:ems="10"
+                    android:hint="CNPJ"
+                    android:inputType="number" />
+            </android.support.design.widget.TextInputLayout>
 
         </LinearLayout>
     </ScrollView>

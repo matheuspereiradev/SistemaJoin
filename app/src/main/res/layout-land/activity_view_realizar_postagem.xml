@@ -30,6 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
+        android:padding="5dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toStartOf="@+id/guideline77"
         app:layout_constraintStart_toStartOf="@+id/guideline76"
@@ -54,6 +55,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="2dp"
         android:layout_marginBottom="2dp"
+        android:padding="5dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toStartOf="@+id/guideline77"
         app:layout_constraintStart_toStartOf="@+id/guideline76"
@@ -78,17 +80,21 @@
 
     <Button
         android:id="@+id/btEnviarPost"
-        android:layout_width="0dp"
+        android:layout_width="215dp"
         android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/botaoarredondado"
         android:text="Enviar"
         android:textColor="#ffffff"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline61"
-        app:layout_constraintStart_toStartOf="@+id/guideline60"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline5" />
 
     <android.support.constraint.Guideline
@@ -110,21 +116,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.37" />
+        app:layout_constraintGuide_percent="0.39" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline74"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.21" />
+        app:layout_constraintGuide_percent="0.28" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline75"
         android:layout_width="4dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.4" />
+        app:layout_constraintGuide_percent="0.44" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline76"
@@ -140,18 +146,35 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.96" />
 
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline60"
+    <TextView
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.33" />
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Nome do aluno:"
+        android:textColor="@color/preto"
+        app:layout_constraintBottom_toTopOf="@+id/guideline74"
+        app:layout_constraintEnd_toStartOf="@+id/tvnomealunopost"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/guideline76"
+        app:layout_constraintStart_toStartOf="@+id/guideline76"
+        app:layout_constraintTop_toTopOf="@+id/guideline6" />
 
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline61"
+    <TextView
+        android:id="@+id/tvnomealunopost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.66" />
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="NomeAluno"
+        app:layout_constraintBottom_toTopOf="@+id/guideline74"
+        app:layout_constraintEnd_toStartOf="@+id/guideline77"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintTop_toTopOf="@+id/guideline6" />
 
 </android.support.constraint.ConstraintLayout>

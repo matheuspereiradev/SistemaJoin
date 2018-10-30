@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.app.join.sistemajoin.Model.Agenda;
 import com.app.join.sistemajoin.R;
@@ -16,6 +17,7 @@ import java.text.SimpleDateFormat;
 
 public class ViewRealizarPostagem extends AppCompatActivity {
 
+    TextView tvnomealunopost;
     EditText ctTituloPost, ctMsgPost;
     Button btEnviarPost;
     Intent intent;
@@ -25,6 +27,7 @@ public class ViewRealizarPostagem extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_realizar_postagem);
 
+        tvnomealunopost=(TextView)findViewById(R.id.tvnomealunopost);
         ctTituloPost = (EditText) findViewById(R.id.ctTituloPost);
         ctMsgPost = (EditText) findViewById(R.id.ctMsgPost);
         btEnviarPost = (Button) findViewById(R.id.btEnviarPost);

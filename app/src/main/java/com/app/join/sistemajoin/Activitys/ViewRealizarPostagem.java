@@ -8,31 +8,34 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.app.join.sistemajoin.Model.Agenda;
 import com.app.join.sistemajoin.R;
 import com.app.join.sistemajoin.Tools.Base64Custon;
 import com.app.join.sistemajoin.Tools.ConfiguracaoFirebase;
 import com.google.firebase.database.DatabaseReference;
+
 import java.text.SimpleDateFormat;
 
 public class ViewRealizarPostagem extends AppCompatActivity {
 
-    TextView tvnomealunopost;
-    EditText ctTituloPost, ctMsgPost;
-    Button btEnviarPost;
-    Intent intent;
+    private TextView tvnomealunopost;
+    private EditText ctTituloPost, ctMsgPost;
+    private Button btEnviarPost;
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_realizar_postagem);
 
-        tvnomealunopost=(TextView)findViewById(R.id.tvnomealunopost);
+        tvnomealunopost = (TextView) findViewById(R.id.tvnomealunopost);
         ctTituloPost = (EditText) findViewById(R.id.ctTituloPost);
         ctMsgPost = (EditText) findViewById(R.id.ctMsgPost);
         btEnviarPost = (Button) findViewById(R.id.btEnviarPost);
 
         intent = getIntent();
+        tvnomealunopost.setText(intent.getStringExtra("nome"));
 
         if (intent.getStringExtra("remetente").equals("editar")) {
             preencheCampos();
@@ -83,7 +86,7 @@ public class ViewRealizarPostagem extends AppCompatActivity {
         agenda.setIdDestino(intent.getStringExtra("idAluno"));
         agenda.setMensagem(ctMsgPost.getText().toString());
         agenda.setIdProfessor(intent.getStringExtra("idprofessor"));
-        String idUsuario = Base64Custon.codificadorBase64(agenda.getMensagem()+agenda.getData());
+        String idUsuario = Base64Custon.codificadorBase64(agenda.getMensagem() + agenda.getData());
         agenda.setIdAgenda(idUsuario);
         return agenda;
     }

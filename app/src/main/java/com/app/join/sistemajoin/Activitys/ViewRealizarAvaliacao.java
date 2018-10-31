@@ -30,13 +30,14 @@ public class ViewRealizarAvaliacao extends AppCompatActivity {
     private Button btEnviarAv, btmenos, btmais;
     private TextView tvNomeAluno, tvtotaladd, tvNotaAtual;
     private Intent intent;
-    private ListView listviewAv;
-    private ArrayAdapter<Avaliacao> adapterAv;
-    private ArrayList<Avaliacao> listaAv;
-    private Avaliacao avaliacao, variavelAv;
-    private DatabaseReference firebaseAv;
-    private ValueEventListener valueEventListenerAV;
-    private String av = "0";
+    private ListView listview;
+    private ArrayAdapter<Avaliacao> adapter;
+    private ArrayList<Avaliacao> lista;
+    private Avaliacao avaliacao, variavel;
+    private DatabaseReference firebase;
+    private ValueEventListener valueEventListener;
+    private String av;
+    private String dateString;
 
 
     @Override
@@ -52,14 +53,49 @@ public class ViewRealizarAvaliacao extends AppCompatActivity {
         tvNotaAtual = (TextView) findViewById(R.id.tvNotaAtual);
 
         intent = getIntent();
+        long date = System.currentTimeMillis();
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/yyyy");
+        dateString = sdf.format(date);
+        lista = new ArrayList();
+        listview = new ListView(this);
+        adapter = new AvaliacaoAdapter(this, lista);
+        listview.setAdapter(adapter);
+        firebase = ConfiguracaoFirebase.getFirebase().child("avaliacao");
+        valueEventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                lista.clear();
+                for (DataSnapshot dados : dataSnapshot.getChildren()) {
+                    avaliacao = dados.getValue(Avaliacao.class);
+                    if (avaliacao.getDataAv().equals(dateString) && avaliacao.getIdAluno().equals(intent.getStringExtra("idAluno"))) {
+                        av = avaliacao.getAv();
+                        tvNotaAtual.setText(av);
+                        lista.add(avaliacao);
+                    }else{
+                        av = "0";
+                    }
+                }
+                adapter.notifyDataSetChanged();
+            }
 
-        preencheCampos(pegaAv());
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        };
+
+        tvNomeAluno.setText(intent.getStringExtra("nome"));
+        tvtotaladd.setText("0");
 
         btmais.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 float var = Float.parseFloat(tvtotaladd.getText().toString());
                 var++;
+                if (var == 10) {
+
+                }
+                btmenos.isEnabled();
                 tvtotaladd.setText(String.valueOf(var));
             }
         });
@@ -69,6 +105,10 @@ public class ViewRealizarAvaliacao extends AppCompatActivity {
             public void onClick(View view) {
                 float var = Float.parseFloat(tvtotaladd.getText().toString());
                 var--;
+                if (var == -10) {
+
+                }
+                btmais.isEnabled();
                 tvtotaladd.setText(String.valueOf(var));
             }
         });
@@ -80,15 +120,20 @@ public class ViewRealizarAvaliacao extends AppCompatActivity {
                 float notaAtual, notaNova;
                 notaAtual = (Float.valueOf(tvNotaAtual.getText().toString()));
                 notaNova = (Float.valueOf(tvtotaladd.getText().toString()));
-                avaliacao.setAv(String.valueOf(notaAtual + notaNova));
-                long date = System.currentTimeMillis();
-                SimpleDateFormat sdf = new SimpleDateFormat("MM/yyyy");
-                String dateString = sdf.format(date);
+                if (notaAtual + notaNova > 10) {
+                    avaliacao.setAv("10");
+                } else if (notaNova > notaAtual) {
+                    avaliacao.setAv("0");
+                } else {
+                    avaliacao.setAv(String.valueOf(notaAtual + notaNova));
+                }
                 avaliacao.setDataAv(dateString);
                 avaliacao.setIdAluno(intent.getStringExtra("idAluno"));
                 String idAv = Base64Custon.codificadorBase64(avaliacao.getDataAv() + avaliacao.getIdAluno());
                 avaliacao.setIdAvaliacao(idAv);
+
                 salvarAvaliacao(avaliacao);
+
                 Intent in = new Intent(ViewRealizarAvaliacao.this, ViewSelecionarAlunos.class);
                 in.putExtra("codigo", "1");
                 in.putExtra("keyTurma", intent.getStringExtra("keyTurma"));
@@ -111,47 +156,14 @@ public class ViewRealizarAvaliacao extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        firebaseAv.removeEventListener(valueEventListenerAV);
+        firebase.removeEventListener(valueEventListener);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        firebaseAv.addValueEventListener(valueEventListenerAV);
+        firebase.addValueEventListener(valueEventListener);
     }
 
-    private void preencheCampos(String av){
-        tvNomeAluno.setText(intent.getStringExtra("nome"));
-        tvNotaAtual.setText(av);
-        tvtotaladd.setText("0");
-    }
-
-    private String pegaAv(){
-        long date = System.currentTimeMillis();
-        SimpleDateFormat sdf = new SimpleDateFormat("MM/yyyy");
-        final String dateString = sdf.format(date);
-        listaAv = new ArrayList();
-        adapterAv = new AvaliacaoAdapter(this, listaAv);
-        firebaseAv = ConfiguracaoFirebase.getFirebase().child("avaliacao");
-        valueEventListenerAV = new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                listaAv.clear();
-                for (DataSnapshot dados : dataSnapshot.getChildren()) {
-                    avaliacao = dados.getValue(Avaliacao.class);
-                    if (avaliacao.getIdAluno().equals(intent.getStringExtra("idAluno")) && dateString.equals(avaliacao.getDataAv())) {
-                        av = avaliacao.getAv();
-                    }
-                }
-                adapterAv.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        };
-        return av;
-    }
 
 }

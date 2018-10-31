@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 
 public class ViewVerGrafico extends AppCompatActivity {
-    private ListView listview;
+    private ListView listview,listadeavalicoes;
     private ArrayAdapter<Avaliacao> adapter;
     private ArrayList<Avaliacao> lista;
     private Avaliacao avaliacao, variavel;

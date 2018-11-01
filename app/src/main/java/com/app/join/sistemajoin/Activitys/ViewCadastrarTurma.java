@@ -70,7 +70,7 @@ public class ViewCadastrarTurma extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     if (nome.getText().length() < 1) {
-                        Toast.makeText(getBaseContext(), "Preencha todos os campos!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getBaseContext(), "Favor ,preencher todos os campos!", Toast.LENGTH_SHORT).show();
                     } else {
                         Turma turma = new Turma();
                         turma.setNome(nome.getText().toString());

@@ -44,7 +44,7 @@ public class ViewListarEscolas extends AppCompatActivity {
         listview.setAdapter(adapter);
         firebase = ConfiguracaoFirebase.getFirebase().child("escola");
 
-        Toast.makeText(ViewListarEscolas.this, "Clique na Lista para ver as informações completas da escola", Toast.LENGTH_LONG).show();
+        Toast.makeText(ViewListarEscolas.this, "Clique na lista para ver as informações completas da escola", Toast.LENGTH_LONG).show();
 
         valueEventListener = new ValueEventListener() {
             @Override

@@ -124,7 +124,7 @@ public class ViewTelaLogin extends AppCompatActivity {
                     admJoin.setSenha(ctSenhaUsr.getText().toString());
                     validaLogin();
                 } else {
-                    Toast.makeText(ViewTelaLogin.this, "Prencha todos os campos", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ViewTelaLogin.this, "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -156,7 +156,7 @@ public class ViewTelaLogin extends AppCompatActivity {
                         in.putExtra("cpfRes", aluno.getCpfResponsavel());
                         startActivity(in);
                     } else {
-                        Toast.makeText(ViewTelaLogin.this, "Email ou Senha Inválido", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ViewTelaLogin.this, "E-mail e/ou Senha inválidos!", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

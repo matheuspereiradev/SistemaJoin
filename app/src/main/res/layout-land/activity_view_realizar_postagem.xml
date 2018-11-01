@@ -72,7 +72,7 @@
             android:gravity="top"
             android:hint="Mensagem"
             android:inputType="textMultiLine"
-            android:maxLength="140"
+            android:maxLength="200"
             android:singleLine="false"
             android:text=""
             android:textColor="#000000" />

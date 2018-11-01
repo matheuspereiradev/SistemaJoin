@@ -179,19 +179,15 @@
         app:layout_constraintGuide_percent="0.83" />
 
 
-    <ScrollView
+    <ListView
+        android:id="@+id/listadealunos"
         android:layout_width="0dp"
-        android:layout_height="183dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline120"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline21">
-
-        <ListView
-            android:id="@+id/listadealunos"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </ScrollView>
+        app:layout_constraintTop_toTopOf="@+id/guideline21" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline131"

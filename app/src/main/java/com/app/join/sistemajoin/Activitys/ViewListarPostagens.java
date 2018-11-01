@@ -9,19 +9,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
-
-import com.app.join.sistemajoin.Adapter.EscolaAdapter;
 import com.app.join.sistemajoin.Adapter.PostagemAdapter;
 import com.app.join.sistemajoin.Model.Agenda;
-import com.app.join.sistemajoin.Model.Escola;
 import com.app.join.sistemajoin.R;
 import com.app.join.sistemajoin.Tools.ConfiguracaoFirebase;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
 
 public class ViewListarPostagens extends AppCompatActivity {
@@ -66,12 +61,13 @@ public class ViewListarPostagens extends AppCompatActivity {
 
             }
         };
-        if (intent.getStringExtra("remetente").equals("professor")) {
-            listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    variavel = adapter.getItem(i);
-                    AlertDialog.Builder builder = new AlertDialog.Builder(ViewListarPostagens.this);
+
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                variavel = adapter.getItem(i);
+                if (intent.getStringExtra("remetente").equals("professor")) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getBaseContext());
                     builder.setMessage("O que deseja fazer?");
                     builder.setPositiveButton("Editar", new DialogInterface.OnClickListener() {
                         @Override
@@ -90,7 +86,7 @@ public class ViewListarPostagens extends AppCompatActivity {
                     builder.setNegativeButton("Excluir", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-                            AlertDialog.Builder builder = new AlertDialog.Builder(ViewListarPostagens.this);
+                            AlertDialog.Builder builder = new AlertDialog.Builder(getBaseContext());
                             builder.setMessage("Deseja realmente excluir a postagem?");
                             builder.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
                                 @Override
@@ -118,10 +114,12 @@ public class ViewListarPostagens extends AppCompatActivity {
                     alertDialog = builder.create();
                     alertDialog.show();
                 }
-            });
+            }
 
-        }
+        });
+
     }
+
 
     @Override
     protected void onStop() {

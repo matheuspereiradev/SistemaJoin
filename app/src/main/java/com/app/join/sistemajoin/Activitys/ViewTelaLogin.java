@@ -1,6 +1,8 @@
 package com.app.join.sistemajoin.Activitys;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.Preference;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,15 +13,10 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.Toast;
-
 import com.app.join.sistemajoin.Adapter.AlunoAdapter;
 import com.app.join.sistemajoin.Adapter.EscolaAdapter;
-import com.app.join.sistemajoin.Adapter.PostagemAdapter;
-import com.app.join.sistemajoin.Adapter.ProfessorAdapter;
-import com.app.join.sistemajoin.Model.Agenda;
 import com.app.join.sistemajoin.Model.Aluno;
 import com.app.join.sistemajoin.Model.Escola;
-import com.app.join.sistemajoin.Model.Professor;
 import com.app.join.sistemajoin.Tools.Base64Custon;
 import com.app.join.sistemajoin.Tools.ConfiguracaoFirebase;
 import com.app.join.sistemajoin.Model.AdmJoin;
@@ -28,14 +25,10 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
 
 
@@ -69,6 +62,10 @@ public class ViewTelaLogin extends AppCompatActivity {
         btEntrar = (Button) findViewById(R.id.btEntrar);
         ctSenhaUsr = (EditText) findViewById(R.id.ctSenhaUsr);
         ctLoginUsr = (EditText) findViewById(R.id.ctLoginUsr);
+
+        SharedPreferences log = getSharedPreferences("logjoin", MODE_PRIVATE);
+        ctLoginUsr.setText(log.getString("login", ""));
+        ctSenhaUsr.setText(log.getString("senha", ""));
 
         listaEscola = new ArrayList();
         listviewEscola = new ListView(this);
@@ -122,6 +119,17 @@ public class ViewTelaLogin extends AppCompatActivity {
                     admJoin = new AdmJoin();
                     admJoin.setEmail(ctLoginUsr.getText().toString());
                     admJoin.setSenha(ctSenhaUsr.getText().toString());
+                    SharedPreferences log = getSharedPreferences("logjoin", MODE_PRIVATE);
+                    SharedPreferences.Editor logjoin = log.edit();
+                    if(swManterConectado.isChecked()){
+                        logjoin.putString("login", admJoin.getEmail());
+                        logjoin.putString("senha", admJoin.getSenha());
+                        logjoin.apply();
+                    }else{
+                        logjoin.putString("login", "");
+                        logjoin.putString("senha", "");
+                        logjoin.apply();
+                    }
                     validaLogin();
                 } else {
                     Toast.makeText(ViewTelaLogin.this, "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();

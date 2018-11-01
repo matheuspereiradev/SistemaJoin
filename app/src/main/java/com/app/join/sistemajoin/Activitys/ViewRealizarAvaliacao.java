@@ -28,7 +28,7 @@ public class ViewRealizarAvaliacao extends AppCompatActivity {
 
 
     private Button btEnviarAv, btmenos, btmais;
-    private TextView tvNomeAluno, tvtotaladd, tvNotaAtual;
+    private TextView tvNomeAluno, tvNotaAtual;
     private Intent intent;
     private ListView listview;
     private ArrayAdapter<Avaliacao> adapter;
@@ -47,7 +47,6 @@ public class ViewRealizarAvaliacao extends AppCompatActivity {
 
         btmenos = (Button) findViewById(R.id.btmenos);
         btmais = (Button) findViewById(R.id.btmais);
-        tvtotaladd = (TextView) findViewById(R.id.tvtotaladd);
         btEnviarAv = (Button) findViewById(R.id.btEnviarAv);
         tvNomeAluno = (TextView) findViewById(R.id.tvNomeAluno);
         tvNotaAtual = (TextView) findViewById(R.id.tvNotaAtual);
@@ -118,7 +117,7 @@ public class ViewRealizarAvaliacao extends AppCompatActivity {
                 Avaliacao avaliacao = new Avaliacao();
                 float notaAtual, notaNova;
                 notaAtual = (Float.valueOf(tvNotaAtual.getText().toString()));
-                notaNova = (Float.valueOf(tvtotaladd.getText().toString()));
+                notaNova = 0;// (Float.valueOf(tvtotaladd.getText().toString()));
                 if (notaAtual + notaNova > 10) {
                     avaliacao.setAv("10");
                 } else if (notaNova > notaAtual) {

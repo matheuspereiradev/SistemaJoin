@@ -11,7 +11,8 @@
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:text="Nome"
         android:textColor="@android:color/background_dark"
         android:textSize="15sp" />
@@ -21,7 +22,8 @@
         android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:text="Turma"
         android:textColor="@android:color/background_dark"
         android:textSize="15sp" />

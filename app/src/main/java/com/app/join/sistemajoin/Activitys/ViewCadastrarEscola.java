@@ -60,53 +60,52 @@ public class ViewCadastrarEscola extends AppCompatActivity {
             ctTelEsc.setText(intent.getStringExtra("tel"));
             ctCNPJEsc.setText(intent.getStringExtra("cnpj"));
             ctEmailEsc.setText(intent.getStringExtra("email"));
+            ctCNPJEsc.setEnabled(false);
 
             btSalvarEsc.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (ctNomeEsc.getText().length()<1 || ctTelEsc.getText().length()<1 || ctEmailEsc.getText().length()<1 || ctCNPJEsc.getText().length()<1) {
-                        if (ctNomeEsc.getText().length()<1) {
-                            ctNomeEsc.isSelected();
-                            Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                        } else if (ctTelEsc.getText().length()<1) {
-                            ctTelEsc.isSelected();
-                            Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                        } else if (ctEmailEsc.getText().length()<1) {
-                            ctEmailEsc.isSelected();
-                            Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                        } else if (ctCNPJEsc.getText().length()<1) {
-                            ctCNPJEsc.isSelected();
-                            Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                        }
-
+                    if (ctNomeEsc.getText().length() < 1) {
+                        ctNomeEsc.isSelected();
+                        Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
+                    } else if (ctTelEsc.getText().length() < 1) {
+                        ctTelEsc.isSelected();
+                        Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
+                    } else if (ctEmailEsc.getText().length() < 1) {
+                        ctEmailEsc.isSelected();
+                        Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
+                    } else if (ctCNPJEsc.getText().length() < 1) {
+                        ctCNPJEsc.isSelected();
+                        Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
                     } else if (ctTelEsc.getText().length() < 15 && ctTelEsc.getText().length() > 1) {
                         ctTelEsc.isSelected();
                         Toast.makeText(getBaseContext(), "Favor, preencher os campos corretamente!", Toast.LENGTH_SHORT).show();
-
-                    } else if (ctCNPJEsc.getText().length() < 18 && ctCNPJEsc.getText().length() > 1 && !validaCnpj(ctCNPJEsc.getText().toString())) {
-                        ctCNPJEsc.isSelected();
-                        Toast.makeText(getBaseContext(), "Favor, preencher os campos corretamente!", Toast.LENGTH_SHORT).show();
-
                     } else {
                         escola = new Escola();
                         escola.setNome(ctNomeEsc.getText().toString());
                         escola.setTelefone(ctTelEsc.getText().toString());
                         escola.setEmail(ctEmailEsc.getText().toString());
-                        escola.setCnpj(ctCNPJEsc.getText().toString());
+                        escola.setCnpj(intent.getStringExtra("cnpj"));
                         escola.setId(key);
                         escola.setSenha(intent.getStringExtra("senha"));
-                        cadastrar();
-                        autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
-                        autenticacao.signInWithEmailAndPassword(escola.getEmail(), escola.getSenha()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    editar(escola);
-                                    chamatelaListaescola();
-                                    finish();
+                        if(escola.getEmail().equals(intent.getStringExtra("email"))){
+                            editar(escola);
+                            chamatelaListaescola();
+                            finish();
+                        }else {
+                            cadastrar();
+                            autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
+                            autenticacao.signInWithEmailAndPassword(escola.getEmail(), escola.getSenha()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        editar(escola);
+                                        chamatelaListaescola();
+                                        finish();
+                                    }
                                 }
-                            }
-                        });
+                            });
+                        }
                     }
                 }
             });
@@ -114,22 +113,22 @@ public class ViewCadastrarEscola extends AppCompatActivity {
             btSalvarEsc.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (ctNomeEsc.getText().length()< 1) {
+                    if (ctNomeEsc.getText().length() < 1) {
                         ctNomeEsc.isSelected();
                         Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                    } else if (ctTelEsc.getText().length()<1) {
+                    } else if (ctTelEsc.getText().length() < 1) {
                         ctTelEsc.isSelected();
                         Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                    } else if (ctEmailEsc.getText().length()<1) {
+                    } else if (ctEmailEsc.getText().length() < 1) {
                         ctEmailEsc.isSelected();
                         Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                    } else if (ctCNPJEsc.getText().length()<1) {
+                    } else if (ctCNPJEsc.getText().length() < 1) {
                         ctCNPJEsc.isSelected();
                         Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
                     } else if (ctTelEsc.getText().length() < 15 && ctTelEsc.getText().length() > 1) {
                         ctTelEsc.isSelected();
                         Toast.makeText(getBaseContext(), "Favor, preencher os campos corretamente!", Toast.LENGTH_SHORT).show();
-                    } else if (ctCNPJEsc.getText().length() < 18 && ctCNPJEsc.getText().length() > 1 && !validaCnpj(ctCNPJEsc.getText().toString())) {
+                    } else if (!validaCnpj(ctCNPJEsc.getText().toString())) {
                         ctCNPJEsc.isSelected();
                         Toast.makeText(getBaseContext(), "Favor, preencher os campos corretamente!", Toast.LENGTH_SHORT).show();
                     } else {
@@ -237,7 +236,7 @@ public class ViewCadastrarEscola extends AppCompatActivity {
             sm = 0;
             peso = 2;
             for (i = 11; i >= 0; i--) {
-                num = (int) (CNPJ.charAt(i) - 48);
+                num = (CNPJ.charAt(i) - 48);
                 sm = sm + (num * peso);
                 peso = peso + 1;
                 if (peso == 10)
@@ -252,7 +251,7 @@ public class ViewCadastrarEscola extends AppCompatActivity {
             sm = 0;
             peso = 2;
             for (i = 12; i >= 0; i--) {
-                num = (int) (CNPJ.charAt(i) - 48);
+                num = (CNPJ.charAt(i) - 48);
                 sm = sm + (num * peso);
                 peso = peso + 1;
                 if (peso == 10)

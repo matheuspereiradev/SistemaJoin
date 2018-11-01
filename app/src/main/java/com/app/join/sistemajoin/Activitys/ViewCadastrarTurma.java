@@ -50,7 +50,7 @@ public class ViewCadastrarTurma extends AppCompatActivity {
             salvar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (nome.getText().length() < 1 && idadeMin.length() < 1 && idadeMax.length() < 1) {
+                    if (nome.getText().length() < 1 || idadeMin.getText().toString().equals("") || idadeMax.getText().toString().equals("")) {
                         Toast.makeText(getBaseContext(), "Preencha todos os campos!", Toast.LENGTH_SHORT).show();
                     } else {
                         Turma turma = new Turma();
@@ -69,7 +69,7 @@ public class ViewCadastrarTurma extends AppCompatActivity {
             salvar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (nome.getText().length() < 1) {
+                    if (nome.getText().length() < 1 || idadeMin.getText().toString().equals("") || idadeMax.getText().toString().equals("")) {
                         Toast.makeText(getBaseContext(), "Favor ,preencher todos os campos!", Toast.LENGTH_SHORT).show();
                     } else {
                         Turma turma = new Turma();

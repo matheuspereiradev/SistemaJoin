@@ -123,6 +123,6 @@ public class ViewExibirInformacoesProfessor extends AppCompatActivity {
         cmpCPFProf.setText(intent.getStringExtra("cpf"));
         cmpSenhaProf.setText(intent.getStringExtra("senha"));
         cmpTelProf.setText(intent.getStringExtra("tel"));
-        campTurmaProf.setText(intent.getStringExtra("idTurma"));
+        campTurmaProf.setText(intent.getStringExtra("keyTurma"));
     }
 }

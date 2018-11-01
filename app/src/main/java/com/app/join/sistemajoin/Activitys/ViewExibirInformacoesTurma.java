@@ -157,15 +157,15 @@ public class ViewExibirInformacoesTurma extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        firebase.removeEventListener(valueEventListenerAluno);
-        firebase.removeEventListener(valueEventListenerPro);
+        firebaseAluno.removeEventListener(valueEventListenerAluno);
+        firebasePro.removeEventListener(valueEventListenerPro);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        firebase.addValueEventListener(valueEventListenerAluno);
-        firebase.addValueEventListener(valueEventListenerPro);
+        firebaseAluno.addValueEventListener(valueEventListenerAluno);
+        firebasePro.addValueEventListener(valueEventListenerPro);
     }
 
 }

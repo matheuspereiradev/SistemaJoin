@@ -33,7 +33,7 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
     private Professor professor;
     private String key, idEscola;
     private FirebaseAuth autenticacao;
-    private Intent intent = null;
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,57 +64,44 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
         idEscola = intent.getStringExtra("idEscola");
         if (key != null) {
             preencheCampos();
+            ctCPFProf.setEnabled(false);
             btProximoProf1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (ctNomeProf.getText().length() < 1 || ctCPFProf.getText().length() < 1
-                            || ctEmailProf.getText().length() < 1 || ctTelProf.getText().length() < 1) {
-                        if (ctNomeProf.getText().length() < 1) {
-                            ctNomeProf.isSelected();
-                            Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                        } else if (ctCPFProf.getText().length() < 1) {
-                            ctCPFProf.isSelected();
-                            Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                        } else if (ctTelProf.getText().length() < 1) {
-                            ctTelProf.isSelected();
-                            Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                        } else if (ctEmailProf.getText().length() < 1) {
-                            ctEmailProf.isSelected();
-                            Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                        }
+                    if (ctNomeProf.getText().length() < 1) {
+                        ctNomeProf.isSelected();
+                        Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
+                    } else if (ctTelProf.getText().length() < 1) {
+                        ctTelProf.isSelected();
+                        Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
+                    } else if (ctEmailProf.getText().length() < 1) {
+                        ctEmailProf.isSelected();
+                        Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
+
                     } else if (ctTelProf.getText().length() < 15 && ctTelProf.getText().length() > 1) {
                         ctTelProf.isSelected();
                         Toast.makeText(getBaseContext(), "Favor, preencher os campos corretamente!", Toast.LENGTH_SHORT).show();
 
-                    } else if (ctCPFProf.getText().length() < 14 && ctCPFProf.getText().length() > 1 && !validaCpf(ctCPFProf.getText().toString())) {
-                        ctCPFProf.isSelected();
-                        Toast.makeText(getBaseContext(), "Os dados inseridos são inválidos!", Toast.LENGTH_SHORT).show();
                     } else {
                         professor = setDadosEditar();
-                        autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
-                        autenticacao.signInWithEmailAndPassword(professor.getEmail(), professor.getSenha()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    editarProfessor(professor);
-                                    chamaListaPro();
-                                    finish();
-                                }else{
-                                    cadastrar();
-                                    autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
-                                    autenticacao.signInWithEmailAndPassword(professor.getEmail(), professor.getSenha()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<AuthResult> task) {
-                                            if (task.isSuccessful()) {
-                                                editarProfessor(professor);
-                                                chamaListaPro();
-                                                finish();
-                                            }
-                                        }
-                                    });
+                        if (professor.getEmail().equals(intent.getStringExtra("email"))) {
+                            editarProfessor(professor);
+                            chamaListaPro();
+                            finish();
+                        } else {
+                            cadastrar();
+                            autenticacao = ConfiguracaoFirebase.getFirebaseAutenticacao();
+                            autenticacao.signInWithEmailAndPassword(professor.getEmail(), professor.getSenha()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        editarProfessor(professor);
+                                        chamaListaPro();
+                                        finish();
+                                    }
                                 }
-                            }
-                        });
+                            });
+                        }
                     }
                 }
             });
@@ -288,7 +275,7 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
         professor.setEmail(ctEmailProf.getText().toString());
         professor.setIdProfessor(intent.getStringExtra("key"));
         professor.setSenha(intent.getStringExtra("senha"));
-        professor.setCpf(ctCPFProf.getText().toString());
+        professor.setCpf(intent.getStringExtra("cpf"));
         professor.setTelefone(ctTelProf.getText().toString());
         professor.setKeyTurma(intent.getStringExtra("keyTurma"));
         professor.setIdEscola(idEscola);

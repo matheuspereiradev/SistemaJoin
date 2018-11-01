@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
 import com.app.join.sistemajoin.Adapter.AvaliacaoAdapter;
 import com.app.join.sistemajoin.Model.Avaliacao;
 import com.app.join.sistemajoin.R;
@@ -14,14 +15,18 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.series.BarGraphSeries;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
+
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 
 public class ViewVerGrafico extends AppCompatActivity {
-    private ListView listview,listadeavalicoes;
+    private ListView listview;
     private ArrayAdapter<Avaliacao> adapter;
     private ArrayList<Avaliacao> lista;
     private Avaliacao avaliacao, variavel;
@@ -29,8 +34,8 @@ public class ViewVerGrafico extends AppCompatActivity {
     private ValueEventListener valueEventListener;
     private Intent intent;
     private GraphView graph;
-    LineGraphSeries<DataPoint> series;
-    int x = 0, y = 0;
+    private LineGraphSeries<DataPoint> series;
+    private int x = 0, y = 0;
 
 
     @Override
@@ -42,10 +47,11 @@ public class ViewVerGrafico extends AppCompatActivity {
 
         intent = getIntent();
         lista = new ArrayList();
-        listview = new ListView(this);
+        listview = findViewById(R.id.listadeavalicoes);
         adapter = new AvaliacaoAdapter(this, lista);
         listview.setAdapter(adapter);
         firebase = ConfiguracaoFirebase.getFirebase().child("avaliacao");
+        firebase.child("dataAv").orderByChild("dataAv").limitToLast(6);
         valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -53,9 +59,17 @@ public class ViewVerGrafico extends AppCompatActivity {
                 for (DataSnapshot dados : dataSnapshot.getChildren()) {
                     avaliacao = dados.getValue(Avaliacao.class);
                     if (avaliacao.getIdAluno().equals(intent.getStringExtra("idAluno"))) {
-                    lista.add(avaliacao);
+                        lista.add(avaliacao);
+
                     }
                 }
+
+                series = new LineGraphSeries<>(
+                        generateData()
+                );
+
+
+                graph.addSeries(series);
                 adapter.notifyDataSetChanged();
 
             }
@@ -66,26 +80,16 @@ public class ViewVerGrafico extends AppCompatActivity {
             }
         };
 
-        series = new LineGraphSeries<>(
-                generateData()
-        );
-
-        graph.addSeries(series);
 
     }
 
     private DataPoint[] generateData() {
-        //int tamanho = lista.size();
-        SimpleDateFormat formato = new SimpleDateFormat("MM/yyyy");
-         int tamanho = 8;
+        int tamanho = lista.size();
         DataPoint[] values = new DataPoint[tamanho];
         for (int i = 0; i < tamanho; i++) {
-            // variavel = lista.get(i);
-            // String data = variavel.getDataAv();
-            // Date x = formato.parse(data);
+            variavel = lista.get(i);
             float x = i + 1;
-            float y = i + 2;
-            //float y = variavel.getAv();
+            float y = Float.parseFloat(variavel.getAv());
             DataPoint v = new DataPoint(x, y);
             values[i] = v;
         }

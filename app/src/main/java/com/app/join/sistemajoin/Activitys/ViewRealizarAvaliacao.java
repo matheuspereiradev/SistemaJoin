@@ -71,7 +71,7 @@ public class ViewRealizarAvaliacao extends AppCompatActivity {
                         av = avaliacao.getAv();
                         tvNotaAtual.setText(av);
                         lista.add(avaliacao);
-                    }else{
+                    } else {
                         av = "0";
                     }
                 }
@@ -85,31 +85,30 @@ public class ViewRealizarAvaliacao extends AppCompatActivity {
         };
 
         tvNomeAluno.setText(intent.getStringExtra("nome"));
-        tvtotaladd.setText("0");
 
         btmais.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                float var = Float.parseFloat(tvtotaladd.getText().toString());
+                float var = Float.parseFloat(tvNotaAtual.getText().toString());
                 var++;
                 if (var == 10) {
-
+                    btmais.setClickable(false);
                 }
-                btmenos.isEnabled();
-                tvtotaladd.setText(String.valueOf(var));
+                btmenos.setClickable(true);
+                tvNotaAtual.setText(String.valueOf(var));
             }
         });
 
         btmenos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                float var = Float.parseFloat(tvtotaladd.getText().toString());
+                float var = Float.parseFloat(tvNotaAtual.getText().toString());
                 var--;
-                if (var == -10) {
-
+                if (var == 0) {
+                    btmenos.setClickable(false);
                 }
-                btmais.isEnabled();
-                tvtotaladd.setText(String.valueOf(var));
+                btmais.setClickable(true);
+                tvNotaAtual.setText(String.valueOf(var));
             }
         });
 

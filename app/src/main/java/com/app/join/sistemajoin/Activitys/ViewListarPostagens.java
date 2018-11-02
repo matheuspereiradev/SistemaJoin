@@ -67,7 +67,7 @@ public class ViewListarPostagens extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 variavel = adapter.getItem(i);
                 if (intent.getStringExtra("remetente").equals("professor")) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getBaseContext());
+                    AlertDialog.Builder builder = new AlertDialog.Builder(ViewListarPostagens.this);
                     builder.setMessage("O que deseja fazer?");
                     builder.setPositiveButton("Editar", new DialogInterface.OnClickListener() {
                         @Override
@@ -79,6 +79,7 @@ public class ViewListarPostagens extends AppCompatActivity {
                             edtPost.putExtra("idProfessor", variavel.getIdProfessor());
                             edtPost.putExtra("titulo", variavel.getTitulo());
                             edtPost.putExtra("idAgenda", variavel.getIdAgenda());
+                            edtPost.putExtra("idAluno", intent.getStringExtra("idAluno"));
                             edtPost.putExtra("remetente", "editar");
                             startActivity(edtPost);
                         }
@@ -86,16 +87,17 @@ public class ViewListarPostagens extends AppCompatActivity {
                     builder.setNegativeButton("Excluir", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-                            AlertDialog.Builder builder = new AlertDialog.Builder(getBaseContext());
+                            AlertDialog.Builder builder = new AlertDialog.Builder(ViewListarPostagens.this);
                             builder.setMessage("Deseja realmente excluir a postagem?");
                             builder.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
 
                                     firebase = ConfiguracaoFirebase.getFirebase().child("agenda");
-                                    firebase.child(variavel.getMensagem()).removeValue();
+                                    firebase.child(variavel.getIdAgenda()).removeValue();
                                     Intent in = new Intent(getBaseContext(), ViewListarPostagens.class);
-                                    in.putExtra("idAluno", in.getStringExtra("idAluno"));
+                                    in.putExtra("idAluno", intent.getStringExtra("idAluno"));
+                                    in.putExtra("remetente", "professor");
                                     startActivity(in);
                                     finish();
 

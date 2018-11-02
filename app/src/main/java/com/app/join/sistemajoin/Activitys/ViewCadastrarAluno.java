@@ -75,7 +75,7 @@ public class ViewCadastrarAluno extends AppCompatActivity {
                         } else if (ctNomeResponsavel.getText().length()<1) {
                             ctNomeResponsavel.isSelected();
                             Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                        } else if (ctCPFResp.getText().length()<1 || ctCPFResp.getText().length() < 14) {
+                        } else if (ctCPFResp.getText().length()<1) {
                             ctCPFResp.isSelected();
                             Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
                         }

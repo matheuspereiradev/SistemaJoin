@@ -130,7 +130,7 @@ public class ViewCadastrarEscola extends AppCompatActivity {
                         Toast.makeText(getBaseContext(), "Favor, preencher os campos corretamente!", Toast.LENGTH_SHORT).show();
                     } else if (!validaCnpj(ctCNPJEsc.getText().toString())) {
                         ctCNPJEsc.isSelected();
-                        Toast.makeText(getBaseContext(), "Favor, preencher os campos corretamente!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getBaseContext(), "Os dados inseridos são inválidos!", Toast.LENGTH_SHORT).show();
                     } else {
                         escola = new Escola();
                         escola.setNome(ctNomeEsc.getText().toString());
@@ -180,14 +180,14 @@ public class ViewCadastrarEscola extends AppCompatActivity {
                                     try {
                                         throw task.getException();
                                     } catch (FirebaseAuthInvalidCredentialsException e) {
-                                        erroExcecao = "E-mail invalido!";
+                                        erroExcecao = "E-mail inválido!";
                                     } catch (FirebaseAuthUserCollisionException e) {
-                                        erroExcecao = "E-mail ja esta cadastrado em outro usuario!";
+                                        erroExcecao = "E-mail já cadastrado!";
                                     } catch (Exception e) {
                                         erroExcecao = "Erro no cadastro!";
                                         e.printStackTrace();
                                     }
-                                    Toast.makeText(getBaseContext(), "ERRO! " + erroExcecao, Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getBaseContext(), erroExcecao, Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });

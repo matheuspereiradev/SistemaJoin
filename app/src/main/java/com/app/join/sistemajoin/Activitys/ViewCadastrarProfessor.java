@@ -170,12 +170,12 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
                                     } catch (FirebaseAuthInvalidCredentialsException e) {
                                         erroExcecao = "E-mail invalido!";
                                     } catch (FirebaseAuthUserCollisionException e) {
-                                        erroExcecao = "E-mail ja esta cadastrado em outro usuario!";
+                                        erroExcecao = "E-mail já cadastrado!";
                                     } catch (Exception e) {
                                         erroExcecao = "Erro no cadastro!";
                                         e.printStackTrace();
                                     }
-                                    Toast.makeText(getBaseContext(), "ERRO! " + erroExcecao, Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getBaseContext(), erroExcecao, Toast.LENGTH_SHORT).show();
                                 }
 
                             }

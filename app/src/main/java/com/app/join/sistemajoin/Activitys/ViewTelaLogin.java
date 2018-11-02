@@ -164,7 +164,7 @@ public class ViewTelaLogin extends AppCompatActivity {
                         in.putExtra("cpfRes", aluno.getCpfResponsavel());
                         startActivity(in);
                     } else {
-                        Toast.makeText(ViewTelaLogin.this, "E-mail e/ou Senha inválidos!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ViewTelaLogin.this, "E-mail e/ou senha inválidos!", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

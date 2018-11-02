@@ -125,7 +125,7 @@ public class ViewCadastrarEscola extends AppCompatActivity {
                     } else if (ctCNPJEsc.getText().length() < 1) {
                         ctCNPJEsc.isSelected();
                         Toast.makeText(getBaseContext(), "Favor, preencher todos os campos!", Toast.LENGTH_SHORT).show();
-                    } else if (ctTelEsc.getText().length() < 15 && ctTelEsc.getText().length() > 1) {
+                    } else if (ctTelEsc.getText().length() < 15 && ctTelEsc.getText().length() > 1||ctCNPJEsc.getText().length()<18&&ctCNPJEsc.getText().length()>1) {
                         ctTelEsc.isSelected();
                         Toast.makeText(getBaseContext(), "Favor, preencher os campos corretamente!", Toast.LENGTH_SHORT).show();
                     } else if (!validaCnpj(ctCNPJEsc.getText().toString())) {

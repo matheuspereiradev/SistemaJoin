@@ -39,14 +39,12 @@ public class ViewListarPostagens extends AppCompatActivity {
 
         intent = getIntent();
 
-        Toast.makeText(ViewListarPostagens.this, "click na mensagens para editar ou excluir!", Toast.LENGTH_LONG).show();
-
         lista = new ArrayList();
         listview = findViewById(R.id.tbPostagens);
         adapter = new PostagemAdapter(this, lista);
         listview.setAdapter(adapter);
         firebase = ConfiguracaoFirebase.getFirebase().child("agenda");
-        firebase.orderByChild("data").limitToFirst(10);
+        firebase.orderByChild("data").limitToLast(10);
         valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -65,12 +63,13 @@ public class ViewListarPostagens extends AppCompatActivity {
 
             }
         };
+        if (intent.getStringExtra("remetente").equals("professor")) {
+            Toast.makeText(ViewListarPostagens.this, "click na mensagens para editar ou excluir!", Toast.LENGTH_LONG).show();
 
-        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                variavel = adapter.getItem(i);
-                if (intent.getStringExtra("remetente").equals("professor")) {
+            listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    variavel = adapter.getItem(i);
                     AlertDialog.Builder builder = new AlertDialog.Builder(ViewListarPostagens.this);
                     builder.setMessage("O que deseja fazer?");
                     builder.setPositiveButton("Editar", new DialogInterface.OnClickListener() {
@@ -120,10 +119,10 @@ public class ViewListarPostagens extends AppCompatActivity {
                     alertDialog = builder.create();
                     alertDialog.show();
                 }
-            }
 
-        });
 
+            });
+        }
     }
 
 

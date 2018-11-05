@@ -52,16 +52,16 @@ public class ViewHomeProfessor extends AppCompatActivity {
         adapter = new ProfessorAdapter(this, lista);
         listview.setAdapter(adapter);
         firebase = ConfiguracaoFirebase.getFirebase().child("professor");
-        firebase.orderByChild("idProfessor").equalTo(intent.getStringExtra("id")).limitToFirst(1);
         valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 lista.clear();
                 for (DataSnapshot dados : dataSnapshot.getChildren()) {
                     professor = dados.getValue(Professor.class);
-                    //if(pegaDados.getStringExtra("id").equals(professor.getIdEscola())) {
-                    lista.add(professor);
-                    //}
+                    if (intent.getStringExtra("idProfessor").equals(professor.getIdProfessor())) {
+                        variavel = professor;
+                        lista.add(professor);
+                    }
                 }
                 adapter.notifyDataSetChanged();
             }
@@ -78,7 +78,7 @@ public class ViewHomeProfessor extends AppCompatActivity {
                 Intent post = new Intent(ViewHomeProfessor.this, ViewSelecionarAlunos.class);
                 post.putExtra("codigo", "2");
                 post.putExtra("idProfessor", intent.getStringExtra("idProfessor"));
-                post.putExtra("keyTurma", professor.getKeyTurma());
+                post.putExtra("keyTurma", variavel.getKeyTurma());
                 startActivity(post);
             }
         });
@@ -88,7 +88,7 @@ public class ViewHomeProfessor extends AppCompatActivity {
                 Intent verPost = new Intent(ViewHomeProfessor.this, ViewSelecionarAlunos.class);
                 verPost.putExtra("idProfessor", intent.getStringExtra("idProfessor"));
                 verPost.putExtra("codigo", "4");
-                verPost.putExtra("keyTurma", professor.getKeyTurma());
+                verPost.putExtra("keyTurma", variavel.getKeyTurma());
 
                 startActivity(verPost);
             }
@@ -99,7 +99,7 @@ public class ViewHomeProfessor extends AppCompatActivity {
                 Intent av = new Intent(ViewHomeProfessor.this, ViewSelecionarAlunos.class);
                 av.putExtra("codigo", "1");
                 av.putExtra("idProfessor", intent.getStringExtra("idProfessor"));
-                av.putExtra("keyTurma", professor.getKeyTurma());
+                av.putExtra("keyTurma", variavel.getKeyTurma());
                 startActivity(av);
             }
         });
@@ -109,7 +109,7 @@ public class ViewHomeProfessor extends AppCompatActivity {
                 Intent listav = new Intent(ViewHomeProfessor.this, ViewSelecionarAlunos.class);
                 listav.putExtra("codigo", "3");
                 listav.putExtra("idProfessor", intent.getStringExtra("idProfessor"));
-                listav.putExtra("keyTurma", professor.getKeyTurma());
+                listav.putExtra("keyTurma", variavel.getKeyTurma());
 
                 startActivity(listav);
             }

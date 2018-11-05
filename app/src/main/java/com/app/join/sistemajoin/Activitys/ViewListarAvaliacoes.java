@@ -44,6 +44,7 @@ public class ViewListarAvaliacoes extends AppCompatActivity {
         adapter = new AvaliacaoAdapter(this, lista);
         listview.setAdapter(adapter);
         firebase = ConfiguracaoFirebase.getFirebase().child("avaliacao");
+        firebase.orderByValue().limitToLast(12);
         valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

@@ -1,6 +1,7 @@
 package com.app.join.sistemajoin.Activitys;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -15,14 +16,13 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.ValueDependentColor;
+import com.jjoe64.graphview.helper.StaticLabelsFormatter;
 import com.jjoe64.graphview.series.BarGraphSeries;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 
 public class ViewVerGrafico extends AppCompatActivity {
@@ -35,6 +35,7 @@ public class ViewVerGrafico extends AppCompatActivity {
     private Intent intent;
     private GraphView graph;
     private LineGraphSeries<DataPoint> series;
+    private StaticLabelsFormatter staticLabelsFormatter;
     private int x = 0, y = 0;
 
 
@@ -44,6 +45,7 @@ public class ViewVerGrafico extends AppCompatActivity {
         setContentView(R.layout.activity_view_ver_grafico);
 
         graph = (GraphView) findViewById(R.id.graph);
+        staticLabelsFormatter = new StaticLabelsFormatter(graph);
 
         intent = getIntent();
         lista = new ArrayList();
@@ -51,7 +53,7 @@ public class ViewVerGrafico extends AppCompatActivity {
         adapter = new AvaliacaoAdapter(this, lista);
         listview.setAdapter(adapter);
         firebase = ConfiguracaoFirebase.getFirebase().child("avaliacao");
-        firebase.child("dataAv").orderByChild("dataAv").limitToLast(6);
+        firebase.orderByValue().limitToFirst(12);
         valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -63,12 +65,14 @@ public class ViewVerGrafico extends AppCompatActivity {
 
                     }
                 }
-
+                staticLabelsFormatter.setHorizontalLabels(generateLabel());
+                graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
                 series = new LineGraphSeries<>(
                         generateData()
                 );
 
-
+                series.setDataPointsRadius(5);
+                series.setColor(Color.BLUE);
                 graph.addSeries(series);
                 adapter.notifyDataSetChanged();
 
@@ -92,6 +96,15 @@ public class ViewVerGrafico extends AppCompatActivity {
             float y = Float.parseFloat(variavel.getAv());
             DataPoint v = new DataPoint(x, y);
             values[i] = v;
+        }
+        return values;
+    }
+    private String[] generateLabel() {
+        int tamanho = lista.size();
+        String [] values  = new String[tamanho];
+        for (int i = 0; i < tamanho; i++) {
+            variavel = lista.get(i);
+            values[i] = variavel.getDataAv();
         }
         return values;
     }

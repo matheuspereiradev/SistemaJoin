@@ -79,6 +79,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
+                    android:digits="abcdefghijklmnopqrstuvxwyz ABCDEFGHIJKLMNOPQRSTUVWXYZáéíóúÁÉÍÓÚâêîôûÂÊÎÔÛãõÃÕ"
                     android:ems="10"
                     android:hint="Nome do aluno"
                     android:inputType="textPersonName" />
@@ -93,6 +94,7 @@
                     android:id="@+id/ctNomeResponsavel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:digits="abcdefghijklmnopqrstuvxwyz ABCDEFGHIJKLMNOPQRSTUVWXYZáéíóúÁÉÍÓÚâêîôûÂÊÎÔÛãõÃÕ"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:ems="10"

@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activitys.ViewTelaLogin"
-    tools:layout_editor_absoluteY="73dp">
+    tools:context=".Activitys.ViewTelaLogin">
 
     <Switch
         android:id="@+id/swManterConectado"
@@ -45,7 +44,7 @@
             android:id="@+id/ctLoginUsr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="E-MAIL"
+            android:hint="LOGIN"
             android:inputType="textPersonName"
             android:textColorLink="@color/colorPrimary" />
     </android.support.design.widget.TextInputLayout>

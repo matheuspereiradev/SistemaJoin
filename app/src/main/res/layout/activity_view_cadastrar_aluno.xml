@@ -87,7 +87,8 @@
                     android:layout_marginBottom="10dp"
                     android:ems="10"
                     android:hint="Nome do aluno"
-                    android:inputType="textPersonName" />
+                    android:inputType="textPersonName"
+                    android:digits="abcdefghijklmnopqrstuvxwyz ABCDEFGHIJKLMNOPQRSTUVWXYZáéíóúÁÉÍÓÚâêîôûÂÊÎÔÛãõÃÕ" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -102,6 +103,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
+                    android:digits="abcdefghijklmnopqrstuvxwyz ABCDEFGHIJKLMNOPQRSTUVWXYZáéíóúÁÉÍÓÚâêîôûÂÊÎÔÛãõÃÕ"
                     android:ems="10"
                     android:hint="Nome do responsável"
                     android:inputType="textPersonName" />

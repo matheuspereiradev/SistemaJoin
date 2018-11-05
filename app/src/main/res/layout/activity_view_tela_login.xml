@@ -45,7 +45,7 @@
             android:id="@+id/ctLoginUsr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="E-MAIL"
+            android:hint="LOGIN"
             android:inputType="textPersonName"
             android:textColorLink="@color/colorPrimary" />
     </android.support.design.widget.TextInputLayout>

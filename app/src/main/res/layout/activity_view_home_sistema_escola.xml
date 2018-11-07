@@ -11,10 +11,10 @@
         android:id="@+id/LTurma"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="2dp"
-        android:layout_marginLeft="2dp"
         android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
         android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
         android:background="@drawable/lista_turma"
         android:text="Listar Turma"
         android:textSize="25sp"
@@ -24,50 +24,64 @@
         app:layout_constraintTop_toTopOf="@+id/guideline4" />
 
     <Button
+        android:id="@+id/btSairEsc"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@mipmap/botaosair"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline98"
+        app:layout_constraintTop_toTopOf="@+id/guideline109" />
+
+    <Button
         android:id="@+id/NProf"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="2dp"
         android:background="@drawable/cad_prof"
         android:text="Novo Professor"
         android:textSize="25sp"
-        android:layout_marginBottom="2dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginRight="2dp"
-        android:layout_marginTop="2dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline109"
         app:layout_constraintEnd_toStartOf="@+id/guideline106"
         app:layout_constraintStart_toStartOf="@+id/guideline104"
-        app:layout_constraintTop_toTopOf="@+id/guideline108"
-        />
+        app:layout_constraintTop_toTopOf="@+id/guideline108" />
 
     <Button
         android:id="@+id/LProf"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
         android:background="@drawable/listar_prof"
         android:text="Listar Professor"
         android:textSize="25sp"
-        android:layout_marginBottom="2dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline109"
         app:layout_constraintEnd_toStartOf="@+id/guideline107"
         app:layout_constraintStart_toStartOf="@+id/guideline106"
-        app:layout_constraintTop_toTopOf="@+id/guideline108"
-        />
+        app:layout_constraintTop_toTopOf="@+id/guideline108" />
 
     <Button
         android:id="@+id/NAluno"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="2dp"
         android:background="@drawable/cad_aluno"
         android:text="Novo Aluno"
         android:textSize="25sp"
-        android:layout_marginBottom="2dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginRight="2dp"
-        android:layout_marginTop="2dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline108"
         app:layout_constraintEnd_toStartOf="@+id/guideline106"
         app:layout_constraintStart_toStartOf="@+id/guideline104"
@@ -77,10 +91,10 @@
         android:id="@+id/LAluno"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="2dp"
-        android:layout_marginLeft="2dp"
         android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
         android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
         android:background="@drawable/lista_aluno"
         android:text="Listar Aluno"
         android:textSize="25sp"
@@ -93,10 +107,10 @@
         android:id="@+id/NTurma"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
         android:layout_marginEnd="2dp"
         android:layout_marginRight="2dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
         android:background="@drawable/cad_turma"
         android:text="Nova Turma"
         android:textSize="25sp"
@@ -109,12 +123,12 @@
         android:id="@+id/imageView6"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
         android:src="@drawable/logomarca_join"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toEndOf="parent"
@@ -130,13 +144,6 @@
         app:layout_constraintGuide_percent="0.22" />
 
     <android.support.constraint.Guideline
-        android:id="@+id/guideline98"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.9" />
-
-    <android.support.constraint.Guideline
         android:id="@+id/guideline103"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -148,7 +155,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.019444445" />
+        app:layout_constraintGuide_percent="0.02189781" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline106"
@@ -177,5 +184,12 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.885" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline98"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.8" />
 
 </android.support.constraint.ConstraintLayout>

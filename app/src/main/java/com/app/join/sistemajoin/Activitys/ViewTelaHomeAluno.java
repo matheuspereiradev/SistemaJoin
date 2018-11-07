@@ -22,7 +22,7 @@ public class ViewTelaHomeAluno extends AppCompatActivity {
 
         btVisualizarPost=(Button)findViewById(R.id.btVisualizarPost);
         btVisualizarAvaliacao=(Button)findViewById(R.id.btVisualizarAvaliacao);
-
+        btSairPai=(Button)findViewById(R.id.btSairPai);
         intent = getIntent();
 
         btVisualizarPost.setOnClickListener(new View.OnClickListener() {

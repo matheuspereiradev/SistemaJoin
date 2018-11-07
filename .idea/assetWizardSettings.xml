@@ -112,8 +112,8 @@
                                       <entry key="assetType" value="IMAGE" />
                                       <entry key="cropped" value="true" />
                                       <entry key="iconShape" value="NONE" />
-                                      <entry key="imageAsset" value="C:\Users\Matheus Lima\Desktop\logos\logo.png" />
-                                      <entry key="outputName" value="logomarca_join" />
+                                      <entry key="imageAsset" value="C:\Users\Matheus Lima\Desktop\botaosair.png" />
+                                      <entry key="outputName" value="botaosair" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -149,7 +149,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/content/ic_add_circle_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/action/ic_exit_to_app_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -159,9 +159,9 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="color" value="10cb00" />
+                            <entry key="color" value="ffffff" />
                             <entry key="height" value="50" />
-                            <entry key="outputName" value="adicionar_estrela" />
+                            <entry key="outputName" value="sair" />
                             <entry key="overrideSize" value="true" />
                             <entry key="sourceFile" value="C:\Users\Matheus Lima" />
                             <entry key="width" value="50" />

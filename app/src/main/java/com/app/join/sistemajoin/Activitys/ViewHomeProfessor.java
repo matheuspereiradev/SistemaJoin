@@ -24,7 +24,7 @@ import java.util.ArrayList;
 
 public class ViewHomeProfessor extends AppCompatActivity {
 
-    private Button btVerPost, btRealizaPost, btVerAvaliacao, btRealizarAvaliacao, btSairProf;
+    private Button btVerPost, btRealizaPost, btVerAvaliacao, btRealizarAvaliacao;
     private Intent intent;
     private ListView listview;
     private TextView tvNomeProf;
@@ -32,6 +32,7 @@ public class ViewHomeProfessor extends AppCompatActivity {
     private ArrayList<Professor> lista;
     private Professor professor, variavel;
     private DatabaseReference firebase;
+    private Button btSairProf;
     private ValueEventListener valueEventListener;
 
     @Override
@@ -44,7 +45,7 @@ public class ViewHomeProfessor extends AppCompatActivity {
         btRealizaPost = (Button) findViewById(R.id.btRealizaPost);
         btVerAvaliacao = (Button) findViewById(R.id.btVerAvaliacao);
         btRealizarAvaliacao = (Button) findViewById(R.id.btRealizarAvaliacao);
-
+        btSairProf=(Button) findViewById(R.id.btSairProf);
 
         intent = getIntent();
         lista = new ArrayList();

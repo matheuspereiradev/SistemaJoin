@@ -10,16 +10,16 @@ import com.app.join.sistemajoin.R;
 
 public class ViewHomeSistemaAdministrativo extends AppCompatActivity {
 
-    Button cadEscola, listaEscola, btSair;
+    Button cadEscola, listaEscola, btSairAdm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_home_sistema_administrativo);
 
-        cadEscola = findViewById(R.id.btCadEscola);
-        listaEscola = findViewById(R.id.btListaEscola);
-
+        cadEscola = (Button)findViewById(R.id.btCadEscola);
+        listaEscola = (Button) findViewById(R.id.btListaEscola);
+        btSairAdm=(Button) findViewById(R.id.btSairAdm);
 
         cadEscola.setOnClickListener(new View.OnClickListener() {
             @Override

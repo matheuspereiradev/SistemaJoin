@@ -72,7 +72,7 @@ public class ViewRealizarPostagem extends AppCompatActivity {
 
     private void chamaListaPost() {
         Intent listPost = new Intent(ViewRealizarPostagem.this, ViewHomeProfessor.class);
-        listPost.putExtra("idProfessor", intent.getStringExtra("idprofessor"));
+        listPost.putExtra("idProfessor", intent.getStringExtra("idProfessor"));
         listPost.putExtra("idAluno", intent.getStringExtra("idAluno"));
         listPost.putExtra("remetente", intent.getStringExtra("professor"));
         startActivity(listPost);

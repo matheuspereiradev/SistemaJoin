@@ -74,7 +74,7 @@ public class ViewSelecionarAlunos extends AppCompatActivity {
                     Intent in = new Intent(ViewSelecionarAlunos.this, ViewRealizarPostagem.class);
                     in.putExtra("idAluno", variavel.getIdAluno());
                     in.putExtra("nome", variavel.getNome());
-                    in.putExtra("idProfessor", cdg.getStringExtra("idprofessor"));
+                    in.putExtra("idProfessor", cdg.getStringExtra("idProfessor"));
                     in.putExtra("keyTurma", cdg.getStringExtra("keyTurma"));
                     in.putExtra("remetente", "post");
                     startActivity(in);

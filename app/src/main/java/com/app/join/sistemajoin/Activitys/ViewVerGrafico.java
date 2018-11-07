@@ -65,7 +65,12 @@ public class ViewVerGrafico extends AppCompatActivity {
 
                     }
                 }
-                staticLabelsFormatter.setHorizontalLabels(generateLabel());
+                if(lista.size()<2){
+                    staticLabelsFormatter.setHorizontalLabels(new String[]{"Não e possivel gerar o grafico"," com Apenas uma avaliação"});
+
+                }else {
+                    staticLabelsFormatter.setHorizontalLabels(generateLabel());
+                }
                 graph.getGridLabelRenderer().setLabelFormatter(staticLabelsFormatter);
                 series = new LineGraphSeries<>(
                         generateData()

@@ -264,7 +264,7 @@ public class ViewCadastrarProfessor extends AppCompatActivity {
         professor.setCpf(ctCPFProf.getText().toString());
         professor.setSenha(geraSenha(professor.getCpf()));
         professor.setTelefone(ctTelProf.getText().toString());
-        professor.setKeyTurma("0001");
+        professor.setKeyTurma("sem turma");
         professor.setIdEscola(idEscola);
         return professor;
     }

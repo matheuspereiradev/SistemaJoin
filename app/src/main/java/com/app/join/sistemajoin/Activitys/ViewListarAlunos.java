@@ -78,7 +78,7 @@ public class ViewListarAlunos extends AppCompatActivity {
                 in.putExtra("turma", variavel.getKeyTurma());
                 in.putExtra("idEscola", variavel.getIdEscola());
                 startActivity(in);
-                finish();
+                onStop();
             }
         });
 

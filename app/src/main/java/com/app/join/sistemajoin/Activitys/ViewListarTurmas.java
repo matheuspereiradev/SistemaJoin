@@ -56,6 +56,15 @@ public class ViewListarTurmas extends AppCompatActivity {
                         lista.add(turma);
                     }
                 }
+                if(lista.size()==0){
+                    if(intent.getStringExtra("remetente").equals("professor")){
+                        Intent listPro = new Intent(ViewListarTurmas.this, ViewListaProfessores.class);
+                        startActivity(listPro);
+                    }else{
+                        Intent listAlu = new Intent(ViewListarTurmas.this, ViewListarAlunos.class);
+                        startActivity(listAlu);
+                    }
+                }
                 adapter.notifyDataSetChanged();
             }
 

@@ -67,11 +67,13 @@ public class ViewSelecionarFilho extends AppCompatActivity {
                     verPost.putExtra("cpfRes", variavel.getCpfResponsavel());
                     verPost.putExtra("remetente", "aluno");
                     startActivity(verPost);
+                    onStop();
                 } else {
                     Intent verPost = new Intent(ViewSelecionarFilho.this, ViewVerGrafico.class);
                     verPost.putExtra("idAluno", variavel.getIdAluno());
                     verPost.putExtra("cpfRes", variavel.getCpfResponsavel());
                     startActivity(verPost);
+                    onStop();
                 }
             }
         });

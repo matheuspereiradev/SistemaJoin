@@ -216,7 +216,7 @@ public class ViewCadastrarAluno extends AppCompatActivity {
         aluno.setNomeResponsavel(ctNomeResponsavel.getText().toString());
         aluno.setSenha(geraSenha(aluno.getCpfResponsavel()));
         aluno.setTelefone(ctTelAluno.getText().toString());
-        aluno.setKeyTurma("0001");
+        aluno.setKeyTurma("sem turma");
         aluno.setIdEscola(idEscola);
         return aluno;
     }

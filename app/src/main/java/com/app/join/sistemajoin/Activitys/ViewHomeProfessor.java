@@ -116,6 +116,14 @@ public class ViewHomeProfessor extends AppCompatActivity {
             }
         });
 
+        btSairProf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent logout = new Intent(ViewHomeProfessor.this, ViewTelaLogin.class);
+                startActivity(logout);
+            }
+        });
+
     }
 
     @Override

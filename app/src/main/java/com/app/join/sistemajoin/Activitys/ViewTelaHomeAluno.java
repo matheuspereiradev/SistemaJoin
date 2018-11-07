@@ -12,7 +12,6 @@ import com.app.join.sistemajoin.R;
 public class ViewTelaHomeAluno extends AppCompatActivity {
 
     private Intent intent;
-    private TextView tvNomePai;
     private Button btSairPai,btVisualizarPost,btVisualizarAvaliacao;
 
     @Override
@@ -42,6 +41,14 @@ public class ViewTelaHomeAluno extends AppCompatActivity {
                 verPost.putExtra("cpfRes", intent.getStringExtra("cpfRes"));
                 verPost.putExtra("post", "graph");
                 startActivity(verPost);
+            }
+        });
+
+        btSairPai.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent logout = new Intent(ViewTelaHomeAluno.this, ViewTelaLogin.class);
+                startActivity(logout);
             }
         });
 

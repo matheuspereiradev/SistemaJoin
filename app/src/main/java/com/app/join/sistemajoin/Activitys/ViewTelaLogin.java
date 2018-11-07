@@ -148,14 +148,17 @@ public class ViewTelaLogin extends AppCompatActivity {
                     if (admJoin.getEmail().equals("projetojoin.thread@gmail.com")) {
                         Intent in = new Intent(ViewTelaLogin.this, ViewHomeSistemaAdministrativo.class);
                         startActivity(in);
+                        finish();
                     } else if (confereEscola()) {
                         Intent in = new Intent(ViewTelaLogin.this, ViewHomeSistemaEscola.class);
                         in.putExtra("id", id);
                         startActivity(in);
+                        finish();
                     } else {
                         Intent in = new Intent(ViewTelaLogin.this, ViewHomeProfessor.class);
                         in.putExtra("idProfessor", id);
                         startActivity(in);
+                        finish();
                     }
                 } else {
                     if (confereAluno()) {
@@ -163,6 +166,7 @@ public class ViewTelaLogin extends AppCompatActivity {
                         Intent in = new Intent(ViewTelaLogin.this, ViewTelaHomeAluno.class);
                         in.putExtra("cpfRes", aluno.getCpfResponsavel());
                         startActivity(in);
+                        finish();
                     } else {
                         Toast.makeText(ViewTelaLogin.this, "E-mail e/ou senha inválidos!", Toast.LENGTH_SHORT).show();
                     }

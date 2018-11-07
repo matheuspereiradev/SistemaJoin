@@ -74,6 +74,14 @@ public class ViewHomeSistemaEscola extends AppCompatActivity {
             }
         });
 
+        btSairEsc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent logout = new Intent(ViewHomeSistemaEscola.this, ViewTelaLogin.class);
+                startActivity(logout);
+            }
+        });
+
 
     }
 

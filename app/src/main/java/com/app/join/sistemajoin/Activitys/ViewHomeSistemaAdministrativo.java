@@ -37,6 +37,13 @@ public class ViewHomeSistemaAdministrativo extends AppCompatActivity {
             }
         });
 
+        btSairAdm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent logout = new Intent(ViewHomeSistemaAdministrativo.this, ViewTelaLogin.class);
+                startActivity(logout);
+            }
+        });
 
     }
 }

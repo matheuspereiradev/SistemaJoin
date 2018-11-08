@@ -62,7 +62,7 @@ public class ViewVerGrafico extends AppCompatActivity {
                     }
                 }
                 if(lista.size()<2){
-                    staticLabelsFormatter.setHorizontalLabels(new String[]{"Não e possivel gerar o grafico"," com Apenas uma avaliação"});
+                    staticLabelsFormatter.setHorizontalLabels(new String[]{"Aguarde mais avaliações para ver o gráfico"," "});
 
                 }else {
                     staticLabelsFormatter.setHorizontalLabels(generateLabel());

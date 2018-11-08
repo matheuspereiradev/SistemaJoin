@@ -6,8 +6,8 @@ android {
         applicationId "com.app.join.sistemajoin"
         minSdkVersion 15
         targetSdkVersion 27
-        versionCode 2
-        versionName "2.0"
+        versionCode 3
+        versionName "3.0 jordania"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

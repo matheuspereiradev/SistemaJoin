@@ -99,6 +99,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
+                                                <entry key="paddingPercent" value="10" />
                                                 <entry key="trimmed" value="true" />
                                               </map>
                                             </option>
@@ -112,7 +113,7 @@
                                       <entry key="assetType" value="IMAGE" />
                                       <entry key="cropped" value="true" />
                                       <entry key="iconShape" value="NONE" />
-                                      <entry key="imageAsset" value="C:\Users\Matheus Lima\Desktop\botaosair.png" />
+                                      <entry key="imageAsset" value="C:\Users\Matheus Lima\Desktop\botao.png" />
                                       <entry key="outputName" value="botaosair" />
                                     </map>
                                   </option>

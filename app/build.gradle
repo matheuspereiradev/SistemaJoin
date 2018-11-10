@@ -6,8 +6,8 @@ android {
         applicationId "com.app.join.sistemajoin"
         minSdkVersion 15
         targetSdkVersion 27
-        versionCode 3
-        versionName "3.0 jordania"
+        versionCode 4
+        versionName "3.1 Nubia"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

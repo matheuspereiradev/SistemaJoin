@@ -2,6 +2,7 @@ package com.app.join.sistemajoin.Activitys;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.preference.Preference;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.app.join.sistemajoin.Adapter.AlunoAdapter;
 import com.app.join.sistemajoin.Adapter.EscolaAdapter;
@@ -35,6 +37,7 @@ import java.util.ArrayList;
 public class ViewTelaLogin extends AppCompatActivity {
 
     private Switch swManterConectado;
+    private TextView politicaPriv;
     private Button btEntrar;
     private EditText ctSenhaUsr, ctLoginUsr;
     private FirebaseAuth autenticacao;
@@ -62,10 +65,19 @@ public class ViewTelaLogin extends AppCompatActivity {
         btEntrar = (Button) findViewById(R.id.btEntrar);
         ctSenhaUsr = (EditText) findViewById(R.id.ctSenhaUsr);
         ctLoginUsr = (EditText) findViewById(R.id.ctLoginUsr);
+        politicaPriv=(TextView)findViewById(R.id.tvPoliticaPriv);
 
         SharedPreferences log = getSharedPreferences("logjoin", MODE_PRIVATE);
         ctLoginUsr.setText(log.getString("login", ""));
         ctSenhaUsr.setText(log.getString("senha", ""));
+
+        politicaPriv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent browserIntent=new Intent(Intent.ACTION_VIEW, Uri.parse("http://sistemajoin.com/politicadeprivacidade.html"));
+                startActivity(browserIntent);
+            }
+        });
 
         listaEscola = new ArrayList();
         listviewEscola = new ListView(this);

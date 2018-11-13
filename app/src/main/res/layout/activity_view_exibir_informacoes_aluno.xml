@@ -181,7 +181,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="15dp"
-                android:text="Telefone:"
+                android:text="Telefone do Responsável:"
                 android:textColor="@android:color/black"
                 android:textSize="17sp" />
 
@@ -195,6 +195,24 @@
                 android:textSize="17sp" />
 
 
+            <TextView
+                android:id="@+id/textView29"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="15dp"
+                android:text="Email do responsável:"
+                android:textColor="@android:color/black"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/tvEmailResponsavel"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="15dp"
+                android:text="TextView"
+                android:textSize="17sp" />
 
 
             <TextView
@@ -209,25 +227,6 @@
 
             <TextView
                 android:id="@+id/tvCPFResponsavel"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="15dp"
-                android:text="TextView"
-                android:textSize="17sp" />
-
-            <TextView
-                android:id="@+id/textView29"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="15dp"
-                android:text="Email do responsável:"
-                android:textColor="@android:color/black"
-                android:textSize="17sp" />
-
-            <TextView
-                android:id="@+id/tvEmailResponsavel"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"

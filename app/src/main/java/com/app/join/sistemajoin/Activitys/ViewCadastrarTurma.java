@@ -74,7 +74,7 @@ public class ViewCadastrarTurma extends AppCompatActivity {
                     if (nome.getText().length() < 1 || idadeMin.getText().toString().equals("") || idadeMax.getText().toString().equals("")) {
                         Toast.makeText(getBaseContext(), "Favor ,preencher todos os campos!", Toast.LENGTH_SHORT).show();
                     } else if (Integer.parseInt(idadeMin.getText().toString()) > Integer.parseInt(idadeMax.getText().toString())) {
-                        Toast.makeText(getBaseContext(), "A primeira idade deve ser menor ou igual a segunda!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getBaseContext(), "A primeira idade deve ser menor ou igual à segunda!", Toast.LENGTH_SHORT).show();
                     } else {
                         Turma turma = new Turma();
                         turma.setNome(nome.getText().toString());

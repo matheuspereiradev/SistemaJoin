@@ -41,7 +41,7 @@ public class ViewRealizarPostagem extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     if (ctTituloPost.length()<1 || ctMsgPost.length()<1) {
-                        Toast.makeText(ViewRealizarPostagem.this, "Favor Preencha todos os campos!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(ViewRealizarPostagem.this, "Favor, preencher todos os campos!", Toast.LENGTH_LONG).show();
                     } else {
                         Agenda post = setDadosEditarAgenda();
                         editarPost(post);
@@ -55,7 +55,7 @@ public class ViewRealizarPostagem extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     if (ctTituloPost.length()<1 || ctMsgPost.length()<1) {
-                        Toast.makeText(ViewRealizarPostagem.this, "Favor Preencha todos os campos!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(ViewRealizarPostagem.this, "Favor, preencher todos os campos!", Toast.LENGTH_LONG).show();
                     } else {
                         Agenda post = setDadosAgenda();
                         salvarPost(post);

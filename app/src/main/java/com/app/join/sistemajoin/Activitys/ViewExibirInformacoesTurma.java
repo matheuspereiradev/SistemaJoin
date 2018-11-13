@@ -151,7 +151,7 @@ public class ViewExibirInformacoesTurma extends AppCompatActivity {
 
     private void preencheCampos() {
         cmpNomeTurma.setText(in.getStringExtra("nome"));
-        cmpFaixaEtaria.setText(in.getStringExtra("faixa1") + " A " + in.getStringExtra("faixa2") + " anos");
+        cmpFaixaEtaria.setText(in.getStringExtra("faixa1") + " até " + in.getStringExtra("faixa2") + " anos");
     }
 
     @Override

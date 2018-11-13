@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.app.join.sistemajoin.Adapter.AlunoAdapter;
 import com.app.join.sistemajoin.Adapter.EscolaAdapter;
 import com.app.join.sistemajoin.Model.Aluno;
@@ -31,6 +32,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 
 
@@ -65,7 +67,7 @@ public class ViewTelaLogin extends AppCompatActivity {
         btEntrar = (Button) findViewById(R.id.btEntrar);
         ctSenhaUsr = (EditText) findViewById(R.id.ctSenhaUsr);
         ctLoginUsr = (EditText) findViewById(R.id.ctLoginUsr);
-        politicaPriv=(TextView)findViewById(R.id.tvPoliticaPriv);
+        politicaPriv = (TextView) findViewById(R.id.tvPoliticaPriv);
 
         SharedPreferences log = getSharedPreferences("logjoin", MODE_PRIVATE);
         ctLoginUsr.setText(log.getString("login", ""));
@@ -74,7 +76,7 @@ public class ViewTelaLogin extends AppCompatActivity {
         politicaPriv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent browserIntent=new Intent(Intent.ACTION_VIEW, Uri.parse("http://sistemajoin.com/politicadeprivacidade.html"));
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://sistemajoin.com/politicadeprivacidade.html"));
                 startActivity(browserIntent);
             }
         });
@@ -122,22 +124,29 @@ public class ViewTelaLogin extends AppCompatActivity {
             }
         };
 
-
+        politicaPriv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent pp = new Intent(Intent.ACTION_VIEW);
+                pp.setData(Uri.parse("http://www.sistemajoin.com/politicadeprivacidade.html"));
+                startActivity(pp);
+            }
+        });
 
         btEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (ctLoginUsr.getText().length()>1 && ctSenhaUsr.getText().length()>1) {
+                if (ctLoginUsr.getText().length() > 1 && ctSenhaUsr.getText().length() > 1) {
                     admJoin = new AdmJoin();
                     admJoin.setEmail(ctLoginUsr.getText().toString());
                     admJoin.setSenha(ctSenhaUsr.getText().toString());
                     SharedPreferences log = getSharedPreferences("logjoin", MODE_PRIVATE);
                     SharedPreferences.Editor logjoin = log.edit();
-                    if(swManterConectado.isChecked()){
+                    if (swManterConectado.isChecked()) {
                         logjoin.putString("login", admJoin.getEmail());
                         logjoin.putString("senha", admJoin.getSenha());
                         logjoin.apply();
-                    }else{
+                    } else {
                         logjoin.putString("login", "");
                         logjoin.putString("senha", "");
                         logjoin.apply();

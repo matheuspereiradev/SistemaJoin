@@ -56,13 +56,17 @@ public class ViewListarTurmas extends AppCompatActivity {
                         lista.add(turma);
                     }
                 }
-                if(lista.size()==0){
-                    if(intent.getStringExtra("remetente").equals("professor")){
+                if (lista.size() == 0) {
+                    if (intent.getStringExtra("remetente").equals("professor")) {
                         Intent listPro = new Intent(ViewListarTurmas.this, ViewListaProfessores.class);
+                        listPro.putExtra("idEscola", intent.getStringExtra("idEscola"));
                         startActivity(listPro);
-                    }else{
+                        onStop();
+                    } else {
                         Intent listAlu = new Intent(ViewListarTurmas.this, ViewListarAlunos.class);
+                        listAlu.putExtra("idEscola", intent.getStringExtra("idEscola"));
                         startActivity(listAlu);
+                        onStop();
                     }
                 }
                 adapter.notifyDataSetChanged();
@@ -85,7 +89,7 @@ public class ViewListarTurmas extends AppCompatActivity {
                     in.putExtra("faixa1", variavel.getIdadeMin());
                     in.putExtra("faixa2", variavel.getIdadeMax());
                     startActivity(in);
-                    finish();
+                    onStop();
                 } else if (intent.getStringExtra("remetente").equals("professor")) {
                     Intent listPro = new Intent(ViewListarTurmas.this, ViewListaProfessores.class);
                     listPro.putExtra("idEscola", intent.getStringExtra("idEscola"));
@@ -100,7 +104,7 @@ public class ViewListarTurmas extends AppCompatActivity {
                     professor.setIdEscola(intent.getStringExtra("idEscola"));
                     editarProfessor(professor);
                     startActivity(listPro);
-                    finish();
+                    onStop();
                 } else {
                     Intent listAlu = new Intent(ViewListarTurmas.this, ViewListarAlunos.class);
                     listAlu.putExtra("idEscola", intent.getStringExtra("idEscola"));
@@ -116,7 +120,7 @@ public class ViewListarTurmas extends AppCompatActivity {
                     aluno.setIdEscola(intent.getStringExtra("idEscola"));
                     editarAluno(aluno);
                     startActivity(listAlu);
-                    finish();
+                    onStop();
                 }
             }
         });

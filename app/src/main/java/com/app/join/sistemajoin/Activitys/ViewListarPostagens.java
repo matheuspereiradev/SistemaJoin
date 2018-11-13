@@ -79,7 +79,7 @@ public class ViewListarPostagens extends AppCompatActivity {
                             edtPost.putExtra("msg", variavel.getMensagem());
                             edtPost.putExtra("data", variavel.getData());
                             edtPost.putExtra("idDestino", variavel.getIdDestino());
-                            edtPost.putExtra("idProfessor", variavel.getIdProfessor());
+                            edtPost.putExtra("idProfessor", intent.getStringExtra("idProfessor"));
                             edtPost.putExtra("titulo", variavel.getTitulo());
                             edtPost.putExtra("idAgenda", variavel.getIdAgenda());
                             edtPost.putExtra("idAluno", intent.getStringExtra("idAluno"));

@@ -90,8 +90,6 @@ public class ViewCadastrarTurma extends AppCompatActivity {
                 }
             });
         }
-
-
     }
 
     private void salvarTurma(Turma t) {

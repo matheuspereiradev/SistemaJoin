@@ -40,7 +40,7 @@ public class ViewRealizarPostagem extends AppCompatActivity {
             btEnviarPost.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (ctTituloPost.equals("") && ctMsgPost.equals("")) {
+                    if (ctTituloPost.length()<1 || ctMsgPost.length()<1) {
                         Toast.makeText(ViewRealizarPostagem.this, "Favor Preencha todos os campos!", Toast.LENGTH_LONG).show();
                     } else {
                         Agenda post = setDadosEditarAgenda();
@@ -54,7 +54,7 @@ public class ViewRealizarPostagem extends AppCompatActivity {
             btEnviarPost.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (ctTituloPost.equals("") && ctMsgPost.equals("")) {
+                    if (ctTituloPost.length()<1 || ctMsgPost.length()<1) {
                         Toast.makeText(ViewRealizarPostagem.this, "Favor Preencha todos os campos!", Toast.LENGTH_LONG).show();
                     } else {
                         Agenda post = setDadosAgenda();
@@ -72,7 +72,6 @@ public class ViewRealizarPostagem extends AppCompatActivity {
         Intent listPost = new Intent(ViewRealizarPostagem.this, ViewHomeProfessor.class);
         listPost.putExtra("idProfessor", intent.getStringExtra("idProfessor"));
         listPost.putExtra("idAluno", intent.getStringExtra("idAluno"));
-        listPost.putExtra("remetente", intent.getStringExtra("professor"));
         startActivity(listPost);
     }
 
@@ -85,7 +84,7 @@ public class ViewRealizarPostagem extends AppCompatActivity {
         agenda.setTitulo(ctTituloPost.getText().toString());
         agenda.setIdDestino(intent.getStringExtra("idAluno"));
         agenda.setMensagem(ctMsgPost.getText().toString());
-        agenda.setIdProfessor(intent.getStringExtra("idprofessor"));
+        agenda.setIdProfessor(intent.getStringExtra("idProfessor"));
         String idUsuario = Base64Custon.codificadorBase64(agenda.getMensagem() + agenda.getData());
         agenda.setIdAgenda(idUsuario);
         return agenda;
@@ -100,7 +99,7 @@ public class ViewRealizarPostagem extends AppCompatActivity {
         agenda.setTitulo(ctTituloPost.getText().toString());
         agenda.setIdDestino(intent.getStringExtra("idAluno"));
         agenda.setMensagem(ctMsgPost.getText().toString());
-        agenda.setIdProfessor(intent.getStringExtra("idprofessor"));
+        agenda.setIdProfessor(intent.getStringExtra("idProfessor"));
         agenda.setIdAgenda(intent.getStringExtra("idAgenda"));
         return agenda;
     }

@@ -12,6 +12,8 @@ import android.widget.TextView;
 import com.app.join.sistemajoin.R;
 import com.app.join.sistemajoin.Tools.Base64Custon;
 import com.app.join.sistemajoin.Tools.ConfiguracaoFirebase;
+import com.github.rtoshiro.util.format.SimpleMaskFormatter;
+import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 import com.google.firebase.database.DatabaseReference;
 
 public class ViewExibirInformacoesAluno extends AppCompatActivity {
@@ -38,6 +40,10 @@ public class ViewExibirInformacoesAluno extends AppCompatActivity {
         btConfigAluno = (ImageButton) findViewById(R.id.btConfigAluno);
         btEditarAluno = (ImageButton) findViewById(R.id.btEditarAluno);
         btExcluirAluno = (ImageButton) findViewById(R.id.btExcluirAluno);
+
+        SimpleMaskFormatter simpleMaskTelCPFP = new SimpleMaskFormatter("NNN.NNN.NNN-NN");
+        MaskTextWatcher mascaraTelCPFP = new MaskTextWatcher(tvCPFResponsavel, simpleMaskTelCPFP);
+        tvCPFResponsavel.addTextChangedListener(mascaraTelCPFP);
 
         in = getIntent();
         key = in.getStringExtra("key");

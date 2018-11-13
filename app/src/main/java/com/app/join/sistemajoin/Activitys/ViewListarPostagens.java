@@ -64,7 +64,7 @@ public class ViewListarPostagens extends AppCompatActivity {
             }
         };
         if (intent.getStringExtra("remetente").equals("professor")) {
-            Toast.makeText(ViewListarPostagens.this, "clique na mensagens para editar ou excluir!", Toast.LENGTH_LONG).show();
+            Toast.makeText(ViewListarPostagens.this, "Clique nas mensagens para editar ou excluir!", Toast.LENGTH_LONG).show();
 
             listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
